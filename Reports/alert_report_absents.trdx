@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="21cm" Name="alert_report_absents" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="PY" SelectCommand="SELECT  PYEMPMFH.EMP_NO &quot;رقم الموظف&quot;, PYEMPMFH .EMP_NAME   &quot;اسم الموظف&quot;&#xD;&#xA;,(SELECT COMP_NAME FROM PYCOMP WHERE COMP_NO  = PYEMPMFH.COMP_NO )  &quot;مكان العمل&quot;&#xD;&#xA;,PYEMPMFH .JOB_DSCR &quot;المسمى الوظيفي&quot; &#xD;&#xA;, case when PYEMPMFH .Stat =9905 then 'غياب' else (select TR_DSCR  from PLTR_TYPES where   TR_Code  =PYEMPMFH .Stat) end &quot;الحالة الحالية&quot; &#xD;&#xA;   FROM PYEMPMFH  INNER  JOIN  PYINOUT_S ON  ( CONVERT( DATE,PYINOUT_S.DT) = CONVERT( DATE,GETDATE())  AND  PYEMPMFH .EMP_NO  = PYINOUT_S.EMP_NO ) " Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="5.6cm" Name="pageHeaderSection1">
+      <Style>
+        <Font Bold="True" />
+      </Style>
+      <Items>
+        <TextBox Width="3.1cm" Height="0.9cm" Left="0.4cm" Top="0.4cm" Value="= Now()" Format="{0:d}" Culture="en" Name="textBox1">
+          <Style BackgroundColor="AliceBlue" TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.1cm" Height="0.9cm" Left="0.4cm" Top="1.5cm" Value="= Now()" Format="{0:t}" Culture="en" Name="textBox2">
+          <Style BackgroundColor="AliceBlue" TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.1cm" Height="0.9cm" Left="0.4cm" Top="2.6cm" Value="= &quot;Page &quot; + PageNumber + &quot; of &quot; + PageCount&#xD;&#xA;" Name="textBox3">
+          <Style BackgroundColor="AliceBlue" TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.3cm" Height="1cm" Left="7.3cm" Top="3cm" Value="الغائبين اليوم بالامانة العامة" Name="textBox5">
+          <Style BackgroundColor="AliceBlue" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="16pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <PictureBox Image="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" Width="2.6cm" Height="1.8cm" Left="9.2cm" Top="0.6cm" MimeType="image/png" Name="pictureBox1">
+          <Style>
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </PictureBox>
+        <TextBox Width="2.582cm" Height="0.609cm" Left="18.063cm" Top="4.991cm" Value="رقم الموظف" Name="textBox10">
+          <Style BackgroundColor="AliceBlue" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Default="Solid" Bottom="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.463cm" Height="0.609cm" Left="10.6cm" Top="4.991cm" Value="اسم الموظف" Name="textBox8">
+          <Style BackgroundColor="AliceBlue" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Default="Solid" Bottom="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.754cm" Height="0.609cm" Left="2.863cm" Top="4.991cm" Value="المسمى الوظيفى" Name="textBox12" StyleName="">
+          <Style BackgroundColor="AliceBlue" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Default="Solid" Bottom="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.518cm" Height="0.609cm" Left="0.345cm" Top="4.991cm" Value="الحالة الحالية" Name="textBox14" StyleName="">
+          <Style BackgroundColor="AliceBlue" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Default="Solid" Bottom="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.982cm" Height="0.609cm" Left="7.617cm" Top="4.991cm" Value="مكان العمل" Name="textBox6">
+          <Style BackgroundColor="AliceBlue" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Default="Solid" Bottom="Solid" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="0.8cm" Name="detailSection1">
+      <Items>
+        <TextBox Width="2.518cm" Height="0.6cm" Left="0.345cm" Top="0cm" Value="= Fields.[الحالة الحالية]" Name="textBox15">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.582cm" Height="0.6cm" Left="18.063cm" Top="0cm" Value="= Fields.[رقم الموظف]" Name="textBox7">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.463cm" Height="0.6cm" Left="10.6cm" Top="0.008cm" Value="= Fields.[اسم الموظف]" Name="textBox4">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.982cm" Height="0.6cm" Left="7.617cm" Top="0cm" Value="= Fields.[مكان العمل]" Name="textBox9">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.754cm" Height="0.6cm" Left="2.863cm" Top="0cm" Value="= Fields.[المسمى الوظيفي]" Name="textBox11">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="0.132cm" Name="pageFooterSection1" />
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+</Report>

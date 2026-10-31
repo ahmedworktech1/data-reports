@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="webServiceDataSource1" Width="9.716in" UnitOfMeasure="Mm" Name="OwnerReport" SnapToGrid="False" SnapToSnapLines="False" ShowDimensions="False" ShowWatermarks="False" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style BackgroundColor="198, 217, 241" />
+  <DataSources>
+    <WebServiceDataSource ParameterValues="{&quot;.AspNetCore.Identity.Application&quot;:,&quot;@Url&quot;:,&quot;FromOwner&quot;:,&quot;ToOwner&quot;:,&quot;Owners&quot;:,&quot;Owner&quot;:,&quot;FromBldCd&quot;:,&quot;ToBldCd&quot;:,&quot;Nationality&quot;:}" AuthParameterValues="null" ServiceUrl="@Url" Name="webServiceDataSource1">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "aq/ReportOwner/GetData"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromOwner">
+          <Value>
+            <String>= Parameters.FromOwner.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToOwner">
+          <Value>
+            <String>= Parameters.ToOwner.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Owners">
+          <Value>
+            <String>= Parameters.Owners.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Owner">
+          <Value>
+            <String>= Parameters.Owner.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromBldCd">
+          <Value>
+            <String>= Parameters.FromBldCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToBldCd">
+          <Value>
+            <String>= Parameters.ToBldCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Nationality">
+          <Value>
+            <String>= Parameters.Nationality.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="1.567in" Name="pageHeaderSection1">
+      <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+        <Font Size="8pt" />
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="1.837in" Height="0.366in" Left="6.652in" Top="1.142in" Value="اسم المالك" Name="textBox8">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="16pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.227in" Height="0.366in" Left="8.489in" Top="1.142in" Value="رقم المالك" Name="textBox3">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="16pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.485in" Height="0.366in" Left="0.017in" Top="1.142in" Value="الجنسيه" Name="textBox4">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="16pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.919in" Height="0.366in" Left="4.722in" Top="1.142in" Value="المنطقه" Name="textBox6">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="16pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.199in" Height="0.366in" Left="2.513in" Top="1.142in" Value="التليفون" Name="textBox5">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="16pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="11.402cm" Height="0.9cm" Left="6.929cm" Top="0.641cm" Value="= Parameters.ReportTitle.Value" Name="textBox10">
+          <Style BackgroundColor="255, 255, 255" Color="23, 54, 93" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="0.437in" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White">
+        <Font Size="14pt" />
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="4.848cm" Height="1.032cm" Left="12.02cm" Top="0cm" Value="= Fields.Region" Multiline="False" Name="textBox1">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial Narrow" Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0pt" Bottom="0pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.065cm" Height="1.032cm" Left="21.587cm" Top="0cm" Value="= Fields.OwnerNo" Multiline="False" Name="textBox27">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial Narrow" Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0pt" Bottom="0pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.693cm" Height="1.084cm" Left="16.868cm" Top="0cm" Value="= Fields.OwnerName" Multiline="False" Name="textBox11">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial Narrow" Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0pt" Bottom="0pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.556cm" Height="1.084cm" Left="6.41cm" Top="0cm" Value="= Fields.Phone" Multiline="False" Name="textBox17">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial Narrow" Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0pt" Bottom="0pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.384cm" Height="1.058cm" Left="0cm" Top="0cm" Value="= Fields.Nationality" Multiline="False" Name="textBox16">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial Narrow" Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0pt" Bottom="0pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ColumnCount="1" ColumnSpacing="0in" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="1in" Right="1in" Top="1in" Bottom="1in" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="Url" AllowNull="True" />
+    <ReportParameter Name="Login" AllowNull="True" />
+    <ReportParameter Name="FromOwner" />
+    <ReportParameter Name="ToOwner" />
+    <ReportParameter Name="Owners" />
+    <ReportParameter Name="Owner" />
+    <ReportParameter Name="FromBldCd" />
+    <ReportParameter Name="ToBldCd" />
+    <ReportParameter Name="Nationality" />
+    <ReportParameter Name="ReportTitle" AllowNull="True" />
+  </ReportParameters>
+</Report>

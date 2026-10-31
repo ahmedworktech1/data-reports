@@ -1,0 +1,37 @@
+SELECT 
+    aztrh.tr_ty,
+    aztrh.loc,
+	aztrh.FNCL_TR_NO,
+    aztrh.tr_no,
+    aztrh.purchas_NO,
+    aztrh.acc_no,
+    s.SSUM_NM_Ar AS Supplier_Name,
+    aztrh.TEC_STAT,
+    aztrh.Rmrk9,
+    CASE aztrh.TEC_STAT 
+        WHEN 1 THEN 'مرفوض'
+        WHEN 0 THEN 'مقبول'
+        ELSE 'غير محدد'
+    END AS State_Desc,
+    O.DSCR_AR AS OFFER_TYPE_DESC,
+    cr.SNO,
+    cr.EC_DESC,
+    cr.EC_SCORE,
+    SUM(cr.EC_SCORE) OVER (PARTITION BY cr.TR_TY, cr.TR_NO) AS TOTAL_EC_SCORE
+,
+    (SELECT COUNT(*) FROM aztrh b WHERE b.tr_ty = 116 AND b.purchas_NO = aztrh.purchas_NO AND b.FNCL_TR_NO = aztrh.FNCL_TR_NO AND b.acc_no = aztrh.acc_no) AS BID_CNT,
+    DENSE_RANK() OVER (PARTITION BY aztrh.acc_no, aztrh.purchas_NO, aztrh.FNCL_TR_NO ORDER BY aztrh.tr_no) AS BID_SEQ
+FROM aztrh 
+LEFT JOIN GLSSUMS s 
+    ON s.SSUM_CD = aztrh.acc_no
+LEFT JOIN AZTRH_OFFRS_TYPES O 
+    ON O.OFFR_TY = aztrh.OFFERS_COMPARE_RESOLVER_TYPE
+LEFT JOIN AZTRH_EVAL_CRIT cr 
+    ON cr.TR_TY = aztrh.TR_TY 
+   AND cr.TR_NO = aztrh.TR_NO 
+   AND cr.LOC = aztrh.LOC
+JOIN (SELECT DISTINCT purchas_NO, FNCL_TR_NO FROM aztrh WHERE (1=1)) cur
+    ON cur.purchas_NO = aztrh.purchas_NO
+   AND cur.FNCL_TR_NO = aztrh.FNCL_TR_NO
+WHERE aztrh.tr_ty = 116
+ORDER BY aztrh.acc_no, aztrh.TR_NO, cr.SNO

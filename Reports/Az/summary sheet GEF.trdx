@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="297mm" Name="Report" Zoom="0.6666667" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="STARData" SelectCommand="SELECT LEFT (GLJRNLD.ACC_NO,4) ,&#xD;&#xA;(SELECT ACC_NM_AR FROM GLMF WHERE ACC_NO=LEFT (GLJRNLD.ACC_NO,4))AS NM,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;SUM(CASE WHEN LN_TY=1 AND ( SUM_CD not like'0102%' and  GLJRNLD.SUM_CD NOT LIKE '0103%' OR SUM_CD ='' OR SUM_CD IS NULL) THEN CUR_VL ELSE 0 END) -&#xD;&#xA;(SUM(CASE WHEN LN_TY=-1 AND ( SUM_CD not like'0102%' and  GLJRNLD.SUM_CD NOT LIKE '0103%' OR SUM_CD ='' OR SUM_CD IS NULL) THEN CUR_VL ELSE 0 END) )&#xD;&#xA; AS CUR,&#xD;&#xA;SUM(CASE WHEN ( SUM_CD not like '0102%'and GLJRNLD.SUM_CD NOT LIKE '0103%' OR SUM_CD ='' OR SUM_CD IS NULL) THEN DB_VL-CR_VL ELSE 0 END ) AS NET,&#xD;&#xA;SUM(CASE WHEN SUM_CD like '0102%'  THEN (CUR_VL)* ln_ty ELSE 0 END ) AS MMMM,&#xD;&#xA;SUM(CASE WHEN SUM_CD like '0102%'  THEN (DB_VL-CR_VL) ELSE 0 END ) AS MMMM1,&#xD;&#xA;(SUM(CASE WHEN LN_TY=1 AND ( SUM_CD not like '0102%' and GLJRNLD.SUM_CD NOT LIKE '0103%' OR SUM_CD ='' OR SUM_CD IS NULL) THEN CUR_VL ELSE 0 END)-&#xD;&#xA;SUM(CASE WHEN LN_TY=-1 AND ( SUM_CD not like '0102%' and GLJRNLD.SUM_CD NOT LIKE '0103%'OR SUM_CD ='' OR SUM_CD IS NULL) THEN round(CUR_VL,2) ELSE 0 END))+&#xD;&#xA;SUM(CASE WHEN SUM_CD like '0102%' THEN round((CUR_VL)* ln_ty,2) ELSE 0 END ) AS NET111,&#xD;&#xA;SUM(CASE WHEN ( SUM_CD not like '0102%' and GLJRNLD.SUM_CD NOT LIKE '0103%' OR SUM_CD ='' OR SUM_CD IS NULL) THEN DB_VL-CR_VL ELSE 0 END )+&#xD;&#xA;SUM(CASE WHEN SUM_CD like '0102%' THEN (DB_VL-CR_VL) ELSE 0 END ) AS NET22222&#xD;&#xA; FROM GLJRNLD&#xD;&#xA;WHERE 1=1 &#xD;&#xA;GROUP BY LEFT (GLJRNLD.ACC_NO,4)" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <DetailSection CanShrink="True" Height="9mm" Name="Detail">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Default="0pt" Top="0pt" Bottom="0pt" Left="0pt" Right="0pt" />
+      </Style>
+      <Items>
+        <TextBox Width="79.22mm" Height="9mm" Left="0mm" Top="0mm" Value="= Fields.NM" Name="DBText1">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+            <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.14mm" Height="9mm" Left="115.36mm" Top="0mm" Value="= Fields.MMMM" Name="textBox3">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+            <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.14mm" Height="9mm" Left="79.22mm" Top="0mm" Value="= Fields.MMMM1" Name="DBText10">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+            <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.14mm" Height="9mm" Left="187.64mm" Top="0mm" Value="= Fields.CUR" Name="textBox15">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+            <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.14mm" Height="9mm" Left="151.5mm" Top="0mm" Value="= Fields.NET" Name="textBox14">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+            <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="37.07mm" Height="9mm" Left="259.93mm" Top="0mm" Value="= Fields.MMMM + Fields.CUR" Name="textBox19">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+            <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.14mm" Height="9mm" Left="223.79mm" Top="0mm" Value="= Fields.NET22222" Name="textBox18">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+            <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportFooterSection Height="8.05mm" Name="ReportFooterSection4">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Default="0pt" Top="0pt" Bottom="0pt" Left="0pt" Right="0pt" />
+      </Style>
+      <Items>
+        <TextBox Width="79.22mm" Height="8.05mm" Left="0mm" Top="0mm" Value="Total" Name="Label52">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="12pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.14mm" Height="8.05mm" Left="79.22mm" Top="0mm" Value="=sum(Fields.MMMM1)" Name="textBox6">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+            <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.14mm" Height="8.05mm" Left="115.36mm" Top="0mm" Value="= sum(Fields.MMMM1)" Name="textBox7">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+            <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.14mm" Height="8.05mm" Left="187.64mm" Top="0mm" Value="= sum(Fields.CUR)" Name="textBox16">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+            <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.14mm" Height="8.05mm" Left="151.5mm" Top="0mm" Value="=sum(Fields.NET)" Name="textBox17">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+            <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.14mm" Height="8.05mm" Left="223.79mm" Top="0mm" Value="= sum(Fields.NET22222)" Name="textBox20">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+            <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="37.07mm" Height="8.05mm" Left="259.93mm" Top="0mm" Value="= sum(Fields.NET111)" Name="textBox21">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+            <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportFooterSection>
+    <ReportHeaderSection Height="6.859cm" Name="reportHeaderSection1">
+      <Items>
+        <TextBox Width="141.07mm" Height="5.03mm" Left="82.71mm" Top="3.83mm" Value="SUMMARY SHEET BY EXPENDITURE CATEGORY&#x9;" Name="Label4">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="12pt" Bold="True" />
+            <BorderStyle Default="None" />
+          </Style>
+        </TextBox>
+        <TextBox Width="77.27mm" Height="4.76mm" Left="2.54mm" Top="14.83mm" Value="financing No.: 2000001279" Name="Label30">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+            <BorderStyle Default="None" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18.46mm" Height="4.76mm" Left="2.54mm" Top="30mm" Value="Wa No : " Name="Label301">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+            <BorderStyle Default="None" />
+          </Style>
+        </TextBox>
+        <TextBox Width="32.35mm" Height="4.76mm" Left="2.36mm" Top="22.83mm" Value="Reporting period: " Name="Label26">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+            <BorderStyle Default="None" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.36mm" Height="4.76mm" Left="63.04mm" Top="22.83mm" Value="to" Name="Label48">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+            <BorderStyle Default="None" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.49cm" Height="0.513cm" Left="3.538cm" Top="2.246cm" Value="=CDate(Parameters.FromDate.Value)" Format="{0:dd/MM/yyyy}" Culture="en" Name="textBox22">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="10pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0pt" Top="0pt" Bottom="0pt" Left="0pt" Right="0pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.49cm" Height="0.439cm" Left="7.028cm" Top="2.283cm" Value="=CDate(Parameters.FromDate.Value)" Format="{0:dd/MM/yyyy}" Culture="en" Name="textBox1">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="10pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0pt" Top="0pt" Bottom="0pt" Left="0pt" Right="0pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7mm" Height="4.76mm" Left="21mm" Top="30mm" Value="34" Name="textBox2">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+            <BorderStyle Default="None" />
+          </Style>
+        </TextBox>
+        <TextBox Width="79.22mm" Height="33.83mm" Left="0mm" Top="34.76mm" Value="Category (Schedule 2" Name="Label2">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="12pt" Bold="False" />
+            <BorderStyle Default="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="72.28mm" Height="16mm" Left="79.22mm" Top="34.76mm" Value="Claimed under Form 101 (above the SOE Threshold)" Name="Label8">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+            <BorderStyle Default="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.14mm" Height="17.7mm" Left="79.22mm" Top="50.76mm" Value="Local Currency " Name="textBox4">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+            <BorderStyle Default="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.14mm" Height="17.83mm" Left="115.36mm" Top="50.76mm" Value="WA Currency (USD)" Name="textBox5">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+            <BorderStyle Default="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.14mm" Height="17.83mm" Left="187.64mm" Top="50.76mm" Value="WA Currency (USD)" Name="textBox8">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+            <BorderStyle Default="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.14mm" Height="17.7mm" Left="151.5mm" Top="50.76mm" Value="Local Currency " Name="textBox9">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+            <BorderStyle Default="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="72.28mm" Height="16mm" Left="151.5mm" Top="34.76mm" Value="Claimed under Form 102 (SOE)" Name="textBox10">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+            <BorderStyle Default="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="37.07mm" Height="17.83mm" Left="259.93mm" Top="50.76mm" Value="WA Currency (USD)" Name="textBox11">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+            <BorderStyle Default="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.14mm" Height="17.83mm" Left="223.79mm" Top="50.76mm" Value="Local Currency " Name="textBox12">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+            <BorderStyle Default="Solid" />
+          </Style>
+        </TextBox>
+        <TextBox Width="73.21mm" Height="16mm" Left="223.79mm" Top="34.76mm" Value="Total" Name="textBox13">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+            <BorderStyle Default="Solid" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportHeaderSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0in" Right="0in" Top="0in" Bottom="0in" />
+    </Margins>
+  </PageSettings>
+  <ReportParameters>
+    <ReportParameter Name="FromDate" AllowNull="True" />
+    <ReportParameter Name="ToDate" AllowNull="True" />
+  </ReportParameters>
+</Report>

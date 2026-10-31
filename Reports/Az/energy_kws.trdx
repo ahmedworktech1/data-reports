@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="29.7cm" Name="QueryGlJrnl1" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="kahrabaelmeniadata" SelectCommand="WITH CurrentPeriod AS (&#xD;&#xA;    SELECT &#xD;&#xA;        CAST(ROUND(SUM(CASE WHEN acc_no LIKE '4[6-8]31%' AND SUM_CD LIKE '11%' THEN val1 ELSE 0 END), 0) AS BIGINT) AS s1,&#xD;&#xA;        CAST(ROUND(SUM(CASE WHEN acc_no LIKE '4[6-8]31%' AND SUM_CD LIKE '11%' THEN db_vl - cr_vl ELSE 0 END), 0) AS BIGINT) AS s2,&#xD;&#xA;        CAST(ROUND(SUM(CASE WHEN acc_no LIKE '5[6-8]1111101%' OR acc_no LIKE '5[6-8]1111102%' AND SUM_CD LIKE '11%' THEN val1 ELSE 0 END), 0) AS BIGINT) AS s3,&#xD;&#xA;        CAST(ROUND(SUM(CASE WHEN acc_no LIKE '5[6-8]1111101%' OR acc_no LIKE '5[6-8]1111102%' AND SUM_CD LIKE '11%' THEN db_vl - cr_vl ELSE 0 END), 0) AS BIGINT) * -1 AS s4&#xD;&#xA;    FROM GLJRNLD_A&#xD;&#xA;    WHERE TR_DT &gt;=   '01011901'   AND TR_DT &lt;=  '01011902' and (1=1)&#xD;&#xA;),&#xD;&#xA;PreviousPeriod AS (&#xD;&#xA;    SELECT &#xD;&#xA;        CAST(ROUND(SUM(CASE WHEN acc_no LIKE '4[6-8]31%' AND SUM_CD LIKE '11%' AND DATEADD(YEAR, -1, TR_DT) IS NOT NULL THEN val1 ELSE 0 END), 0) AS BIGINT) AS s5,&#xD;&#xA;        CAST(ROUND(SUM(CASE WHEN acc_no LIKE '4[6-8]31%' AND SUM_CD LIKE '11%' AND DATEADD(YEAR, -1, TR_DT) IS NOT NULL THEN db_vl - cr_vl ELSE 0 END), 0) AS BIGINT) AS s6,&#xD;&#xA;        CAST(ROUND(SUM(CASE WHEN acc_no LIKE '5[6-8]1111101%' OR acc_no LIKE '5[6-8]1111102%' AND SUM_CD LIKE '11%' AND DATEADD(YEAR, -1, TR_DT) IS NOT NULL THEN val1 ELSE 0 END), 0) AS BIGINT) AS s7,&#xD;&#xA;        CAST(ROUND(SUM(CASE WHEN acc_no LIKE '5[6-8]1111101%' OR acc_no LIKE '5[6-8]1111102%' AND SUM_CD LIKE '11%' AND DATEADD(YEAR, -1, TR_DT) IS NOT NULL THEN db_vl - cr_vl ELSE 0 END), 0) AS BIGINT) * -1 AS s8&#xD;&#xA;    FROM GLJRNLD_A&#xD;&#xA;    WHERE TR_DT &gt;=   '01/01/1903'   AND TR_DT &lt;=  '01/01/1904' and (1=1)&#xD;&#xA;)&#xD;&#xA;SELECT &#xD;&#xA;    cp.s1, cp.s2, cp.s3, cp.s4, &#xD;&#xA;    pp.s5, pp.s6, pp.s7, pp.s8&#xD;&#xA;FROM CurrentPeriod cp&#xD;&#xA;JOIN PreviousPeriod pp ON 1=1;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="4.6cm" Name="pageHeaderSection1">
+      <Style BackgroundColor="" />
+      <Items>
+        <TextBox Width="1.145in" Height="0.128in" Left="9.764in" Top="0.118in" Value="الشركة القابضة لكهرباء مصر" Name="textBox25">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.306in" Height="0.131in" Left="9.603in" Top="0.246in" Value="شركة مصر الوسطى لتوزيع الكهرباء" Name="textBox63">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.131in" Left="9.764in" Top="0.377in" Value="شركة مساهمة مصرية" Name="textBox8">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.6cm" Height="1.736cm" Left="23.6cm" Top="2.8cm" Value="البيـــــــــــــــــان" Name="textBox2">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7cm" Height="0.9cm" Left="16.6cm" Top="2.8cm" Value="الفترة الحالية" Name="textBox4">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="0.836cm" Left="19.9cm" Top="3.7cm" Value="القيمة" Name="textBox5">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.3cm" Height="0.836cm" Left="16.6cm" Top="3.7cm" Value="متوسط ك.و.س" Name="textBox6">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7cm" Height="0.9cm" Left="9.6cm" Top="2.8cm" Value="الفترة المقارنة" Name="textBox7">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7cm" Height="0.9cm" Left="2.6cm" Top="2.8cm" Value="المستهدف" Name="textBox9">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="0.836cm" Left="12.9cm" Top="3.7cm" Value="القيمة" Name="textBox11">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.3cm" Height="0.836cm" Left="9.6cm" Top="3.7cm" Value="متوسط ك.و.س" Name="textBox10">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="0.836cm" Left="5.9cm" Top="3.7cm" Value="القيمة" Name="textBox13">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.3cm" Height="0.836cm" Left="2.6cm" Top="3.7cm" Value="متوسط ك.و.س" Name="textBox12">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.9cm" Height="0.6cm" Left="22.5cm" Top="1.291cm" Value="الجدول التالي يوضح تحليل متوسط تكلفة وحدة الطاقة" Name="textBox21">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="1.1cm" Name="detailSection1">
+      <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle" />
+      <Items>
+        <TextBox Width="4.6cm" Height="1.1cm" Left="23.6cm" Top="0cm" Value="= Fields.s" Format="{0}" Name="textBox1">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="1.1cm" Left="19.9cm" Top="0cm" Value="= Fields.s1" Format="{0:N0}" Name="textBox14">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.3cm" Height="1.1cm" Left="16.6cm" Top="0cm" Value="= Fields.s2" Format="{0:N2}" Name="textBox16">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="1.1cm" Left="12.9cm" Top="0cm" Value="= Fields.s3" Format="{0:N0}" Name="textBox18">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.3cm" Height="1.1cm" Left="9.6cm" Top="0cm" Value="= Fields.s4" Format="{0:N2}" Name="textBox17">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="1.1cm" Left="5.9cm" Top="0cm" Value="= Fields.s5" Format="{0:N0}" Name="textBox20">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.3cm" Height="1.1cm" Left="2.6cm" Top="0cm" Value="= Fields.s6" Format="{0:N2}" Name="textBox19">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="1.1cm" Name="pageFooterSection1">
+      <Items>
+        <TextBox Width="4.6cm" Height="1.1cm" Left="23.6cm" Top="0cm" Value="الاجمــــــــــــــــالي" Format="{0}" Name="textBox32">
+          <Style BackgroundColor="230, 185, 183" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="1.1cm" Left="5.9cm" Top="0cm" Value="= sum(Fields.s5)" Format="{0:N0}" Name="textBox24">
+          <Style BackgroundColor="230, 185, 183" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.3cm" Height="1.1cm" Left="9.6cm" Top="0cm" Value="= sum(Fields.s4)" Format="{0:N2}" Name="textBox26">
+          <Style BackgroundColor="230, 185, 183" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="1.1cm" Left="12.9cm" Top="0cm" Value="= sum(Fields.s3)" Format="{0:N0}" Name="textBox27">
+          <Style BackgroundColor="230, 185, 183" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.3cm" Height="1.1cm" Left="16.6cm" Top="0cm" Value="= sum(Fields.s2)" Format="{0:N2}" Name="textBox28">
+          <Style BackgroundColor="230, 185, 183" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="1.1cm" Left="19.9cm" Top="0cm" Value="= sum(Fields.s1)" Format="{0:N0}" Name="textBox29">
+          <Style BackgroundColor="230, 185, 183" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.3cm" Height="1.1cm" Left="2.6cm" Top="0cm" Value="= sum(Fields.s6)" Format="{0:N2}" Name="textBox22">
+          <Style BackgroundColor="230, 185, 183" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0mm" Right="0mm" Top="0mm" Bottom="0mm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="filter_TR_DT" AllowNull="True" />
+    <ReportParameter Name="filter_TO_TR_DT" AllowNull="True" />
+  </ReportParameters>
+</Report>

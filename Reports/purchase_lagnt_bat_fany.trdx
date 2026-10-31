@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="20cm" Name="محضر_اجراءات_لجنه_بت" Zoom="1.5" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="AZXSANDOAA" SelectCommand=";WITH AllMembers AS (&#xD;&#xA;    -- 🧩 الأعضاء الداخليين&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        A.TR_NO,&#xD;&#xA;        A.Purchas_no,&#xD;&#xA;        A.CMMTTE_END_DT,&#xD;&#xA;        A.CMMTTE_RMRK_DCSN,&#xD;&#xA;        A.TCHNCL_DCSN_DT,&#xD;&#xA;        A.FNCL_TR_MO,&#xD;&#xA;        A.TR_DT,&#xD;&#xA;        A.PRCHS_OPRTN_TYP,&#xD;&#xA;        A.TCHNCL_OPN_DT,&#xD;&#xA;        A.ACC_NM, -- 🆕 Added ACC_NM&#xD;&#xA;        A.ORDER_NO, -- 🆕 Added ORDER_NO&#xD;&#xA;        Boss.EMP_NAME AS Boss,&#xD;&#xA;        N'رئيسا' AS Boss_dsc,&#xD;&#xA;        L.DSCR_AR AS memper_dwla,&#xD;&#xA;        E.EMP_NAME AS MemberName&#xD;&#xA;    FROM AZTRH A&#xD;&#xA;    LEFT JOIN PYEMPMF_H AS Boss&#xD;&#xA;        ON Boss.EMP_NO = A.CMMTTE_CHRMN_DCSN&#xD;&#xA;    LEFT JOIN AZLISTS AS L&#xD;&#xA;        ON TRY_CAST(REPLACE(REPLACE(COALESCE(A.CMMTTE_EXTRNL_MMBRS_DCSN, ''), '''', ''), '&quot;', '') AS INT) = L.CODE&#xD;&#xA;        AND L.REC_TYPE = 61&#xD;&#xA;    OUTER APPLY (&#xD;&#xA;        SELECT DISTINCT value &#xD;&#xA;        FROM STRING_SPLIT(REPLACE(REPLACE(COALESCE(A.CMMTTE_INTRNL_MMBRS_DCSN, ''), '''', ''), '&quot;', ''), ',')&#xD;&#xA;        WHERE value &lt;&gt; '' AND ISNUMERIC(value) = 1&#xD;&#xA;    ) AS S&#xD;&#xA;    LEFT JOIN PYEMPMF_H AS E&#xD;&#xA;        ON TRY_CAST(S.value AS INT) = E.EMP_NO&#xD;&#xA;    WHERE A.TR_TY = '116'&#xD;&#xA;      AND A.CMMTTE_INTRNL_MMBRS_DCSN IS NOT NULL&#xD;&#xA;      AND A.CMMTTE_INTRNL_MMBRS_DCSN &lt;&gt; ''&#xD;&#xA;      AND E.EMP_NAME IS NOT NULL&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;&#xD;&#xA;    -- 🧩 الأعضاء الخارجيين&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        A.TR_NO,&#xD;&#xA;        A.Purchas_no,&#xD;&#xA;        A.CMMTTE_END_DT,&#xD;&#xA;        A.CMMTTE_RMRK_DCSN,&#xD;&#xA;        A.TCHNCL_DCSN_DT,&#xD;&#xA;        A.FNCL_TR_MO,&#xD;&#xA;        A.TR_DT,&#xD;&#xA;        A.PRCHS_OPRTN_TYP,&#xD;&#xA;        A.TCHNCL_OPN_DT,&#xD;&#xA;        A.ACC_NM, -- 🆕 Added ACC_NM&#xD;&#xA;        A.ORDER_NO, -- 🆕 Added ORDER_NO&#xD;&#xA;        Boss.EMP_NAME AS Boss,&#xD;&#xA;        N'رئيسا' AS Boss_dsc,&#xD;&#xA;        L.DSCR_AR AS memper_dwla,&#xD;&#xA;        EL.DSCR_AR AS MemberName&#xD;&#xA;    FROM AZTRH A&#xD;&#xA;    LEFT JOIN PYEMPMF_H AS Boss&#xD;&#xA;        ON Boss.EMP_NO = A.CMMTTE_CHRMN_OPN&#xD;&#xA;    LEFT JOIN AZLISTS AS L&#xD;&#xA;        ON TRY_CAST(REPLACE(REPLACE(COALESCE(A.CMMTTE_EXTRNL_MMBRS_DCSN, ''), '''', ''), '&quot;', '') AS INT) = L.CODE&#xD;&#xA;        AND L.REC_TYPE = 61&#xD;&#xA;    OUTER APPLY (&#xD;&#xA;        SELECT DISTINCT value &#xD;&#xA;        FROM STRING_SPLIT(REPLACE(REPLACE(COALESCE(A.CMMTTE_EXTRNL_MMBRS_DCSN, ''), '''', ''), '&quot;', ''), ',')&#xD;&#xA;        WHERE value &lt;&gt; '' AND ISNUMERIC(value) = 1&#xD;&#xA;    ) AS S&#xD;&#xA;    LEFT JOIN AZLISTS AS EL&#xD;&#xA;        ON TRY_CAST(S.value AS INT) = EL.CODE&#xD;&#xA;        AND EL.REC_TYPE = 61&#xD;&#xA;    WHERE A.TR_TY = '116'&#xD;&#xA;      AND A.CMMTTE_EXTRNL_MMBRS_DCSN IS NOT NULL&#xD;&#xA;      AND A.CMMTTE_EXTRNL_MMBRS_DCSN &lt;&gt; ''&#xD;&#xA;      AND EL.DSCR_AR IS NOT NULL&#xD;&#xA;),&#xD;&#xA;-- 🟩 الأصناف + رقم التفرير + اسم المعمل&#xD;&#xA;ItemsCTE AS (&#xD;&#xA;    SELECT DISTINCT &#xD;&#xA;        H.TR_NO,&#xD;&#xA;        STRING_AGG(I.ITM_NM_AR, N' - ') AS ItemsNames,&#xD;&#xA;        STRING_AGG(D.tel1, N' - ') AS TelNumber,&#xD;&#xA;        STRING_AGG(D.delv_no3, N' - ') AS LabName&#xD;&#xA;    FROM AZTRH H&#xD;&#xA;    LEFT JOIN AZTRD D ON D.TR_NO = H.TR_NO&#xD;&#xA;    LEFT JOIN AZITMS I ON I.ITM_CD = D.ITM_CD&#xD;&#xA;    WHERE H.TR_TY = '116'&#xD;&#xA;      AND I.ITM_NM_AR IS NOT NULL&#xD;&#xA;    GROUP BY H.TR_NO&#xD;&#xA;),&#xD;&#xA;-- 🟩 عضو مجلس الدولة&#xD;&#xA;CouncilMember AS (&#xD;&#xA;    SELECT &#xD;&#xA;        H.TR_NO,&#xD;&#xA;        L.DSCR_AR AS CouncilMemberName&#xD;&#xA;    FROM AZTRH H&#xD;&#xA;    LEFT JOIN AZLISTS AS L&#xD;&#xA;        ON TRY_CAST(REPLACE(REPLACE(COALESCE(H.NT_EXTRNL_MMBR_INSPCTN, ''), '''', ''), '&quot;', '') AS INT) = L.CODE&#xD;&#xA;        AND L.REC_TYPE = 61&#xD;&#xA;    WHERE H.TR_TY = '116'&#xD;&#xA;),&#xD;&#xA;-- 🟩 عضو خارجي إضافي + نوعه&#xD;&#xA;ExternalMember AS (&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        A.TR_NO,&#xD;&#xA;        L1.DSCR_AR AS ExternalMemberName,&#xD;&#xA;        L2.DSCR_AR AS ExternalMemberType&#xD;&#xA;    FROM AZTRH A&#xD;&#xA;    LEFT JOIN AZLISTS AS L1&#xD;&#xA;        ON TRY_CAST(REPLACE(REPLACE(COALESCE(A.NT_EXTRNL_MMBR_DCSN, ''), '''', ''), '&quot;', '') AS INT) = L1.CODE&#xD;&#xA;        AND L1.REC_TYPE = 61&#xD;&#xA;    LEFT JOIN AZLISTS AS L2&#xD;&#xA;        ON TRY_CAST(REPLACE(REPLACE(COALESCE(A.NT_EXTRNL_MMBR_TYP_DCSN, ''), '''', ''), '&quot;', '') AS INT) = L2.CODE&#xD;&#xA;        AND L2.REC_TYPE = 60&#xD;&#xA;    WHERE A.TR_TY = '116'&#xD;&#xA;      AND A.NT_EXTRNL_MMBR_DCSN IS NOT NULL&#xD;&#xA;      AND A.NT_EXTRNL_MMBR_DCSN &lt;&gt; ''&#xD;&#xA;      AND ISNUMERIC(REPLACE(REPLACE(COALESCE(A.NT_EXTRNL_MMBR_DCSN, ''), '''', ''), '&quot;', '')) = 1&#xD;&#xA;),&#xD;&#xA;-- 🟩 نوع العملية&#xD;&#xA;OprType AS (&#xD;&#xA;    SELECT &#xD;&#xA;        T.TR_TY,&#xD;&#xA;        T.DSCR_AR AS OprTypeName&#xD;&#xA;    FROM AZTRTY T&#xD;&#xA;    WHERE T.TR_TY IS NOT NULL&#xD;&#xA;),&#xD;&#xA;-- 🟩 عضو الأمن الخارجي&#xD;&#xA;SecurityMember AS (&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        A.TR_NO,&#xD;&#xA;        STRING_AGG(Sec.DSCR_AR, N', ') AS ExternalSecurityMember&#xD;&#xA;    FROM AZTRH A&#xD;&#xA;    OUTER APPLY (&#xD;&#xA;        SELECT DISTINCT value &#xD;&#xA;        FROM STRING_SPLIT(&#xD;&#xA;            REPLACE(REPLACE(COALESCE(A.CMMTTE_EXTRNL_SCRTY_DCSN, ''), '''', ''), '&quot;', ''), ','&#xD;&#xA;        )&#xD;&#xA;        WHERE value &lt;&gt; '' AND ISNUMERIC(value) = 1&#xD;&#xA;    ) AS S&#xD;&#xA;    LEFT JOIN AZLISTS AS Sec&#xD;&#xA;        ON TRY_CAST(S.value AS INT) = Sec.CODE&#xD;&#xA;        AND Sec.REC_TYPE = 61&#xD;&#xA;    WHERE A.TR_TY = '116'&#xD;&#xA;      AND A.CMMTTE_EXTRNL_SCRTY_DCSN IS NOT NULL&#xD;&#xA;      AND A.CMMTTE_EXTRNL_SCRTY_DCSN &lt;&gt; ''&#xD;&#xA;      AND Sec.DSCR_AR IS NOT NULL&#xD;&#xA;    GROUP BY A.TR_NO&#xD;&#xA;),&#xD;&#xA;-- 🧮 ترتيب الأعضاء&#xD;&#xA;Numbered AS (&#xD;&#xA;    SELECT&#xD;&#xA;        TR_NO,&#xD;&#xA;        Purchas_no,&#xD;&#xA;        FNCL_TR_MO,&#xD;&#xA;        TCHNCL_DCSN_DT,&#xD;&#xA;        CMMTTE_END_DT,&#xD;&#xA;        CMMTTE_RMRK_DCSN,&#xD;&#xA;        TR_DT,&#xD;&#xA;        PRCHS_OPRTN_TYP,&#xD;&#xA;        TCHNCL_OPN_DT,&#xD;&#xA;        ACC_NM, -- 🆕 Added ACC_NM&#xD;&#xA;        ORDER_NO, -- 🆕 Added ORDER_NO&#xD;&#xA;        Boss,&#xD;&#xA;        Boss_dsc,&#xD;&#xA;        memper_dwla,&#xD;&#xA;        MemberName,&#xD;&#xA;        ROW_NUMBER() OVER (PARTITION BY TR_NO ORDER BY MemberName) AS rn&#xD;&#xA;    FROM AllMembers&#xD;&#xA;),&#xD;&#xA;-- ✅ النتيجة النهائية&#xD;&#xA;FinalResult AS (&#xD;&#xA;    SELECT&#xD;&#xA;        N.TR_NO,&#xD;&#xA;        N.Purchas_no,&#xD;&#xA;        N.FNCL_TR_MO,&#xD;&#xA;        N.TR_DT,&#xD;&#xA;        N.CMMTTE_END_DT,&#xD;&#xA;        N.TCHNCL_DCSN_DT,&#xD;&#xA;        N.TCHNCL_OPN_DT,&#xD;&#xA;        N.CMMTTE_RMRK_DCSN,&#xD;&#xA;        N.PRCHS_OPRTN_TYP,&#xD;&#xA;        N.ACC_NM, -- 🆕 Added ACC_NM&#xD;&#xA;        N.ORDER_NO, -- 🆕 Added ORDER_NO&#xD;&#xA;        OT.OprTypeName,&#xD;&#xA;        N.Boss,&#xD;&#xA;        N.Boss_dsc,&#xD;&#xA;        N.memper_dwla,&#xD;&#xA;        I.ItemsNames,&#xD;&#xA;        I.TelNumber,&#xD;&#xA;        I.LabName,&#xD;&#xA;        C.CouncilMemberName,&#xD;&#xA;        E.ExternalMemberName,&#xD;&#xA;        E.ExternalMemberType,&#xD;&#xA;        S.ExternalSecurityMember,&#xD;&#xA;        MAX(CASE WHEN N.rn = 1 THEN N.MemberName END) AS Member1,&#xD;&#xA;        MAX(CASE WHEN N.rn = 2 THEN N.MemberName END) AS Member2,&#xD;&#xA;        MAX(CASE WHEN N.rn = 3 THEN N.MemberName END) AS Member3,&#xD;&#xA;        MAX(CASE WHEN N.rn = 4 THEN N.MemberName END) AS Member4&#xD;&#xA;    FROM Numbered N&#xD;&#xA;    LEFT JOIN ItemsCTE I ON I.TR_NO = N.TR_NO&#xD;&#xA;    LEFT JOIN OprType OT ON CAST(N.PRCHS_OPRTN_TYP AS NVARCHAR(50)) = CAST(OT.TR_TY AS NVARCHAR(50))&#xD;&#xA;    LEFT JOIN CouncilMember C ON C.TR_NO = N.TR_NO&#xD;&#xA;    LEFT JOIN ExternalMember E ON E.TR_NO = N.TR_NO&#xD;&#xA;    LEFT JOIN SecurityMember S ON S.TR_NO = N.TR_NO&#xD;&#xA;    GROUP BY&#xD;&#xA;        N.TR_NO,&#xD;&#xA;        N.Purchas_no,&#xD;&#xA;        N.FNCL_TR_MO,&#xD;&#xA;        N.TR_DT,&#xD;&#xA;        N.CMMTTE_END_DT,&#xD;&#xA;        N.TCHNCL_DCSN_DT,&#xD;&#xA;        N.TCHNCL_OPN_DT,&#xD;&#xA;        N.CMMTTE_RMRK_DCSN,&#xD;&#xA;        N.PRCHS_OPRTN_TYP,&#xD;&#xA;        N.ACC_NM, -- 🆕 Added ACC_NM&#xD;&#xA;        N.ORDER_NO, -- 🆕 Added ORDER_NO&#xD;&#xA;        OT.OprTypeName,&#xD;&#xA;        N.Boss,&#xD;&#xA;        N.Boss_dsc,&#xD;&#xA;        N.memper_dwla,&#xD;&#xA;        I.ItemsNames,&#xD;&#xA;        I.TelNumber,&#xD;&#xA;        I.LabName,&#xD;&#xA;        C.CouncilMemberName,&#xD;&#xA;        E.ExternalMemberName,&#xD;&#xA;        E.ExternalMemberType,&#xD;&#xA;        S.ExternalSecurityMember&#xD;&#xA;)&#xD;&#xA;SELECT TOP 1&#xD;&#xA;    Purchas_no,&#xD;&#xA;    FNCL_TR_MO,&#xD;&#xA;    TR_DT,&#xD;&#xA;    CMMTTE_END_DT,&#xD;&#xA;    TCHNCL_DCSN_DT,&#xD;&#xA;    TCHNCL_OPN_DT,&#xD;&#xA;    CMMTTE_RMRK_DCSN,&#xD;&#xA;    OprTypeName,&#xD;&#xA;    Boss,&#xD;&#xA;    Boss_dsc,&#xD;&#xA;    memper_dwla,&#xD;&#xA;    ItemsNames,&#xD;&#xA;    TelNumber,&#xD;&#xA;    LabName,&#xD;&#xA;    CouncilMemberName,&#xD;&#xA;    ExternalMemberName,&#xD;&#xA;    ExternalMemberType,&#xD;&#xA;    ExternalSecurityMember,&#xD;&#xA;    Member1,&#xD;&#xA;    Member2,&#xD;&#xA;    Member3,&#xD;&#xA;    Member4,&#xD;&#xA;    ACC_NM, -- 🆕 Added ACC_NM&#xD;&#xA;    ORDER_NO -- 🆕 Added ORDER_NO&#xD;&#xA;FROM FinalResult&#xD;&#xA;WHERE Member1 IS NOT NULL&#xD;&#xA;ORDER BY FNCL_TR_MO DESC, TR_DT DESC;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="5cm" Name="pageHeaderSection1">
+      <Style TextAlign="Right" />
+      <Items>
+        <TextBox Width="6.1cm" Height="0.5cm" Left="12.9cm" Top="0.3cm" Value="مجلــــــــــــــــــــــــــس الــــــــــــــــــــــوزراء" Name="textBox1">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.1cm" Height="0.5cm" Left="12.9cm" Top="0.8cm" Value="صندوق تكريم شهداء و ضحايا و مفقودي ومصابي " Name="textBox2">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.1cm" Height="0.4cm" Left="12.9cm" Top="1.3cm" Value="العمليات الحربيه و الارهابيه  والامنيه و اسرهم" Name="textBox3">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <PictureBox Image="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" Width="3.8cm" Height="2.8cm" Left="0.2cm" Top="0.3cm" MimeType="image/jpeg" Name="pictureBox1">
+          <Style Visible="True" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </PictureBox>
+        <TextBox Width="2.9cm" Height="0.5cm" Left="16.1cm" Top="2.2cm" Value=" التــــــــــــــــــــاريخ :" Name="textBox5">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.9cm" Height="0.5cm" Left="16.1cm" Top="1.7cm" Value="رقــــــم القيـــــــــــــــد:" Name="textBox4">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.8cm" Height="0.7cm" Left="4.6cm" Top="3.4cm" Value="محضر إجراءات لجنة بت في العروض الفنية" Name="textBox78">
+          <Style Color="Red" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.2cm" Height="0.447cm" Left="12.9cm" Top="1.753cm" Value="= Replace(&#xD;&#xA;Replace(&#xD;&#xA;Replace(&#xD;&#xA;Replace(&#xD;&#xA;Replace(&#xD;&#xA;Replace(&#xD;&#xA;Replace(&#xD;&#xA;Replace(&#xD;&#xA;Replace(&#xD;&#xA;Replace(Fields.FNCL_TR_MO, &quot;0&quot;, &quot;٠&quot;), &#xD;&#xA;&quot;1&quot;, &quot;١&quot;), &#xD;&#xA;&quot;2&quot;, &quot;٢&quot;), &#xD;&#xA;&quot;3&quot;, &quot;٣&quot;), &#xD;&#xA;&quot;4&quot;, &quot;٤&quot;), &#xD;&#xA;&quot;5&quot;, &quot;٥&quot;), &#xD;&#xA;&quot;6&quot;, &quot;٦&quot;), &#xD;&#xA;&quot;7&quot;, &quot;٧&quot;), &#xD;&#xA;&quot;8&quot;, &quot;٨&quot;), &#xD;&#xA;&quot;9&quot;, &quot;٩&quot;)&#xD;&#xA;" Culture="ar-EG" Name="textBox127">
+          <Style TextAlign="Center">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.2cm" Height="0.447cm" Left="12.9cm" Top="2.253cm" Value="= Fields.TR_DT" Format="{0:dd/MM/yyyy}" Culture="ar-EG" Name="textBox128">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="54.7cm" Name="detailSection1">
+      <Style TextAlign="Center" VerticalAlign="Middle" />
+      <Items>
+        <TextBox Width="0.7cm" Height="0.7cm" Left="16.95cm" Top="25.172cm" Value="7-" Name="textBox74">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="10.05cm" Height="0.7cm" Left="6.9cm" Top="25.172cm" Value="إطلعت اللجنة على قيمة التأمين الإبتدائى المستحق عن كل عطاء و التأمين المدفوع ." Name="textBox75">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7cm" Height="0.7cm" Left="16.95cm" Top="25.872cm" Value="8-" Name="textBox76">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="12.65cm" Height="0.7cm" Left="4.3cm" Top="25.872cm" Value="إطلعت اللجنة على الشروط الفنية الواردة بكراسة الشروط والمواصفات و الواردة بعطاء الشركات وبعد مقارنة" Name="textBox77">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.95cm" Height="0.7cm" Left="11cm" Top="26.573cm" Value="و فحص العينات و طبقا لنتائج الفحص المعمـــلى ." Name="textBox79">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.7cm" Left="15.05cm" Top="27.273cm" Value="توصى اللجنة " Name="textBox80">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.4cm" Height="0.7cm" Left="13.65cm" Top="27.273cm" Value="بالآتي :" Name="textBox81">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7cm" Height="0.7cm" Left="16.25cm" Top="27.973cm" Value="أ-" Name="textBox82">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.7cm" Left="13.25cm" Top="27.973cm" Value="إستبعاد العطاءات أرقام" Name="textBox83">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.15cm" Height="0.7cm" Left="9.4cm" Top="27.973cm" Value="المقدمة من شركة" Name="textBox84">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.25cm" Height="0.7cm" Left="5.8cm" Top="27.973cm" Value="و شركة" Name="textBox85">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.9cm" Height="0.7cm" Left="2.65cm" Top="27.973cm" Value="و ذلك" Name="textBox86">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.7cm" Height="0.7cm" Left="11.55cm" Top="28.673cm" Value="لعدم دفع التأمين الإبتدائــــى كاملا 0" Name="textBox87">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7cm" Height="0.7cm" Left="16.25cm" Top="29.37cm" Value="ب-" Name="textBox88">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.7cm" Left="13.25cm" Top="29.373cm" Value="إستبعاد العطاءات أرقام" Name="textBox89">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.15cm" Height="0.7cm" Left="9.4cm" Top="29.373cm" Value="المقدمة من شركة" Name="textBox90">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.25cm" Height="0.7cm" Left="5.8cm" Top="29.37cm" Value="و شركة" Name="textBox91">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.9cm" Height="0.7cm" Left="2.65cm" Top="29.373cm" Value="و ذلك" Name="textBox92">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="12.45cm" Height="0.7cm" Left="3.8cm" Top="30.074cm" Value="لعدم تقديم عينات عن الأصناف او لعدم إلتزام مقدميها بالمواصفات المطلوبة ( يذكر أوجه النقص و المخالفه" Name="textBox93">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.65cm" Height="0.7cm" Left="10.6cm" Top="30.774cm" Value="للشروط و المواصفات عن عدم القــــبول فنيا ) ." Name="textBox94">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7cm" Height="0.7cm" Left="16.25cm" Top="31.47cm" Value="ج-" Name="textBox95">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.449cm" Height="0.7cm" Left="9.8cm" Top="31.474cm" Value="النظر فى العطاءات الآتية لمطابقتهـــــا لشروط الإدارة :" Name="textBox96">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7cm" Height="0.7cm" Left="16.95cm" Top="32.17cm" Value="(1)" Name="textBox97">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7cm" Height="0.7cm" Left="16.95cm" Top="32.87cm" Value="(2)" Name="textBox100">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.7cm" Left="14.5cm" Top="36.072cm" Value="عطـــــأء رقم" Name="textBox98">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.7cm" Left="8.1cm" Top="36.072cm" Value="مقدم من شركة" Name="textBox99">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.7cm" Left="14.5cm" Top="36.772cm" Value="عطـــــأء رقم" Name="textBox101">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.7cm" Left="8.1cm" Top="36.772cm" Value="مقدم من شركة" Name="textBox102">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.5cm" Height="0.7cm" Left="5.8cm" Top="34.272cm" Value="القـــــــــــــــــــــــــــــــــــــــــرار" Name="textBox103">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.1cm" Height="0.7cm" Left="11.3cm" Top="35.372cm" Value="توصى اللجنة بقبول العروض الفنية لكل من " Name="textBox104">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1cm" Height="0.7cm" Left="10.3cm" Top="35.372cm" Value="الآتي :" Name="textBox105">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.873cm" Height="0.699cm" Left="13.526cm" Top="37.473cm" Value=" ورفض العروض الفنية " Name="textBox106">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.326cm" Height="0.7cm" Left="12.2cm" Top="37.473cm" Value="لكل من :" Name="textBox107">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.7cm" Left="14.5cm" Top="38.172cm" Value="عطـــــأء رقم" Name="textBox111">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.7cm" Left="8.1cm" Top="38.172cm" Value="مقدم من شركة" Name="textBox110">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.7cm" Left="14.5cm" Top="38.872cm" Value="عطـــــأء رقم" Name="textBox109">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.7cm" Left="8.1cm" Top="38.872cm" Value="مقدم من شركة" Name="textBox108">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.3cm" Height="0.7cm" Left="11.1cm" Top="39.572cm" Value="و ذلك للأسبــــاب الموضحــــــه بعاليـــــــــه ." Name="textBox112">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="12.2cm" Height="0.7cm" Left="4.2cm" Top="40.272cm" Value="ترفع اللجنة الإجراءات للسيد اللواء / رئيس مجلس إدارة الصندوق (السلطة المختصه) للتفضل بالتصديق ." Name="textBox113">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.826cm" Height="0.7cm" Left="9.6cm" Top="40.973cm" Value="والأمر مفوض" Name="textBox114">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.1cm" Height="0.7cm" Left="15.3cm" Top="41.772cm" Value="أعضاء" Name="textBox115">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.7cm" Left="3.6cm" Top="44.872cm" Value="رئيس اللجنة " Name="textBox116">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15cm" Height="0.7cm" Left="2cm" Top="46.5cm" Value="ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ" Name="textBox117">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.65cm" Height="0.7cm" Left="15.3cm" Top="32.174cm" Value="عطـــــأء رقم" Name="textBox48">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.65cm" Height="0.7cm" Left="15.3cm" Top="32.874cm" Value="عطـــــأء رقم" Name="textBox49">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.7cm" Left="9.1cm" Top="32.174cm" Value="مقدم من شركة" Name="textBox142">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.7cm" Left="9.1cm" Top="32.874cm" Value="مقدم من شركة" Name="textBox141">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.6cm" Left="3.1cm" Top="45.572cm" Value="= Fields.Boss" Name="textBox143">
+          <Style TextAlign="Center" VerticalAlign="Middle" />
+        </TextBox>
+        <TextBox Width="3cm" Height="0.6cm" Left="14.5cm" Top="42.472cm" Value="= Fields.Member1" Name="textBox144">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.6cm" Left="14.5cm" Top="43.072cm" Value="= Fields.Member2" Name="textBox145">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.6cm" Left="14.5cm" Top="43.672cm" Value="= Fields.Member3" Name="textBox146">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.6cm" Left="14.5cm" Top="44.272cm" Value="= Fields.memper_dwla" Name="textBox147">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4cm" Height="0.5cm" Left="4.6cm" Top="6.9cm" Value="مديــــــر أمـــــــن الصندوق" Name="textBox25">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="0.5cm" Left="16.5cm" Top="0.998cm" Value=" التــــــــــــــاريخ :" Name="textBox6">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.3cm" Height="0.5cm" Left="4.6cm" Top="0.998cm" Value="والأيــــــــام التاليـــــــــة (لحــــين إنتهـــــاء اللجنــــة مــــــن عملهـــا)" Name="textBox8">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.1cm" Height="0.5cm" Left="1.5cm" Top="0.998cm" Value="بنــــاء علـــــى أوامـــــر" Name="textBox9">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.6cm" Height="0.5cm" Left="13.2cm" Top="1.498cm" Value="السيد المدير التنفيذي للصندوق الصادر بتاريخ" Name="textBox10">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.35cm" Height="0.5cm" Left="4.6cm" Top="1.499cm" Value="لأجـــــــل البــــــــت فى العطــاءات المقدمـــه للصــــــندوق" Name="textBox11">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.7cm" Height="0.5cm" Left="10.4cm" Top="1.999cm" Value="التـــى فتحــــت مظاريفهـــــــــــا يـــــوم" Name="textBox12">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="0.5cm" Left="16.5cm" Top="2.499cm" Value="عن توريــــــد" Name="textBox13">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.6cm" Height="0.5cm" Left="16.2cm" Top="2.999cm" Value="و قد تم تشكيل اللجنة" Name="textBox14">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2cm" Height="0.5cm" Left="15cm" Top="2.999cm" Value="كالآتي :" Name="textBox15">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="0.5cm" Left="15.35cm" Top="3.698cm" Value="إســـــــم" Name="textBox16">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="0.5cm" Left="5.5cm" Top="3.898cm" Value="وظيفـــــــة" Name="textBox17">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4cm" Height="0.5cm" Left="4.6cm" Top="4.398cm" Value="رئيــــــــــــــــــــــــــــــــــس" Name="textBox18">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4cm" Height="0.5cm" Left="4.6cm" Top="4.898cm" Value="مندوب فنى له خبرة بالأصناف" Name="textBox19">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4cm" Height="0.5cm" Left="4.6cm" Top="5.399cm" Value="مندوب عن الإدارة الطالــــــــبة" Name="textBox20">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4cm" Height="0.5cm" Left="4.6cm" Top="5.9cm" Value="مندوب مجلس الدولـــــــة" Name="textBox23">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.9cm" Height="0.5cm" Left="1.9cm" Top="6.4cm" Value="( إذا زادت عن 2000000 جنيه )" Name="textBox24">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="11.3cm" Height="0.5cm" Left="7.5cm" Top="0.498cm" Value="  المنعقــــــــــــــــدة : بجهــــــــــــــة الصـــــــــــــــــندوق بـــــــــــــــــــــــإدارة العقود و المشتريات " Name="textBox7">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2cm" Height="0.7cm" Left="15.8cm" Top="24.2cm" Value="شـــركة" Name="textBox72">
+          <Style Visible="True" TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.4cm" Height="0.7cm" Left="17cm" Top="23.5cm" Value="_" Name="textBox73">
+          <Style Visible="True" TextAlign="Left" VerticalAlign="Top">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2cm" Height="0.7cm" Left="15.8cm" Top="23.5cm" Value="شـــركة" Name="textBox70">
+          <Style Visible="True" TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.4cm" Height="0.7cm" Left="17cm" Top="24.2cm" Value="_" Name="textBox71">
+          <Style Visible="True" TextAlign="Left" VerticalAlign="Top">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2cm" Height="0.7cm" Left="15.8cm" Top="22.8cm" Value="شـــركة" Name="textBox69">
+          <Style Visible="True" TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.4cm" Height="0.7cm" Left="17cm" Top="22.8cm" Value="_" Name="textBox68">
+          <Style Visible="True" TextAlign="Left" VerticalAlign="Top">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.1cm" Height="0.7cm" Left="11.3cm" Top="22.099cm" Value="مــــن كـــل مـــن" Name="textBox67">
+          <Style Visible="True" TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4cm" Height="0.7cm" Left="13.4cm" Top="22.099cm" Value="الفنية و مستدات و إستيضاحات" Name="textBox66">
+          <Style Visible="True" TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.8cm" Height="0.7cm" Left="5.1cm" Top="21.399cm" Value="وقد أستوفت اللجنة بعض النقاط" Name="textBox65">
+          <Style Visible="True" TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.7cm" Left="11.3cm" Top="21.399cm" Value="وتقارير فنية واردة من" Name="textBox64">
+          <Style Visible="True" TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1cm" Height="0.7cm" Left="16.4cm" Top="21.399cm" Value="أرقام " Name="textBox63">
+          <Style Visible="True" TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="10.8cm" Height="0.7cm" Left="6.6cm" Top="20.699cm" Value="و موقع عليها من رئيس و أعضاء لجنة فتح المظاريف كما إطلعت اللجنة على تقارير معامل" Name="textBox62">
+          <Style Visible="True" TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="13.3cm" Height="0.7cm" Left="4.1cm" Top="19.999cm" Value="إطلعت اللجنة على كشوف العينات المقدمه في المناقصة / الممارسة و كذا العينات التى لا تحتاج إلى تحليل معملى" Name="textBox61">
+          <Style Visible="True" TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7cm" Height="0.7cm" Left="17.4cm" Top="19.999cm" Value="6-" Name="textBox60">
+          <Style Visible="True" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.6cm" Height="0.7cm" Left="12.8cm" Top="19.299cm" Value="لما هو وارد تفصيلا بتلك العطـــاءات ." Name="textBox59">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="13.3cm" Height="0.7cm" Left="4.1cm" Top="18.598cm" Value="إطلعت اللجنة على كشوف تفريغ العطــاءات التــى وردت فى تلك المناقصــة / الممارسة و تحققت من مطاابقتها" Name="textBox58">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7cm" Height="0.7cm" Left="17.4cm" Top="18.598cm" Value="5-" Name="textBox57">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9cm" Height="0.699cm" Left="8.4cm" Top="17.899cm" Value="إستلام مظاريف العطاءات التى وردت متأخرة عن الموعد المحـــــدد بالشـــروط ." Name="textBox56">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="12.3cm" Height="0.7cm" Left="5.1cm" Top="17.199cm" Value="إطلعت اللجنة على محضر فتح المظاريف الفنية الخاص بتلك المناقصة / الممارسة ، كما إطلعت هلى محضر" Name="textBox55">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7cm" Height="0.7cm" Left="17.4cm" Top="17.199cm" Value="4-" Name="textBox54">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.1cm" Height="0.7cm" Left="4.85cm" Top="15.798cm" Value="يــــــوم" Name="textBox53">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.1cm" Height="0.7cm" Left="14.3cm" Top="16.498cm" Value="بتاريـــــــــــــــــــخ" Name="textBox52">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.15cm" Height="0.7cm" Left="9.4cm" Top="15.798cm" Value="بتاريخ" Name="textBox51">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.1cm" Height="0.7cm" Left="13.3cm" Top="15.798cm" Value="بالصــــحف اليوميـــــة يــــــــــوم " Name="textBox50">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.4cm" Height="0.7cm" Left="8.1cm" Top="12.198cm" Value="بتاريخ" Name="textBox47">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.5cm" Height="0.7cm" Left="7.9cm" Top="15.098cm" Value="إطلعت اللجنة على الأمر الصـــادر بتشكيل لجنـــة فتح المظــــاريف ، والأعلان عن " Name="textBox46">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7cm" Height="0.7cm" Left="17.4cm" Top="15.098cm" Value="3-" Name="textBox45">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.7cm" Height="0.7cm" Left="7.7cm" Top="14.398cm" Value="وعلى نسخة كاملة من كراسة الشروط و المةاصفات للمناقصة التــى تم النشر عنها ." Name="textBox44">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.1cm" Height="0.7cm" Left="5.7cm" Top="13.698cm" Value="بطريقة " Name="textBox43">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.1cm" Height="0.7cm" Left="11.3cm" Top="13.698cm" Value="إطلعت اللجنة على تصديق (السلطة المختصة) لتدبير" Name="textBox42">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7cm" Height="0.7cm" Left="17.4cm" Top="13.698cm" Value="2-" Name="textBox41">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.3cm" Height="0.7cm" Left="12.199cm" Top="12.799cm" Value="مندوبا عن مجلس الدولة ." Name="textBox40">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.1cm" Height="0.7cm" Left="4.1cm" Top="12.098cm" Value="بتعيين السيد /" Name="textBox39">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.3cm" Height="0.7cm" Left="12.2cm" Top="12.098cm" Value="وكتاب مجلس الدولة رقم" Name="textBox37">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.1cm" Height="0.7cm" Left="4.1cm" Top="11.398cm" Value="بتعيين السيد /" Name="textBox36">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.4cm" Height="0.7cm" Left="8.9cm" Top="11.398cm" Value="بتاريخ" Name="textBox35">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.7cm" Height="0.7cm" Left="14.7cm" Top="11.398cm" Value="المراقبة المالية رقم" Name="textBox34">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.1cm" Height="0.7cm" Left="2.4cm" Top="10.698cm" Value="وكذلك موافقة" Name="textBox33">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.4cm" Height="0.7cm" Left="7.5cm" Top="10.698cm" Value="بتاريخ" Name="textBox32">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.4cm" Height="0.7cm" Left="12cm" Top="10.698cm" Value="إطلعت اللجنة على أمر التشكيل الصادر رقم" Name="textBox31">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7cm" Height="0.7cm" Left="17.4cm" Top="10.698cm" Value="1-" Name="textBox30">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="0.5cm" Left="9.7cm" Top="9.998cm" Value="الآتـــــــــــى :" Name="textBox29">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.1cm" Height="0.5cm" Left="12cm" Top="9.998cm" Value="فى المكان و الزمان المشار إليهما بعاليه و  أجرت " Name="textBox28">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14.65cm" Height="0.5cm" Left="2.6cm" Top="9.498cm" Value="بنـــــــاء علـــــى الأمر ســالف الـــــــذكر ، قــــد تـــم إنعقاد اللجنـــة بكامــــل هيئتهـــا طبقــــا لمــــا توضــــح بعالـيـــــه" Name="textBox27">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4cm" Height="0.5cm" Left="7.2cm" Top="8.698cm" Value="الإجــــــــــراءات" Name="textBox26">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.447cm" Left="13.5cm" Top="1.051cm" Value="= Fields.TCHNCL_DCSN_DT" Format="{0:dd/MM/yyyy}" Culture="ar-EG" Name="textBox129">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.447cm" Left="10.2cm" Top="1.551cm" Value="= Fields.TCHNCL_DCSN_DT" Name="textBox130">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.7cm" Left="4.5cm" Top="10.698cm" Value="= Fields.TCHNCL_OPN_DT" Format="{0:dd/MM/yyyy}" Culture="ar-EG" Name="textBox131">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7cm" Height="0.5cm" Left="18.1cm" Top="1.999cm" Value="في" Name="textBox132">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.5cm" Left="15.1cm" Top="1.999cm" Value="= Fields.OprTypeName" Name="textBox133">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.7cm" Left="14.95cm" Top="4.199cm" Value="= Fields.Boss" Name="textBox134">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.5cm" Left="14.95cm" Top="4.899cm" Value="= Fields.Member1" Name="textBox135">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.5cm" Left="14.95cm" Top="5.399cm" Value="= Fields.Member2" Name="textBox136">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.5cm" Left="14.95cm" Top="5.9cm" Value="= Fields.ExternalMemberName" Name="textBox21">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.95cm" Height="0.5cm" Left="15cm" Top="6.9cm" Value="= Fields.ExternalSecurityMember" Name="textBox22">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.7cm" Left="8.9cm" Top="10.698cm" Value="= Fields.TelNumber" Name="textBox137">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.6cm" Left="1.1cm" Top="11.398cm" Value="= Fields.ExternalMemberName" Name="textBox138">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.95cm" Height="0.7cm" Left="3.95cm" Top="15.098cm" Value="= Fields.OprTypeName" Name="textBox139">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.7cm" Left="2.7cm" Top="13.698cm" Value="= Fields.OprTypeName" Name="textBox140">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.7cm" Left="3.6cm" Top="20.7cm" Value="= Fields.LabName" Name="textBox38">
+          <Style Visible="True" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.45cm" Height="0.7cm" Left="5.95cm" Top="15.798cm" Value="= Fields.TCHNCL_OPN_DT" Format="{0:dd/MM/yyyy}" Culture="ar-EG" Name="textBox148">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.75cm" Height="0.7cm" Left="10.55cm" Top="15.798cm" Value="= Format(&quot;{0:dddd}&quot;, CDate(Fields.TCHNCL_OPN_DT ))&#xD;&#xA;" Format="{0:yyyy/MM/dd}" Culture="ar-EG" Name="textBox149">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.6cm" Left="12.8cm" Top="22.799cm" Value="= Fields.ACC_NM" Name="textBox150">
+          <Style VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.6cm" Left="12.3cm" Top="32.174cm" Value="= Fields.ORDER_NO" Culture="ar-EG" Name="textBox151">
+          <Style VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.65cm" Left="6.1cm" Top="32.17cm" Value="= Fields.ACC_NM" Name="textBox152">
+          <Style VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.1cm" Height="0.7cm" Left="13.35cm" Top="47.5cm" Value="رأى السيد / المدير التنفيذي للصندوق :" Name="textBox118">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.25cm" Height="0.7cm" Left="3.1cm" Top="48.5cm" Value="التوقيع (                            )" Name="textBox119">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.7cm" Left="5.45cm" Top="49.2cm" Value="الإسم :" Name="textBox120">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.6cm" Height="0.7cm" Left="2.75cm" Top="49.9cm" Value="المدير التنفيـــــــــذى للصنـــــــدوق" Name="textBox121">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15cm" Height="0.7cm" Left="2.75cm" Top="50.601cm" Value="ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ" Name="textBox122">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.3cm" Height="0.7cm" Left="12.95cm" Top="51.6cm" Value="قرار السيد / رئيس مجاس إدارة الصندوق :" Name="textBox123">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.15cm" Height="0.7cm" Left="3.35cm" Top="52.6cm" Value="التوقيع (                            )" Name="textBox125">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.05cm" Height="0.7cm" Left="6.45cm" Top="53.3cm" Value="الإسم :" Name="textBox124">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.75cm" Height="0.7cm" Left="3.75cm" Top="54cm" Value="رئـــيــــس مجلــــــــــس الإدارة" Name="textBox126">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="1.3cm" Name="pageFooterSection1">
+      <Items>
+        <TextBox Width="34mm" Height="6mm" Left="25mm" Top="0mm" Value="= 'صفحة'" Culture="ar-EG" Name="textBox158">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14mm" Height="6mm" Left="45mm" Top="6mm" Value="= PageNumber" CanGrow="False" Culture="ar-EG" Name="textBox157">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6mm" Height="6mm" Left="39mm" Top="6mm" Value="= 'من'" Culture="ar-EG" Name="textBox156">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14mm" Height="6mm" Left="25mm" Top="6mm" Value="= PageCount" CanGrow="False" Culture="ar-EG" Name="textBox155">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.2cm" Height="0.6cm" Left="14.7cm" Top="0cm" Value="طبع بواسطة" Name="textBox154">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.2cm" Height="0.6cm" Left="14.7cm" Top="0.6cm" Value="= &quot;المستخدم : &quot;+Cstr(UserIdentity.Name)" Name="textBox153">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0.5cm" Right="0.5cm" Top="0.5cm" Bottom="0.5cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+</Report>

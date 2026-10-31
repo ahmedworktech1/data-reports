@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report Width="21.2cm" Name="ComplaintStatusreport" ShowSnapGrid="True" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="archx" SelectCommand="Select * from Complaints" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="2.5cm" Name="pageHeaderSection1">
+      <Items>
+        <TextBox Width="1.5cm" Height="0.9cm" Left="2.801cm" Top="1.3cm" Value="ملاحظات" Name="textBox4">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.1cm" Height="0.9cm" Left="16.4cm" Top="1.3cm" Value="تاريخ الشكوى" Name="textBox7">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.7cm" Height="0.9cm" Left="7.001cm" Top="1.3cm" Value="الاجراء" Name="textBox9">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.301cm" Height="0.9cm" Left="10.498cm" Top="1.3cm" Value="ملخص الشكوى" Name="textBox10">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2cm" Height="0.9cm" Left="4.301cm" Top="1.3cm" Value="جارى العمل" Name="textBox11">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.499cm" Height="0.9cm" Left="5.501cm" Top="1.3cm" Value="تم الانتهاء" Name="textBox19">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.7cm" Height="0.9cm" Left="18.5cm" Top="1.3cm" Value="رقم الشكوى" Name="textBox28">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.6cm" Height="0.9cm" Left="13.8cm" Top="1.3cm" Value="المستفيد" Name="textBox3">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.797cm" Height="0.9cm" Left="8.701cm" Top="1.3cm" Value="الجهة" Name="textBox31">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.2cm" Height="0.9cm" Left="2.8cm" Top="0.4cm" Value="موقف انتهاء الشكوى" Name="textBox1">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="0.6cm" Name="detailSection1">
+      <Items>
+        <TextBox Width="1.6cm" Height="0.6cm" Left="7.101cm" Top="0cm" Value="= Fields.OrganizationId" Culture="en" Name="textBox18">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="217, 217, 217" Bottom="217, 217, 217" Left="217, 217, 217" Right="217, 217, 217" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.301cm" Height="0.6cm" Left="10.498cm" Top="0cm" Value="= Fields.ComplaintContent" Culture="en" Name="textBox21">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="10pt" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="217, 217, 217" Bottom="217, 217, 217" Left="217, 217, 217" Right="217, 217, 217" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.7cm" Height="0.6cm" Left="18.5cm" Top="0cm" Value="= Fields.RequestId" Culture="en" Name="textBox17">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="217, 217, 217" Bottom="217, 217, 217" Left="217, 217, 217" Right="217, 217, 217" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.6cm" Left="13.8cm" Top="0cm" Value="= Fields.Beneficiary" Culture="en" Name="textBox12">
+          <Style Visible="False" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="10pt" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="217, 217, 217" Bottom="217, 217, 217" Left="217, 217, 217" Right="217, 217, 217" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.7cm" Height="0.6cm" Left="16.8cm" Top="0cm" Value="= Fields.RegistrationDate" Format="{0}" Culture="en" Name="textBox16">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="10pt" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="217, 217, 217" Bottom="217, 217, 217" Left="217, 217, 217" Right="217, 217, 217" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="0.8cm" Name="pageFooterSection1" />
+  </Items>
+  <PageSettings PaperKind="A3" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0.5cm" Right="0.5cm" Top="0.5cm" Bottom="0.5cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+</Report>

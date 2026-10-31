@@ -1,0 +1,692 @@
+[
+  {
+    "ord": 1,
+    "col": "JRN_CD",
+    "type": "nvarchar",
+    "len": 10,
+    "nullable": false,
+    "ident": false,
+    "pk": 1,
+    "ar": "طريقة الطرح"
+  },
+  {
+    "ord": 2,
+    "col": "TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": false,
+    "ident": false,
+    "pk": 1,
+    "ar": "رقم العملية"
+  },
+  {
+    "ord": 3,
+    "col": "LOC",
+    "type": "nvarchar",
+    "len": 10,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 4,
+    "col": "TR_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "التاريخ"
+  },
+  {
+    "ord": 5,
+    "col": "HDSCR",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "الوصف"
+  },
+  {
+    "ord": 6,
+    "col": "PRD",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "الفترة"
+  },
+  {
+    "ord": 7,
+    "col": "TR_Src",
+    "type": "nvarchar",
+    "len": 50,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "مصدر القيد"
+  },
+  {
+    "ord": 8,
+    "col": "TMP_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 9,
+    "col": "HDSCR_EN",
+    "type": "nvarchar",
+    "len": 400,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "الوصف انجليزي"
+  },
+  {
+    "ord": 10,
+    "col": "EnteredBy",
+    "type": "nvarchar",
+    "len": 24,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 11,
+    "col": "UpdatedBy",
+    "type": "nvarchar",
+    "len": 24,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 12,
+    "col": "EntryDate",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 13,
+    "col": "UpdateDate",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 14,
+    "col": "GL_JRN_CD",
+    "type": "nvarchar",
+    "len": 10,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "يومية مقارن"
+  },
+  {
+    "ord": 15,
+    "col": "GL_TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "قيد مقارن"
+  },
+  {
+    "ord": 16,
+    "col": "REVISD",
+    "type": "nvarchar",
+    "len": 40,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "حالة المراجعة"
+  },
+  {
+    "ord": 17,
+    "col": "REVISD_BY",
+    "type": "nvarchar",
+    "len": 400,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "مراجعة بواسطة"
+  },
+  {
+    "ord": 18,
+    "col": "REVISD_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 19,
+    "col": "TOT_NUM_WRD",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 20,
+    "col": "HDOC_TY",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "نوع المستند"
+  },
+  {
+    "ord": 21,
+    "col": "HDOC_NO",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم المستند"
+  },
+  {
+    "ord": 22,
+    "col": "HDOC_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "ت. الاستحقاق"
+  },
+  {
+    "ord": 23,
+    "col": "HCHK_NO",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم الشيك"
+  },
+  {
+    "ord": 24,
+    "col": "TMP_JRN_CD",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 25,
+    "col": "TMP_GL_JRN_CD",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 26,
+    "col": "TMP_GL_TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 27,
+    "col": "COM_ID",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "الوحدة المحاسبية"
+  },
+  {
+    "ord": 28,
+    "col": "HBNK_ID",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "مسحوبا على"
+  },
+  {
+    "ord": 29,
+    "col": "HBNK_BRNCH",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "فرع البنك"
+  },
+  {
+    "ord": 30,
+    "col": "D_JRN_CD",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "اليومية المقابلة"
+  },
+  {
+    "ord": 31,
+    "col": "D_TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "القيد المقابل"
+  },
+  {
+    "ord": 32,
+    "col": "REFS_X",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 33,
+    "col": "A1_REF",
+    "type": "nvarchar",
+    "len": 60,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 34,
+    "col": "TO_NAM",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "المستفيدين"
+  },
+  {
+    "ord": 35,
+    "col": "HJ_TR_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 36,
+    "col": "HJ_REVISD_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 37,
+    "col": "HJ_HDOC_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 38,
+    "col": "BDG_SIGN",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 39,
+    "col": "BDG_SIGN_BY",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 40,
+    "col": "BDG_SIGN_DT",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 41,
+    "col": "BDG_SIGN_NO",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 42,
+    "col": "prntd",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "حالة الطباعة"
+  },
+  {
+    "ord": 43,
+    "col": "CNTRY",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "الدولة"
+  },
+  {
+    "ord": 44,
+    "col": "RepCd",
+    "type": "nvarchar",
+    "len": -1,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 45,
+    "col": "WF_TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 46,
+    "col": "WF_LN_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 47,
+    "col": "REP_CD",
+    "type": "nvarchar",
+    "len": 60,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 48,
+    "col": "HBK_TR_NO",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 49,
+    "col": "TMP_VAL",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 50,
+    "col": "LC_TYP",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "نوع الإعتماد"
+  },
+  {
+    "ord": 51,
+    "col": "SUM_CD",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "بند إحصائي"
+  },
+  {
+    "ord": 52,
+    "col": "CST_CD",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "مركز التكلفة"
+  },
+  {
+    "ord": 53,
+    "col": "DIST_DON",
+    "type": "nvarchar",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 54,
+    "col": "To_Com_Id",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "إلى وحدة محاسبية"
+  },
+  {
+    "ord": 55,
+    "col": "HPOSTED1_F1",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 56,
+    "col": "HPOSTED1_F2",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 57,
+    "col": "HPOSTED1_F3",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 58,
+    "col": "NEW_TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 59,
+    "col": "C_Jrn_Cd",
+    "type": "nvarchar",
+    "len": 10,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 60,
+    "col": "c_Tr_No",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "العملية"
+  },
+  {
+    "ord": 61,
+    "col": "is_Reversed_Copy",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 62,
+    "col": "AZ_TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم الاذن"
+  },
+  {
+    "ord": 63,
+    "col": "AZ_LOC",
+    "type": "nvarchar",
+    "len": 16,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "الفرع"
+  },
+  {
+    "ord": 64,
+    "col": "AZ_TR_TY",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "نوع الحركة"
+  },
+  {
+    "ord": 65,
+    "col": "AZ_OPRTN_NO",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم العملية"
+  },
+  {
+    "ord": 66,
+    "col": "AZ_OPRTN_TY",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "نوع العملية"
+  },
+  {
+    "ord": 67,
+    "col": "AZ_OPRTN_NM",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "اسم العملية"
+  },
+  {
+    "ord": 68,
+    "col": "P_JRN_CD",
+    "type": "varchar",
+    "len": 5,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "اليومية المقابلة"
+  },
+  {
+    "ord": 69,
+    "col": "P_TR_NO",
+    "type": "varchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم القيد المقابل"
+  }
+]

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="19.002cm" Name="QueryVisits" Zoom="0.6666667" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="archx" SelectCommand="select V.VisitDate as VisitDate, VIS.NationalID as NationalID, VIS.VisitorName as VisitorName, V.OrganizationID as OrganizationID, V.DepartmentID as DepartmentID, V.VisitReason as VisitReason, V.ArrivalTime as ArrivalTime, V.DepartureTime as DepartureTime&#xD;&#xA;, VIS.PhoneNumber as PhoneNumber from Visits AS V inner join Visitors AS VIS on v.VisitorID = VIS.VisitorID;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="1.1cm" Name="pageHeaderSection1">
+      <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle" />
+      <Items>
+        <TextBox Width="2.5cm" Height="0.6cm" Left="1.5cm" Top="0.5cm" Value="توقيت الانصراف" Name="textBox8" />
+        <TextBox Width="2.498cm" Height="0.6cm" Left="14.503cm" Top="0.5cm" Value="الرقم القومي" Name="textBox2" />
+        <TextBox Width="3.004cm" Height="0.6cm" Left="11.499cm" Top="0.5cm" Value="الاسم" Name="textBox3" />
+        <TextBox Width="1.499cm" Height="0.6cm" Left="10cm" Top="0.5cm" Value="الجهه" Name="textBox4" />
+        <TextBox Width="2cm" Height="0.6cm" Left="6.001cm" Top="0.5cm" Value="سبب الزياره" Name="textBox6" />
+        <TextBox Width="2cm" Height="0.6cm" Left="3.999cm" Top="0.5cm" Value="توقيت الحضور" Name="textBox7" />
+        <TextBox Width="1.5cm" Height="0.6cm" Left="0cm" Top="0.5cm" Value="التيلفون" Name="textBox9" />
+        <TextBox Width="1.999cm" Height="0.6cm" Left="8.001cm" Top="0.5cm" Value="الاداره المعنيه" Name="textBox5" />
+        <TextBox Width="1.999cm" Height="0.6cm" Left="17.002cm" Top="0.5cm" Value="التاريخ" Name="textBox1" />
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="1cm" Name="detailSection1">
+      <Style BackgroundColor="217, 217, 217" />
+      <Items>
+        <TextBox Width="2cm" Height="0.5cm" Left="17.002cm" Top="0.5cm" Value="= Fields.VisitDate" Name="textBox10" />
+        <TextBox Width="2.498cm" Height="0.5cm" Left="14.503cm" Top="0.5cm" Value="= Fields.NationalID" Name="textBox11" />
+        <TextBox Width="3cm" Height="0.5cm" Left="11.499cm" Top="0.5cm" Value="= Fields.VisitorName" Name="textBox12" />
+        <TextBox Width="1.499cm" Height="0.5cm" Left="10cm" Top="0.5cm" Value="= Fields.OrganizationID" Name="textBox13" />
+        <TextBox Width="1.999cm" Height="0.5cm" Left="8.001cm" Top="0.5cm" Value="= Fields.DepartmentID" Name="textBox14" />
+        <TextBox Width="2cm" Height="0.5cm" Left="6.001cm" Top="0.5cm" Value="= Fields.VisitReason" Name="textBox15" />
+        <TextBox Width="2cm" Height="0.5cm" Left="3.999cm" Top="0.5cm" Value="= Fields.ArrivalTime" Name="textBox16" />
+        <TextBox Width="2.5cm" Height="0.5cm" Left="1.5cm" Top="0.5cm" Value="= Fields.DepartureTime" Name="textBox17" />
+        <TextBox Width="1.5cm" Height="0.5cm" Left="0cm" Top="0.5cm" Value="= Fields.PhoneNumber" Name="textBox18" />
+      </Items>
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="Url" Text="Url" />
+    <ReportParameter Name="login" Text="login" />
+    <ReportParameter Name="filter" AllowNull="True" />
+  </ReportParameters>
+</Report>

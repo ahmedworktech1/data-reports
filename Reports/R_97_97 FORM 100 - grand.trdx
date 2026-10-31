@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="210mm" Name="Report" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style BackgroundColor="Silver" />
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="GLELmostdama" SelectCommand="select db_vl+cr_vl as net, 1 AS NUM,&#xD;&#xA;(select sum_nm_ar from glsums where sum_cd=gljrnld.sum_cd)as sumnm,&#xD;&#xA;(select cst_nm_ar from glcst where cst_cd=left (gljrnld.cst_cd,2))as cstnm,&#xD;&#xA;(select cst_nm_ar from glcst where cst_cd=(select left (sum_cst_cd,2) from glsums where sum_cd=gljrnld.sum_cd))as cstnm1,&#xD;&#xA;(select acc_nm_ar from glmf where acc_no=gljrnld.acc_no)as acctnm,&#xD;&#xA;(select fmly from glmf where acc_no=gljrnld.acc_no)as fmly,&#xD;&#xA;(select btch_id from glcst where cst_cd=gljrnld.cst_cd)as btich ,&#xD;&#xA;(select LC_NO from glLCMF where SUM_cd=gljrnld.SUM_cd)as LCNO ,&#xD;&#xA;(select LC_AMOUNT from glLCMF where SUM_cd=gljrnld.SUM_cd)as LCAMOUNT ,&#xD;&#xA;(select LC_DSCR_AR from glLCMF where SUM_cd=gljrnld.SUM_cd)as DSCR ,&#xD;&#xA;(select opn_dt from glLCMF where SUM_cd=gljrnld.SUM_cd)as opendate ,&#xD;&#xA;(select LC_dscr_en from glLCMF where SUM_cd=gljrnld.SUM_cd)as adress ,&#xD;&#xA;(select ren_dt1 from glLCMF where SUM_cd=gljrnld.SUM_cd)as ren1 ,&#xD;&#xA;(select ren_dt2 from glLCMF where SUM_cd=gljrnld.SUM_cd)as ren2 , &#xD;&#xA;(select ren_dt3 from glLCMF where SUM_cd=gljrnld.SUM_cd)as ren3 ,  &#xD;&#xA;(select ren_vl1 from glLCMF where SUM_cd=gljrnld.SUM_cd)as renvl1 , &#xD;&#xA;(select ren_vl2 from glLCMF where SUM_cd=gljrnld.SUM_cd)as renvl2 , &#xD;&#xA;(select ren_vl3 from glLCMF where SUM_cd=gljrnld.SUM_cd)as renvl3 ,&#xD;&#xA;(select exp_dt1 from glLCMF where SUM_cd=gljrnld.SUM_cd)as exp_dt1 , &#xD;&#xA;(select exp_dt1 from glLCMF where SUM_cd=gljrnld.SUM_cd)as exp_dt2 , &#xD;&#xA;(select exp_dt1 from glLCMF where SUM_cd=gljrnld.SUM_cd)as exp_dt3 ,  &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;* from  gljrnld&#xD;&#xA;&#xD;&#xA;WHERE ACC_NO BETWEEN '1001' AND '100799999'&#xD;&#xA;and jrn_cd='02'&#xD;&#xA;AND 1=1&#xD;&#xA;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <ReportFooterSection Height="260mm" Name="ReportFooterSection5">
+      <Style Visible="True" BackgroundColor="White">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Default="0pt" Top="0pt" Bottom="0pt" Left="0pt" Right="0pt" />
+      </Style>
+      <Items>
+        <TextBox Width="164.47mm" Height="42mm" Left="11.11mm" Top="94mm" Value="&quot;The undersigned hereby certify that the expenditures for which replenishment is claimed in Form 102&#xA;A and 102 B are correct, for the Project as provided in the IFAD Financing Agreement. We certify&#xA;that the expenditures incurred are within the statement of expenditure (SOE) thresholds and represent&#xA;resources used in compliance with the principles of legality, regularity and sound financial&#xA;management. We certify that the audit requirement outlined in article VIII and section 9.01 of the&#xA;General Conditions will be complied with, and that the requirements for maintaining records and&#xA;documentation for expenditures disbursed using the Statement of Expenditure (Form 102/A) modality&#xA;and outlined in section 4.04(c) and (d) of the General Conditions, will be complied with. This&#xA;includes, inter alia, that an annual audit will be carried out and that the documentation (including&#xA;purchase orders, invoices, evidence of payment and delivery and any other relevant documentation&#xA;evidencing the expenditures) will be retained for 10 years after the Closing Date of the IFAD&#xA;Financing, and that such records and documentation will be made available to IFAD representatives&#xA;for review on request.&quot;          " Name="Label6">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="197.03mm" Height="5.56mm" Left="6.09mm" Top="54.46mm" Value="We hereby apply for withdrawal from the Loan/Grant Account opened under the IFAD Financing Agreement and hereby certify as follows: " Name="Label1">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="189mm" Height="9.53mm" Left="11.11mm" Top="60.55mm" Value="The undersigned has not previously withdrawn from the Loan/Grant Account to meet these expenditures and has not and does not intend to obtain funds for this purpose out of the proceeds of any other loan/grant/financing.          " Name="Label2">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="111mm" Height="5.56mm" Left="11.11mm" Top="82.24mm" Value="This Application for Withdrawal covers a reporting period:          " Name="Label3">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="184.67mm" Height="10.32mm" Left="11.11mm" Top="71.39mm" Value="The goods and services covered by this application have been or are being purchased and/or procured in accordance with the terms of the General Conditions for Agricultural Development Financing approved on 29 April 2009.           " Name="Label4">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.76mm" Height="4.23mm" Left="5.55mm" Top="24.04mm" Value="1" Name="Label10">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7mm" Height="4.23mm" Left="165.23mm" Top="25.73mm" Value="2" Name="Label101">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7mm" Height="4.23mm" Left="5.55mm" Top="48.23mm" Value="3" Name="Label12">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="52.65mm" Height="5.56mm" Left="11.37mm" Top="24.04mm" Value="IFAD Loan/Grant/Financing No.:   " Name="Label43">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="110.33mm" Height="4.5mm" Left="19.73mm" Top="32.24mm" Value="International Fund for Agricultural Development (IFAD)" Name="Label44">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="27.78mm" Height="5.56mm" Left="170.52mm" Top="25.73mm" Value="Application No.:" Name="Label45">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="25.4mm" Height="5.56mm" Left="11.37mm" Top="48.23mm" Value=":Please Pay" Name="Label46">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="75.67mm" Height="7.31mm" Left="70.73mm" Top="16.73mm" Value="FORM 100 - APPLICATION FOR WITHDRAWAL          " Name="Label21">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.36mm" Height="4.23mm" Left="11.11mm" Top="32.5mm" Value="TO" Name="Label103">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.25mm" Height="4.23mm" Left="19.73mm" Top="36.95mm" Value="Via Paolo di Dono, 44" Name="Label23">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.51mm" Height="5.05mm" Left="19.46mm" Top="41.95mm" Value=" 00142Rome, Italy" Name="Label54">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="11.85mm" Height="5.56mm" Left="28.26mm" Top="88.06mm" Value="FROM" Name="Label55">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.73mm" Height="5.56mm" Left="78.26mm" Top="88.06mm" Value="TO" Name="Label56">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="27.53mm" Height="5.56mm" Left="64.58mm" Top="24.04mm" Value="2000000712" Name="Label65">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="13.37mm" Height="5.56mm" Left="36.92mm" Top="48.26mm" Value="EUR" Name="Label66">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="31.59mm" Height="4.5mm" Left="126.99mm" Top="48.23mm" Value="= Fields.CUR_VL" Name="DBCalc1">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.44mm" Height="4.23mm" Left="7.15mm" Top="61.89mm" Value="A" Name="Label104">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.38mm" Height="4.23mm" Left="7.15mm" Top="82.26mm" Value="C" Name="Label50">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.44mm" Height="4.23mm" Left="7.15mm" Top="72.74mm" Value="B" Name="Label51">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.38mm" Height="4.23mm" Left="7.15mm" Top="93.64mm" Value="D" Name="Label501">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="38.9mm" Height="3.97mm" Left="8.47mm" Top="137.83mm" Value="Details of Expenditure" Name="Label5">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="101.89mm" Height="7.5mm" Left="9.23mm" Top="142.73mm" Value="&quot;(Use summary sheet(s) if additional space is required or if expenditures relate to &#xA;more than one supplier, category or subcategory).&quot;     " Name="Label7">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="73.82mm" Height="3.7mm" Left="12.96mm" Top="151.72mm" Value="Name and Address of Contractor or Supplier " Name="Label8">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="33.34mm" Height="3.97mm" Left="16.14mm" Top="156.09mm" Value="(If different from Payee)" Name="Label9">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7mm" Height="4.23mm" Left="6.07mm" Top="151.72mm" Value="4" Name="Label102">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7mm" Height="4.23mm" Left="6.07mm" Top="161.77mm" Value="5" Name="Label14">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="62.71mm" Height="3.7mm" Left="12.96mm" Top="169.44mm" Value=":A) Contract or Purchase Order No. and Date" Name="Label11">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="62.97mm" Height="3.7mm" Left="12.96mm" Top="176.06mm" Value=":B) Description of Goods, Works or Services" Name="Label16">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="60.85mm" Height="3.7mm" Left="12.96mm" Top="183.2mm" Value=":C) Currency and Total Amount of Contract" Name="Label17">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="98.16mm" Height="3.7mm" Left="12.96mm" Top="190.61mm" Value=": D) Invoice Nos. and Net Amount of Invoices Covered by this Application  " Name="Label18">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="51.59mm" Height="4.23mm" Left="13.49mm" Top="196.7mm" Value="Withdrawal Details" Name="Label13">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7mm" Height="4.23mm" Left="6.6mm" Top="195.9mm" Value="6" Name="Label20">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="55.02mm" Height="4.23mm" Left="11.59mm" Top="201.2mm" Value=": A) Category or Subcategory No" Name="Label15">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="88.67mm" Height="4.23mm" Left="11.59mm" Top="207.28mm" Value=":B) Percentage of Expenditures to be Financed by IFAD" Name="Label22">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="23.29mm" Height="4.23mm" Left="13.49mm" Top="213.37mm" Value="Payee’s Bank" Name="Label19">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7mm" Height="4.23mm" Left="6.6mm" Top="212.57mm" Value="7" Name="Label201">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="12.43mm" Height="4.23mm" Left="11.59mm" Top="218.39mm" Value=": Name" Name="Label25">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.26mm" Height="4.23mm" Left="11.11mm" Top="224.2mm" Value=": Address" Name="Label26">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="23.13mm" Height="4.23mm" Left="11.11mm" Top="230.04mm" Value=": Account No" Name="Label27">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="60.59mm" Height="4.23mm" Left="117.11mm" Top="152.61mm" Value=":Payee’s Name and Address" Name="Label28">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.76mm" Height="4.23mm" Left="110.11mm" Top="152.61mm" Value="8" Name="Label29">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="34.93mm" Height="4.23mm" Left="117.11mm" Top="162.93mm" Value=":Correspondent Bank" Name="Label30">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.76mm" Height="4.23mm" Left="110.11mm" Top="162.93mm" Value="9" Name="Label31">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="74.61mm" Height="4.5mm" Left="117.11mm" Top="168.49mm" Value="Full Address: COMMERZBANK AG KAISERSTRASSE 16 FRANKFURT AM MAIN" Name="Label301">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="74.37mm" Height="6.09mm" Left="117.11mm" Top="184.36mm" Value=":Special Payment Instructions and References" Name="Label302">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.76mm" Height="4.23mm" Left="110.11mm" Top="184.36mm" Value="10" Name="Label34">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="74.61mm" Height="4.5mm" Left="119.11mm" Top="202.09mm" Value="Name of Borrower/Recipient   " Name="Label35">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.76mm" Height="4.23mm" Left="110.11mm" Top="201.99mm" Value="11" Name="Label36">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.76mm" Height="4.23mm" Left="110.13mm" Top="210.98mm" Value="12" Name="Label37">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.76mm" Height="4.23mm" Left="110.66mm" Top="218.13mm" Value="13" Name="Label38">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.76mm" Height="6.09mm" Left="110.66mm" Top="224.75mm" Value="14" Name="Label39">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="74.61mm" Height="4.5mm" Left="119.11mm" Top="212.41mm" Value="  " Name="Label40">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="74.61mm" Height="4.5mm" Left="119.11mm" Top="218.23mm" Value="  " Name="Label402">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="30.96mm" Height="3.97mm" Left="15.07mm" Top="162.83mm" Value="Procurement Details" Name="Label57">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="37.47mm" Height="4.23mm" Left="27.61mm" Top="218.49mm" Value=",Central Bank of Egypt" Name="Label58">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="63mm" Height="4.23mm" Left="27.61mm" Top="224.48mm" Value=" 54EL Gamhoria St. - Cairo - Egypt" Name="Label59">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="22.43mm" Height="4.23mm" Left="35.18mm" Top="229.91mm" Value="4082184791" Name="Label60">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="74.61mm" Height="4.5mm" Left="117.11mm" Top="173.52mm" Value="Account Number: 4082184791 EUR" Name="Label61">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="74.61mm" Height="4.5mm" Left="117.11mm" Top="178.28mm" Value="SWIFT Code: COBADEFFXXX" Name="Label62">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="80.7mm" Height="4.5mm" Left="112.09mm" Top="158.17mm" Value=" Sustainable Agriculture Investment and Livelihood Project (SAIL)" Name="Label63">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="57mm" Height="3.89mm" Left="11.11mm" Top="235.73mm" Value="SWIFT Code: CBEGEGCXXXX" Name="Label64">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="11.35mm" Height="4.23mm" Left="66.62mm" Top="201.2mm" Value="IV , VI" Name="Label67">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.41mm" Height="4.23mm" Left="199.23mm" Top="25.61mm" Value="22" Name="Label68">
+          <Style BackgroundColor="Silver" Color="WindowText" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="74.61mm" Height="4.5mm" Left="119.13mm" Top="227.11mm" Value="Eng. Moustafa Ibrahim Ali Elsayad, Project Director" Name="Label41">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="84mm" Height="5.04mm" Left="117.61mm" Top="244.58mm" Value="Abd El Mounged Mohammed Saleh, Financial Controller" Name="Label69">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.15mm" Height="4.5mm" Left="40.11mm" Top="88.73mm" Value="=CDate(Parameters.FromDate.Value)" Name="textBox1">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="35.77mm" Height="4.5mm" Left="87mm" Top="88mm" Value="=CDate(Parameters.ToDate.Value)" Name="textBox2">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0mm" Right="0mm" Top="0mm" Bottom="0mm" />
+    </Margins>
+  </PageSettings>
+  <ReportParameters>
+    <ReportParameter Name="FromDate" AllowNull="True" />
+    <ReportParameter Name="ToDate" AllowNull="True" />
+  </ReportParameters>
+</Report>

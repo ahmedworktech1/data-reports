@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report Width="10.118in" UnitOfMeasure="Inch" Name="TableWizardTest" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <WebServiceDataSource ParameterValues="{&quot;@Url&quot;:&quot;https://localhost:44355/gl/ReportFaRpn/GetDataTableWizard&quot;,&quot;.AspNetCore.Identity.Application&quot;:&quot;CfDJ8ObTT2MeOiJPrKH0WWrWzL8ysAvVdVPRLG0cYYSmwgqGjz3jwp6wyPOIrSEM73WIfOkZknIGJmPzpF8AZ5rM7-3W8qqJ2SbRgd53XaqjHks-O7Soqb8bh5AQRHvhbRLT31yIocR0kx96S_ox3H8tmJIjExM8InFtoebmXrW8POgNDrtsjApTaHbhP5zov4VkVOHPh-i5gtt614d3pIEyaoOCrFlHjvxhCElhjxY7-KI8HweCuUtNww07aD8XvMhej4J6A4Ont6haYyf5pCKDbhi9oGOS46usy0DtmMov6pTseZhSv5TSzewinKiUCXoNf4buwhOuQXxSd8duSuZQ5GJWkMF_NUTbHUYZ47pMwhFGHNCqxrZF3fK5piH3w6yTzUQCbszxAVbP_-xaTJgOxnI9ggY5_F_x9KqP939Fr59ek-ulMLVm8guotGYQH9GrTcxKLD8yrjnh8IprWNh-t5HE0wYGTTar8-4wnEm-tF0DHHsyaSgaFveNboGeg695X3nAuX7BtHwjvjoh_nZG2XaSZsRw34Pe3i9IlElSMY0Ko4Eld3fA6RT2UEXh05YVDPmTQvlLDLq7jJtQhV_nB8jBdULm4gHGVzn-cPp6XLkpNWI3SFHxSSHCHMhLEh17L7ummKXdFPFZAwfLhMqPV77DS1kDRrmsna0DHGUmqPVWy5UFGVm0Ko4-jVhEY6R5TmtiThVNv1keStnlCLTTIzlpw0mdKAZdV1J3d9wd8eBC3QrwkpYMCCUABxiwxhZ3UwnoquwbmzRNNWaevmLmq5G_zx0byEFnnbBtyMdQmpowYr-dE6dbiWcPld8mD6p9xDtN1Jnsou609tDpbuvbDboVR5uAVfH5P5owkBI98J0_UDv6-8vCnFuEcVljYOHbhw&quot;}" AuthParameterValues="null" ServiceUrl="@Url" Name="webServiceDataSource1">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "gl/ReportFaRpn/GetDataTableWizard"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <DetailSection Height="2.8cm" Name="detailSection1">
+      <Items>
+        <Crosstab DataSourceName="webServiceDataSource1" Width="8.2cm" Height="2.108cm" Left="0cm" Top="0.692cm" RowHeadersPrintOnEveryPage="True" ColumnHeadersPrintOnEveryPage="True" Name="crosstab1" StyleName="Office.TableNormal">
+          <Body>
+            <Cells>
+              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="2.014cm" Height="0.8cm" Left="0cm" Top="0cm" Value="= Sum(Fields.smqty)" Name="textBox6" StyleName="Office.TableBody">
+                    <Style TextAlign="Center" />
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+            </Cells>
+            <Columns>
+              <Column Width="2.014cm" />
+            </Columns>
+            <Rows>
+              <Row Height="0.8cm" />
+            </Rows>
+          </Body>
+          <Corner>
+            <Cells>
+              <TableCell RowIndex="1" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="2.554cm" Height="0.315in" Left="0cm" Top="0cm" Value="mfa_cd" Name="textBox4" StyleName="Office.TableHeader" />
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="1" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.632cm" Height="0.315in" Left="0cm" Top="0cm" Value="mfa_nm" Name="textBox5" StyleName="Office.TableHeader" />
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="2.554cm" Height="0.2in" Left="0cm" Top="0cm" Name="textBox9" StyleName="Office.TableHeader" />
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.632cm" Height="0.2in" Left="0cm" Top="0cm" Name="textBox10" StyleName="Office.TableHeader" />
+                </ReportItem>
+              </TableCell>
+            </Cells>
+          </Corner>
+          <RowGroups>
+            <TableGroup Name="mfa_cd">
+              <ReportItem>
+                <TextBox Width="2.554cm" Height="0.8cm" Left="0cm" Top="0cm" Value="= Fields.mfa_cd" Name="textBox2" StyleName="Office.TableGroup" />
+              </ReportItem>
+              <ChildGroups>
+                <TableGroup Name="mfa_nm">
+                  <ReportItem>
+                    <TextBox Width="3.632cm" Height="0.8cm" Left="0cm" Top="0cm" Value="= Fields.mfa_nm" Name="textBox3" StyleName="Office.TableGroup" />
+                  </ReportItem>
+                  <Groupings>
+                    <Grouping Expression="= Fields.mfa_nm" />
+                  </Groupings>
+                  <Sortings>
+                    <Sorting Expression="= Fields.mfa_nm" Direction="Asc" />
+                  </Sortings>
+                </TableGroup>
+              </ChildGroups>
+              <Groupings>
+                <Grouping Expression="= Fields.mfa_cd" />
+              </Groupings>
+              <Sortings>
+                <Sorting Expression="= Fields.mfa_cd" Direction="Asc" />
+              </Sortings>
+            </TableGroup>
+          </RowGroups>
+          <ColumnGroups>
+            <TableGroup Name="mcst_nmmcst_cd">
+              <ChildGroups>
+                <TableGroup Name="group2">
+                  <ReportItem>
+                    <TextBox Width="2.014cm" Height="0.2in" Left="0cm" Top="0cm" Value="= Fields.mcst_nm" Name="textBox14" StyleName="Office.TableGroup">
+                      <Style Visible="True" BackgroundColor="255, 255, 0" TextAlign="Center" />
+                    </TextBox>
+                  </ReportItem>
+                  <ChildGroups>
+                    <TableGroup Name="cstName">
+                      <ReportItem>
+                        <TextBox Width="2.014cm" Height="0.315in" Left="0cm" Top="0cm" Value="= Fields.CstName" Name="textBox1" StyleName="Office.TableGroup">
+                          <Style BackgroundColor="217, 217, 217" TextAlign="Center" />
+                        </TextBox>
+                      </ReportItem>
+                      <Groupings>
+                        <Grouping Expression="= Fields.CstName" />
+                      </Groupings>
+                      <Sortings>
+                        <Sorting Expression="= Fields.CstName" Direction="Asc" />
+                      </Sortings>
+                    </TableGroup>
+                  </ChildGroups>
+                </TableGroup>
+              </ChildGroups>
+              <Groupings>
+                <Grouping Expression="= Fields.mcst_nm" />
+                <Grouping Expression="= Fields.mcst_cd" />
+              </Groupings>
+              <Sortings>
+                <Sorting Expression="= Fields.mcst_nm" Direction="Asc" />
+                <Sorting Expression="= Fields.mcst_cd" Direction="Asc" />
+              </Sortings>
+            </TableGroup>
+          </ColumnGroups>
+        </Crosstab>
+      </Items>
+    </DetailSection>
+    <PageHeaderSection Height="3.1cm" Name="pageHeaderSection1">
+      <Items>
+        <PictureBox Value="= Parameters.Logo.Value" Width="1.772in" Height="0.906in" Left="0.315in" Top="0.197in" MimeType="" Name="pictureBox1">
+          <Style>
+            <BackgroundImage ImageData="null" Repeat="NoRepeat" />
+          </Style>
+        </PictureBox>
+        <TextBox Width="2.613in" Height="0.304in" Left="6.929in" Top="0.078in" Value="= Parameters.CompanyName.Value" Name="textBox34">
+          <Style TextAlign="Center">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.613in" Height="0.276in" Left="6.929in" Top="0.382in" Value="= Parameters.CompanyAddress.Value" Name="textBox33">
+          <Style TextAlign="Center">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.799cm" Height="1.188cm" Left="7.801cm" Top="0cm" Value="= Parameters.ReportTitle.Value " Name="textBox15">
+          <Style BackgroundColor="White" Color="0, 176, 80" TextAlign="Center" VerticalAlign="Middle" LineStyle="Dashed">
+            <Font Name="Arial" Size="16pt" Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <PageFooterSection Height="2.5cm" Name="pageFooterSection1">
+      <Items>
+        <TextBox Width="4cm" Height="1cm" Left="13cm" Top="1.5cm" Value="Page: {PageNumber}" Name="ReportPageNumberTextBox">
+          <Style>
+            <Font Name="Segoe UI" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="1cm" Right="1cm" Top="1cm" Bottom="1cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style Color="20, 34, 77">
+        <Font Name="Calibri" Size="9pt" />
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="Table" StyleName="Office.TableNormal" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style>
+        <Font Name="Calibri" Size="9pt" />
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+      </Style>
+      <Selectors>
+        <DescendantSelector>
+          <Selectors>
+            <TypeSelector Type="Table" />
+            <StyleSelector Type="ReportItem" StyleName="Office.TableBody" />
+          </Selectors>
+        </DescendantSelector>
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style BackgroundColor="121, 167, 227" Color="20, 34, 77" VerticalAlign="Middle">
+        <Font Name="Calibri" Size="10pt" />
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+      </Style>
+      <Selectors>
+        <DescendantSelector>
+          <Selectors>
+            <TypeSelector Type="Table" />
+            <StyleSelector Type="ReportItem" StyleName="Office.TableHeader" />
+          </Selectors>
+        </DescendantSelector>
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style BackgroundColor="238, 244, 251" Color="20, 34, 77">
+        <Font Name="Calibri" Size="9pt" />
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+      </Style>
+      <Selectors>
+        <DescendantSelector>
+          <Selectors>
+            <TypeSelector Type="Table" />
+            <StyleSelector Type="ReportItem" StyleName="Office.TableGroup" />
+          </Selectors>
+        </DescendantSelector>
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="Url" AllowNull="True" />
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="ReportTitle" AllowNull="True" />
+    <ReportParameter Name="CompanyAddress" AllowNull="True" />
+    <ReportParameter Name="CompanyName" />
+    <ReportParameter Name="logo" AllowNull="True" />
+  </ReportParameters>
+</Report>

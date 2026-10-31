@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="21cm" Name="LeaseContractAlhafez_NEW" ShowSnapGrid="True" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style>
+    <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+    <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+    <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+  </Style>
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="AQDATA20191" SelectCommand="SELECT dbo.AQ_vacate.SNO, dbo.AQ_vacate.TR_NO, dbo.AQ_vacate.TR_DT, dbo.tenantMF.TENANT_Nm_AR, dbo.tenantMF.TENANT_Nm_EN, dbo.AQRENT_H.UNTS, dbo.BLDMF.BLD_DSCR_AR, dbo.BLDMF.BLD_DSCR_EN, &#xD;&#xA;                 dbo.AQ_vacate.Rmrk, dbo.AQRENT_H.INS, dbo.AQRENT_H.Unts_Dscrs, dbo.AQ_vacate.Exit_dt, dbo.BLDMF.AREA_CD, dbo.AQLISTS.REC_TYPE, dbo.AQLISTS.DSCR_AR&#xD;&#xA;FROM    dbo.AQRENT_H INNER JOIN&#xD;&#xA;                 dbo.AQ_vacate ON dbo.AQRENT_H.Tr_NO = dbo.AQ_vacate.TR_NO INNER JOIN&#xD;&#xA;                 dbo.tenantMF ON dbo.AQRENT_H.TENANT_NO = dbo.tenantMF.TENANT_NO INNER JOIN&#xD;&#xA;                 dbo.BLDMF ON dbo.AQRENT_H.BLD_CD = dbo.BLDMF.BLD_CD INNER JOIN&#xD;&#xA;                 dbo.AQLISTS ON dbo.BLDMF.AREA_CD = dbo.AQLISTS.CODE&#xD;&#xA;WHERE ( dbo.AQLISTS.REC_TYPE = 2) " Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="0.3cm" Name="pageHeaderSection1">
+      <Style Visible="False" />
+    </PageHeaderSection>
+    <DetailSection PageBreak="Before" Height="26.381cm" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White" TextAlign="Right">
+        <Font Name="Segoe UI" Size="8pt" Bold="False" />
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="217, 217, 217" Bottom="217, 217, 217" Left="217, 217, 217" Right="217, 217, 217" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="1.778cm" Height="0.524cm" Left="18.822cm" Top="3.108cm" Value="تاريخ الطلب" Name="textBox1">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="242, 242, 242" Bottom="242, 242, 242" Left="242, 242, 242" Right="242, 242, 242" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.064cm" Height="0.674cm" Left="8.468cm" Top="2.152cm" Value="طلب تنازل وإخلاء " Name="textBox3">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" Underline="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.064cm" Height="0.674cm" Left="8.468cm" Top="1.478cm" Value="waiver  Request" Name="textBox5">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" Underline="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.2cm" Height="0.557cm" Left="14.4cm" Top="3.867cm" Value="السادة / شركة حبيب العقارية المحترمين " Name="textBox15">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.8cm" Height="0.51cm" Left="10cm" Top="5.2cm" Value="=Fields.TENANT_Nm_AR" Multiline="False" Culture="ar" Name="textBox18">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.532cm" Height="0.51cm" Left="0.77cm" Top="4.582cm" Value="After Greetings," Culture="uk" Name="textBox31">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="10.152cm" Height="0.41cm" Left="0.77cm" Top="6.05cm" Value="tenant of the unit/units:" Culture="uk" Name="textBox34">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.699cm" Height="0.504cm" Left="0.841cm" Top="7.07cm" Value="In Building:" Culture="uk" Name="textBox35">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.71cm" Height="0.508cm" Left="17.89cm" Top="5.288cm" Value="انا الموقع أدناه" Name="textBox36">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Name="Segoe UI" Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.508cm" Height="0.504cm" Left="19.092cm" Top="7.07cm" Value="في العقار : " Name="textBox37">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.508cm" Height="0.479cm" Left="19.092cm" Top="7.612cm" Value="الكائن في : " Name="textBox38">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.699cm" Height="0.479cm" Left="0.841cm" Top="7.612cm" Value="Located in:" Culture="uk" Name="textBox39">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.859cm" Height="0.474cm" Left="0.841cm" Top="8.137cm" Value="Please accept the termination of the above contract as of" Culture="uk" Name="textBox43">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.2cm" Height="0.472cm" Left="14.4cm" Top="4.582cm" Value="تحية طيب وبعد ،،،" Name="textBox44">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="8pt" Bold="True" Underline="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.088cm" Height="0.41cm" Left="16.512cm" Top="6.05cm" Value="مستأجر الوحدة / الوحدات التالية :" Name="textBox45">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Name="Segoe UI" Size="8pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.916cm" Height="0.535cm" Left="17.684cm" Top="10.622cm" Value="سبب التنازل " Name="textBox61">
+          <Style TextAlign="Justify" VerticalAlign="Top">
+            <Font Name="Segoe UI" Size="8pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.997cm" Height="1.524cm" Left="0.762cm" Top="8.844cm" Value="We pledge to handover the key the unit/s 5 days before the specified date of the end of the contract.&#xD;&#xA;Thank you &amp; Best Regards.&#xD;&#xA;" Culture="uk" Name="textBox95">
+          <Style TextAlign="Justify" VerticalAlign="Top">
+            <Font Name="Segoe UI" Size="8pt" Bold="False" Underline="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.794cm" Height="0.508cm" Left="0.762cm" Top="10.622cm" Value="Reason for waiver" Culture="uk" Name="textBox106">
+          <Style TextAlign="Justify" VerticalAlign="Top">
+            <Font Size="8pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.208cm" Height="0.481cm" Left="6.403cm" Top="25.529cm" Value="التوقيع :" Name="textBox131">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.686cm" Height="0.481cm" Left="0.854cm" Top="25.529cm" Value="Signature:" Culture="uk" Name="textBox130">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.398cm" Height="0.51cm" Left="3.302cm" Top="5.288cm" Value="=Fields.TENANT_Nm_EN" Multiline="False" Culture="uk" Name="textBox7">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.5cm" Height="0.474cm" Left="15.1cm" Top="8.137cm" Value="أرجوا قبول إنهاء العقد أعلاه  إعتبارا من تاريخ    " Name="textBox13">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Name="Segoe UI" Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.688cm" Height="0.524cm" Left="15.9cm" Top="3.108cm" Value="= Fields.TR_DT" Format="{0:d}" Multiline="False" Culture="uk-UA" Name="textBox20">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="242, 242, 242" Bottom="242, 242, 242" Left="242, 242, 242" Right="242, 242, 242" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.8cm" Height="0.504cm" Left="10.2cm" Top="7.07cm" Value="=Fields.BLD_DSCR_AR" Multiline="False" Name="textBox46">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.128cm" Height="0.504cm" Left="2.672cm" Top="7.07cm" Value="=Fields.BLD_DSCR_EN" Multiline="False" Culture="uk" Name="textBox47">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="11cm" Height="0.446cm" Left="8cm" Top="7.612cm" Value="=Fields.DSCR_AR" Multiline="False" Name="textBox49">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.569cm" Height="0.479cm" Left="2.672cm" Top="7.612cm" Value="=Fields.DSCR_AR" Multiline="False" Culture="uk" Name="textBox52">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.1cm" Height="1.256cm" Left="11.5cm" Top="8.844cm" Value="وأتعهد بتسليم مفتاح الوحدة قبل الموعد المحدد ب 5 أيام من تاريخ نهاية العقد .&#xD;&#xA;وتفضلوا بقبول فائق الإحترام .&#xD;&#xA;" Name="textBox17">
+          <Style TextAlign="Justify" VerticalAlign="Top">
+            <Font Name="Segoe UI" Size="8pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19.759cm" Height="0.415cm" Left="0.841cm" Top="6.558cm" Value="=Fields.Unts_Dscrs" Name="textBox117">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Name="Segoe UI" Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.623cm" Height="0.508cm" Left="17.977cm" Top="14.432cm" Value="ملاحظات الصيانة :" Name="textBox4">
+          <Style TextAlign="Justify" VerticalAlign="Top">
+            <Font Name="Segoe UI" Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.794cm" Height="0.514cm" Left="0.762cm" Top="14.426cm" Value="Maintenance notes:" Culture="uk" Name="textBox2">
+          <Style TextAlign="Justify" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.138cm" Height="0.557cm" Left="0.762cm" Top="3.867cm" Value="Dear : Habib Real Estate company" Culture="uk" Name="textBox68">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.8cm" Height="0.474cm" Left="8.8cm" Top="8.137cm" Value="= Fields.Exit_dt" Format="{0:d}" Multiline="False" Culture="uk-UA" Name="textBox69">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19.838cm" Height="1.016cm" Left="0.762cm" Top="11.183cm" Value="= Fields.Rmrk" Name="textBox94">
+          <Style TextAlign="Justify" VerticalAlign="Top">
+            <Font Name="Segoe UI" Size="8pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.778cm" Height="0.5cm" Left="18.822cm" Top="2.092cm" Value="رقم العقد" Multiline="False" Name="textBox147">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="242, 242, 242" Bottom="242, 242, 242" Left="242, 242, 242" Right="242, 242, 242" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.954cm" Height="0.5cm" Left="13.936cm" Top="2.092cm" Value="contract no" Multiline="False" Name="textBox155">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="242, 242, 242" Bottom="242, 242, 242" Left="242, 242, 242" Right="242, 242, 242" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.7cm" Height="0.506cm" Left="15.9cm" Top="2.092cm" Value="= Fields.TR_NO" Format="{0}" Multiline="False" Culture="en" Name="textBox146">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="242, 242, 242" Bottom="242, 242, 242" Left="242, 242, 242" Right="242, 242, 242" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.778cm" Height="0.5cm" Left="18.822cm" Top="2.6cm" Value="رقم الإخلاء" Multiline="False" Name="textBox158">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="242, 242, 242" Bottom="242, 242, 242" Left="242, 242, 242" Right="242, 242, 242" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.954cm" Height="0.5cm" Left="13.936cm" Top="2.6cm" Value="Waive no" Multiline="False" Name="textBox157">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="242, 242, 242" Bottom="242, 242, 242" Left="242, 242, 242" Right="242, 242, 242" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.7cm" Height="0.506cm" Left="15.9cm" Top="2.6cm" Value="=Fields.SNO" Format="{0}" Multiline="False" Culture="en" Name="textBox54">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="242, 242, 242" Bottom="242, 242, 242" Left="242, 242, 242" Right="242, 242, 242" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.954cm" Height="0.5cm" Left="13.936cm" Top="3.108cm" Value="Request date" Multiline="False" Name="textBox159">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="242, 242, 242" Bottom="242, 242, 242" Left="242, 242, 242" Right="242, 242, 242" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.532cm" Height="0.51cm" Left="0.77cm" Top="5.288cm" Value="Undersigned by " Culture="uk" Name="textBox6">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.208cm" Height="0.513cm" Left="6.403cm" Top="12.654cm" Value="الإسم :" Name="textBox11">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.778cm" Height="0.513cm" Left="0.762cm" Top="12.654cm" Value="Name:" Culture="uk" Name="textBox10">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.208cm" Height="0.481cm" Left="6.403cm" Top="13.167cm" Value="التوقيع :" Name="textBox9">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.77cm" Height="0.481cm" Left="0.77cm" Top="13.167cm" Value="Signature:" Culture="uk" Name="textBox8">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.208cm" Height="0.481cm" Left="6.403cm" Top="17.48cm" Value="التوقيع :" Name="textBox16">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.778cm" Height="0.481cm" Left="0.77cm" Top="17.48cm" Value="Signature:" Culture="uk" Name="textBox14">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.163cm" Height="0.508cm" Left="17.437cm" Top="18.809cm" Value="ملاحظات إدارة العقارات " Name="textBox22">
+          <Style TextAlign="Justify" VerticalAlign="Top">
+            <Font Name="Segoe UI" Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.318cm" Height="0.514cm" Left="0.762cm" Top="18.803cm" Value="Real Estate notes:" Culture="uk" Name="textBox21">
+          <Style TextAlign="Justify" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19.838cm" Height="1.672cm" Left="0.762cm" Top="20.634cm" Value="" Culture="uk" Name="textBox19">
+          <Style TextAlign="Center" VerticalAlign="Top">
+            <Font Size="8pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.4cm" Height="0.508cm" Left="18.2cm" Top="19.512cm" Value="الإيجارات المستحقة" Name="textBox23">
+          <Style TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Segoe UI" Size="8pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.4cm" Height="0.514cm" Left="18.2cm" Top="20.02cm" Value="Rent not payed" Culture="uk" Name="textBox24">
+          <Style TextAlign="Center" VerticalAlign="Top">
+            <Font Size="8pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.959cm" Height="0.508cm" Left="13cm" Top="19.512cm" Value="مطالبات أخرى " Name="textBox28">
+          <Style TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Segoe UI" Size="8pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.959cm" Height="0.514cm" Left="13cm" Top="20.02cm" Value="Other claims" Culture="uk" Name="textBox27">
+          <Style TextAlign="Center" VerticalAlign="Top">
+            <Font Size="8pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.508cm" Left="7.6cm" Top="19.512cm" Value="إجمالي الرصيد" Name="textBox32">
+          <Style TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Segoe UI" Size="8pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.514cm" Left="7.6cm" Top="20.02cm" Value="Total balance" Culture="uk" Name="textBox30">
+          <Style TextAlign="Center" VerticalAlign="Top">
+            <Font Size="8pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.208cm" Height="0.481cm" Left="6.403cm" Top="22.618cm" Value="التوقيع :" Name="textBox40">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.778cm" Height="0.481cm" Left="0.762cm" Top="22.618cm" Value="Signature:" Culture="uk" Name="textBox33">
+          <Style TextAlign="Left" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.286cm" Height="0.508cm" Left="3.3cm" Top="19.512cm" Value="قيمة التأمين" Name="textBox48">
+          <Style TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Segoe UI" Size="8pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.286cm" Height="0.508cm" Left="3.3cm" Top="20.02cm" Value="Insurance value" Culture="uk" Name="textBox42">
+          <Style TextAlign="Center" VerticalAlign="Top">
+            <Font Size="8pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19.838cm" Height="0.291cm" Left="0.762cm" Top="23.375cm" Value="----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" Culture="uk" Name="textBox50">
+          <Style TextAlign="Justify" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19.83cm" Height="0.254cm" Left="0.77cm" Top="18.242cm" Value="----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" Culture="uk" Name="textBox51">
+          <Style TextAlign="Justify" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19.838cm" Height="0.514cm" Left="0.762cm" Top="13.648cm" Value="----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" Culture="uk" Name="textBox53">
+          <Style TextAlign="Justify" VerticalAlign="Top">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.2cm" Height="1cm" Left="0.9cm" Top="19.5cm" Value="= Fields.INS" Format="{0:N3}" Culture="en" Name="textBox25">
+          <Style TextAlign="Center" VerticalAlign="Middle" />
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="0.132cm" Name="pageFooterSection1">
+      <Style Visible="False" />
+    </PageFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="Url" Text="Url" />
+    <ReportParameter Name="Logo" />
+  </ReportParameters>
+</Report>

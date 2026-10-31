@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="21cm" Name="QueryGlJrnl1" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glx20231" SelectCommand="SELECT jrn_cd, (select DOC_DS_Ar from GLTRSTBL where GLTRSTBL.DOC_TY=gljrnlh.jrn_cd) as jrn_nm,&#xD;&#xA;tr_no,tr_dt,HDSCR&#xD;&#xA;FROM dbo.GLJRNLH&#xD;&#xA;WHERE not EXISTS(&#xD;&#xA;SELECT 1 FROM glx2023_db.Brca.Attachments&#xD;&#xA;WHERE finacialyear = '2025' and EntityName = 'GLJRNLH' AND EntityKey =CONCAT(dbo.GLJRNLH.JRN_CD,'|',dbo.GLJRNLH.TR_NO))&#xD;&#xA;and 1=1&#xD;&#xA;order by jrn_cd,tr_dt" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="4.1cm" Name="pageHeaderSection1">
+      <Style BackgroundColor="" />
+      <Items>
+        <TextBox Width="1.8cm" Height="1.4cm" Left="15.8cm" Top="2.7cm" Value="رقم القيد" Name="textBox6">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.112in" Left="7.047in" Top="0.075in" Value="وزارة الكهرباء والطاقة المتجددة" Name="textBox26">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.128in" Left="7.053in" Top="0.197in" Value="الشركة القابضة لكهرباء مصر" Name="textBox25">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.227in" Height="0.128in" Left="6.977in" Top="0.328in" Value="شركة مصر الوسطى لتوزيع الكهرباء" Name="textBox63">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.128in" Left="7.048in" Top="0.459in" Value="قطاعات الشئون المالية" Name="textBox64">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.128in" Left="7.046in" Top="0.591in" Value="الحسابات الآلية" Name="textBox65">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.6cm" Height="1.4cm" Left="13.2cm" Top="2.7cm" Value="التاريخ" Name="textBox8">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="12.9cm" Height="1.4cm" Left="0.3cm" Top="2.7cm" Value="الشرح" Name="textBox9">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.9cm" Height="0.6cm" Left="6.6cm" Top="0.943cm" Value="الاجمالى" Name="textBox3">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.2cm" Height="0.6cm" Left="10.2cm" Top="1.7cm" Value="= Parameters.filter_TR_DT.Value" Format="{0:d}" Name="textBox19">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.1cm" Height="0.6cm" Left="2.7cm" Top="1.7cm" Value="= Parameters.filter_TO_TR_DT.Value" Format="{0:d}" Name="textBox18">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.2cm" Height="0.6cm" Left="15.4cm" Top="1.7cm" Value="عن الفترة من" Name="textBox30">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.4cm" Height="0.6cm" Left="8.8cm" Top="1.688cm" Value="حتى" Name="textBox15">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.1cm" Height="1.4cm" Left="17.6cm" Top="2.7cm" Value="اليوميه" Name="textBox2">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="0.9cm" Name="detailSection1">
+      <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+        <Font Size="7pt" Bold="True" />
+      </Style>
+      <Items>
+        <TextBox Width="1.8cm" Height="0.6cm" Left="15.8cm" Top="0.188cm" Value="= Fields.tr_no" Name="textBox49">
+          <Style VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.599cm" Height="0.6cm" Left="13.2cm" Top="0.188cm" Value="= Fields.tr_dt" Format="{0:d}" Name="textBox50">
+          <Style VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="12.9cm" Height="0.6cm" Left="0.3cm" Top="0.188cm" Value="= Fields.HDSCR" Name="textBox51">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.1cm" Height="0.6cm" Left="17.6cm" Top="0.188cm" Value="= Fields.jrn_nm" Name="textBox7">
+          <Style VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportFooterSection Height="0.132cm" Name="reportFooterSection1">
+      <Style BackgroundColor="White" />
+    </ReportFooterSection>
+    <PageFooterSection Height="0.132cm" Name="pageFooterSection1" />
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0mm" Right="0mm" Top="0mm" Bottom="0mm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="Url" Text="Url" />
+    <ReportParameter Name="login" Text="login" />
+    <ReportParameter Name="filter" AllowNull="True" />
+    <ReportParameter Name="filter_TR_DT" />
+    <ReportParameter Name="filter_TO_TR_DT" />
+    <ReportParameter Name="DefaultReportTitle" />
+  </ReportParameters>
+</Report>

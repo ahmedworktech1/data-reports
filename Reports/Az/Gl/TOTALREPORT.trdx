@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="21.2cm" UnitOfMeasure="Cm" Name="TOTALREPORT" ShowDimensions="False" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style Visible="True">
+    <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+    <BorderColor Top="37, 64, 97" Bottom="37, 64, 97" Left="37, 64, 97" Right="37, 64, 97" />
+    <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+  </Style>
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glx2023tarheel" SelectCommand="select fa_cd,fa_nm,&#xD;&#xA;(case when sum(AFaVl_MV)=0 then NULL else sum(AFaVl_MV) end) as AFaVl_MV&#xD;&#xA;from (&#xD;&#xA;SELECT &#xD;&#xA;substring(famf.FA_CD,1,3) as fa_cd,'أولا :- الأصول' as fa_nm&#xD;&#xA;,0 as AFaVl_MV&#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD) &#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '111%' )&#xD;&#xA;and FADPRC_Q.PRD='-99991'&#xD;&#xA;) as t &#xD;&#xA;group by t.fa_cd,t.fa_nm&#xD;&#xA;------&#xD;&#xA;------&#xD;&#xA;union all&#xD;&#xA;select fa_cd,fa_nm,&#xD;&#xA;(case when sum(AFaVl_MV)=0 then NULL else sum(AFaVl_MV) end) as AFaVl_MV&#xD;&#xA;from (&#xD;&#xA;SELECT &#xD;&#xA;substring(famf.FA_CD,1,2) as fa_cd,'أصول الجهد المتوسط' as fa_nm&#xD;&#xA;,((ISNULL(FADPRC_Q.FA_VL,0) + Round(Cast(( + ISNULL(FADPRC_Q.TOTADD,0) - &#xD;&#xA;ISNULL(FADPRC_Q.TOTDSP,0))as decimal(18,4)),2)) *2/3 ) as AFaVl_MV&#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD) &#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and  (FAMF.FA_CD like '111%' or FAMF.FA_CD like '112%' or&#xD;&#xA;FAMF.FA_CD like '113%' or FAMF.FA_CD like '114%' or FAMF.FA_CD like '115%' or FAMF.FA_CD like '116%')&#xD;&#xA;and FADPRC_Q.PRD='-99991'&#xD;&#xA;) as t &#xD;&#xA;group by t.fa_cd,t.fa_nm&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;select fa_cd,fa_nm,&#xD;&#xA;(case when sum(AFaVl_MV)=0 then NULL else sum(AFaVl_MV) end) as AFaVl_MV&#xD;&#xA;from (&#xD;&#xA;SELECT &#xD;&#xA;substring(famf.FA_CD,1,2) as fa_cd,'يخصم منه مخصص الاهلاك' as fa_nm&#xD;&#xA;,((&#xD;&#xA;Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) + &#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4))&#xD;&#xA;+ Cast(ISNULL((select sum(FADPRC_Q.TOTADDACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4))&#xD;&#xA;-&#xD;&#xA;Round(Cast(ISNULL((select sum(FADPRC_Q.TOTDSPACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)),2)&#xD;&#xA;-Round(Cast((ISNULL((select sum(FADPRC_Q.DSP_DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2)&#xD;&#xA;)*2/3) as AFaVl_MV&#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD) &#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and  (FAMF.FA_CD like '111%' or FAMF.FA_CD like '112%' or&#xD;&#xA;FAMF.FA_CD like '113%' or FAMF.FA_CD like '114%' or FAMF.FA_CD like '115%' or FAMF.FA_CD like '116%')&#xD;&#xA;and FADPRC_Q.PRD='-99991'&#xD;&#xA;) as t &#xD;&#xA;group by t.fa_cd,t.fa_nm&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;select fa_cd,fa_nm,&#xD;&#xA;(case when sum(AFaVl_MV)=0 then NULL else sum(AFaVl_MV) end) as AFaVl_MV&#xD;&#xA;from (&#xD;&#xA;SELECT &#xD;&#xA;substring(famf.FA_CD,1,2) as fa_cd,'صافي الاصول الثابتة' as fa_nm,&#xD;&#xA;(((ISNULL(FADPRC_Q.FA_VL,0) + Round(Cast(( + ISNULL(FADPRC_Q.TOTADD,0) - &#xD;&#xA;ISNULL(FADPRC_Q.TOTDSP,0))as decimal(18,4)),2)) *2/3 )&#xD;&#xA;-&#xD;&#xA;((&#xD;&#xA;Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) + &#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4))&#xD;&#xA;+ Cast(ISNULL((select sum(FADPRC_Q.TOTADDACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4))&#xD;&#xA;-&#xD;&#xA;Round(Cast(ISNULL((select sum(FADPRC_Q.TOTDSPACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)),2)&#xD;&#xA;-Round(Cast((ISNULL((select sum(FADPRC_Q.DSP_DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2)&#xD;&#xA;)*2/3)) as AFaVl_MV&#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD) &#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and  (FAMF.FA_CD like '111%' or FAMF.FA_CD like '112%' or&#xD;&#xA;FAMF.FA_CD like '113%' or FAMF.FA_CD like '114%' or FAMF.FA_CD like '115%' or FAMF.FA_CD like '116%')&#xD;&#xA;and FADPRC_Q.PRD='-99991'&#xD;&#xA;) as t &#xD;&#xA;group by t.fa_cd,t.fa_nm&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;select fa_cd,fa_nm,&#xD;&#xA;(case when sum(AFaVl_MV)=0 then NULL else sum(AFaVl_MV) end) as AFaVl_MV&#xD;&#xA;from (&#xD;&#xA;SELECT &#xD;&#xA;substring(famf.FA_CD,1,2) as fa_cd,'اصول الجهد المنخفض' as fa_nm&#xD;&#xA;,((ISNULL(FADPRC_Q.FA_VL,0) + Round(Cast(( + ISNULL(FADPRC_Q.TOTADD,0) - &#xD;&#xA;ISNULL(FADPRC_Q.TOTDSP,0))as decimal(18,4)),2)) *1/3 ) as AFaVl_MV&#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD) &#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and  (FAMF.FA_CD like '111%' or FAMF.FA_CD like '112%' or&#xD;&#xA;FAMF.FA_CD like '113%' or FAMF.FA_CD like '114%' or FAMF.FA_CD like '115%' or FAMF.FA_CD like '116%')&#xD;&#xA;and FADPRC_Q.PRD='-99991'&#xD;&#xA;) as t &#xD;&#xA;group by t.fa_cd,t.fa_nm&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;select fa_cd,fa_nm,&#xD;&#xA;(case when sum(AFaVl_MV)=0 then NULL else sum(AFaVl_MV) end) as AFaVl_MV&#xD;&#xA;from (&#xD;&#xA;SELECT &#xD;&#xA;substring(famf.FA_CD,1,2) as fa_cd,'يخصم منه مخصص الاهلاك' as fa_nm&#xD;&#xA;,(&#xD;&#xA;Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) + &#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4))&#xD;&#xA;+ Cast(ISNULL((select sum(FADPRC_Q.TOTADDACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4))&#xD;&#xA;-&#xD;&#xA;Round(Cast(ISNULL((select sum(FADPRC_Q.TOTDSPACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)),2)&#xD;&#xA;-Round(Cast((ISNULL((select sum(FADPRC_Q.DSP_DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2)&#xD;&#xA;) as AFaVl_MV&#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD) &#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and  (FAMF.FA_CD like '111%' or FAMF.FA_CD like '112%' or&#xD;&#xA;FAMF.FA_CD like '113%' or FAMF.FA_CD like '114%' or FAMF.FA_CD like '115%' or FAMF.FA_CD like '116%')&#xD;&#xA;and FADPRC_Q.PRD='-99991'&#xD;&#xA;) as t &#xD;&#xA;group by t.fa_cd,t.fa_nm&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;select fa_cd,fa_nm,&#xD;&#xA;(case when sum(AFaVl_MV)=0 then NULL else sum(AFaVl_MV) end) as AFaVl_MV&#xD;&#xA;from (&#xD;&#xA;SELECT &#xD;&#xA;substring(famf.FA_CD,1,2) as fa_cd,'صافي الاصول الثابتة' as fa_nm&#xD;&#xA;,((ISNULL(FADPRC_Q.FA_VL,0) + Round(Cast(( + ISNULL(FADPRC_Q.TOTADD,0) - &#xD;&#xA;ISNULL(FADPRC_Q.TOTDSP,0))as decimal(18,4)),2))&#xD;&#xA;-(&#xD;&#xA;Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) + &#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4))&#xD;&#xA;+ Cast(ISNULL((select sum(FADPRC_Q.TOTADDACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4))&#xD;&#xA;-&#xD;&#xA;Round(Cast(ISNULL((select sum(FADPRC_Q.TOTDSPACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)),2)&#xD;&#xA;-Round(Cast((ISNULL((select sum(FADPRC_Q.DSP_DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2)&#xD;&#xA;)) as AFaVl_MV&#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD) &#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and  (FAMF.FA_CD like '111%' or FAMF.FA_CD like '112%' or&#xD;&#xA;FAMF.FA_CD like '113%' or FAMF.FA_CD like '114%' or FAMF.FA_CD like '115%' or FAMF.FA_CD like '116%')&#xD;&#xA;and FADPRC_Q.PRD='-99991'&#xD;&#xA;) as t &#xD;&#xA;group by t.fa_cd,t.fa_nm&#xD;&#xA;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="4.3cm" Name="pageHeaderSection1">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="2.856cm" Height="0.8cm" Left="3.7cm" Top="3.5cm" Value="فعلي" Name="textBox6">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="0.8cm" Left="0cm" Top="3.5cm" Value="موازنة" Name="textBox5">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.395cm" Height="0.537cm" Left="4.7cm" Top="2.1cm" Value="= Parameters.DefaultReportTitle.Value" Name="textBox31">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="11.344cm" Height="0.8cm" Left="9.556cm" Top="3.5cm" Value="البيان " Name="textBox8">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.8cm" Left="6.556cm" Top="3.5cm" Value="فعلي" Name="textBox11">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.6cm" Height="0.6cm" Left="14.3cm" Top="0.2cm" Value="شركة مصر الوسطى لتوزيع الكهرباء" Name="textBox1">
+          <Style TextAlign="Center">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.6cm" Height="0.6cm" Left="14.3cm" Top="0.8cm" Value="القطاع المالي والاداري" Name="textBox2">
+          <Style TextAlign="Center">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.6cm" Height="0.6cm" Left="14.3cm" Top="1.4cm" Value="الحسابات الاليه" Name="textBox3">
+          <Style TextAlign="Center">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="0.7cm" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White">
+        <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+        <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+        <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+      </Style>
+      <Items>
+        <TextBox Width="3cm" Height="7mm" Left="65.56mm" Top="0mm" Value="" Format="{0:N2}" Multiline="False" Name="textBox142">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.856cm" Height="7mm" Left="37mm" Top="0mm" Value="= Fields.AFaVl_MV" Format="{0:N2}" Multiline="False" Name="textBox135">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="7mm" Left="0mm" Top="0mm" Value="" Format="{0:N2}" Multiline="False" Name="textBox133">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="11.344cm" Height="7mm" Left="95.56mm" Top="0mm" Value="= Fields.fa_nm" Format="{0:N2}" Multiline="False" Name="textBox130">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportFooterSection Height="0.132cm" Name="reportFooterSection1" />
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="DefaultReportTitle" />
+  </ReportParameters>
+</Report>

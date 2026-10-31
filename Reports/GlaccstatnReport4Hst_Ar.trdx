@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="webServiceDataSource1" Width="25.7cm" UnitOfMeasure="Mm" Name="GlaccstatnReport4Hst_Ar" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <Style TextAlign="Justify">
+    <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+    <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+    <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+  </Style>
+  <DataSources>
+    <WebServiceDataSource ParameterValues="{&quot;.AspNetCore.Identity.Application&quot;:&quot;CfDJ8M1Pd457jnRJtk-MEOwhgm2LMdK8XEd0XgiRqPHdUb87FncQSM-Ci8hFvgs_N6c0gZwIuX6YD-CxAeQLFSSi2kwJ-kMAVZpr46Ida58z94Op10muuyrGfcqv4BQdKuEYgLfEVIMyIxy9QYM3STMz3u4-TdKaT-FlqzkWH9jf1zoC-ZjMqF0rXcdlST40l97dcZzywtNlIGp5Vofersaf77-SBIQX_NATfZL2-mQ-nwQhlwUt5ny61GET16nsrLDAzQjw0mYVDhqt0GvKqCwckSgS5VTjG8BLbY0448ZMilR4Eefqe0kZgu3yI4Lo1-QqfrnR3N8lDNjf8A6nqokFq0hBTvWRjqleEdlN9E6zZEbuMLAfInaa6y24SQyBLhLyMjqt4KmWirEaFHsLzhW5cZWzhFl2QNTyfFoLiPyh-xBwG13NLdp-r3zfsoWkRLiMV_oHKX0tV5qq5qYjrqByJKmS5zpVhcJiuiYQt2stFSs5qi8uy6OrrP_ar1r_yHaXoWzJFaLOAnSneBbfQXxjqjFT5Hgc9RHFa-LO54d2791uWJocIBwSe_U3JfpGJckOnWGkpNc_dXvpo5jYoX7LmwY3tmLci0-O7-MQSrw4FYQX0FGlGExp9GKlLkjUpEzI-vj_cjXZ57WArgjd_mxs0KE2xXWOYlryJPe3eTtaRGU3uEq7eJf_BOPr4acElaDZwJY9Li5tO83gwejk4Uivif2iQMBFhMnsX6gYiJSg0bz9JE3kfuEEe6Vh1T5UnqA8ZCvOUyLWgXCaVmoTzE8iDRyH6MBtkwFJWrQp4E5_NVNW5J9iZgieL7xLhlZi8rQarA&quot;,&quot;@Url&quot;:&quot;https://localhost:44395/gl/ReportGlaccstatnHst/GetDataGlaccstatnHst&quot;,&quot;FromDate&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToDate&quot;:&quot;\&quot;\&quot;&quot;,&quot;Accs&quot;:&quot;\&quot;\&quot;&quot;,&quot;Arrangement&quot;:&quot;\&quot;\&quot;&quot;,&quot;ChkAGE&quot;:&quot;\&quot;\&quot;&quot;,&quot;ChkAgeSrc&quot;:&quot;\&quot;\&quot;&quot;,&quot;ChkBMerge&quot;:&quot;\&quot;\&quot;&quot;,&quot;ChkExtra&quot;:&quot;\&quot;\&quot;&quot;,&quot;ChkGrp&quot;:&quot;\&quot;\&quot;&quot;,&quot;ChkOppo&quot;:&quot;\&quot;\&quot;&quot;,&quot;ChkRptCond&quot;:&quot;\&quot;\&quot;&quot;,&quot;ComId&quot;:&quot;\&quot;\&quot;&quot;,&quot;ComIds&quot;:&quot;\&quot;\&quot;&quot;,&quot;CompanyAddress&quot;:&quot;\&quot;\&quot;&quot;,&quot;CompanyName&quot;:&quot;\&quot;\&quot;&quot;,&quot;ConnectivityType&quot;:&quot;\&quot;\&quot;&quot;,&quot;CurCd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ExcludeLockLines&quot;:&quot;\&quot;\&quot;&quot;,&quot;ExcludesFinalAccountsLines&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromAccount&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromGlsct&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSsumCd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSumCd&quot;:&quot;\&quot;\&quot;&quot;,&quot;GroupTyp&quot;:&quot;\&quot;\&quot;&quot;,&quot;Items&quot;:&quot;\&quot;\&quot;&quot;,&quot;JrnCd&quot;:&quot;\&quot;\&quot;&quot;,&quot;Model&quot;:&quot;\&quot;\&quot;&quot;,&quot;PgBrk&quot;:&quot;\&quot;\&quot;&quot;,&quot;RepCd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ReportPaths&quot;:&quot;\&quot;\&quot;&quot;,&quot;Revision&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToAccount&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToGlsct&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSsumCd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSumCd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ACCREP&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromGlSsct&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToGlSsct&quot;:&quot;\&quot;\&quot;&quot;,&quot;MAccNo&quot;:&quot;\&quot;\&quot;&quot;}" AuthParameterValues="null" ServiceUrl="@Url" DataSelector="" Name="webServiceDataSource1">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "gl/ReportGlaccstatnHst/GetDataGlaccstatnHst"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromDate">
+          <Value>
+            <String>= Parameters.FromDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToDate">
+          <Value>
+            <String>= Parameters.ToDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Accs">
+          <Value>
+            <String>= Parameters.Accs.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Arrangement">
+          <Value>
+            <String>= Parameters.Arrangement.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkAGE">
+          <Value>
+            <String>= Parameters.ChkAGE.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkAgeSrc">
+          <Value>
+            <String>= Parameters.ChkAgeSrc.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkBMerge">
+          <Value>
+            <String>= Parameters.ChkBMerge.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkExtra">
+          <Value>
+            <String>= Parameters.ChkExtra.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkGrp">
+          <Value>
+            <String>= Parameters.ChkGrp.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkOppo">
+          <Value>
+            <String>= Parameters.ChkOppo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkRptCond">
+          <Value>
+            <String>= Parameters.ChkRptCond.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ComId">
+          <Value>
+            <String>= Parameters.ComId.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ComIds">
+          <Value>
+            <String>= Parameters.ComIds.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="CompanyAddress">
+          <Value>
+            <String>= Parameters.CompanyAddress.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="CompanyName">
+          <Value>
+            <String>= Parameters.CompanyName.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ConnectivityType">
+          <Value>
+            <String>= Parameters.ConnectivityType.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="CurCd">
+          <Value>
+            <String>= Parameters.CurCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ExcludeLockLines">
+          <Value>
+            <String>= Parameters.ExcludeLockLines.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ExcludesFinalAccountsLines">
+          <Value>
+            <String>= Parameters.ExcludesFinalAccountsLines.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromAccount">
+          <Value>
+            <String>= Parameters.FromAccount.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromGlsct">
+          <Value>
+            <String>= Parameters.FromGlsct.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSsumCd">
+          <Value>
+            <String>= Parameters.FromSsumCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSumCd">
+          <Value>
+            <String>= Parameters.FromSumCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="GroupTyp">
+          <Value>
+            <String>= Parameters.GroupTyp.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Items">
+          <Value>
+            <String>= Parameters.Items.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="JrnCd">
+          <Value>
+            <String>= Parameters.JrnCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Model">
+          <Value>
+            <String>= Parameters.Model.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="PgBrk">
+          <Value>
+            <String>= Parameters.PgBrk.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="RepCd">
+          <Value>
+            <String>= Parameters.RepCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ReportPaths">
+          <Value>
+            <String>= Parameters.ReportPaths.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Revision">
+          <Value>
+            <String>= Parameters.Revision.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToAccount">
+          <Value>
+            <String>= Parameters.ToAccount.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToGlsct">
+          <Value>
+            <String>= Parameters.ToGlsct.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSsumCd">
+          <Value>
+            <String>= Parameters.ToSsumCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSumCd">
+          <Value>
+            <String>= Parameters.ToSumCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="ACCREP">
+          <Value>
+            <String>= Parameters.ACCREP.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromGlSsct">
+          <Value>
+            <String>= Parameters.FromGlSsct.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToGlSsct">
+          <Value>
+            <String>= Parameters.ToGlSsct.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="MAccNo">
+          <Value>
+            <String>= Parameters.MAccNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <DetailSection Height="1.4cm" Name="detailSection1">
+      <Style>
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="2.494cm" Height="1.4cm" Left="14.569cm" Top="0cm" Value="= Fields.DbVl" Name="textBox12">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.183cm" Height="1.399cm" Left="12.386cm" Top="0cm" Value="= Fields.CrVl" Name="textBox13">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="None" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.2in" Height="0.551in" Left="0.5in" Top="0in" Value="/" Name="textBox27">
+          <Style TextAlign="Center" VerticalAlign="Middle" />
+        </TextBox>
+        <TextBox Width="1.182in" Height="0.551in" Left="7.718in" Top="0in" Value="= IIf((Sum(Fields.DbVl) - Sum(Fields.CrVl)) &gt;= 0,Sum(Fields.DbVl) - Sum(Fields.CrVl),0)" Name="textBox32">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1in" Height="0.551in" Left="6.718in" Top="0in" Value="= IIf((Sum(Fields.DbVl) - Sum(Fields.CrVl)) &lt; 0,Sum(Fields.DbVl) - Sum(Fields.CrVl), 0)" Name="textBox33">
+          <Style TextAlign="Center" VerticalAlign="Middle" />
+        </TextBox>
+        <TextBox Width="0.6in" Height="0.551in" Left="0.7in" Top="0.001in" Value="= Fields.TR_NO" Name="textBox21">
+          <Style TextAlign="Center" VerticalAlign="Middle" />
+        </TextBox>
+        <TextBox Width="0.5in" Height="0.551in" Left="0in" Top="0in" Value="= Fields.Jrn_Cd" Name="textBox26">
+          <Style TextAlign="Center" VerticalAlign="Middle" />
+        </TextBox>
+        <TextBox Width="3.094cm" Height="1.4cm" Left="22.606cm" Top="0.001cm" Value="= Fields.Tr_Dt" Format="{0:d}" Name="textBox11">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.317cm" Height="1.399cm" Left="7.366cm" Top="0cm" Value="= Fields.AccNo" Name="textBox24">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.064cm" Height="1.398cm" Left="3.302cm" Top="0.001cm" Value="= Fields.AccNmAr" Name="textBox25">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.703cm" Height="1.4cm" Left="8.683cm" Top="0cm" Value="= Fields.TR_DS_AR" Multiline="True" Name="textBox14">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageHeaderSection Height="5.083cm" Name="pageHeaderSection1">
+      <Style BackgroundColor="White">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="6.4cm" Height="1.16cm" Left="10.264cm" Top="0.364cm" Value="كشف حساب سنوات سابقة &#xD;&#xA;" Name="textBox1">
+          <Style BackgroundColor="White" Color="23, 54, 93" TextAlign="Center">
+            <Font Size="20pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="0.6cm" Left="23.578cm" Top="2.286cm" Value="من تاريخ :" Name="textBox15">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="0.6cm" Left="4.9cm" Top="2.286cm" Value="الي تاريخ :" Name="textBox16">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="0.6cm" Left="0.3cm" Top="0.364cm" Value="= &quot; صفحة &quot; + CStr(PageNumber) + &quot; من &quot;  + CStr(PageCount)" Name="textBox20">
+          <Style VerticalAlign="Middle">
+            <Font Size="8pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.02cm" Height="0.6cm" Left="19.558cm" Top="2.286cm" Value="= CDate(Parameters.FromDate.Value)" Format="{0:d}" Name="textBox22">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.502cm" Height="0.6cm" Left="0.398cm" Top="2.286cm" Value="= CDate(Parameters.ToDate.Value)" Format="{0:d}" Name="textBox30">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.6cm" Left="3.1cm" Top="0.364cm" Value="= &quot;بواسطة :&quot;+Cstr(UserIdentity.Name)" Name="textBox23">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.6cm" Height="1.498cm" Left="8.683cm" Top="3.585cm" Value="البيان" Name="textBox5">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.78cm" Height="0.897cm" Left="12.283cm" Top="3.583cm" Value="المبلغ" Name="textBox6">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.542cm" Height="0.9cm" Left="17.064cm" Top="3.58cm" Value="الرصيد " Name="textBox3">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.302cm" Height="1.498cm" Left="0cm" Top="3.582cm" Value="المرجع" Name="textBox4">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.54cm" Height="0.6cm" Left="17.064cm" Top="4.48cm" Value="دائن" Name="textBox7">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.002cm" Height="0.6cm" Left="19.604cm" Top="4.48cm" Value="مدين" Name="textBox8">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.494cm" Height="0.6cm" Left="14.569cm" Top="4.483cm" Value="مدين" Name="textBox9">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" />
+            <BorderStyle Top="Solid" Bottom="Groove" Left="Groove" Right="Groove" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.286cm" Height="0.6cm" Left="12.283cm" Top="4.48cm" Value="دائن" Name="textBox10">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.094cm" Height="1.498cm" Left="22.606cm" Top="3.582cm" Value="التاريخ" Name="textBox2">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.381cm" Height="1.498cm" Left="3.302cm" Top="3.58cm" Value="الحساب" Name="textBox28">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.4cm" Height="1.16cm" Left="10.264cm" Top="1.726cm" Value="دمج الحسابات" Name="textBox29">
+          <Style BackgroundColor="White" Color="Red" TextAlign="Center">
+            <Font Size="20pt" Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Groups>
+    <Group GroupKeepTogether="All" Name="group">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.132cm" Name="groupHeaderSection">
+          <Style Visible="True" BackgroundColor="White">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection PageBreak="After" Height="1.649cm" Name="groupFooterSection">
+          <Style BackgroundColor="255, 255, 128">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <Items>
+            <TextBox Width="3.094cm" Height="1.6cm" Left="22.606cm" Top="0cm" Value="الإجمالي" Name="textBox17">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="14pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.494cm" Height="1.6cm" Left="14.569cm" Top="0cm" Value="= Sum(Fields.DbVl)" Name="textBox18">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.183cm" Height="1.6cm" Left="12.386cm" Top="0cm" Value="=Sum (Fields.CrVl)" Name="textBox19">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="12.386cm" Height="1.6cm" Left="0cm" Top="0cm" Value="= Fields.AccNmAr" Name="textBox31">
+              <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1in" Height="0.63in" Left="6.718in" Top="0in" Value="= IIf((Sum(Fields.DbVl) - Sum(Fields.CrVl)) &lt; 0,Sum(Fields.DbVl) - Sum(Fields.CrVl), 0)" Name="textBox34">
+              <Style TextAlign="Center" VerticalAlign="Middle" />
+            </TextBox>
+            <TextBox Width="1.182in" Height="0.63in" Left="7.718in" Top="0in" Value="= IIf((Sum(Fields.DbVl) - Sum(Fields.CrVl)) &gt;= 0,Sum(Fields.DbVl) - Sum(Fields.CrVl),0)" Name="textBox35">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.AccNo" />
+      </Groupings>
+    </Group>
+  </Groups>
+  <ReportParameters>
+    <ReportParameter Name="FromDate" Text="2010-01-01" Visible="True" AllowNull="True">
+      <Value>
+        <String></String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="ToDate" Visible="True" AllowNull="True" />
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="Url" AllowNull="True" />
+    <ReportParameter Name="Logo" />
+    <ReportParameter Name="CompanyAddress" />
+    <ReportParameter Name="CompanyName" />
+    <ReportParameter Name="FromAccount" AllowNull="True" />
+    <ReportParameter Name="ToAccount" AllowNull="True" />
+    <ReportParameter Name="ComId" AllowNull="True" />
+    <ReportParameter Name="Revision" AllowNull="True" />
+    <ReportParameter Name="JrnCd" AllowNull="True" />
+    <ReportParameter Name="ReportPaths" AllowNull="True" />
+    <ReportParameter Name="GroupTyp" AllowNull="True" />
+    <ReportParameter Name="ConnectivityType" AllowNull="True" />
+    <ReportParameter Name="Arrangement" AllowNull="True" />
+    <ReportParameter Name="ComIds" AllowNull="True" />
+    <ReportParameter Name="RepCd" AllowNull="True" />
+    <ReportParameter Name="Items" AllowNull="True" />
+    <ReportParameter Name="ExcludeLockLines" AllowNull="True" />
+    <ReportParameter Name="ExcludesFinalAccountsLines" AllowNull="True" />
+    <ReportParameter Name="FromGlsct" AllowNull="True" />
+    <ReportParameter Name="ToGlsct" AllowNull="True" />
+    <ReportParameter Name="FromSumCd" AllowNull="True" />
+    <ReportParameter Name="ToSumCd" AllowNull="True" />
+    <ReportParameter Name="FromSsumCd" AllowNull="True" />
+    <ReportParameter Name="ToSsumCd" AllowNull="True" />
+    <ReportParameter Name="Model" AllowNull="True" />
+    <ReportParameter Name="Accs" AllowNull="True" />
+    <ReportParameter Name="ChkOppo" AllowNull="True" />
+    <ReportParameter Name="ChkBMerge" AllowNull="True" />
+    <ReportParameter Name="ChkGrp" AllowNull="True" />
+    <ReportParameter Name="ChkExtra" AllowNull="True" />
+    <ReportParameter Name="CurCd" AllowNull="True" />
+    <ReportParameter Name="PgBrk" AllowNull="True" />
+    <ReportParameter Name="ChkRptCond" AllowNull="True" />
+    <ReportParameter Name="ChkAGE" AllowNull="True" />
+    <ReportParameter Name="ChkAgeSrc" AllowNull="True" />
+    <ReportParameter Name="ACCREP" AllowNull="True" />
+    <ReportParameter Name="ToGlSsct" AllowNull="True" />
+    <ReportParameter Name="FromGlSsct" AllowNull="True" />
+    <ReportParameter Name="MAccNo" AllowNull="True" />
+  </ReportParameters>
+</Report>

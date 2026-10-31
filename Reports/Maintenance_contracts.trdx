@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="17cm" Name="عقد مقدمي الخدمة" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="aqxarmy2024" SelectCommand="SELECT &#xD;&#xA;[dbo].[_GetArabicNumbers]([dbo].[_GetFormatDate](TR_DT)) AS TR_DT,&#xD;&#xA;[dbo].[GetWeakDayNameAr](AQRENT_H.TR_DT) AS ArabicWeekdayName,&#xD;&#xA;[dbo].[_GetArabicNumbers](Servicproviders.SrvcPvTENANT_NO) AS SrvcPvTENANT_NO,&#xD;&#xA;[dbo].[_GetArabicNumbers](Servicproviders.SrvcPvTENANT_Nm_AR) AS SrvcPvTENANT_Nm_AR,&#xD;&#xA;[dbo].[_GetArabicNumbers](Servicproviders.ServiceProviderName) AS ServiceProviderName,&#xD;&#xA;[dbo].[_GetArabicNumbers](Servicproviders.SrvcPvPRSNL_ID) AS SrvcPvPRSNL_ID,&#xD;&#xA;[dbo].[_GetArabicNumbers](Servicproviders.SrvcPvPhone) AS SrvcPvPhone,&#xD;&#xA;[dbo].[_GetArabicNumbers](Servicproviders.SrvcPvADDRS) AS SrvcPvADDRS,&#xD;&#xA;[dbo].[_GetArabicNumbers](Servicproviders.SrvcPvSIGN_RESP_DSCR) AS SrvcPvSIGN_RESP_DSCR,&#xD;&#xA;[dbo].[_GetArabicNumbers](CONTRACTS_H.Con_Cd) AS Con_Cd,&#xD;&#xA;[dbo].[_GetArabicNumbers](Servicproviders.SrvcPvSIGN_RESP_ID) AS SrvcPvSIGN_RESP_ID,&#xD;&#xA;[dbo].[_GetArabicNumbers](AQRENT_H.InsPercentange) AS Ins,&#xD;&#xA;CONTRACTS_H.PRD,&#xD;&#xA;CONTRACTS_H.TYP_PRD,&#xD;&#xA;CONTRACTS_H.SERVIC_TYPE,&#xD;&#xA;(SELECT TOP 1 DSCR_AR FROM AppCodes WHERE ID = 141 AND SEQ = CONTRACTS_H.Rent_Type) AS Rent_Type,&#xD;&#xA;[dbo].[_GetArabicNumbers]([dbo].[_GetFormatDate](CONTRACTS_H.CON_DT)) AS CON_DT,&#xD;&#xA;[dbo].[_GetArabicNumbers]([dbo].[_GetFormatDate](CONTRACTS_H.CON_STRT_DT)) AS CON_STRT_DT,&#xD;&#xA;[dbo].[_GetArabicNumbers]([dbo].[_GetFormatDate](CONTRACTS_H.CON_END_DT)) AS CON_END_DT,&#xD;&#xA;case CONTRACTS_H.CONTRC_STATE &#xD;&#xA;  when 1 then 'جديد' &#xD;&#xA;  when 2 then 'سارى'&#xD;&#xA;  when 3 then 'منتهى'&#xD;&#xA;  when 4 then 'ملغى'&#xD;&#xA;  when 5 then 'طلب موافقه'&#xD;&#xA;  else ''&#xD;&#xA;end as ContractState,&#xD;&#xA;case CONTRACTS_H.PRD&#xD;&#xA;  when 1 then 'سنة' &#xD;&#xA;  when 2 then 'سنتين'&#xD;&#xA;  when 3 then 'ثلاث سنوات'&#xD;&#xA;  when 4 then 'اربع سنوات'&#xD;&#xA;  when 5 then 'خمس سنوات'&#xD;&#xA;  else ''&#xD;&#xA;end as PrdTy,&#xD;&#xA;[dbo].[_GetArabicNumbers](CONTRACTS_H.VAL) AS VAL,&#xD;&#xA;[dbo].[_GetArabicNumbers]((CONTRACTS_H.VAL * 12)) AS TOTAL_VAL,&#xD;&#xA;[dbo].[_GetArabicNumbers](CONTRACTS_H.InsPercentange) AS InsPercentange,&#xD;&#xA;[dbo].[_GetArabicNumbers](CONTRACTS_H.Ins) AS Ins,&#xD;&#xA;case CONTRACTS_H.Approval&#xD;&#xA;  when 1 then 'تحت التصديق'&#xD;&#xA;  when 2 then 'مصدق'&#xD;&#xA;  else 'تحت التصديق'&#xD;&#xA;end as Approval,&#xD;&#xA;CONTRACTS_H.SERVIC_LOC,&#xD;&#xA;CONTRACTS_H.CON_DSCR,&#xD;&#xA;Contracts_H.ComId&#xD;&#xA;FROM CONTRACTS_H&#xD;&#xA;INNER JOIN Servicproviders&#xD;&#xA;ON Servicproviders.SrvcPvTENANT_NO = CONTRACTS_H.TR_NO&#xD;&#xA;LEFT JOIN AQRENT_H ON AQRENT_H.Tr_NO = Contracts_H.TR_NO&#xD;&#xA;WHERE (1=1)&#xD;&#xA;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <DetailSection Height="37.2cm" Name="detailSection1">
+      <Items>
+        <TextBox Width="3cm" Height="0.6cm" Left="7cm" Top="0.2cm" Value="تمهيد" Name="textBox12">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.8cm" Height="2.3cm" Left="0.444cm" Top="0.8cm" Value="&#xD;&#xA;حيث أن الطرف الأول قد أقام قسما متخصصا للخدمة ولصيانة المصاعد الكهربائية من رجال&#xD;&#xA;ذو كفاءة وسيبذلون كل عناية للأجهزة حتى تعمل بدرجة جيدة فقد ارتضى الطرفان المتعاقدان&#xD;&#xA;الالتزام بالبنود آلاتية &#xD;&#xA;" Name="textBox13">
+          <Style TextAlign="Center" VerticalAlign="Top">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.8cm" Height="0.6cm" Left="0.6cm" Top="4.1cm" Value="يعتبر التمهيد جزء لا يتجزاء من هذا العقد" Name="textBox14">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.6cm" Left="7cm" Top="3.4cm" Value="البند الاول" Name="textBox15">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.8cm" Height="2.1cm" Left="0.444cm" Top="6.2cm" Value="قبل بموجب هذا العقد الطرف الأول القيام بفحص وضبط وتشحيم وتزيت الأجهزة المملوكة&#xD;&#xA;للطرف الثاني وعددهم {Fields.UNITS} مصعد الكائن بالعنوان دار الأمل + دار الوفاء + مبنى الاقامة&#xD;&#xA;للعلاج الطبيعى&#xD;&#xA;" Name="textBox16">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.8cm" Left="7cm" Top="8.7cm" Value="البند الثالث" Culture="ar-EG" Name="textBox27">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="14pt" Bold="True" Underline="True" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.8cm" Height="2.25cm" Left="0.6cm" Top="9.5cm" Value="تتحمل المؤسسة صرف ما يلزم من الزيوت والشحومات المخصوصة واللازمة للصيانة وذلك&#xD;&#xA;بالمرور عليها مرة شهريا أما الإصلاحات الناتجة من الاستعمال العادي أو من ظروف غير&#xD;&#xA;عادية ............. الخ فتعمل عنها مقايسة تقدم للطرف الثاني للموافقة عليها قبل تنفيذها&#xD;&#xA;" CanShrink="False" Culture="ar-EG" Name="textBox26">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.8cm" Left="7cm" Top="11.9cm" Value="البند الرابع" Culture="ar-EG" Name="textBox29">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="14pt" Bold="True" Underline="True" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.8cm" Height="1.6cm" Left="0.6cm" Top="12.7cm" Value="في حالة توقف المصاعد أثناء أوقات العمل الرئمية على المؤسسة إرسال احد عمالها فورا&#xD;&#xA;لإعادة المصاعد إلى عملها&#xD;&#xA;" CanShrink="False" Culture="ar-EG" Name="textBox28">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.9cm" Left="7cm" Top="14.5cm" Value="البند الخامس" Culture="ar-EG" Name="textBox31">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="14pt" Bold="True" Underline="True" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.8cm" Height="1cm" Left="0.6cm" Top="15.4cm" Value="في حالة توريد وتركيب الاجهزة والاكسسوار بمعرفة الطرف الثاني تتقاضي المؤسسة مصنعية التركيب والاشراف " CanShrink="False" Culture="ar-EG" Name="textBox30">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.8cm" Left="7cm" Top="16.601cm" Value="البند السادس" Culture="ar-EG" Name="textBox33">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="14pt" Bold="True" Underline="True" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.8cm" Height="2.501cm" Left="0.6cm" Top="17.5cm" Value="في حالة اختلال عمل المصاعد بأي شكل يتعهد الطرف الثاني بإيقافها بقطع التيار الكهربائي&#xD;&#xA;عنها ويتم أخطار المؤسسة رسميا حتى يحضر مندوب المؤسسة لاصلاحة وتشغيلها وذلك&#xD;&#xA;خلال ٤٨ ساعة فى ايام العمل الرسمية من الابلاغ وفى حالة التاخير او عدم الاستجابة يتم&#xD;&#xA;خصم مبلغ ٥٠٠ جنيه فقط خمسمائة جنيه من قيمة الصيانة&#xD;&#xA;" CanShrink="False" Culture="ar-EG" Name="textBox32">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.8cm" Left="7cm" Top="20.2cm" Value="البند السابع" Culture="ar-EG" Name="textBox17">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="14pt" Bold="True" Underline="True" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.8cm" Height="2.501cm" Left="0.6cm" Top="21cm" Value="تتقاضى المؤسسة شهريا من الطرف الثاني نظير قيامها بالتعهدات السابقة ({Fields.VAL}) جنيه&#xD;&#xA;( الفان ومائة جنيها مصريا فقط لاغير) تزيد بنسبة {Fields.Ins}% سنويا&#xD;&#xA;" CanShrink="False" Culture="ar-EG" Name="textBox18">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.8cm" Left="7cm" Top="23.7cm" Value="البند الثامن" Culture="ar-EG" Name="textBox68">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="14pt" Bold="True" Underline="True" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.8cm" Height="2.541cm" Left="0.6cm" Top="24.6cm" Value="للمؤسسة حق التوقف عن إعمال الصيانة والتزيت والتشحيم في حالة تأخر الطرف الثاني عن&#xD;&#xA;سداد قيمة الصيانة المنصوص عليها في موعد أقصاه الخامس من كل شهر وفى حالة عدم&#xD;&#xA;السداد كليا دون أدنى مسئولية عليها&#xD;&#xA;" CanShrink="False" Culture="ar-EG" Name="textBox67">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.8cm" Left="7cm" Top="27.3cm" Value="البند التاسع" Culture="ar-EG" Name="textBox36">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="14pt" Bold="True" Underline="True" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.8cm" Height="2.6cm" Left="0.6cm" Top="28.216cm" Value="مدة سريان العقد {Fields.PrdTy} من تاريخ التوقيع من الطرفين {Fields.CON_STRT_DT} إلى{Fields.CON_END_DT}&#xD;&#xA;ويتجدد تلقائيا ما لم يرغب أحد الطرفين في انهائة وفى هذه الحالة على الطرف الراغب في&#xD;&#xA;الإنهاء أخطار الطرف الأخر قبل انتهاء المدة المحددة بشهر على الأقل بخطاب مسجل بعلم&#xD;&#xA;الوصول وألا اعتبر العقد سارى المفعول&#xD;&#xA;" CanShrink="False" Culture="ar-EG" Name="textBox19">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.8cm" Left="7cm" Top="31cm" Value="البند العاشر" Culture="ar-EG" Name="textBox40">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="14pt" Bold="True" Underline="True" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.8cm" Height="1.2cm" Left="0.6cm" Top="31.8cm" Value="تسرى احكام القانون المدنى فيما لم يرد بشانه نص" CanShrink="False" Culture="ar-EG" Name="textBox39">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.1cm" Height="0.8cm" Left="6.9cm" Top="33cm" Value="البند الحادي عشر" Culture="ar-EG" Name="textBox20">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="14pt" Bold="True" Underline="True" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.8cm" Height="3.4cm" Left="0.6cm" Top="33.8cm" Value="يلغى هذا العقد من تلقاء نفسة في الحالات الآتية.&#xD;&#xA;١- إذا اخل الطرف الثاني بالتزاماتة الموضحة بالعقد&#xD;&#xA;٢- إذا أخلت المؤسسة ببنود العقد&#xD;&#xA;٣- إذا سمح الطرف الثاني لاى شخص غريب عن المؤسسة بأجراء اى عمل في المصاعد&#xD;&#xA;مع حفظ حقوق المؤسسة كاملة من حيث التعويض بدون إنذار&#xD;&#xA;٤- إذا لم يتم سداد قيمة اشتراك الصيانة في موعد أقصاه الخامس من كل شهر&#xD;&#xA;" CanShrink="False" Culture="ar-EG" Name="textBox21">
+          <Style BackgroundColor="White" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.8cm" Left="6.9cm" Top="5.4cm" Value="البند الثاني" Culture="ar-EG" Name="textBox25">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="14pt" Bold="True" Underline="True" />
+            <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportHeaderSection Height="8.7cm" Name="reportHeaderSection1">
+      <Items>
+        <TextBox Width="3.788cm" Height="1.784cm" Left="12.456cm" Top="0.5cm" Value="شركة نيو امكو للمصاعد&#xD;&#xA;والسلالم المتحركة&#xD;&#xA;توريد- تركيب - صيانة" Name="textBox1">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5cm" Height="0.6cm" Left="6.544cm" Top="0.666cm" Value="NEW EMEKO" Name="textBox2">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="15pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.3cm" Height="1.1cm" Left="0.756cm" Top="0.5cm" Value="NEW EMEKO ELEVATOREST&#xD;&#xA;ESCALOREST&#xD;&#xA;" Name="textBox3">
+          <Style TextAlign="Center" VerticalAlign="Middle" />
+        </TextBox>
+        <TextBox Width="5.3cm" Height="0.6cm" Left="0.756cm" Top="1.6cm" Value="FIRRINGS,PROCURMENT,MAINTENANCE" Name="textBox4">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.5cm" Height="0.9cm" Left="10.744cm" Top="2.3cm" Value="وزارة الدفاع&#xD;&#xA;جمعية المحاربين القدماء وضحايا الحرب&#xD;&#xA;" Name="textBox6">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="0.6cm" Left="9.156cm" Top="3.2cm" Value="عقد اتفاق" Name="textBox7">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.588cm" Height="0.6cm" Left="14.656cm" Top="3.9cm" Value="انه فى يوم                                       " Name="textBox8">
+          <Style>
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4cm" Height="0.6cm" Left="12.244cm" Top="4.5cm" Value="تم الاتفاق والتراضى بين كلا من" Name="textBox9">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="0.4cm" Left="2.356cm" Top="6.699cm" Value="(طرف اول)" Name="textBox5">
+          <Style>
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="0.4cm" Left="2.356cm" Top="8.2cm" Value="(طرف ثاني)" Name="textBox35">
+          <Style>
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.2cm" Height="0.6cm" Left="12.456cm" Top="3.9cm" Value="= Fields.ArabicWeekdayName" Name="textBox37">
+          <Style>
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="0.6cm" Left="10.856cm" Top="3.9cm" Value="الموافق" Name="textBox38">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.6cm" Left="7.8cm" Top="3.9cm" Value="= Fields.TR_DT" Name="textBox41">
+          <Style>
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.4cm" Height="1.599cm" Left="0.844cm" Top="5.1cm" Value="اولا : مؤسسة نيوأمكو للمصاعد ويمثلها فى التوقيع السيد / {Fields.ServiceProviderName}&#xD;&#xA;بصفته مالك المؤسسة والكائن مقرها {Fields.SrvcPvADDRS}&#xD;&#xA;" Name="textBox10">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.4cm" Height="1cm" Left="0.844cm" Top="7.099cm" Value="ثانيا :{Fields.SrvcPvTENANT_Nm_AR} فرع {Fields.ADDRS}&#xD;&#xA;" Name="textBox11">
+          <Style VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportHeaderSection>
+    <ReportFooterSection Height="2cm" Name="reportFooterSection1">
+      <Items>
+        <TextBox Width="3.1cm" Height="0.6cm" Left="12cm" Top="0.5cm" Value="الطرف الاول" Name="textBox22">
+          <Style TextAlign="Center">
+            <Font Size="13pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.6cm" Left="1.9cm" Top="0.5cm" Value="الطرف الثاني" Name="textBox23">
+          <Style TextAlign="Center">
+            <Font Size="13pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.1cm" Height="0.6cm" Left="12cm" Top="1.1cm" Value="..........................." Name="textBox24">
+          <Style TextAlign="Center">
+            <Font Bold="True" Italic="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.6cm" Left="1.9cm" Top="1.1cm" Value="..........................." Name="textBox34">
+          <Style TextAlign="Center">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+</Report>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="28.7cm" Name="purchase_est3lam_tanbehat_da5lya" Zoom="0.5" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <Style>
+    <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+    <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+    <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+  </Style>
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="erpxsandoaabr" SelectCommand=" SELECT * FROM brca.Notifications where (1=1)" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="0.132cm" Name="pageHeaderSection1" />
+    <DetailSection Height="2.9cm" Name="detailSection1">
+      <Items>
+        <TextBox Width="9.3cm" Height="2.9cm" Left="19.1cm" Top="0cm" Value="= Fields.Subject" Name="textBox1">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.1cm" Height="2.9cm" Left="0.3cm" Top="0cm" Value="= Fields.SendDate" Format="{0:yyyy/MM/dd}" Name="textBox2">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="11.7cm" Height="2.9cm" Left="7.4cm" Top="0cm" Value="= Fields.Body" Name="textBox3">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="0.132cm" Name="pageFooterSection1" />
+    <ReportHeaderSection Height="1.568cm" Name="reportHeaderSection1">
+      <Items>
+        <TextBox Width="7.1cm" Height="1.568cm" Left="0.3cm" Top="0cm" Value="تاريخ الارسال" Name="headerDate">
+          <Style BackgroundColor="84, 110, 179" Color="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="11.7cm" Height="1.567cm" Left="7.4cm" Top="0cm" Value="نص الرســـــــــــــــــــــــــــــــــــــــــــــــاله" Name="headerExecuter">
+          <Style BackgroundColor="84, 110, 179" Color="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.3cm" Height="1.568cm" Left="19.1cm" Top="0cm" Value="الموضوع" Name="headerToState">
+          <Style BackgroundColor="84, 110, 179" Color="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportHeaderSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0.5cm" Right="0.5cm" Top="0.5cm" Bottom="0.5cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+</Report>

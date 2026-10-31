@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="webServiceDataSource1" Width="25.7cm" UnitOfMeasure="Mm" Name="GlaccstatnReport9_Ar" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <Style TextAlign="Justify">
+    <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+    <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+    <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+  </Style>
+  <DataSources>
+    <WebServiceDataSource ParameterValues="{&quot;.AspNetCore.Identity.Application&quot;:&quot;CfDJ8FQDjPMoNM1Chd5mvLPN5zd-oCEftG5MTLt5P4hf1ZMMpLwWAe5PmDgcUWcwYHOJdMSVkWbGCz75kp-iTa566QN_cG9SxPvlUyLcE7mUPo6u3SFdNU0JroFsXBl9rLpaf25VbvpxbUT1aRsHKo9aEYlRFPfxmwqwmL_vPw9Ek7ORj_6o3hG0QUH1ll1PHC2Y7Umfevitl-7nVmhnvvyH_mMCyYeQUb1jiM2uNixNLWpaQQfcfoqYGohbM3ZYoouG7Q0nKXGdM4FCIyi2ei51vGcZAaiy7MzPzd5-6YtI26Uqiag8a0FYTP8ubIVwbAnypYe9M3Z4ygGMUkIVpyODf5TKMaVhk0myG3vbHo_RBVEHlLvTFs953FIUC67nPLzz8GJoSEfrjIw0ovXaia0gKeGXrtH7lngftM7mwmQ42z_V-ZN8fXRkJTN8ftU_vMQqQ4_u2yo_6hlehISj1gEUmjPZErfd2ejM8XI0iiojSPKyHcGX-06nbyDgJFpIY3JoxvZn7t9jOmkFqWu394i31PwUqU1Ob37NOc7g9ScaiRDtYKZvNwyQZHyybhW5lM-E3Ym2trNLWibnnqHosNbbQyY2eeYRfJ5TiHDrScMM2xHXFZrIAFZDkwRCD1UiZ6Ikg8jGdDOSluk_Eg073AYr1Ffm84JTTow5VzkROL4rH6c3g1SgNmuZ4_DVCsmE269D51QJYuh155xncYVgx4pPlmPYp2Vew0VoFWmScNzrrXQjytxy2pLFeScJEcAg9vhNxStf6Cy5KKEBEzBX92FETDArrBkYJ9kDzfJAg8mDkTYFmSC1NqFZsjPjr1UhDx3wliRYlh55_yYaF7XukuU2Yc0svE7OJ7GST0jXiG_wzFIfZkW1HDEqrecA3-PdMDvB1Q&quot;,&quot;@Url&quot;:&quot;https://localhost:44395/gl/ReportGlaccstatn/GetDataGlaccstatn&quot;,&quot;FromDate&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToDate&quot;:&quot;\&quot;\&quot;&quot;,&quot;Accs&quot;:&quot;\&quot;\&quot;&quot;,&quot;Arrangement&quot;:&quot;\&quot;\&quot;&quot;,&quot;ChkAGE&quot;:&quot;\&quot;\&quot;&quot;,&quot;ChkAgeSrc&quot;:&quot;\&quot;\&quot;&quot;,&quot;ChkBMerge&quot;:&quot;\&quot;\&quot;&quot;,&quot;ChkExtra&quot;:&quot;\&quot;\&quot;&quot;,&quot;ChkGrp&quot;:&quot;\&quot;\&quot;&quot;,&quot;ChkOppo&quot;:&quot;\&quot;\&quot;&quot;,&quot;ChkRptCond&quot;:&quot;\&quot;\&quot;&quot;,&quot;ComId&quot;:&quot;\&quot;\&quot;&quot;,&quot;ComIds&quot;:&quot;\&quot;\&quot;&quot;,&quot;CompanyAddress&quot;:&quot;\&quot;\&quot;&quot;,&quot;CompanyName&quot;:&quot;\&quot;\&quot;&quot;,&quot;ConnectivityType&quot;:&quot;\&quot;\&quot;&quot;,&quot;CurCd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ExcludeLockLines&quot;:&quot;\&quot;\&quot;&quot;,&quot;ExcludesFinalAccountsLines&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromAccount&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromGlsct&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSsumCd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSumCd&quot;:&quot;\&quot;\&quot;&quot;,&quot;GroupTyp&quot;:&quot;\&quot;\&quot;&quot;,&quot;Items&quot;:&quot;\&quot;\&quot;&quot;,&quot;JRN_CD&quot;:&quot;\&quot;\&quot;&quot;,&quot;Model&quot;:&quot;\&quot;\&quot;&quot;,&quot;PgBrk&quot;:&quot;\&quot;\&quot;&quot;,&quot;RepCd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ReportPaths&quot;:&quot;\&quot;\&quot;&quot;,&quot;Revision&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToAccount&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToGlsct&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSsumCd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSumCd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ACCREP&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromGlSsct&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToGlSsct&quot;:&quot;\&quot;\&quot;&quot;,&quot;MAccNo&quot;:&quot;\&quot;\&quot;&quot;,&quot;ChkNobl&quot;:&quot;\&quot;\&quot;&quot;}" AuthParameterValues="null" ServiceUrl="@Url" DataSelector="" Name="webServiceDataSource1">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "gl/ReportGlaccstatn/GetDataGlaccstatn"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromDate">
+          <Value>
+            <String>= Parameters.FromDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToDate">
+          <Value>
+            <String>= Parameters.ToDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Accs">
+          <Value>
+            <String>= Parameters.Accs.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Arrangement">
+          <Value>
+            <String>= Parameters.Arrangement.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkAGE">
+          <Value>
+            <String>= Parameters.ChkAGE.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkAgeSrc">
+          <Value>
+            <String>= Parameters.ChkAgeSrc.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkBMerge">
+          <Value>
+            <String>= Parameters.ChkBMerge.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkExtra">
+          <Value>
+            <String>= Parameters.ChkExtra.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkGrp">
+          <Value>
+            <String>= Parameters.ChkGrp.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkOppo">
+          <Value>
+            <String>= Parameters.ChkOppo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkRptCond">
+          <Value>
+            <String>= Parameters.ChkRptCond.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ComId">
+          <Value>
+            <String>= Parameters.ComId.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ComIds">
+          <Value>
+            <String>= Parameters.ComIds.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="CompanyAddress">
+          <Value>
+            <String>= Parameters.CompanyAddress.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="CompanyName">
+          <Value>
+            <String>= Parameters.CompanyName.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ConnectivityType">
+          <Value>
+            <String>= Parameters.ConnectivityType.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="CurCd">
+          <Value>
+            <String>= Parameters.CurCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ExcludeLockLines">
+          <Value>
+            <String>= Parameters.ExcludeLockLines.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ExcludesFinalAccountsLines">
+          <Value>
+            <String>= Parameters.ExcludesFinalAccountsLines.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromAccount">
+          <Value>
+            <String>= Parameters.FromAccount.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromGlsct">
+          <Value>
+            <String>= Parameters.FromGlsct.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSsumCd">
+          <Value>
+            <String>= Parameters.FromSsumCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSumCd">
+          <Value>
+            <String>= Parameters.FromSumCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="GroupTyp">
+          <Value>
+            <String>= Parameters.GroupTyp.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Items">
+          <Value>
+            <String>= Parameters.Items.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="JRN_CD">
+          <Value>
+            <String>= Parameters.JRN_CD.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Model">
+          <Value>
+            <String>= Parameters.Model.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="PgBrk">
+          <Value>
+            <String>= Parameters.PgBrk.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="RepCd">
+          <Value>
+            <String>= Parameters.RepCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ReportPaths">
+          <Value>
+            <String>= Parameters.ReportPaths.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Revision">
+          <Value>
+            <String>= Parameters.Revision.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToAccount">
+          <Value>
+            <String>= Parameters.ToAccount.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToGlsct">
+          <Value>
+            <String>= Parameters.ToGlsct.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSsumCd">
+          <Value>
+            <String>= Parameters.ToSsumCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSumCd">
+          <Value>
+            <String>= Parameters.ToSumCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="ACCREP">
+          <Value>
+            <String>= Parameters.ACCREP.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromGlSsct">
+          <Value>
+            <String>= Parameters.FromGlSsct.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToGlSsct">
+          <Value>
+            <String>= Parameters.ToGlSsct.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="MAccNo">
+          <Value>
+            <String>= Parameters.MAccNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkNobl">
+          <Value>
+            <String>= Parameters.ChkNobl.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <DetailSection Height="0.779cm" Name="detailSection1">
+      <Style>
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="2.146cm" Height="0.778cm" Left="23.554cm" Top="0cm" Value="= Fields.TR_DT" Format="{0:d}" Name="textBox11">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.591in" Height="0.306in" Left="0.433in" Top="0in" Value="= Fields.TR_NO" Name="textBox21">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <Action>
+            <NavigateToUrlAction Url="= Parameters.Url.Value + &quot;gl/GljrnlO/CreateEdit/O/?ActionType=Update&amp;jrnCd=&quot;+Fields.JRN_CD+&quot;&amp;trNo=&quot;+ CStr(Fields.TR_NO)" />
+          </Action>
+        </TextBox>
+        <TextBox Width="0.315in" Height="0.306in" Left="0in" Top="0in" Value="= Fields.Jrn_Cd" Name="textBox26">
+          <Style VerticalAlign="Middle">
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.108in" Height="0.306in" Left="0.315in" Top="0in" Value="/" Name="textBox27">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.207in" Height="0.306in" Left="1.132in" Top="0in" Value="= Fields.LN_NO" Name="textBox36">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.108in" Height="0.306in" Left="1.024in" Top="0in" Value="/" Name="textBox37">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.181in" Height="0.306in" Left="1.346in" Top="0in" Value="= IIf((RunningValue(scope, Sum(Fields.DbVl - Fields.CrVl))) &lt; 0,RunningValue(scope, Sum(Fields.DbVl - Fields.CrVl))*-1, '')" Format="{0:N3}" Name="textBox33">
+          <Style Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.202in" Height="0.306in" Left="2.527in" Top="0in" Value="= IIf((RunningValue(scope, Sum(Fields.DbVl - Fields.CrVl))) &gt; 0,RunningValue(scope, Sum(Fields.DbVl - Fields.CrVl)), '')" Format="{0:N3}" Name="textBox32">
+          <Style Color="Blue" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.236cm" Height="0.778cm" Left="17.3cm" Top="0cm" Value="= Fields.TR_DS_AR" Multiline="False" Name="textBox14">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.778cm" Left="12.493cm" Top="0cm" Value="=iif( Fields.DBBAL &gt; 0 ,Fields.DBBAL,'')" Format="{0:N3}" Name="textBox12">
+          <Style Color="Blue" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.998cm" Height="0.777cm" Left="9.495cm" Top="0cm" Value="=iif( Fields.CrVl &gt; 0 ,Fields.CrVl,'')" Format="{0:N3}" Name="textBox13">
+          <Style Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.806cm" Height="0.778cm" Left="15.493cm" Top="0.001cm" Value="= Fields.CHK_NO" Format="{0:d}" Name="textBox46">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageHeaderSection Height="4.7cm" Name="pageHeaderSection1">
+      <Style BackgroundColor="White">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="8.118cm" Height="0.9cm" Left="8.9cm" Top="0.364cm" Value=" كشف حساب " Name="textBox1">
+          <Style BackgroundColor="196, 189, 150" Color="23, 54, 93" TextAlign="Center">
+            <Font Size="24pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.236cm" Height="1.178cm" Left="17.3cm" Top="3.402cm" Value="البيان" Name="textBox5">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="2pt" Bottom="2pt" Left="2pt" Right="2pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6cm" Height="0.578cm" Left="9.456cm" Top="3.402cm" Value="المبلغ" Name="textBox6">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="2pt" Bottom="2pt" Left="2pt" Right="2pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.963cm" Height="0.6cm" Left="12.493cm" Top="3.98cm" Value="مدين" Name="textBox9">
+          <Style BackgroundColor="242, 242, 242" Color="Blue" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="2pt" Bottom="2pt" Left="2pt" Right="2pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.055cm" Height="0.578cm" Left="3.401cm" Top="3.402cm" Value="الرصيد " Angle="0" Name="textBox3">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="2pt" Bottom="2pt" Left="2pt" Right="2pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.054cm" Height="0.6cm" Left="6.402cm" Top="3.98cm" Value="مدين" Angle="0" Name="textBox8">
+          <Style BackgroundColor="242, 242, 242" Color="Blue" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="2pt" Bottom="2pt" Left="2pt" Right="2pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.144cm" Height="1.178cm" Left="23.555cm" Top="3.404cm" Value="التاريخ" Name="textBox2">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="2pt" Bottom="2pt" Left="2pt" Right="2pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.6cm" Left="3.401cm" Top="3.98cm" Value="دائن" Angle="0" Name="textBox7">
+          <Style BackgroundColor="242, 242, 242" Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="2pt" Bottom="2pt" Left="2pt" Right="2pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.401cm" Height="1.178cm" Left="0cm" Top="3.402cm" Value="المرجع" Name="textBox4">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="2pt" Bottom="2pt" Left="2pt" Right="2pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.037cm" Height="0.6cm" Left="9.456cm" Top="3.98cm" Value="دائن" Name="textBox10">
+          <Style BackgroundColor="242, 242, 242" Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="2pt" Bottom="2pt" Left="2pt" Right="2pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.844cm" Height="1.178cm" Left="15.456cm" Top="3.402cm" Value="الشيك" Name="textBox29">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="2pt" Bottom="2pt" Left="2pt" Right="2pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.344cm" Height="0.9cm" Left="9.456cm" Top="1.4cm" Value="نموذج عريض" Name="textBox47">
+          <Style BackgroundColor="White" Color="Red" TextAlign="Center">
+            <Font Size="18pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <PictureBox Image="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" Width="2.044in" Height="1.196in" Left="0.236in" Top="0.143in" Sizing="AutoSize" MimeType="image/png" Name="pictureBox1">
+          <Style>
+            <BackgroundImage ImageData="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" Repeat="NoRepeat" MimeType="image/png" />
+          </Style>
+        </PictureBox>
+        <TextBox Width="1.737cm" Height="0.5cm" Left="14.949cm" Top="2.381cm" Value="من تاريخ :" Name="textBox49">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.737cm" Height="0.488cm" Left="10.793cm" Top="2.377cm" Value="الي تاريخ :" Name="textBox48">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.1cm" Height="0.488cm" Left="12.77cm" Top="2.393cm" Value="= CDate(Parameters.FromDate.Value)" Format="{0:d}" Name="textBox30">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.179cm" Height="0.488cm" Left="8.482cm" Top="2.389cm" Value="= CDate(Parameters.ToDate.Value)" Format="{0:d}" Name="textBox22">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.223in" Height="0.226in" Left="7.756in" Top="0.079in" Value="= Parameters.CompanyName.Value" Name="textBox16">
+          <Style>
+            <Font Size="14pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.223in" Height="0.226in" Left="7.753in" Top="0.334in" Value="= Parameters.CompanyAddress.Value" Name="textBox15">
+          <Style>
+            <Font Size="14pt" Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <ReportFooterSection PrintAtBottom="False" PageBreak="After" KeepTogether="True" Height="0.052in" Name="reportFooterSection1">
+      <Style Visible="False">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+    </ReportFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Groups>
+    <Group GroupKeepTogether="All" Name="group">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.6cm" Name="groupHeaderSection">
+          <Style Visible="True" BackgroundColor="White">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <Items>
+            <TextBox Width="9.26cm" Height="0.6cm" Left="13.626cm" Top="0cm" Value="= Fields.AccNmAr" Name="textBox25">
+              <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Microsoft Sans Serif" Size="12pt" Bold="True" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.8cm" Height="0.6cm" Left="22.9cm" Top="0cm" Value="= Fields.AccNo" Name="textBox24">
+              <Style BackgroundColor="White" Color="Red" TextAlign="Right" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection PageBreak="After" Height="2.921cm" Name="groupFooterSection">
+          <Style BackgroundColor="White">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <Items>
+            <TextBox Width="1.181in" Height="0.284in" Left="1.346in" Top="0in" Value="= IIf((Sum(Fields.DbVl) - Sum(Fields.CrVl)) &lt; 0,Abs(Sum(Fields.DbVl) - Sum(Fields.CrVl)), 0)" Format="{0:N3}" Name="textBox34">
+              <Style Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.203in" Height="0.284in" Left="2.527in" Top="0in" Value="= IIf((Sum(Fields.DbVl) - Sum(Fields.CrVl)) &gt;= 0,Sum(Fields.DbVl) - Sum(Fields.CrVl),0)" Format="{0:N3}" Name="textBox35">
+              <Style Color="Blue" TextAlign="Center" VerticalAlign="Middle">
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="10.206cm" Height="0.721cm" Left="15.493cm" Top="0cm" Value="الإجمالي" Name="textBox17">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="16pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.6cm" Height="0.7cm" Left="22.554cm" Top="0.921cm" Value="= IIf((Sum(Fields.DbVl) - Sum(Fields.CrVl)) &lt; 0,'رصيد دائن','رصيد مدين')" Name="textBox31">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="14pt" Bold="True" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.85in" Height="0.276in" Left="6.811in" Top="0.363in" Value="=Abs(Sum(Fields.DbVl) - Sum(Fields.CrVl))" Format="{0:N2}" Name="textBox38">
+              <Style Color="Blue" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="16pt" Bold="True" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.419cm" Height="0.721cm" Left="0cm" Top="0cm" Value="= 0.00" Format="{0:N3}" Name="textBox40">
+              <Style Color="Red" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="14pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.653in" Height="0.275in" Left="0.118in" Top="0.599in" Value="= (Sum(Fields.DbVl - Fields.CrVl) -Sum(Fields.DBBAL) + Sum (Fields.CrVl))" Format="{0:N2}" Name="textBox42">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="14pt" Bold="True" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.2cm" Height="0.7cm" Left="4.5cm" Top="1.521cm" Value="أول المدة" Name="textBox43">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="14pt" Bold="True" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.2cm" Height="0.7cm" Left="4.5cm" Top="0.821cm" Value="فرق الحركة" Name="textBox44">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="14pt" Bold="True" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.653in" Height="0.276in" Left="0.118in" Top="0.323in" Value="= &#xD;&#xA;(Sum(Fields.DbVl) - Sum(Fields.CrVl)) - (Sum(Fields.DbVl - Fields.CrVl) -Sum(Fields.DBBAL) + Sum (Fields.CrVl))" Format="{0:#,##0;(#,##0)}" Name="textBox45">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="14pt" Bold="True" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="18.2cm" Height="0.8cm" Left="7.2cm" Top="1.921cm" Value="= brca.Core.Services.ReportStaticService.Tafqeet(Abs(Sum(Fields.DbVl) - Sum(Fields.CrVl)))" Format="{0:N2}" Name="textBox28">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="12pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.018cm" Height="0.721cm" Left="9.475cm" Top="0cm" Value="=Sum (Fields.CrVl)" Format="{0:N3}" Name="textBox19">
+              <Style Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3cm" Height="0.721cm" Left="12.493cm" Top="0cm" Value="= Sum(Fields.DBBAL)" Format="{0:N3}" Name="textBox18">
+              <Style Color="Blue" TextAlign="Center" VerticalAlign="Middle">
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.399cm" Height="0.6cm" Left="1.1cm" Top="2.221cm" Value="= &quot; صفحة &quot; + CStr(PageNumber) + &quot; من &quot;  + CStr(PageCount)" Name="textBox20">
+              <Style VerticalAlign="Middle">
+                <Font Size="8pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.1cm" Height="0.6cm" Left="4.5cm" Top="2.221cm" Value="= &quot;بواسطة :&quot;+Cstr(UserIdentity.Name)" Name="textBox23">
+              <Style TextAlign="Left" VerticalAlign="Middle">
+                <Font Size="8pt" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.AccNo" />
+      </Groupings>
+    </Group>
+  </Groups>
+  <ReportParameters>
+    <ReportParameter Name="FromDate" Text="2010-01-01" AllowNull="True">
+      <Value>
+        <String></String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="ToDate" Text="2010-01-01" AllowNull="True">
+      <Value>
+        <String></String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="Url" AllowNull="True" />
+    <ReportParameter Name="Logo" />
+    <ReportParameter Name="CompanyAddress" />
+    <ReportParameter Name="CompanyName" />
+    <ReportParameter Name="FromAccount" AllowNull="True" />
+    <ReportParameter Name="ToAccount" AllowNull="True" />
+    <ReportParameter Name="ComId" AllowNull="True" />
+    <ReportParameter Name="Revision" AllowNull="True" />
+    <ReportParameter Name="JRN_CD" AllowNull="True" />
+    <ReportParameter Name="ReportPaths" AllowNull="True" />
+    <ReportParameter Name="GroupTyp" AllowNull="True" />
+    <ReportParameter Name="ConnectivityType" AllowNull="True" />
+    <ReportParameter Name="Arrangement" AllowNull="True" />
+    <ReportParameter Name="ComIds" AllowNull="True" />
+    <ReportParameter Name="RepCd" AllowNull="True" />
+    <ReportParameter Name="Items" AllowNull="True" />
+    <ReportParameter Name="ExcludeLockLines" AllowNull="True" />
+    <ReportParameter Name="ExcludesFinalAccountsLines" AllowNull="True" />
+    <ReportParameter Name="FromGlsct" AllowNull="True" />
+    <ReportParameter Name="ToGlsct" AllowNull="True" />
+    <ReportParameter Name="FromSumCd" AllowNull="True" />
+    <ReportParameter Name="ToSumCd" AllowNull="True" />
+    <ReportParameter Name="FromSsumCd" AllowNull="True" />
+    <ReportParameter Name="ToSsumCd" AllowNull="True" />
+    <ReportParameter Name="Model" AllowNull="True" />
+    <ReportParameter Name="Accs" AllowNull="True" />
+    <ReportParameter Name="ChkOppo" AllowNull="True" />
+    <ReportParameter Name="ChkBMerge" AllowNull="True" />
+    <ReportParameter Name="ChkGrp" AllowNull="True" />
+    <ReportParameter Name="ChkExtra" AllowNull="True" />
+    <ReportParameter Name="CurCd" AllowNull="True" />
+    <ReportParameter Name="PgBrk" AllowNull="True" />
+    <ReportParameter Name="ChkRptCond" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="ChkAGE" AllowNull="True" />
+    <ReportParameter Name="ChkAgeSrc" AllowNull="True" />
+    <ReportParameter Name="ACCREP" AllowNull="True" />
+    <ReportParameter Name="ToGlSsct" AllowNull="True" />
+    <ReportParameter Name="FromGlSsct" AllowNull="True" />
+    <ReportParameter Name="MAccNo" AllowNull="True" />
+    <ReportParameter Name="ChkNobl" Type="Boolean" AllowNull="True" />
+  </ReportParameters>
+  <Bindings>
+    <Binding Path="PageSettings.ContinuousPaper" Expression="= IIf(Parameters.ChkRptCond.Value=0,true,false)" />
+  </Bindings>
+</Report>

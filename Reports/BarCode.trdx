@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="webServiceDataSource1" Width="1.033in" UnitOfMeasure="Mm" Name="BarCode.trdx" Zoom="0.5" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style Visible="True">
+    <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+    <BorderColor Top="37, 64, 97" Bottom="37, 64, 97" Left="37, 64, 97" Right="37, 64, 97" />
+    <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+  </Style>
+  <DataSources>
+    <WebServiceDataSource ParameterValues="{&quot;.AspNetCore.Identity.Application&quot;:,&quot;@Url&quot;:,&quot;Repnam&quot;:,&quot;ReportFileName&quot;:,&quot;ReportTitle&quot;:,&quot;InternalReportTemplates&quot;:,&quot;Srow&quot;:,&quot;Sclmn&quot;:,&quot;BarCodeType&quot;:,&quot;PrdDt&quot;:,&quot;EndDt&quot;:,&quot;GPk&quot;:,&quot;RepNo&quot;:,&quot;Itms&quot;:,&quot;LocCd&quot;:,&quot;TrTy&quot;:,&quot;Fdt&quot;:,&quot;Tdt&quot;:,&quot;TrNo&quot;:,&quot;FlocCd&quot;:,&quot;TlocCd&quot;:,&quot;ItmCd&quot;:}" AuthParameterValues="null" ServiceUrl="@Url" RequestTimeout="1000" Name="webServiceDataSource1">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "az/ReportBc/GetReportBcList"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Repnam">
+          <Value>
+            <String>= Parameters.Repnam.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ReportFileName">
+          <Value>
+            <String>= Parameters.ReportFileName.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ReportTitle">
+          <Value>
+            <String>= Parameters.ReportTitle.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="InternalReportTemplates">
+          <Value>
+            <String>= Parameters.InternalReportTemplates.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Srow">
+          <Value>
+            <String>= Parameters.Srow.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Sclmn">
+          <Value>
+            <String>= Parameters.Sclmn.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="BarCodeType">
+          <Value>
+            <String>= Parameters.BarCodeType.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="PrdDt">
+          <Value>
+            <String>= Parameters.PrdDt.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="EndDt">
+          <Value>
+            <String>= Parameters.EndDt.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="GPk">
+          <Value>
+            <String>= Parameters.GPk.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="RepNo">
+          <Value>
+            <String>= Parameters.RepNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Itms">
+          <Value>
+            <String>= Parameters.Itms.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="LocCd">
+          <Value>
+            <String>= Parameters.LocCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="TrTy">
+          <Value>
+            <String>= Parameters.TrTy.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Fdt">
+          <Value>
+            <String>= Parameters.Fdt.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Tdt">
+          <Value>
+            <String>= Parameters.Tdt.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="TrNo">
+          <Value>
+            <String>= Parameters.TrNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FlocCd">
+          <Value>
+            <String>= Parameters.FlocCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="TlocCd">
+          <Value>
+            <String>= Parameters.TlocCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ItmCd">
+          <Value>
+            <String>= Parameters.ItmCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <DetailSection PageBreak="None" Height="3.048cm" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White">
+        <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+        <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+        <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+      </Style>
+      <Items>
+        <Barcode Width="26.25mm" Height="25.4mm" Left="0mm" Top="2.54mm" Value="= Fields.ItmCd" Name="barcode1">
+          <Style TextAlign="Right" />
+          <Encoder>
+            <Code128Encoder />
+          </Encoder>
+        </Barcode>
+      </Items>
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ColumnCount="8" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="Url" Text="Url" AllowNull="True" />
+    <ReportParameter Name="CompanyName" AllowNull="True">
+      <Value>
+        <String></String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="Logo" AllowNull="True" />
+    <ReportParameter Name="CompanyAddress" AllowNull="True" />
+    <ReportParameter Name="ReportTitle" AllowNull="True" />
+    <ReportParameter Name="Repnam" AllowNull="True" />
+    <ReportParameter Name="Prnt" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="Prntpro" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="ReportFileName" AllowNull="True" />
+    <ReportParameter Name="InternalReportTemplates" AllowNull="True" />
+    <ReportParameter Name="Srow" AllowNull="True" />
+    <ReportParameter Name="Sclmn" AllowNull="True" />
+    <ReportParameter Name="BarCodeType" AllowNull="True" />
+    <ReportParameter Name="PrdDt" Type="DateTime" AllowNull="True" />
+    <ReportParameter Name="EndDt" Type="DateTime" AllowNull="True" />
+    <ReportParameter Name="GPk" AllowNull="True" />
+    <ReportParameter Name="RepNo" AllowNull="True" />
+    <ReportParameter Name="Itms" AllowNull="True" />
+    <ReportParameter Name="LocCd" AllowNull="True" />
+    <ReportParameter Name="TrTy" AllowNull="True" />
+    <ReportParameter Name="Fdt" Type="DateTime" AllowNull="True" />
+    <ReportParameter Name="Tdt" Type="DateTime" AllowNull="True" />
+    <ReportParameter Name="TrNo" AllowNull="True" />
+    <ReportParameter Name="FlocCd" AllowNull="True" />
+    <ReportParameter Name="TlocCd" AllowNull="True" />
+    <ReportParameter Name="ItmCd" AllowNull="True" />
+  </ReportParameters>
+</Report>

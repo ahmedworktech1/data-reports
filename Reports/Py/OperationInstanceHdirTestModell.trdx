@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="21.2cm" UnitOfMeasure="Cm" SkipBlankPages="False" Name="OperationInstanceHdirTestModel" ShowDimensions="False" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <Style Visible="True">
+    <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+    <BorderColor Top="37, 64, 97" Bottom="37, 64, 97" Left="37, 64, 97" Right="37, 64, 97" />
+    <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+  </Style>
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="PYR" SelectCommand="select  (select comp_name from py.dbo.pycomp where comp_no in (select comp_no from py.dbo.pyempmfh where emp_no=htemp.emp_no)) as cmp_nm,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;(  select dscr_ar from pylists where rec_type=8  and code=htemp.cst_cen)cst_nm,   &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;(isnull(x16,0)+ isnull(x17,0)+  isnull(x18,0)+ isnull(x19,0)) as sx1,&#xD;&#xA;&#xD;&#xA;'htemp' as CalcNo,&#xD;&#xA; &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;* from htemp  where  1=1" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="4.3cm" Name="pageHeaderSection1">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="2.856cm" Height="0.8cm" Left="3.7cm" Top="3.5cm" Value="X99" Name="textBox6">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="0.8cm" Left="0cm" Top="3.5cm" Value="D99" Name="textBox5">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="11.644cm" Height="0.8cm" Left="9.556cm" Top="3.5cm" Value="الموظف" Name="textBox8">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.8cm" Left="6.556cm" Top="3.5cm" Value="X80" Name="textBox11">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="0.7cm" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White">
+        <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+        <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+        <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+      </Style>
+      <Items>
+        <TextBox Width="3cm" Height="7mm" Left="65.56mm" Top="0mm" Value="= Fields.X80" Format="{0:N2}" Multiline="False" Name="textBox142">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.856cm" Height="7mm" Left="37mm" Top="0mm" Value="= Fields.X99" Format="{0:N0}" Multiline="False" Name="textBox135">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="7mm" Left="0mm" Top="0mm" Value="= Fields.D99" Format="{0:N2}" Multiline="False" Name="textBox133">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.1cm" Height="7mm" Left="171mm" Top="0mm" Value="= Fields.EMP_NO" Format="{0:N2}" Multiline="False" Name="textBox130">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+          <Action>
+            <NavigateToReportAction>
+              <ReportSource>
+                <UriReportSource Uri="DX.trdx">
+                  <Parameters>
+                    <Parameter Name="EMP_NO">
+                      <Value>
+                        <String>= Fields.EMP_NO</String>
+                      </Value>
+                    </Parameter>
+                    <Parameter Name="CalcNo">
+                      <Value>
+                        <String>= Fields.CalcNo</String>
+                      </Value>
+                    </Parameter>
+                  </Parameters>
+                </UriReportSource>
+              </ReportSource>
+            </NavigateToReportAction>
+          </Action>
+        </TextBox>
+        <TextBox Width="7.544cm" Height="7mm" Left="95.56mm" Top="0mm" Value="= Fields.EMP_NAME" Format="{0:N2}" Multiline="False" Name="textBox4">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportFooterSection Height="2.112cm" Name="reportFooterSection1" />
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+</Report>

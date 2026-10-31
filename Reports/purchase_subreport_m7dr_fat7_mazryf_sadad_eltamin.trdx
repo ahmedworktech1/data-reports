@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="6.54in" Name="purchase_subreport_m7dr_fat7_mazryf_3" Zoom="1.5" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glxsandoaa" SelectCommand=";WITH Aztrh_Dedup AS (&#xD;&#xA;    SELECT &#xD;&#xA;        FNCL_TR_NO,&#xD;&#xA;        Purchas_No,&#xD;&#xA;        ROW_NUMBER() OVER (PARTITION BY FNCL_TR_NO, Purchas_No ORDER BY (SELECT NULL)) AS rn&#xD;&#xA;    FROM azx_sandoaa.dbo.aztrh&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;SELECT &#xD;&#xA;    N'نقدي' AS Source_Type,&#xD;&#xA;    T.Az_Oprtn_Nm     AS AzOprtnNm,&#xD;&#xA;    T.Az_Oprtn_No     AS AzOprtnNo,&#xD;&#xA;    CAST(ABS(T.tr_no) AS NVARCHAR(50))   AS Doc_No,&#xD;&#xA;    --CAST(T.tot_amt AS NVARCHAR(50))      AS Amount,&#xD;&#xA;    T.tot_amt AS Amount,&#xD;&#xA;     T.tr_dt AS Doc_Date,&#xD;&#xA;    (SELECT S.SSUM_NM_Ar &#xD;&#xA;     FROM glx_sandoaa.dbo.GLSSUMS S &#xD;&#xA;     WHERE S.SSUM_CD = T.ssum_cd) AS Ssum_Nm_Ar,&#xD;&#xA;    CASE WHEN T.tr_no &lt; 0 THEN N'لم يراجع' ELSE N'روجع' END AS Doc_Status&#xD;&#xA;FROM glx_sandoaa.dbo.GlCsh_Tr_h T&#xD;&#xA;INNER JOIN Aztrh_Dedup A&#xD;&#xA;    ON T.AZ_OPRTN_NO = A.FNCL_TR_NO&#xD;&#xA;   AND T.AZ_OPRTN_NM = A.Purchas_No&#xD;&#xA;   AND A.rn = 1&#xD;&#xA;WHERE T.tot_amt &gt; 0&#xD;&#xA;  AND T.Document_Type = 4&#xD;&#xA;&#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;SELECT &#xD;&#xA;    N'خطاب ضمان',&#xD;&#xA;    L.Az_Oprtn_Nm,&#xD;&#xA;    L.Az_Oprtn_No,&#xD;&#xA;    CAST(ABS(TRY_CAST(L.lc_no AS INT)) AS NVARCHAR(50)),&#xD;&#xA;    L.lc_amount  AS Amount,&#xD;&#xA;    L.OPN_DT as Doc_Date,&#xD;&#xA;    (SELECT S.SSUM_NM_Ar &#xD;&#xA;     FROM glx_sandoaa.dbo.GLSSUMS S &#xD;&#xA;     WHERE S.SSUM_CD = L.ssum_cd),&#xD;&#xA;    CASE WHEN TRY_CAST(L.lc_no AS INT) &lt; 0 THEN N'لم يراجع' ELSE N'روجع' END&#xD;&#xA;FROM glx_sandoaa.dbo.gllcmf L&#xD;&#xA;INNER JOIN Aztrh_Dedup A&#xD;&#xA;    ON L.AZ_OPRTN_NO = A.FNCL_TR_NO&#xD;&#xA;   AND L.AZ_OPRTN_NM = A.Purchas_No&#xD;&#xA;   AND A.rn = 1&#xD;&#xA;WHERE L.lc_amount &gt; 0&#xD;&#xA;  AND L.Gr_Ty = 3&#xD;&#xA;&#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;SELECT &#xD;&#xA;    N'شيك',&#xD;&#xA;    C.Az_Oprtn_Nm,&#xD;&#xA;    C.Az_Oprtn_No,&#xD;&#xA;    CAST(ABS(TRY_CAST(C.chk_no AS INT)) AS NVARCHAR(50)),&#xD;&#xA;    C.AMT  AS Amount,&#xD;&#xA;     C.DUE_DT as Doc_Date,&#xD;&#xA;    (SELECT S.SSUM_NM_Ar &#xD;&#xA;     FROM glx_sandoaa.dbo.GLSSUMS S &#xD;&#xA;     WHERE S.SSUM_CD = C.ssum_cd),&#xD;&#xA;    CASE WHEN TRY_CAST(C.chk_no AS INT) &lt; 0 THEN N'لم يراجع' ELSE N'روجع' END&#xD;&#xA;FROM glx_sandoaa.dbo.glchksmf C&#xD;&#xA;INNER JOIN Aztrh_Dedup A&#xD;&#xA;    ON C.AZ_OPRTN_NO = A.FNCL_TR_NO&#xD;&#xA;   AND C.AZ_OPRTN_NM = A.Purchas_No&#xD;&#xA;   AND A.rn = 1&#xD;&#xA;WHERE C.AMT &gt; 0&#xD;&#xA;  AND C.Document_Type = 1&#xD;&#xA;  &#xD;&#xA;ORDER BY Doc_Date;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <DetailSection Height="0.236in" Name="detailSection1">
+      <Items>
+        <TextBox Width="3cm" Height="0.6cm" Left="7.112cm" Top="0cm" Value="= Fields.Doc_Date" Format="{0:d}" Name="textBox12">
+          <Style BackgroundColor="196, 189, 150" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.25cm" Height="0.6cm" Left="12.512cm" Top="0cm" Value="= Fields.Ssum_Nm_Ar" Name="textBox9">
+          <Style BackgroundColor="196, 189, 150" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.777cm" Height="0.6cm" Left="15.762cm" Top="0cm" Value="= ROWNUMBER()" Name="textBox18">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.4cm" Height="0.6cm" Left="3.712cm" Top="0cm" Value="= Fields.Doc_No" Name="textBox14">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.812cm" Height="0.6cm" Left="0cm" Top="0cm" Value="= Fields.Doc_Status" Name="textBox11">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.4cm" Height="0.6cm" Left="10.112cm" Top="0cm" Value="= Fields.Source_Type" Name="textBox10">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.901cm" Height="0.6cm" Left="1.812cm" Top="0cm" Value="= CInt(Fields.Amount)" Format="{0:0}" TextWrap="True" Name="textBox16">
+          <Style BackgroundColor="196, 189, 150" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageHeaderSection Height="0.276in" Name="pageHeaderSection1">
+      <Items>
+        <TextBox Width="3.25cm" Height="0.7cm" Left="12.512cm" Top="0cm" Value="اسم المورد" Name="textBox13">
+          <Style BackgroundColor="238, 236, 225" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.7cm" Left="7.112cm" Top="0cm" Value="تاريخ السداد" Name="textBox21">
+          <Style BackgroundColor="238, 236, 225" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.4cm" Height="0.7cm" Left="3.712cm" Top="0cm" Value="رقم مستند السداد" Name="textBox22">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.777cm" Height="0.7cm" Left="15.762cm" Top="0cm" Value="م" Name="textBox23">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.899cm" Height="0.7cm" Left="0cm" Top="0cm" Value="الحالة" Name="textBox17">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.899cm" Height="0.7cm" Left="1.812cm" Top="0cm" Value="المبلغ" Name="textBox7">
+          <Style BackgroundColor="238, 236, 225" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.4cm" Height="0.7cm" Left="10.112cm" Top="0cm" Value="طريقة السداد" Name="textBox20">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+  </Items>
+  <PageSettings PaperKind="Letter" Landscape="False" ColumnCount="1" ColumnSpacing="0in">
+    <Margins>
+      <MarginsU Left="1in" Right="1in" Top="1in" Bottom="1in" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+</Report>

@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="29.7cm" Name="QueryGlJrnl1" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glx20231" SelectCommand="Select SUBSTRING(acc_no,1,3) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,3)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '111%') and 1=1&#xD;&#xA;group by SUBSTRING(acc_no,1,3)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,4) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,4)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '1121%' or acc_no like '1122%' or acc_no like '1143%' or acc_no like '1192%'&#xD;&#xA;or acc_no like '1221%' or acc_no like '1224%') and 1=1&#xD;&#xA;group by SUBSTRING(acc_no,1,4)&#xD;&#xA; &#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select '1231' as acc_no ,'عملاء' as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '1231%') &#xD;&#xA;and 1=1&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,4) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,4)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '1232%' or acc_no like '1233%' or acc_no like '1234%' or acc_no like '1235%' or acc_no like '1236%'&#xD;&#xA;or acc_no like '1237%') &#xD;&#xA;and 1=1&#xD;&#xA;group by SUBSTRING(acc_no,1,4)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select '125' as acc_no ,'استثمارات مالية متداولة' as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '125%') &#xD;&#xA;and 1=1&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,4) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,4)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '1281%' or acc_no like '1282%' ) &#xD;&#xA;and 1=1&#xD;&#xA;group by SUBSTRING(acc_no,1,4)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,6) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,6)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '128311%' or acc_no like '128312%') &#xD;&#xA;and 1=1&#xD;&#xA;group by SUBSTRING(acc_no,1,6)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select '21' as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = gljrnld.acc_no) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '21%') &#xD;&#xA;and 1=1&#xD;&#xA;group by acc_no&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,3) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,3)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '231%' or acc_no like '233%') &#xD;&#xA;and 1=1&#xD;&#xA;group by SUBSTRING(gljrnld.acc_no,1,3)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,4) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,4)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '3222%' or acc_no like '3223%' ) &#xD;&#xA;and 1=1&#xD;&#xA;group by SUBSTRING(gljrnld.acc_no,1,4)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,5) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,5)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '31121%') &#xD;&#xA;and 1=1&#xD;&#xA;group by SUBSTRING(gljrnld.acc_no,1,5)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,4) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,4)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '3241%' or acc_no like '3242%' or acc_no like '3243%' or acc_no like '3244%' or acc_no like '3246%') &#xD;&#xA;and 1=1&#xD;&#xA;group by SUBSTRING(gljrnld.acc_no,1,4)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,3) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,3)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '329%') &#xD;&#xA;and 1=1&#xD;&#xA;group by SUBSTRING(gljrnld.acc_no,1,3)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select'316' as acc_no ,'ارباح مؤجل الاعتراف بها' as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '316%') &#xD;&#xA;and 1=1&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select'3191' as acc_no ,'منح مؤجل الاعتراف بها' as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '3191%') &#xD;&#xA;and 1=1&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,4) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,4)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '3192%') &#xD;&#xA;and 1=1&#xD;&#xA;group by SUBSTRING(gljrnld.acc_no,1,4)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,5) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,5)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '32324%') &#xD;&#xA;and 1=1&#xD;&#xA;group by SUBSTRING(gljrnld.acc_no,1,5)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,4) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,4)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '3272%') &#xD;&#xA;and 1=1&#xD;&#xA;group by SUBSTRING(gljrnld.acc_no,1,4)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,2) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,2)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '24%' or acc_no like '25%' or acc_no like '42%' or acc_no like '43%' or acc_no like '45%' ) &#xD;&#xA;and 1=1&#xD;&#xA;group by SUBSTRING(gljrnld.acc_no,1,2)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,3) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,3)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '411%' or acc_no like '412%') &#xD;&#xA;and 1=1&#xD;&#xA;group by SUBSTRING(gljrnld.acc_no,1,3)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select'511' as acc_no ,'ايرادات المبيعات' as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '511%') &#xD;&#xA;and 1=1&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select'5122' as acc_no ,'ايرادات تشغيل للغير' as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '5122%') &#xD;&#xA;and 1=1&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,4) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,4)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '5125%') &#xD;&#xA;and 1=1&#xD;&#xA;group by SUBSTRING(gljrnld.acc_no,1,4)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;Select SUBSTRING(acc_no,1,3) as acc_no ,(select acc_nm_ar from glmf where glmf.acc_no = SUBSTRING(gljrnld.acc_no,1,3)) as acc_nm,&#xD;&#xA;sum(case when  com_id = '01' then (DB_VL) else 0 end) as s1,&#xD;&#xA;sum(case when  com_id = '01' then (CR_VL) else 0 end) as s2,&#xD;&#xA;sum(case when  com_id = '02' then (DB_VL) else 0 end) as s3,&#xD;&#xA;sum(case when  com_id = '02' then (CR_VL) else 0 end) as s4,&#xD;&#xA;sum(case when  com_id = '03' then (DB_VL) else 0 end) as s5,&#xD;&#xA;sum(case when  com_id = '03' then (CR_VL) else 0 end) as s6,&#xD;&#xA;sum(case when  com_id = '04' then (DB_VL) else 0 end) as s7,&#xD;&#xA;sum(case when  com_id = '04' then (CR_VL) else 0 end) as s8,&#xD;&#xA;sum(case when  com_id = '05' then (DB_VL) else 0 end) as s9,&#xD;&#xA;sum(case when  com_id = '05' then (CR_VL) else 0 end) as s10,&#xD;&#xA;sum(case when  com_id = '06' then (DB_VL) else 0 end) as s11,&#xD;&#xA;sum(case when  com_id = '06' then (CR_VL) else 0 end) as s12,&#xD;&#xA;sum(case when  com_id = '07' then (DB_VL) else 0 end) as s13,&#xD;&#xA;sum(case when  com_id = '07' then (CR_VL) else 0 end) as s14,&#xD;&#xA;sum(case when  com_id = '09' then (DB_VL) else 0 end) as s15,&#xD;&#xA;sum(case when  com_id = '09' then (CR_VL) else 0 end) as s16,&#xD;&#xA;sum (DB_VL)  as sm1,&#xD;&#xA;sum (CR_VL)  as sm2&#xD;&#xA;from gljrnld where (acc_no like '514%' or acc_no like '515%' or acc_no like '516%') &#xD;&#xA;and 1=1&#xD;&#xA;group by SUBSTRING(gljrnld.acc_no,1,3)&#xD;&#xA;order by acc_no&#xD;&#xA;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="4.1cm" Name="pageHeaderSection1">
+      <Style BackgroundColor="" />
+      <Items>
+        <TextBox Width="3.1cm" Height="0.7cm" Left="7.3cm" Top="2.7cm" Value="قطاع الفيوم" Name="textBox6">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.112in" Left="10.346in" Top="0.075in" Value="وزارة الكهرباء والطاقة المتجددة" Name="textBox26">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.128in" Left="10.352in" Top="0.197in" Value="الشركة القابضة لكهرباء مصر" Name="textBox25">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.227in" Height="0.128in" Left="10.276in" Top="0.328in" Value="شركة مصر الوسطى لتوزيع الكهرباء" Name="textBox63">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.128in" Left="10.347in" Top="0.459in" Value="قطاعات الشئون المالية" Name="textBox64">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.128in" Left="10.345in" Top="0.591in" Value="الحسابات الآلية" Name="textBox65">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="0.7cm" Left="13.3cm" Top="2.7cm" Value="قطاع الوادي" Name="textBox5">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.5cm" Height="0.7cm" Left="3.8cm" Top="2.7cm" Value="اجمالى القطاعات" Name="textBox8">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.7cm" Height="1.4cm" Left="2.1cm" Top="2.7cm" Value="البيان" Name="textBox9">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="1.4cm" Left="0.3cm" Top="2.7cm" Value="رقم الحساب" Name="textBox11">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.9cm" Height="0.6cm" Left="10.5cm" Top="0.5cm" Value="ميزان المراجعه" Name="textBox3">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.2cm" Height="0.7cm" Left="14.1cm" Top="1.4cm" Value="= Parameters.filter_TR_DT.Value" Format="{0:d}" Name="textBox19">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.1cm" Height="0.7cm" Left="6.6cm" Top="1.4cm" Value="= Parameters.filter_TO_TR_DT.Value" Format="{0:d}" Name="textBox18">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.2cm" Height="0.7cm" Left="19.3cm" Top="1.4cm" Value="عن الفترة من" Name="textBox30">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.4cm" Height="0.7cm" Left="12.7cm" Top="1.4cm" Value="حتى" Name="textBox15">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.7cm" Left="5.5cm" Top="3.4cm" Value="منه" Name="textBox1">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.7cm" Height="0.7cm" Left="3.8cm" Top="3.4cm" Value="له" Name="textBox4">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="0.7cm" Left="7.3cm" Top="3.4cm" Value="له" Name="textBox7">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.5cm" Height="0.7cm" Left="8.9cm" Top="3.4cm" Value="منه" Name="textBox10">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.4cm" Height="0.7cm" Left="11.9cm" Top="3.4cm" Value="منه" Name="textBox12">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.499cm" Height="0.7cm" Left="10.401cm" Top="3.4cm" Value="له" Name="textBox14">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.899cm" Height="0.7cm" Left="10.401cm" Top="2.7cm" Value="قطاع بني سويف" Name="textBox2">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.4cm" Height="0.7cm" Left="16.1cm" Top="2.7cm" Value="قطاع اسيوط جنوب" Name="textBox17">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.199cm" Height="0.7cm" Left="18.501cm" Top="2.7cm" Value="قطاع اسيوط شمال" Name="textBox20">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="0.7cm" Left="20.7cm" Top="2.7cm" Value="قطاع المنيا جتوب" Name="textBox21">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="0.7cm" Left="23.5cm" Top="2.7cm" Value="قطاع المنيا شمال" Name="textBox22">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.799cm" Height="0.7cm" Left="26.301cm" Top="2.7cm" Value="اداره الشركه" Name="textBox23">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.5cm" Height="0.7cm" Left="13.3cm" Top="3.4cm" Value="له" Name="textBox31">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.1cm" Height="0.7cm" Left="16.1cm" Top="3.4cm" Value="له" Name="textBox32">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.099cm" Height="0.7cm" Left="18.501cm" Top="3.4cm" Value="له" Name="textBox33">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.299cm" Height="0.7cm" Left="20.7cm" Top="3.4cm" Value="له" Name="textBox34">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.299cm" Height="0.7cm" Left="23.5cm" Top="3.4cm" Value="له" Name="textBox35">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.299cm" Height="0.7cm" Left="26.301cm" Top="3.4cm" Value="له" Name="textBox36">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.3cm" Height="0.7cm" Left="14.8cm" Top="3.4cm" Value="منه" Name="textBox37">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.3cm" Height="0.7cm" Left="17.2cm" Top="3.4cm" Value="منه" Name="textBox38">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.1cm" Height="0.7cm" Left="19.6cm" Top="3.4cm" Value="منه" Name="textBox39">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.501cm" Height="0.7cm" Left="21.999cm" Top="3.4cm" Value="منه" Name="textBox40">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.501cm" Height="0.7cm" Left="24.8cm" Top="3.4cm" Value="منه" Name="textBox41">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.501cm" Height="0.7cm" Left="27.6cm" Top="3.4cm" Value="منه" Name="textBox42">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="0.8cm" Name="detailSection1">
+      <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+        <Font Size="7pt" Bold="True" />
+      </Style>
+      <Items>
+        <TextBox Width="1.8cm" Height="0.6cm" Left="0.3cm" Top="0.2cm" Value="= Fields.acc_no" Name="textBox43">
+          <Style VerticalAlign="Middle">
+            <Font Size="3pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.7cm" Height="0.6cm" Left="2.1cm" Top="0.2cm" Value="= Fields.acc_nm" Name="textBox44">
+          <Style VerticalAlign="Middle">
+            <Font Size="3pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.5cm" Height="0.6cm" Left="27.6cm" Top="0.2cm" Value="= Fields.s1" Format="{0:N3}" Name="textBox45">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.299cm" Height="0.6cm" Left="26.301cm" Top="0.2cm" Value="= Fields.s2" Format="{0:N3}" Name="textBox46">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.5cm" Height="0.6cm" Left="24.8cm" Top="0.2cm" Value="= Fields.s3" Format="{0:N3}" Name="textBox47">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.3cm" Height="0.6cm" Left="23.5cm" Top="0.2cm" Value="= Fields.s4" Format="{0:N3}" Name="textBox48">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.501cm" Height="0.6cm" Left="21.999cm" Top="0.2cm" Value="= Fields.s5" Format="{0:N3}" Name="textBox49">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.299cm" Height="0.6cm" Left="20.7cm" Top="0.2cm" Value="= Fields.s6" Format="{0:N3}" Name="textBox50">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.1cm" Height="0.6cm" Left="19.6cm" Top="0.2cm" Value="= Fields.s7" Format="{0:N3}" Name="textBox51">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.1cm" Height="0.6cm" Left="18.5cm" Top="0.2cm" Value="= Fields.s8" Format="{0:N3}" Name="textBox52">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.3cm" Height="0.6cm" Left="17.2cm" Top="0.2cm" Value="= Fields.s9" Format="{0:N3}" Name="textBox53">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.1cm" Height="0.6cm" Left="16.1cm" Top="0.2cm" Value="= Fields.s10" Format="{0:N3}" Name="textBox54">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.3cm" Height="0.6cm" Left="14.8cm" Top="0.2cm" Value="= Fields.s11" Format="{0:N3}" Name="textBox55">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.5cm" Height="0.6cm" Left="13.3cm" Top="0.2cm" Value="= Fields.s12" Format="{0:N3}" Name="textBox56">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.4cm" Height="0.6cm" Left="11.9cm" Top="0.2cm" Value="= Fields.s13" Format="{0:N3}" Name="textBox57">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.499cm" Height="0.6cm" Left="10.401cm" Top="0.2cm" Value="= Fields.s14" Format="{0:N3}" Name="textBox58">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.501cm" Height="0.6cm" Left="8.9cm" Top="0.2cm" Value="= Fields.s15" Format="{0:N3}" Name="textBox59">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="0.6cm" Left="7.3cm" Top="0.2cm" Value="= Fields.s16" Format="{0:N3}" Name="textBox60">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.6cm" Left="5.5cm" Top="0.2cm" Value="= Fields.sm1" Format="{0:N3}" Name="textBox61">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.7cm" Height="0.6cm" Left="3.8cm" Top="0.2cm" Value="= Fields.sm2" Format="{0:N3}" Name="textBox62">
+          <Style VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportFooterSection Height="1.7cm" Name="reportFooterSection1">
+      <Style BackgroundColor="White" />
+      <Items>
+        <TextBox Width="15mm" Height="8mm" Left="276mm" Top="1mm" Value="=Sum(s1)" Format="{0:N3}" Multiline="False" Name="textBox13">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.5cm" Height="0.8cm" Left="0.3cm" Top="0.1cm" Value="الإجمالي " Angle="0" Name="textBox24">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Groove" Left="Groove" Right="Groove" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="12.99mm" Height="8mm" Left="263.01mm" Top="1mm" Value="=Sum(s2)" Format="{0:N3}" Multiline="False" Name="textBox16">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15mm" Height="8mm" Left="248mm" Top="1mm" Value="=Sum(s3)" Format="{0:N3}" Multiline="False" Name="textBox27">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="12.99mm" Height="8mm" Left="235mm" Top="1mm" Value="=Sum(s4)" Format="{0:N3}" Multiline="False" Name="textBox28">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.01mm" Height="8mm" Left="219.99mm" Top="1mm" Value="=Sum(s5)" Format="{0:N3}" Multiline="False" Name="textBox29">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="12.99mm" Height="8mm" Left="207mm" Top="1mm" Value="=Sum(s6)" Format="{0:N3}" Multiline="False" Name="textBox66">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="11mm" Height="8mm" Left="196mm" Top="1mm" Value="=Sum(s7)" Format="{0:N3}" Multiline="False" Name="textBox67">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="10.99mm" Height="8mm" Left="185.01mm" Top="1mm" Value="=Sum(s8)" Format="{0:N3}" Multiline="False" Name="textBox68">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="13mm" Height="8mm" Left="172mm" Top="1mm" Value="=Sum(s9)" Format="{0:N3}" Multiline="False" Name="textBox69">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="11mm" Height="8mm" Left="161mm" Top="1mm" Value="=Sum(s10)" Format="{0:N3}" Multiline="False" Name="textBox70">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="13mm" Height="8mm" Left="148mm" Top="1mm" Value="=Sum(s11)" Format="{0:N3}" Multiline="False" Name="textBox71">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15mm" Height="8mm" Left="133mm" Top="1mm" Value="=Sum(s12)" Format="{0:N3}" Multiline="False" Name="textBox72">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14mm" Height="8mm" Left="119mm" Top="1mm" Value="=Sum(s13)" Format="{0:N3}" Multiline="False" Name="textBox73">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15mm" Height="8mm" Left="104mm" Top="1mm" Value="=Sum(s14)" Format="{0:N3}" Multiline="False" Name="textBox74">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15mm" Height="8mm" Left="89mm" Top="1mm" Value="=Sum(s15)" Format="{0:N3}" Multiline="False" Name="textBox75">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="16mm" Height="8mm" Left="73mm" Top="1mm" Value="=Sum(s16)" Format="{0:N3}" Multiline="False" Name="textBox76">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18mm" Height="8mm" Left="55mm" Top="1mm" Value="=Sum(sm1)" Format="{0:N3}" Multiline="False" Name="textBox77">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="17mm" Height="8mm" Left="38mm" Top="1mm" Value="=Sum(sm2)" Format="{0:N3}" Multiline="False" Name="textBox78">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="35mm" Height="8mm" Left="38mm" Top="9mm" Value="=Sum(sm1) - Sum(sm2)" Format="{0:N3}" Multiline="False" Name="textBox79">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.5cm" Height="0.8cm" Left="0.3cm" Top="0.9cm" Value="الفرق" Angle="0" Name="textBox80">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Groove" Left="Groove" Right="Groove" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="27.99mm" Height="8mm" Left="263.01mm" Top="9mm" Value="=Sum(s1) - Sum(s2)" Format="{0:N3}" Multiline="False" Name="textBox81">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="27.99mm" Height="8mm" Left="235mm" Top="9mm" Value="=Sum(s3) - Sum(s4)" Format="{0:N3}" Multiline="False" Name="textBox82">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="27.99mm" Height="8mm" Left="207.01mm" Top="9mm" Value="=Sum(s5) - Sum(s6)" Format="{0:N3}" Multiline="False" Name="textBox83">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="22.01mm" Height="8mm" Left="185mm" Top="9mm" Value="=Sum(s7) - Sum(s8)" Format="{0:N3}" Multiline="False" Name="textBox84">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="24mm" Height="8mm" Left="161mm" Top="9mm" Value="=Sum(s9) - Sum(s10)" Format="{0:N3}" Multiline="False" Name="textBox85">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="28mm" Height="8mm" Left="133mm" Top="9mm" Value="=Sum(s11) - Sum(s12)" Format="{0:N3}" Multiline="False" Name="textBox86">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="28.99mm" Height="8mm" Left="104.01mm" Top="9mm" Value="=Sum(s13) - Sum(s14)" Format="{0:N3}" Multiline="False" Name="textBox87">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="31mm" Height="8mm" Left="73mm" Top="9mm" Value="=Sum(s15) - Sum(s16)" Format="{0:N3}" Multiline="False" Name="textBox88">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="4pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportFooterSection>
+    <PageFooterSection Height="0.132cm" Name="pageFooterSection1" />
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0mm" Right="0mm" Top="0mm" Bottom="0mm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="Url" Text="Url" />
+    <ReportParameter Name="login" Text="login" />
+    <ReportParameter Name="filter" AllowNull="True" />
+    <ReportParameter Name="filter_TR_DT" />
+    <ReportParameter Name="filter_TO_TR_DT" />
+    <ReportParameter Name="DefaultReportTitle" />
+  </ReportParameters>
+</Report>

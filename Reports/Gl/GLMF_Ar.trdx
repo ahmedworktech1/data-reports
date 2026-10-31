@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="WebService" Width="17cm" Name="ReportGLMF" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <WebServiceDataSource ParameterValues="{&quot;@Url&quot;:&quot;&quot;,&quot;.AspNetCore.Identity.Application&quot;:&quot;CfDJ8FgdjlrTompNnCG2nFHEO4i1tJcsxHPHGCJkEquYdLsYhAtga_g6J02bXjX0JcxFYz0osdTrPPaxPUt4WlFvRdkyHT_HjKF9FeQ3NT71_fN3A1zXDRnHcLKXky4WL_GrS7xWWFwN6p9tHh91Zy4ZYkXPk-Yxk0D1FlwdEZnjt3Ca5srNHtklUElUjBRyKhAzcMH5OmE96QwwyujidQ7r5CixOqMRtJepP1DMKzlfJDYYhQFgPZqqAxagiAqhCilBxwJOa119sxEBixbg6uQIoh32Pcjr5QBbxSZTOG9XB2rFFzVT1CGhlKuaI9LxTB6-PMCZrOsgtKLTpUnhKh1kgLVL4TjzLWHZj75-zYzUXuwp1_qnbBxP0OrE_nsVkPPE-oJS22JebU9D2Llj1qpiAT1CdtcM_IONojGTRmjFl81N7wRHl8DhbfeXcfoB1YDYx9TyCoIVQR3A_7ceC4NKCxMMYs-XVnK6ofvQAxzCQWec5uKJULRLSl8nlWRcPBln8x0wt2lBK2RhcC07li8WvzLAeKB2f92KoS0pGIoEQs9l72J3k7so_W4u9-bdGmicIio8NA6006wkx2Rpc-6aKFGjxXDZ15UJ2qqrffF5MqFy-wi93q9WtU3KItIglUzKhzO0M5QIfi-Mi7gUkE6MRRNPNYos_NHZoBocHh0wrMMprfWRvcqZQ2SBUTLvwXdZr67XgUv4hy7JOwXfADpWH5ugeWFYsgGOGluubfXc9IZE4NQv8oUryMorYyA5sGkALKfZ92PO0-EfM6ObvCukI96pElEdMnRsCl3xOAcTnK08HSBm0s3ZSAihtABAsOhU7w&quot;,&quot;filter&quot;:&quot;AccNo~contains~'1113'~or~AccNmAr~contains~'1113'~or~AccNmEn~contains~'1113'~or~Manacc~contains~'1113'~or~M_ManaccName~contains~'1113'~or~AccSt~eq~'1113'~or~AccNt~eq~'1113'~or~M_AccNtName~contains~'1113'~or~AccTy~eq~'1113'~or~M_AccTyName~contains~'1113'~or~CurCd~contains~'1113'~or~M_CurCdName~contains~'1113'~or~Clsacc~contains~'1113'~or~M_ClsaccName~contains~'1113'&quot;}" AuthParameterValues="null" ServiceUrl="https://localhost:5001/gl/Glmf/Grid_Read" DataSelector="Data" Method="Post" Body="cookie: .AspNetCore.Culture=c=ar-EG|uic=ar-EG; .AspNetCore.Antiforgery.JNSw7BfDAOI=CfDJ8FgdjlrTompNnCG2nFHEO4gN-1p7XvMVv3c7EGsb163WoayOJQXy0oawGCfZFLZ6uQ_IEnWGf_4BXmjIZsolgzxzWn4FRMyIBNFW6ENYOC3uxpZL8wh7C7zRYsGggR6herKeuJDORkAaukeOl1P3O2s; .AspNetCore.Identity.Application=CfDJ8FgdjlrTompNnCG2nFHEO4i1tJcsxHPHGCJkEquYdLsYhAtga_g6J02bXjX0JcxFYz0osdTrPPaxPUt4WlFvRdkyHT_HjKF9FeQ3NT71_fN3A1zXDRnHcLKXky4WL_GrS7xWWFwN6p9tHh91Zy4ZYkXPk-Yxk0D1FlwdEZnjt3Ca5srNHtklUElUjBRyKhAzcMH5OmE96QwwyujidQ7r5CixOqMRtJepP1DMKzlfJDYYhQFgPZqqAxagiAqhCilBxwJOa119sxEBixbg6uQIoh32Pcjr5QBbxSZTOG9XB2rFFzVT1CGhlKuaI9LxTB6-PMCZrOsgtKLTpUnhKh1kgLVL4TjzLWHZj75-zYzUXuwp1_qnbBxP0OrE_nsVkPPE-oJS22JebU9D2Llj1qpiAT1CdtcM_IONojGTRmjFl81N7wRHl8DhbfeXcfoB1YDYx9TyCoIVQR3A_7ceC4NKCxMMYs-XVnK6ofvQAxzCQWec5uKJULRLSl8nlWRcPBln8x0wt2lBK2RhcC07li8WvzLAeKB2f92KoS0pGIoEQs9l72J3k7so_W4u9-bdGmicIio8NA6006wkx2Rpc-6aKFGjxXDZ15UJ2qqrffF5MqFy-wi93q9WtU3KItIglUzKhzO0M5QIfi-Mi7gUkE6MRRNPNYos_NHZoBocHh0wrMMprfWRvcqZQ2SBUTLvwXdZr67XgUv4hy7JOwXfADpWH5ugeWFYsgGOGluubfXc9IZE4NQv8oUryMorYyA5sGkALKfZ92PO0-EfM6ObvCukI96pElEdMnRsCl3xOAcTnK08HSBm0s3ZSAihtABAsOhU7w" Name="WebService">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "/gl/Glmf/Grid_Read"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="filter">
+          <Value>
+            <String>= Parameters.filter.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="2cm" Name="pageHeaderSection1">
+      <Style BackgroundColor="242, 242, 242" />
+      <Items>
+        <TextBox Width="3cm" Height="0.6cm" Left="7cm" Top="0.5cm" Value="textBox3" Name="textBox3">
+          <Style TextAlign="Center" />
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="0.8cm" Name="detailSection1">
+      <Style BackgroundColor="217, 217, 217" />
+      <Items>
+        <TextBox Width="5.3cm" Height="0.6cm" Left="8.6cm" Top="0.1cm" Value="= Fields.AccNmAr" Name="textBox1">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.6cm" Left="13.9cm" Top="0.1cm" Value="= Fields.AccNo" Name="textBox5">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="2cm" Name="pageFooterSection1">
+      <Style BackgroundColor="215, 228, 188" />
+      <Items>
+        <TextBox Width="3cm" Height="0.6cm" Left="7cm" Top="0.7cm" Value="textBox4" Name="textBox4">
+          <Style TextAlign="Center" />
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="Url" Text="Url" />
+    <ReportParameter Name="login" Text="login" />
+    <ReportParameter Name="filter" AllowNull="True" />
+  </ReportParameters>
+</Report>

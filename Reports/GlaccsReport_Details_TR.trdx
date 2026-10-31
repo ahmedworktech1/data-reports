@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="27.9cm" Name="Report1999999999" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="GLDATA" SelectCommand="SELECT        TOP (100) PERCENT dbo.GLJRNLD.JRN_CD, dbo.GLJRNLD.TR_NO, dbo.GLJRNLD.LN_TY, dbo.GLCST.CST_CD, dbo.GLJRNLD.DOC_NO, dbo.GLTRSTBL.DOC_DS_Ar, dbo.GLJRNLD.TR_DT, dbo.GLJRNLD.DB_VL, &#xD;&#xA;                         dbo.GLJRNLD.CR_VL, dbo.GLMF.ACC_NO, dbo.GLMF.ACC_NM_Ar, dbo.GLJRNLD.TR_DS, dbo.GLSUMS.SUM_NM_Ar, dbo.GLCST.CST_NM_Ar, dbo.GLSCST.SCST_CD, dbo.GLSCST.SCST_NM_Ar, dbo.GLSSUMS.SSUM_CD, &#xD;&#xA;                         dbo.GLSSUMS.SSUM_NM_Ar, dbo.GLSUMS.SUM_CD, dbo.TRH.TR_DT AS TR_DTH, dbo.GLJRNLD.CUR_CD, dbo.GLCURRAT.CUR_NM_Ar, dbo.GLJRNLD.CUR_VL, dbo.GLJRNLD.RATE&#xD;&#xA;FROM            dbo.GLJRNLD INNER JOIN&#xD;&#xA;                         dbo.GLMF ON dbo.GLJRNLD.ACC_NO = dbo.GLMF.ACC_NO INNER JOIN&#xD;&#xA;                         dbo.GLTRSTBL ON dbo.GLJRNLD.JRN_CD = dbo.GLTRSTBL.DOC_TY INNER JOIN&#xD;&#xA;                         dbo.TRH ON dbo.GLJRNLD.JRN_CD = dbo.TRH.JRN_CD AND dbo.GLJRNLD.TR_NO = dbo.TRH.tr_n LEFT OUTER JOIN&#xD;&#xA;                         dbo.GLCURRAT ON dbo.GLJRNLD.CUR_CD = dbo.GLCURRAT.CUR_CD LEFT OUTER JOIN&#xD;&#xA;                         dbo.GLSCST ON dbo.GLJRNLD.scst_cd = dbo.GLSCST.SCST_CD LEFT OUTER JOIN&#xD;&#xA;                         dbo.GLSSUMS ON dbo.GLJRNLD.SSUM_CD = dbo.GLSSUMS.SSUM_CD LEFT OUTER JOIN&#xD;&#xA;                         dbo.GLSUMS ON dbo.GLJRNLD.SUM_CD = dbo.GLSUMS.SUM_CD LEFT OUTER JOIN&#xD;&#xA;                         dbo.GLCST ON dbo.GLJRNLD.CST_CD = dbo.GLCST.CST_CD&#xD;&#xA;WHERE        (1&lt;&gt;1)&#xD;&#xA;ORDER BY dbo.GLJRNLD.JRN_CD, dbo.GLJRNLD.TR_NO, dbo.GLJRNLD.TR_DT, dbo.GLJRNLD.LN_TY DESC, dbo.GLCST.CST_CD, dbo.GLJRNLD.SSUM_CD" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection PrintOnFirstPage="True" PrintOnLastPage="True" Height="2.3cm" Name="pageHeaderSection1">
+      <Style Visible="True">
+        <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+        <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="5.5cm" Height="0.9cm" Left="12.8cm" Top="1.4cm" Value="البيان" Name="textBox7">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.6cm" Height="0.9cm" Left="18.35cm" Top="1.4cm" Value="اسم الحساب" Name="textBox6">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="0.9cm" Left="10.55cm" Top="1.4cm" Value="مركز التكلفة" Name="textBox27">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.7cm" Height="0.9cm" Left="5.7cm" Top="1.4cm" Value="البند الاحصائى" Name="textBox9">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.2cm" Height="0.9cm" Left="25.6cm" Top="1.4cm" Value="مدين" Name="textBox19">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.9cm" Left="23.65cm" Top="1.4cm" Value="دائن" Name="textBox5">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.9cm" Left="0.05cm" Top="1.4cm" Value="تاريخ السطور" Name="textBox8">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.7cm" Height="0.9cm" Left="21.95cm" Top="1.4cm" Value="رقم الحساب" Name="textBox29">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.1cm" Height="0.9cm" Left="8.4cm" Top="1.4cm" Value="مركز تكلفة فرعى" Name="textBox30">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.6cm" Height="0.9cm" Left="3.1cm" Top="1.4cm" Value="البند الاحصائى الفرعى" Name="textBox32">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.3cm" Height="0.9cm" Left="1.8cm" Top="1.4cm" Value="رقم الايصال" Name="textBox34">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.9cm" Height="0.478cm" Left="0.262cm" Top="0.2cm" Value="= Parameters.DefaultComId.Value" Name="textBox55">
+          <Style BackgroundColor="White" Color="23, 54, 93" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14.162cm" Height="0.9cm" Left="9.8cm" Top="0.2cm" Value="= Fields.DOC_DS_Ar" Name="textBox15">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="22pt" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="0.768cm" Name="detailSection1">
+      <Items>
+        <TextBox Width="5.45cm" Height="0.6cm" Left="12.85cm" Top="0.068cm" Value="= Fields.TR_DS" Name="textBox11">
+          <Style VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.6cm" Height="0.6cm" Left="18.35cm" Top="0.068cm" Value="= Fields.ACC_NM_Ar" Name="textBox12">
+          <Style VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.6cm" Left="23.65cm" Top="0.068cm" Value="=iif(Fields.CR_VL = 0 ,'',Fields.CR_VL)" Format="{0:N3}" Culture="en" Name="textBox13">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.1cm" Height="0.6cm" Left="25.7cm" Top="0.068cm" Value="=iif(Fields.DB_VL= 0 ,'',Fields.DB_VL)" Format="{0:N3}" Culture="en" Name="textBox14">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.65cm" Height="0.6cm" Left="5.75cm" Top="0.068cm" Value="= Fields.SUM_NM_Ar" Name="textBox20">
+          <Style VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="0.6cm" Left="10.55cm" Top="0.068cm" Value="= Fields.CST_NM_Ar" Name="textBox21">
+          <Style TextAlign="Justify" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.6cm" Left="0.05cm" Top="0.068cm" Value="= Fields.TR_DT" Format="{0:dd/MM/yyyy}" Culture="en" Name="textBox1">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.7cm" Height="0.6cm" Left="21.95cm" Top="0.068cm" Value="= Fields.ACC_No" Name="textBox24">
+          <Style TextAlign="Justify" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="False" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.05cm" Height="0.6cm" Left="8.45cm" Top="0.068cm" Value="= Fields.SCST_NM_Ar" Name="textBox31">
+          <Style TextAlign="Justify" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.55cm" Height="0.532cm" Left="3.15cm" Top="0.068cm" Value="= Fields.SSUM_NM_Ar" Name="textBox33">
+          <Style VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.25cm" Height="0.532cm" Left="1.85cm" Top="0.1cm" Value="= Fields.DOC_NO" Name="textBox25">
+          <Style VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+            <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="0.7cm" Name="pageFooterSection1">
+      <Items>
+        <TextBox Width="4.25cm" Height="0.494cm" Left="15.951cm" Top="0.103cm" Value="= &quot;بواسطة :&quot;+Cstr(UserIdentity.Name)" Name="textBox40">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="9pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.25cm" Height="0.494cm" Left="12.701cm" Top="0.103cm" Value="= &quot; صفحة &quot; + CStr(PageNumber) + &quot; من &quot;  + CStr(PageCount)" Name="textBox41">
+          <Style VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="9pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.968in" Height="0.194in" Left="3.031in" Top="0.04in" Value="=Now()" Format="{0:g}" Culture="en-AU" Name="textBox42">
+          <Style TextAlign="Center">
+            <Font Name="Times New Roman" Size="9pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0.9cm" Right="0.9cm" Top="0.9cm" Bottom="0.9cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Groups>
+    <Group Name="group">
+      <GroupHeader>
+        <GroupHeaderSection Height="1.3cm" Name="groupHeaderSection">
+          <Items>
+            <TextBox Width="2cm" Height="0.9cm" Left="13.112cm" Top="0.2cm" Value="تاريخ القيد" Name="textBox3">
+              <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Times New Roman" Bold="True" />
+                <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+                <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.5cm" Height="0.9cm" Left="19.712cm" Top="0.2cm" Value="= Fields.TR_NO" Culture="en" Name="textBox10">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Times New Roman" />
+                <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+                <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.4cm" Height="0.9cm" Left="9.65cm" Top="0.2cm" Value="= Fields.TR_DTH" Format="{0:dd/MM/yyyy}" Culture="en" Name="textBox17">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Times New Roman" />
+                <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+                <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.8cm" Height="0.9cm" Left="0.262cm" Top="0.2cm" Value="= Fields.JRN_CD" Culture="en" Name="textBox2">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Times New Roman" />
+                <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+                <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.259cm" Height="0.9cm" Left="22.553cm" Top="0.2cm" Value="رقم القيد" Name="textBox4">
+              <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Times New Roman" Bold="True" />
+                <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+                <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.259cm" Height="0.9cm" Left="1.812cm" Top="0.2cm" Value="رقم اليوميه" Name="textBox23">
+              <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Times New Roman" Bold="True" />
+                <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+                <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection PageBreak="After" Height="2.1cm" Name="groupFooterSection">
+          <Items>
+            <TextBox Width="2cm" Height="0.667cm" Left="23.6cm" Top="0cm" Value="= Sum(Fields.CR_VL)" Format="{0:N3}" Culture="en" Name="textBox18">
+              <Style BackgroundColor="221, 217, 194" Color="23, 54, 93" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" Bold="True" />
+                <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+                <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.2cm" Height="0.667cm" Left="25.6cm" Top="0cm" Value="= Sum(Fields.DB_VL)" Format="{0:N3}" Culture="en" Name="textBox16">
+              <Style BackgroundColor="221, 217, 194" Color="23, 54, 93" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" Bold="True" />
+                <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+                <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="23.4cm" Height="0.667cm" Left="0.2cm" Top="0cm" Value="الاجمــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــالى " Name="textBox22">
+              <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Times New Roman" Bold="True" />
+                <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+                <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="5.9cm" Height="0.9cm" Left="5.5cm" Top="1.2cm" Value="المدير المالى " Name="textBox28">
+              <Style Color="13, 13, 13" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Times New Roman" Size="12pt" Bold="True" />
+                <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+                <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="5.9cm" Height="0.9cm" Left="18cm" Top="1.2cm" Value="المحاسب " Name="textBox26">
+              <Style Color="13, 13, 13" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Times New Roman" Size="12pt" Bold="True" />
+                <BorderStyle Top="Dotted" Bottom="Dotted" Left="Dotted" Right="Dotted" />
+                <BorderColor Top="198, 217, 241" Bottom="198, 217, 241" Left="198, 217, 241" Right="198, 217, 241" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.TR_NO" />
+      </Groupings>
+    </Group>
+  </Groups>
+  <ReportParameters>
+    <ReportParameter Name="DefaultComId" AllowNull="True" />
+  </ReportParameters>
+</Report>

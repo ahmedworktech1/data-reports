@@ -1,0 +1,226 @@
+SELECT
+    aztrh.tr_ty,
+    aztrh.loc,
+    aztrh.FNCL_TR_NO,
+    aztrh.tr_no,
+    aztrh.purchas_NO,
+    aztrh.acc_no,
+    s.SSUM_NM_Ar AS Supplier_Name,
+    aztrh.TEC_STAT,
+    ISNULL(NULLIF(LTRIM(RTRIM(aztrh.Rmrk9)), ''), '-') AS Rmrk9,
+    CASE aztrh.TEC_STAT
+        WHEN 1 THEN N'مرفوض'
+        WHEN 0 THEN N'مقبول'
+        WHEN 2 THEN N'مستبعد'
+        ELSE N'غير محدد'
+    END AS State_Desc,
+    O.DSCR_AR AS OFFER_TYPE_DESC,
+    TRY_CAST(aztrh.OFFERS_COMPARE_RESOLVER_TYPE AS int) AS MODE,
+    x.IS_SCORE,
+    x.IS_STATUS_ONLY,
+    x.SORT_ITEM,
+    x.SNO,
+    x.EC_DESC,
+    x.EC_SCORE,
+    x.ITEM_NAME,
+    x.ITEM_STATE,
+    x.ITEM_REMARK,
+    x.ITEM_COUNT,
+    CASE WHEN x.IS_SCORE = 1 THEN
+        CASE WHEN TRY_CAST(aztrh.OFFERS_COMPARE_RESOLVER_TYPE AS int) = 8 THEN
+            COALESCE(
+                (SELECT SUM(z.ItemScore)
+                   FROM (SELECT ISNULL(
+                                    (SELECT SUM(e3.EC_SCORE) FROM AZTRD_EVAL_CRIT e3
+                                      WHERE e3.LOC = d2.LOC AND e3.TR_TY = d2.TR_TY AND e3.TR_NO = d2.TR_NO AND e3.LN_NO = d2.LN_NO),
+                                    (SELECT SUM(h3.EC_SCORE) FROM AZTRH_EVAL_CRIT h3
+                                      WHERE h3.LOC = aztrh.LOC AND h3.TR_TY = aztrh.TR_TY AND h3.TR_NO = aztrh.TR_NO)
+                                ) AS ItemScore
+                          FROM AZTRD d2
+                          WHERE d2.LOC = aztrh.LOC AND d2.TR_TY = aztrh.TR_TY AND d2.TR_NO = aztrh.TR_NO) z),
+                (SELECT SUM(h2.EC_SCORE) FROM AZTRH_EVAL_CRIT h2
+                  WHERE h2.LOC = aztrh.LOC AND h2.TR_TY = aztrh.TR_TY AND h2.TR_NO = aztrh.TR_NO),
+                0)
+        ELSE
+            ISNULL((SELECT SUM(h2.EC_SCORE) FROM AZTRH_EVAL_CRIT h2
+                     WHERE h2.LOC = aztrh.LOC AND h2.TR_TY = aztrh.TR_TY AND h2.TR_NO = aztrh.TR_NO), 0)
+        END
+    ELSE NULL END AS TOTAL_EC_SCORE
+FROM aztrh
+LEFT JOIN GLSSUMS s
+    ON s.SSUM_CD = aztrh.acc_no
+LEFT JOIN AZTRH_OFFRS_TYPES O
+    ON O.OFFR_TY = aztrh.OFFERS_COMPARE_RESOLVER_TYPE
+CROSS APPLY (
+    /* ===== نوع 8 : نقاط بند بند - شروط كل بند من AZTRD_EVAL_CRIT ===== */
+    SELECT d.LN_NO AS SORT_ITEM, e.SNO,
+           N'[' + ISNULL(it.ITM_NM_AR, d.ITM_CD) + N'] ' + ISNULL(e.EC_DESC, N'') AS EC_DESC,
+           e.EC_SCORE,
+           ISNULL(it.ITM_NM_AR, d.ITM_CD) AS ITEM_NAME,
+           CAST(NULL AS nvarchar(50)) AS ITEM_STATE,
+           CAST(NULL AS nvarchar(2000)) AS ITEM_REMARK,
+           CAST(1 AS bit) AS IS_SCORE,
+           CAST(0 AS bit) AS IS_STATUS_ONLY,
+           CAST(NULL AS int) AS ITEM_COUNT
+    FROM AZTRD d
+    LEFT JOIN AZITMS it ON it.ITM_CD = d.ITM_CD
+    JOIN AZTRD_EVAL_CRIT e
+        ON e.LOC = d.LOC AND e.TR_TY = d.TR_TY AND e.TR_NO = d.TR_NO AND e.LN_NO = d.LN_NO
+    WHERE TRY_CAST(aztrh.OFFERS_COMPARE_RESOLVER_TYPE AS int) = 8
+      AND d.LOC = aztrh.LOC AND d.TR_TY = aztrh.TR_TY AND d.TR_NO = aztrh.TR_NO
+
+    UNION ALL
+    /* ===== نوع 8 : لو مفيش شروط بند، نستخدم شروط الهيدر لكل بند ===== */
+    SELECT d.LN_NO, h.SNO,
+           N'[' + ISNULL(it.ITM_NM_AR, d.ITM_CD) + N'] ' + ISNULL(h.EC_DESC, N''),
+           h.EC_SCORE,
+           ISNULL(it.ITM_NM_AR, d.ITM_CD),
+           CAST(NULL AS nvarchar(50)),
+           CAST(NULL AS nvarchar(2000)),
+           CAST(1 AS bit),
+           CAST(0 AS bit),
+           CAST(NULL AS int)
+    FROM AZTRD d
+    LEFT JOIN AZITMS it ON it.ITM_CD = d.ITM_CD
+    JOIN AZTRH_EVAL_CRIT h
+        ON h.LOC = aztrh.LOC AND h.TR_TY = aztrh.TR_TY AND h.TR_NO = aztrh.TR_NO
+    WHERE TRY_CAST(aztrh.OFFERS_COMPARE_RESOLVER_TYPE AS int) = 8
+      AND d.LOC = aztrh.LOC AND d.TR_TY = aztrh.TR_TY AND d.TR_NO = aztrh.TR_NO
+      AND NOT EXISTS (SELECT 1 FROM AZTRD_EVAL_CRIT e2
+                       WHERE e2.LOC = d.LOC AND e2.TR_TY = d.TR_TY AND e2.TR_NO = d.TR_NO AND e2.LN_NO = d.LN_NO)
+
+    UNION ALL
+    /* ===== نوع 8 : سطر إجمالي البند ===== */
+    SELECT d.LN_NO, 999999,
+           N'إجمالي البند: ' + ISNULL(it.ITM_NM_AR, d.ITM_CD),
+           COALESCE(
+               (SELECT SUM(e3.EC_SCORE) FROM AZTRD_EVAL_CRIT e3
+                 WHERE e3.LOC = d.LOC AND e3.TR_TY = d.TR_TY AND e3.TR_NO = d.TR_NO AND e3.LN_NO = d.LN_NO),
+               (SELECT SUM(h3.EC_SCORE) FROM AZTRH_EVAL_CRIT h3
+                 WHERE h3.LOC = aztrh.LOC AND h3.TR_TY = aztrh.TR_TY AND h3.TR_NO = aztrh.TR_NO),
+               0),
+           ISNULL(it.ITM_NM_AR, d.ITM_CD),
+           CAST(NULL AS nvarchar(50)),
+           CAST(NULL AS nvarchar(2000)),
+           CAST(1 AS bit),
+           CAST(0 AS bit),
+           CAST(NULL AS int)
+    FROM AZTRD d
+    LEFT JOIN AZITMS it ON it.ITM_CD = d.ITM_CD
+    WHERE TRY_CAST(aztrh.OFFERS_COMPARE_RESOLVER_TYPE AS int) = 8
+      AND d.LOC = aztrh.LOC AND d.TR_TY = aztrh.TR_TY AND d.TR_NO = aztrh.TR_NO
+      AND (EXISTS (SELECT 1 FROM AZTRD_EVAL_CRIT e4
+                    WHERE e4.LOC = d.LOC AND e4.TR_TY = d.TR_TY AND e4.TR_NO = d.TR_NO AND e4.LN_NO = d.LN_NO)
+           OR EXISTS (SELECT 1 FROM AZTRH_EVAL_CRIT h4
+                       WHERE h4.LOC = aztrh.LOC AND h4.TR_TY = aztrh.TR_TY AND h4.TR_NO = aztrh.TR_NO))
+
+    UNION ALL
+    /* ===== نوع 10 / أي نوع غير 7 و 8 و 9 : شروط الهيدر (الوضع الحالي) ===== */
+    SELECT 0, h.SNO, h.EC_DESC, h.EC_SCORE,
+           CAST(NULL AS nvarchar(4000)),
+           CAST(NULL AS nvarchar(50)),
+           CAST(NULL AS nvarchar(2000)),
+           CAST(1 AS bit),
+           CAST(0 AS bit),
+           CAST(NULL AS int)
+    FROM AZTRH_EVAL_CRIT h
+    WHERE h.LOC = aztrh.LOC AND h.TR_TY = aztrh.TR_TY AND h.TR_NO = aztrh.TR_NO
+      AND (TRY_CAST(aztrh.OFFERS_COMPARE_RESOLVER_TYPE AS int) = 10
+           OR TRY_CAST(aztrh.OFFERS_COMPARE_RESOLVER_TYPE AS int) NOT IN (7, 8, 9)
+           OR (TRY_CAST(aztrh.OFFERS_COMPARE_RESOLVER_TYPE AS int) = 8
+               AND NOT EXISTS (SELECT 1 FROM AZTRD d0
+                                WHERE d0.LOC = aztrh.LOC AND d0.TR_TY = aztrh.TR_TY AND d0.TR_NO = aztrh.TR_NO)))
+
+    UNION ALL
+    /* ===== نوع 10 : سطر بديل لو مفيش شروط ===== */
+    SELECT 0, 0, CAST(NULL AS nvarchar(4000)), CAST(NULL AS int),
+           CAST(NULL AS nvarchar(4000)),
+           CAST(NULL AS nvarchar(50)),
+           CAST(NULL AS nvarchar(2000)),
+           CAST(1 AS bit),
+           CAST(0 AS bit),
+           CAST(NULL AS int)
+    WHERE (TRY_CAST(aztrh.OFFERS_COMPARE_RESOLVER_TYPE AS int) = 10
+           OR TRY_CAST(aztrh.OFFERS_COMPARE_RESOLVER_TYPE AS int) NOT IN (7, 8, 9)
+           OR TRY_CAST(aztrh.OFFERS_COMPARE_RESOLVER_TYPE AS int) IS NULL)
+      AND NOT EXISTS (SELECT 1 FROM AZTRH_EVAL_CRIT h5
+                       WHERE h5.LOC = aztrh.LOC AND h5.TR_TY = aztrh.TR_TY AND h5.TR_NO = aztrh.TR_NO)
+
+    UNION ALL
+    /* ===== نوع 7 : مرفوض/مقبول بند بند - حالة كل بند ===== */
+    SELECT d.LN_NO, d.LN_NO,
+           ISNULL(it.ITM_NM_AR, d.ITM_CD),
+           CAST(NULL AS int),
+           ISNULL(it.ITM_NM_AR, d.ITM_CD),
+           CASE ISNULL(d.TEC_CNCL, 0)
+               WHEN 1 THEN N'مرفوض'
+               WHEN 2 THEN N'مستبعد'
+               ELSE N'مقبول'
+           END,
+           ISNULL(NULLIF(LTRIM(RTRIM(d.RMRK1)), ''), '-'),
+           CAST(0 AS bit),
+           CAST(1 AS bit),
+           (SELECT COUNT(*) FROM AZTRD dc
+             WHERE dc.LOC = aztrh.LOC AND dc.TR_TY = aztrh.TR_TY AND dc.TR_NO = aztrh.TR_NO)
+    FROM AZTRD d
+    LEFT JOIN AZITMS it ON it.ITM_CD = d.ITM_CD
+    WHERE TRY_CAST(aztrh.OFFERS_COMPARE_RESOLVER_TYPE AS int) = 7
+      AND d.LOC = aztrh.LOC AND d.TR_TY = aztrh.TR_TY AND d.TR_NO = aztrh.TR_NO
+
+    UNION ALL
+    /* ===== نوع 7 : سطر بديل لو مفيش بنود ===== */
+    SELECT 0, 0, CAST(NULL AS nvarchar(4000)), CAST(NULL AS int),
+           CAST(NULL AS nvarchar(4000)),
+           CAST(NULL AS nvarchar(50)),
+           CAST(NULL AS nvarchar(2000)),
+           CAST(0 AS bit), CAST(1 AS bit), CAST(0 AS int)
+    WHERE TRY_CAST(aztrh.OFFERS_COMPARE_RESOLVER_TYPE AS int) = 7
+      AND NOT EXISTS (SELECT 1 FROM AZTRD d6
+                       WHERE d6.LOC = aztrh.LOC AND d6.TR_TY = aztrh.TR_TY AND d6.TR_NO = aztrh.TR_NO)
+
+    UNION ALL
+    /* ===== نوع 8 : لو مفيش أي شروط تقييم، نعرض حالة كل بند بدل الدرجات ===== */
+    SELECT d.LN_NO, d.LN_NO,
+           ISNULL(it.ITM_NM_AR, d.ITM_CD),
+           CAST(NULL AS int),
+           ISNULL(it.ITM_NM_AR, d.ITM_CD),
+           CASE ISNULL(d.TEC_CNCL, 0)
+               WHEN 1 THEN N'مرفوض'
+               WHEN 2 THEN N'مستبعد'
+               ELSE N'مقبول'
+           END,
+           ISNULL(NULLIF(LTRIM(RTRIM(d.RMRK1)), ''), '-'),
+           CAST(0 AS bit),
+           CAST(1 AS bit),
+           (SELECT COUNT(*) FROM AZTRD dc2
+             WHERE dc2.LOC = aztrh.LOC AND dc2.TR_TY = aztrh.TR_TY AND dc2.TR_NO = aztrh.TR_NO)
+    FROM AZTRD d
+    LEFT JOIN AZITMS it ON it.ITM_CD = d.ITM_CD
+    WHERE TRY_CAST(aztrh.OFFERS_COMPARE_RESOLVER_TYPE AS int) = 8
+      AND d.LOC = aztrh.LOC AND d.TR_TY = aztrh.TR_TY AND d.TR_NO = aztrh.TR_NO
+      AND NOT EXISTS (SELECT 1 FROM AZTRH_EVAL_CRIT h7
+                       WHERE h7.LOC = aztrh.LOC AND h7.TR_TY = aztrh.TR_TY AND h7.TR_NO = aztrh.TR_NO)
+      AND NOT EXISTS (SELECT 1 FROM AZTRD_EVAL_CRIT e7
+                       WHERE e7.LOC = aztrh.LOC AND e7.TR_TY = aztrh.TR_TY AND e7.TR_NO = aztrh.TR_NO)
+
+    UNION ALL
+    /* ===== نوع 9 : مرفوض/مقبول إجمالي بنود - ملخص واحد ===== */
+    SELECT 0, 1,
+           N'إجمالي حالة المورد',
+           CAST(NULL AS int),
+           CAST(NULL AS nvarchar(4000)),
+           CASE aztrh.TEC_STAT
+               WHEN 1 THEN N'مرفوض'
+               WHEN 0 THEN N'مقبول'
+               WHEN 2 THEN N'مستبعد'
+               ELSE N'غير محدد'
+           END,
+           ISNULL(NULLIF(LTRIM(RTRIM(aztrh.Rmrk9)), ''), '-'),
+           CAST(0 AS bit),
+           CAST(1 AS bit),
+           (SELECT COUNT(*) FROM AZTRD dc3
+             WHERE dc3.LOC = aztrh.LOC AND dc3.TR_TY = aztrh.TR_TY AND dc3.TR_NO = aztrh.TR_NO)
+    WHERE TRY_CAST(aztrh.OFFERS_COMPARE_RESOLVER_TYPE AS int) = 9
+) x
+WHERE aztrh.tr_ty = 116 and (1=1)
+ORDER BY aztrh.TR_NO, x.SORT_ITEM, x.SNO

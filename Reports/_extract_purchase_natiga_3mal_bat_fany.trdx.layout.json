@@ -1,0 +1,364 @@
+{
+  "file": "purchase_natiga_3mal_bat_fany.trdx",
+  "bytes": 240927,
+  "groups": [
+    "group"
+  ],
+  "groupingExprs": [],
+  "tableCols": [],
+  "reportParams": [],
+  "items": [
+    {
+      "tag": "TextBox",
+      "name": "textBox1",
+      "value": "مجلس الوزراء",
+      "vis": "",
+      "left": "8.2cm",
+      "top": "0.15cm",
+      "width": "10.7cm",
+      "height": "0.7cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox2",
+      "value": "صندوق تكريم شهداء وضحايا ومفقودي ومصابي",
+      "vis": "",
+      "left": "8.2cm",
+      "top": "0.85cm",
+      "width": "10.7cm",
+      "height": "0.7cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox3",
+      "value": "العمليات الحربية والإرهابية والأمنية وأسرهم",
+      "vis": "",
+      "left": "8.2cm",
+      "top": "1.55cm",
+      "width": "10.7cm",
+      "height": "0.65cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox32",
+      "value": "رقم القيد :",
+      "vis": "",
+      "left": "13.5cm",
+      "top": "2.8cm",
+      "width": "5.4cm",
+      "height": "0.45cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox5",
+      "value": "التاريخ :",
+      "vis": "",
+      "left": "13.5cm",
+      "top": "2.3cm",
+      "width": "5.4cm",
+      "height": "0.45cm"
+    },
+    {
+      "tag": "PictureBox",
+      "name": "pictureBox1",
+      "value": "",
+      "vis": "",
+      "left": "0.1cm",
+      "top": "0.1cm",
+      "width": "3.2cm",
+      "height": "3.1cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox18",
+      "value": "= Fields.EC_DESC",
+      "vis": "",
+      "left": "1.8cm",
+      "top": "0cm",
+      "width": "5.2cm",
+      "height": "0.65cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBoxItemRemark",
+      "value": "=IIf(Fields.ITEM_REMARK Is Nothing, '', Fields.ITEM_REMARK)",
+      "vis": "",
+      "left": "7cm",
+      "top": "0cm",
+      "width": "4.4cm",
+      "height": "0.65cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox17",
+      "value": "=IIf(Fields.IS_STATUS_ONLY, Fields.ITEM_STATE, Fields.EC_SCORE)",
+      "vis": "",
+      "left": "0cm",
+      "top": "0cm",
+      "width": "1.8cm",
+      "height": "0.65cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBoxDState",
+      "value": "",
+      "vis": "",
+      "left": "11.4cm",
+      "top": "0cm",
+      "width": "2.2cm",
+      "height": "0.65cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBoxDSupp",
+      "value": "",
+      "vis": "",
+      "left": "13.6cm",
+      "top": "0cm",
+      "width": "4.5cm",
+      "height": "0.65cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBoxDNo",
+      "value": "",
+      "vis": "",
+      "left": "18.1cm",
+      "top": "0cm",
+      "width": "0.9cm",
+      "height": "0.65cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox7",
+      "value": "حالة القبول",
+      "vis": "",
+      "left": "11.4cm",
+      "top": "2.6cm",
+      "width": "2.2cm",
+      "height": "0.9cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox9",
+      "value": "نوع المقارنة في تقييم العروض",
+      "vis": "",
+      "left": "11.5cm",
+      "top": "2.05cm",
+      "width": "7.5cm",
+      "height": "0.5cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox6",
+      "value": "اسم المورد",
+      "vis": "",
+      "left": "13.6cm",
+      "top": "2.6cm",
+      "width": "4.5cm",
+      "height": "0.9cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox19",
+      "value": "م",
+      "vis": "",
+      "left": "18.1cm",
+      "top": "2.6cm",
+      "width": "0.9cm",
+      "height": "0.9cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox15",
+      "value": "= Fields.OFFER_TYPE_DESC",
+      "vis": "",
+      "left": "0.2cm",
+      "top": "2.05cm",
+      "width": "11.2cm",
+      "height": "0.5cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox8",
+      "value": "سبب الرفض",
+      "vis": "",
+      "left": "7cm",
+      "top": "2.6cm",
+      "width": "4.4cm",
+      "height": "0.9cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox12",
+      "value": "=IIf(Fields.MODE = 9, 'البيان', IIf(Fields.IS_STATUS_ONLY, 'البند', 'شروط التقييم'))",
+      "vis": "",
+      "left": "1.8cm",
+      "top": "2.6cm",
+      "width": "5.2cm",
+      "height": "0.9cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox10",
+      "value": "=IIf(Fields.MODE = 9, 'حالة المورد', IIf(Fields.IS_STATUS_ONLY, 'حالة البند', 'درجات المورد'))",
+      "vis": "",
+      "left": "0cm",
+      "top": "2.6cm",
+      "width": "1.8cm",
+      "height": "0.9cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox4",
+      "value": "نتيجة أعمال لجنة البت الفني",
+      "vis": "",
+      "left": "0cm",
+      "top": "0.1cm",
+      "width": "19cm",
+      "height": "0.7cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox134",
+      "value": "= Fields.PURCHAS_NO",
+      "vis": "",
+      "left": "0.2cm",
+      "top": "0.95cm",
+      "width": "14cm",
+      "height": "0.5cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox26",
+      "value": "= Fields.FNCL_TR_NO",
+      "vis": "",
+      "left": "0.2cm",
+      "top": "1.5cm",
+      "width": "14cm",
+      "height": "0.5cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox25",
+      "value": "اسم العملية",
+      "vis": "",
+      "left": "14.6cm",
+      "top": "0.95cm",
+      "width": "4.4cm",
+      "height": "0.5cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox24",
+      "value": "رقم العملية",
+      "vis": "",
+      "left": "14.6cm",
+      "top": "1.5cm",
+      "width": "4.4cm",
+      "height": "0.5cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox23",
+      "value": ":",
+      "vis": "",
+      "left": "14.2cm",
+      "top": "0.95cm",
+      "width": "0.4cm",
+      "height": "0.5cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox22",
+      "value": ":",
+      "vis": "",
+      "left": "14.2cm",
+      "top": "1.5cm",
+      "width": "0.4cm",
+      "height": "0.5cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox16",
+      "value": "= RowNumber()",
+      "vis": "",
+      "left": "18.1cm",
+      "top": "0cm",
+      "width": "0.9cm",
+      "height": "0.65cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox20",
+      "value": "= Fields.Supplier_Name",
+      "vis": "",
+      "left": "13.6cm",
+      "top": "0cm",
+      "width": "4.5cm",
+      "height": "0.65cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox13",
+      "value": "= Fields.State_Desc",
+      "vis": "",
+      "left": "11.4cm",
+      "top": "0cm",
+      "width": "2.2cm",
+      "height": "0.65cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox14",
+      "value": "= Fields.Rmrk9",
+      "vis": "",
+      "left": "7cm",
+      "top": "0cm",
+      "width": "4.4cm",
+      "height": "0.65cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBoxGhDesc",
+      "value": "",
+      "vis": "",
+      "left": "1.8cm",
+      "top": "0cm",
+      "width": "5.2cm",
+      "height": "0.65cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBoxGhScore",
+      "value": "",
+      "vis": "",
+      "left": "0cm",
+      "top": "0cm",
+      "width": "1.8cm",
+      "height": "0.65cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox21",
+      "value": "=IIf(Fields.IS_SCORE, Fields.TOTAL_EC_SCORE, Fields.ITEM_COUNT)",
+      "vis": "",
+      "left": "0cm",
+      "top": "0cm",
+      "width": "1.8cm",
+      "height": "0.7cm"
+    },
+    {
+      "tag": "TextBox",
+      "name": "textBox11",
+      "value": "=IIf(Fields.IS_SCORE, 'اجمالي درجات المورد', 'عدد البنود')",
+      "vis": "",
+      "left": "1.8cm",
+      "top": "0cm",
+      "width": "5.2cm",
+      "height": "0.7cm"
+    }
+  ],
+  "conds": [],
+  "bindings": []
+}

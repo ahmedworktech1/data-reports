@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="277mm" Name="Report" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="GLX" SelectCommand="SELECT &#xD;&#xA;    DENSE_RANK() OVER (ORDER BY tr_no) AS item_no,&#xD;&#xA;&#x9;(SELECT HDSCR_EN FROM glJRNLH &#xD;&#xA;        WHERE TR_NO = gljrnld.TR_NO &#xD;&#xA;        AND JRN_CD = gljrnld.JRN_CD &#xD;&#xA;        AND TR_DT = gljrnld.TR_DT) AS DSC, &#xD;&#xA;    db_vl - cr_vl AS net,&#xD;&#xA;&#x9;rate,&#xD;&#xA;&#x9;TR_NO,&#xD;&#xA;&#x9;tr_dt as dat,&#xD;&#xA;    (SELECT cst_nm_ar FROM glcst WHERE cst_cd = gljrnld.cst_cd) AS cstnm,  &#xD;&#xA;&#x9;   (SELECT btch_id FROM glcst WHERE cst_cd = gljrnld.cst_cd) AS btich, &#xD;&#xA;    (cur_vl * ln_ty) AS cur,&#xD;&#xA;    (SELECT acc_nm_ar FROM glmf WHERE acc_no = LEFT(gljrnld.acc_no, 4)) AS acctnm,&#xD;&#xA;    ((db_vl - cr_vl) * LN_TY) / NULLIF(RATE, 0) AS EGP, &#xD;&#xA;    (SELECT fmly FROM glmf WHERE acc_no = gljrnld.acc_no) AS fmly,&#xD;&#xA; &#xD;&#xA;    (SELECT LC_NO FROM glLCMF WHERE SUM_cd = gljrnld.SUM_cd AND lc_no &lt;&gt; '47') AS LCNO,&#xD;&#xA;     &#xD;&#xA;    (SELECT LC_AMOUNT FROM glLCMF WHERE SUM_cd = gljrnld.SUM_cd AND lc_no &lt;&gt; '47') AS LCAMOUNT,&#xD;&#xA;    (SELECT LC_DSCR_AR FROM glLCMF WHERE SUM_cd = gljrnld.SUM_cd AND lc_no &lt;&gt; '47') AS DSCR&#xD;&#xA;     &#xD;&#xA;FROM gljrnld&#xD;&#xA;WHERE jrn_cd = '2' and acc_no like '1003%' and (1=1)  &#xD;&#xA;ORDER BY TR_NO; &#xD;&#xA;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="40mm" Name="PageHeaderSection1">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Default="0pt" Top="0pt" Bottom="0pt" Left="0pt" Right="0pt" />
+      </Style>
+      <Items>
+        <TextBox Width="97.1mm" Height="5.03mm" Left="95mm" Top="1.05mm" Value="FORM 102/A - STATEMENT OF EXPENDITURE:   " Name="Label4">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="44.72mm" Height="4.76mm" Left="2.11mm" Top="14.01mm" Value="Description of Category:" Name="Label5">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="33.31mm" Height="5mm" Left="1.59mm" Top="19mm" Value="Reporting Period:" Name="Label7">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="113.51mm" Height="4.76mm" Left="88.12mm" Top="7.14mm" Value="(FOR REPLENISHMENT TO THE DESIGNATED ACCOUNT)" Name="Label25">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.26mm" Height="4.76mm" Left="196mm" Top="14.01mm" Value="date" Name="Label28">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="39mm" Height="4.76mm" Left="196mm" Top="24.41mm" Value="IFAD Loan Financing No." Name="Label29">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="27.25mm" Height="4.76mm" Left="196.26mm" Top="19.56mm" Value="Application no." Name="Label30">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="32.78mm" Height="5.82mm" Left="2.12mm" Top="24mm" Value="Category No.  " Name="Label31">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="34.92mm" Height="4.76mm" Left="196mm" Top="29.17mm" Value="Summary Sheet No. " Name="Label301">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="44.7mm" Height="4.76mm" Left="9mm" Top="29.82mm" Value="SOE threshold for the category:" Name="Label33">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.79mm" Height="5mm" Left="34.9mm" Top="19mm" Value="From" Name="Label47">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.9mm" Height="5mm" Left="88.12mm" Top="19mm" Value="to" Name="Label48">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="28.07mm" Height="5.82mm" Left="34.9mm" Top="24mm" Value="= Fields.fmly" Name="DBText12">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="25.14mm" Height="4.76mm" Left="235mm" Top="24.41mm" Value="2000003240" Name="Label41">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="78.11mm" Height="4.75mm" Left="47.89mm" Top="14.02mm" Value="= Fields.acctnm" Name="DBText17">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.62mm" Height="4.76mm" Left="224.3mm" Top="19.58mm" Value="22" Name="Label12">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="20.29mm" Height="4.76mm" Left="62.97mm" Top="29.82mm" Value="40000EUR" Name="Label26">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.711cm" Height="0.442cm" Left="4.789cm" Top="1.958cm" Value="=CDate(Parameters.FromDate.Value)" Format="{0:dd/MM/yyyy}" Culture="en" Name="textBox22">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0pt" Top="0pt" Bottom="0pt" Left="0pt" Right="0pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.2cm" Height="0.442cm" Left="9.5cm" Top="1.992cm" Value="=CDate(Parameters.ToDate.Value)" Format="{0:dd/MM/yyyy}" Culture="en" Name="textBox16">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Default="0pt" Top="0pt" Bottom="0pt" Left="0pt" Right="0pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection CanShrink="True" Height="6.42mm" Name="Detail">
+      <Style Visible="True">
+        <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Default="0pt" Top="0pt" Bottom="0pt" Left="0pt" Right="0pt" />
+      </Style>
+      <Items>
+        <TextBox Width="20mm" Height="6.42mm" Left="241mm" Top="0mm" Value="= Fields.CHK_NO" CanGrow="False" Culture="en" Name="DBText15">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="25.19mm" Height="6.42mm" Left="48.81mm" Top="0mm" Value="= Fields.DSCR" CanGrow="False" Culture="en" Name="DBText2">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="13.9mm" Height="6.42mm" Left="74mm" Top="0mm" Value="= Fields.btich" CanGrow="False" Culture="en" Name="DBText3">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="40.81mm" Height="6.42mm" Left="8mm" Top="0mm" Value="= Fields.DSC" CanGrow="False" Culture="en" Name="DBText1">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19mm" Height="6.42mm" Left="103mm" Top="0mm" Value="= Fields.TR_NO" CanGrow="False" Culture="en" Name="DBText5">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19mm" Height="6.42mm" Left="149mm" Top="0mm" Value="= Fields.net" CanGrow="False" Culture="en" Name="DBText10">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="17mm" Height="6.42mm" Left="168mm" Top="0mm" Value="= Fields.net" CanGrow="False" Culture="en" Name="DBText101">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="20mm" Height="6.42mm" Left="185mm" Top="0mm" Value="= Fields.TR_DT" Format="{0:dd/MM/yyyy}" CanGrow="False" Culture="en" Name="DBText13">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18mm" Height="6.42mm" Left="205mm" Top="0mm" Value="= Fields.RATE" CanGrow="False" Culture="en" Name="DBText14">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18mm" Height="6.42mm" Left="223mm" Top="0mm" Value="= Fields.net * Fields.RATE" CanGrow="False" Culture="en" Name="Variable1">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14.88mm" Height="6.42mm" Left="88.12mm" Top="0mm" Value="= Fields.LCNO" CanGrow="False" Culture="en" Name="DBText4">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="16mm" Height="6.42mm" Left="261mm" Top="0mm" Value="EGYPT" CanGrow="False" Culture="en" Name="Label6">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.85mm" Height="6.42mm" Left="140.15mm" Top="0mm" Value="EGP" CanGrow="False" Culture="en" Name="Label27">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="True" />
+            <BorderStyle Default="Solid" />
+            <BorderWidth Default="0.5pt" Left="0pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18.14mm" Height="6.42mm" Left="122mm" Top="0mm" Value="= Fields.LCAMOUNT" CanGrow="False" Culture="en" Name="DBText9">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" Right="0pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8mm" Height="6.42mm" Left="0mm" Top="0mm" Value="=RowNumber()" CanGrow="False" Culture="en" Name="textBox6">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportFooterSection Height="55.81mm" Name="ReportFooterSection4">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Default="0pt" Top="0pt" Bottom="0pt" Left="0pt" Right="0pt" />
+      </Style>
+      <Items>
+        <TextBox Width="144.88mm" Height="3.7mm" Left="6.12mm" Top="10.93mm" Value=" List here the supporting documentation maintained by the PMU for the expenditure items belonging to this category " Name="Label8">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Top">
+            <Font Name="Arial" Size="8pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="277mm" Height="25.91mm" Left="0mm" Top="14.64mm" Value="*The undersigned hereby certify that the expenditures for which replenishment is claimed herein are correct, for the Project as provided in the IFAD Financing Agreement. We certify that the expenditures incurred are within the statement of expenditure (SOE) threshold of equivalent US$XXX or Currency for this Category, and represent resources used in compliance with the principles of legality, regularity and sound financial management. We certify that the audit requirement outlined in article VIII and section 9.01 of the General Conditions will be complied with, and that the requirements for maintaining records and documentation for expenditures disbursed using the Statement of Expenditure (Form 102/A) modality and outlined in section 4.04(c) and (d) of the General Conditions, will be complied with. This includes, inter alia, that an annual audit will be carried out and that the documentation (including purchase orders, invoices, evidence of payment and delivery and any other relevant documentation evidencing the expenditures) will be retained for 10 years after the Closing Date of the IFAD Financing, and that such records and documentation will be made available to IFAD representatives for review on request." Name="Label9">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Top">
+            <Font Name="Arial" Size="8pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="24mm" Height="4.76mm" Left="0mm" Top="46.55mm" Value="Certified by:" Name="Label10">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Top">
+            <Font Name="Arial" Size="12pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="25.33mm" Height="4.76mm" Left="168mm" Top="46.55mm" Value="Certified by:" Name="Label102">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Arial" Size="12pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <Shape Width="80mm" Height="3.97mm" Left="28mm" Top="47.34mm" Name="ppLine1">
+          <Style BackgroundColor="White" TextAlign="Right" LineStyle="Solid" LineWidth="1pt" LineColor="Black" />
+          <ShapeType>
+            <LineShape Direction="EW" />
+          </ShapeType>
+        </Shape>
+        <Shape Width="50.54mm" Height="3.97mm" Left="201mm" Top="47.34mm" Name="ppLine2">
+          <Style BackgroundColor="White" LineStyle="Solid" LineWidth="1pt" LineColor="Black" />
+          <ShapeType>
+            <LineShape Direction="EW" />
+          </ShapeType>
+        </Shape>
+        <TextBox Width="50.54mm" Height="4.5mm" Left="201mm" Top="51.31mm" Value="DR. Alaa Azouz , National Coordinator" Name="Label54">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="80mm" Height="4.5mm" Left="28mm" Top="51.31mm" Value="DR.Hany Abd-Elaty Darwish, Executive Manager" Name="Label69">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Top">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4mm" Height="3.7mm" Left="2.12mm" Top="10.93mm" Value="16" Name="textBox17">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Top">
+            <Font Name="Arial" Size="8pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="59mm" Height="5.56mm" Left="0mm" Top="0mm" Value=" sum Category No.  " Culture="en" Name="Label52">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="17mm" Height="5.56mm" Left="157.55mm" Top="0mm" Value="= sum(Fields.net)" CanGrow="False" Culture="en" Name="DBCalc3">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19mm" Height="5.56mm" Left="138.55mm" Top="0mm" Value="= sum(Fields.net)" CanGrow="False" Culture="en" Name="DBCalc2">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="26mm" Height="5.56mm" Left="59mm" Top="0mm" Value=" " CanGrow="False" Culture="en" Name="DBText16">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18mm" Height="5.56mm" Left="212.81mm" Top="0mm" Value="= Fields.CUR" CanGrow="False" Culture="en" Name="DBCalc4">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportFooterSection>
+    <ReportHeaderSection Height="3.1cm" Name="reportHeaderSection1">
+      <Items>
+        <TextBox Width="25.19mm" Height="31mm" Left="48.81mm" Top="0mm" Value="Name of the  payee/ Contractor,     supplier,  service  provider" Culture="en" Name="textBox3">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="20mm" Height="31mm" Left="241mm" Top="0mm" Value="Reference to payment number/cheque number transmitted to the bank (if different from 6)" Culture="en" Name="textBox14">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18mm" Height="31mm" Left="223mm" Top="0mm" Value="Withdrawal Application" Culture="en" Name="textBox13">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18mm" Height="31mm" Left="205mm" Top="0mm" Value="Rate of      Exchange" Culture="en" Name="textBox12">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="20mm" Height="31mm" Left="185mm" Top="0mm" Value="Date of Payment" Culture="en" Name="textBox11">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="17mm" Height="31mm" Left="168mm" Top="0mm" Value=" IFAD Financing Percentage of" Culture="en" Name="textBox10">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19mm" Height="31mm" Left="149mm" Top="0mm" Value="Expenditure  (invoice amount  in Currency of the payment)" Culture="en" Name="textBox9">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="27mm" Height="31mm" Left="122mm" Top="0mm" Value=" Contract value and currency" Culture="en" Name="textBox8">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19mm" Height="31mm" Left="103mm" Top="0mm" Value="Accounting software payment voucher number" Culture="en" Name="textBox7">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14.88mm" Height="31mm" Left="88.12mm" Top="0mm" Value="Contract and/or invoice number" Culture="en" Name="textBox5">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="13.91mm" Height="31mm" Left="74.21mm" Top="0mm" Value="Reference to the relevant AWPB and budget line/item" Culture="en" Name="textBox4">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="40.81mm" Height="31mm" Left="8mm" Top="0mm" Value="Full Description of the payment" Culture="en" Name="textBox2">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8mm" Height="31mm" Left="0mm" Top="0mm" Value="Item  No" Culture="en" Name="textBox1">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="16mm" Height="31mm" Left="261mm" Top="0mm" Value="Country of Origin and  other" Culture="en" Name="textBox15">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="7pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderWidth Default="0.5pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportHeaderSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="10mm" Right="10mm" Top="10mm" Bottom="10mm" />
+    </Margins>
+  </PageSettings>
+  <ReportParameters>
+    <ReportParameter Name="FromDate" Type="DateTime" AllowNull="True" />
+    <ReportParameter Name="ToDate" Type="DateTime" AllowNull="True" />
+  </ReportParameters>
+</Report>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="20.814cm" Name="ContractProAssignmentOrder" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style>
+    <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+    <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+    <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+  </Style>
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="aqxarmy20241" SelectCommand="select Con_Cd as ConCd, PRD as Prd, TYP_PRD as TypPrd, Rent_Type as RentType, &#xD;&#xA;       CON_DT as ConDt, CON_STRT_DT as ConStrtDt, CON_END_DT as ConEndDt, &#xD;&#xA;&#x9;   CON_DSCR as ConDscr, SERVIC_TYPE as ServicType, SERVIC_LOC as ServicLoc, &#xD;&#xA;&#x9;   VAL as Val, YEAR_INSTALMENT as YearInstalment, InsPercentange, Ins&#xD;&#xA;from Contracts_H" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <DetailSection PageBreak="None" Height="28.6cm" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White" TextAlign="Center">
+        <Font Size="8pt" />
+        <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="2.286cm" Height="0.6cm" Left="14.224cm" Top="0.854cm" Value="=Fields.ConCd" Multiline="False" Culture="ar" Name="textBox1">
+          <Style Color="Red" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.048cm" Height="0.6cm" Left="7.112cm" Top="0.838cm" Value="=Fields.ConStrtDt" Multiline="False" Culture="ar" Name="textBox3">
+          <Style Color="Red" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2in" Height="0.2in" Left="6.6in" Top="0.336in" Value="رقم العقد" Name="textBox2">
+          <Style>
+            <Font Size="14pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2in" Height="0.2in" Left="4.2in" Top="0.33in" Value="تاريخ البدايه" Name="textBox4">
+          <Style>
+            <Font Size="14pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2in" Height="0.2in" Left="6.6in" Top="1.1in" Value="مده العقد" Name="textBox5">
+          <Style>
+            <Font Size="14pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2in" Height="0.2in" Left="6.6in" Top="0.7in" Value="تحرير العقد" Name="textBox6">
+          <Style>
+            <Font Size="14pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.048cm" Height="0.6cm" Left="0.254cm" Top="0.821cm" Value="=Fields.ConEndDt" Multiline="False" Culture="ar" Name="textBox10">
+          <Style Color="Red" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2in" Height="0.2in" Left="1.5in" Top="0.323in" Value="تاريخ النهايه" Name="textBox9">
+          <Style>
+            <Font Size="14pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.048cm" Height="0.6cm" Left="13.462cm" Top="1.686cm" Value="=Fields.ConDt" Multiline="False" Culture="ar" Name="textBox11">
+          <Style Color="Red" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.048cm" Height="0.6cm" Left="13.462cm" Top="2.702cm" Value="=Fields.Prd" Multiline="False" Culture="ar" Name="textBox12">
+          <Style Color="Red" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2in" Height="0.2in" Left="3.965in" Top="1.064in" Value="مده العقد" Name="textBox14">
+          <Style>
+            <Font Size="14pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.048cm" Height="0.6cm" Left="6.768cm" Top="2.61cm" Value="=Fields.TypPrd" Multiline="False" Culture="ar" Name="textBox13">
+          <Style Color="Red" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.54cm" Height="0.6cm" Left="11.938cm" Top="3.972cm" Value="=Fields.Val" Multiline="False" Culture="ar" Name="textBox25">
+          <Style Color="Red" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9in" Height="0.2in" Left="5.9in" Top="1.6in" Value="المبلغ الشهرى" Name="textBox24">
+          <Style>
+            <Font Size="14pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.54cm" Height="0.6cm" Left="11.938cm" Top="4.988cm" Value="=Fields.YearInstalment" Multiline="False" Culture="ar" Name="textBox27">
+          <Style Color="Red" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9in" Height="0.2in" Left="5.9in" Top="1.964in" Value="المبلغ السنوى" Name="textBox26">
+          <Style>
+            <Font Size="14pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.54cm" Height="0.6cm" Left="12.002cm" Top="5.841cm" Value="=Fields.InsPercentange" Multiline="False" Culture="ar" Name="textBox33">
+          <Style Color="Red" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9in" Height="0.2in" Left="5.9in" Top="2.3in" Value="نسبه التأمين" Name="textBox32">
+          <Style>
+            <Font Size="14pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.54cm" Height="0.6cm" Left="11.938cm" Top="6.603cm" Value="=Fields.Ins" Multiline="False" Culture="ar" Name="textBox35">
+          <Style Color="Red" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9in" Height="0.2in" Left="5.9in" Top="2.6in" Value="قيمه التأمين" Name="textBox34">
+          <Style>
+            <Font Size="14pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2in" Height="0.2in" Left="1.4in" Top="1.543in" Value="مكان الخدمه" Name="textBox37">
+          <Style>
+            <Font Size="14pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.048cm" Height="0.6cm" Left="0.254cm" Top="3.826cm" Value="=Fields.ServicLoc" Multiline="False" Culture="ar" Name="textBox36">
+          <Style Color="Red" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2in" Height="0.2in" Left="1.4in" Top="1.9in" Value="نوع الخدمه" Name="textBox39">
+          <Style>
+            <Font Size="14pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.048cm" Height="0.6cm" Left="0.254cm" Top="4.734cm" Value="=Fields.ServicType" Multiline="False" Culture="ar" Name="textBox38">
+          <Style Color="Red" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2in" Height="0.2in" Left="1.3in" Top="2.3in" Value="وصف العقد" Name="textBox41">
+          <Style>
+            <Font Size="14pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.048cm" Height="0.6cm" Left="0cm" Top="5.75cm" Value="=Fields.ConDscr" Multiline="False" Culture="ar" Name="textBox40">
+          <Style Color="Red" TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.7in" Height="0.2in" Left="3.3in" Top="0in" Value="تقرير امر اسناد" Name="textBox8">
+          <Style>
+            <Font Size="14pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ContinuousPaper="True">
+    <Margins>
+      <MarginsU Left="1cm" Right="0cm" Top="1cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="Url" Text="Url" />
+    <ReportParameter Name="TrNo" Type="Integer" AllowNull="True" />
+  </ReportParameters>
+</Report>

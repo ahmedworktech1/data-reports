@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="webServiceDataSource1" Width="17cm" UnitOfMeasure="Mm" PageNumberingStyle="Continue" Name="ReportGlAccTr1Ar" Zoom="1.5" SnapToGrid="False" ShowDimensions="False" ShowWatermarks="False" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <WebServiceDataSource ParameterValues="{&quot;.AspNetCore.Identity.Application&quot;:&quot;CfDJ8FXyCoqZVAdPofjdBJRzWSW7k12wqi6vgcCELgWtU35aahI7e8WAI9HuScSs3QhXBRf58_-4q8qKJxg1CwSkzBHU42z_0ldmBq-hNap15Jes_4D6wHjpsv-4NcBsBRq3c8tHGqn3ZoDDAiZ6QreS-th7G2DTVtujWv5eYeaiXNPt47OnvyWt2sxKCOaFM-oKCzDw8wPevlRz1depDxPI7WI87M_VO2KuXcsNatQ5OPd7IGCrHHO_qUZMyr_1jESQLiD-D3HASQDmqSSt_6QcBSgiuCCx6xSmH-pZOBKMkHRNR6bJ11s8TOezsopDLjLKolbmYqGL-EopdP4Do5sMZeNM9tvzcR0uUgatG5LCWXDB8ecKzJWJ-QWchOT-2_ZjpC6GPdzKdeGq0ZC5V9k5bKzzT8Lq3-gHqI4BsTqxnpE-Ud-zRflOEHI1Elro69Dh6xC3vbs3b4NhoRbxBfv0HsoJcT-JoqKNSxEN1lDG5OqrYeRJBq-kQ6BiB9DFYimDajYXNLNEa1zE3lNnXgZ4OX0vSl-45I00nRVB0MJ59MJRTC9vIwgK6JW2rgxuA39lO3uoiCl3SvaeBKE4XoJfBpQq_y9lgBOHAgIztSFFa5IQbo5793rS1quowoLWxj9e93I_z7DPGZre21exAZr7tDg_31SodLGgPbd_ChM7hDopZCjm0Ra67sxt7Tj92VPK0Mhw9-sKE76pNtqB087PKFaRSPMTZUMfwNoe2mcNU03UOVlJbTVLshgqgfboOzJ6t52NQaXNUTlLJ12QQ9ywa3bXuAr7tbFb_NEmTnKlvLAVR2A6ygjTtJwUzCTlkvcz4g&quot;,&quot;@Url&quot;:&quot;https://localhost:5001/gl/ReportGlAccTr1/GetDataGlAccTr&quot;,&quot;AccNo&quot;:&quot;\&quot;\&quot;&quot;,&quot;AccNos&quot;:&quot;\&quot;\&quot;&quot;,&quot;ComId&quot;:&quot;\&quot;\&quot;&quot;,&quot;NoCst&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromAccNo&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToAccNo&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromDate&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToDate&quot;:&quot;\&quot;\&quot;&quot;,&quot;AccountsNames&quot;:&quot;\&quot;\&quot;&quot;,&quot;AccStat&quot;:&quot;\&quot;\&quot;&quot;,&quot;ReportTitle&quot;:&quot;\&quot;\&quot;&quot;,&quot;hideBgnbal&quot;:&quot;\&quot;\&quot;&quot;}" AuthParameterValues="null" ServiceUrl="@Url" Name="webServiceDataSource1">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "gl/ReportGlAccTr1/GetDataGlAccTr"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="AccNo">
+          <Value>
+            <String>= Parameters.AccNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="AccNos">
+          <Value>
+            <String>= Parameters.AccNos.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ComId">
+          <Value>
+            <String>= Parameters.ComId.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="NoCst">
+          <Value>
+            <String>= Parameters.NoCst.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromAccNo">
+          <Value>
+            <String>= Parameters.FromAccNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToAccNo">
+          <Value>
+            <String>= Parameters.ToAccNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromDate">
+          <Value>
+            <String>= Parameters.FromDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToDate">
+          <Value>
+            <String>= Parameters.ToDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="AccountsNames">
+          <Value>
+            <String>= Parameters.AccountsNames.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="AccStat">
+          <Value>
+            <String>= Parameters.AccStat.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ReportTitle">
+          <Value>
+            <String>= Parameters.ReportTitle.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="hideBgnbal">
+          <Value>
+            <String>= Parameters.hideBgnbal.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="JrnCds">
+          <Value>
+            <String>= Parameters.JrnCds.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="JrnCd">
+          <Value>
+            <String>= Parameters.JrnCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromJrnCd">
+          <Value>
+            <String>= Parameters.FromJrnCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToJrnCd">
+          <Value>
+            <String>= Parameters.ToJrnCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="4.376cm" Name="pageHeaderSection1">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="5.622cm" Height="1.306cm" Left="11.327cm" Top="2.955cm" Value="الحساب" Name="textBox14">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="18pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.463cm" Height="0.639cm" Left="2.174cm" Top="3.622cm" Value="مدين" Name="textBox6">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.136cm" Height="0.639cm" Left="0.038cm" Top="3.622cm" Value="دائن" Name="textBox5">
+          <Style BackgroundColor="242, 242, 242" Color="Red" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.036cm" Height="1.306cm" Left="9.29cm" Top="2.955cm" Value="رصيد بداية الفترة" Name="textBox9">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.599cm" Height="0.667cm" Left="0.038cm" Top="2.955cm" Value="رصيد نهاية الفترة" Name="textBox18">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.186cm" Height="0.441cm" Left="3.981cm" Top="1.47cm" Value="= CDate(Parameters.FromDate.Value)" Format="{0:d}" Name="textBox35">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.186cm" Height="0.441cm" Left="3.981cm" Top="1.928cm" Value="= CDate(Parameters.ToDate.Value)" Format="{0:d}" Name="textBox34">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.399cm" Height="0.441cm" Left="6.203cm" Top="1.928cm" Value="الي تاريخ" Name="textBox12">
+          <Style Color="28, 0, 155" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.398cm" Height="0.441cm" Left="7.747cm" Top="1.928cm" Value="=(Parameters.ToAccNo.Value)" Format="{0:d}" Name="textBox38">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.417cm" Height="0.441cm" Left="10.145cm" Top="1.47cm" Value="من حساب" Name="textBox37">
+          <Style Color="28, 0, 155" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.417cm" Height="0.441cm" Left="10.145cm" Top="1.928cm" Value="الي حساب" Name="textBox36">
+          <Style Color="28, 0, 155" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.399cm" Height="0.441cm" Left="6.203cm" Top="1.47cm" Value="من تاريخ" Name="textBox33">
+          <Style Color="28, 0, 155" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.587cm" Height="1.188cm" Left="3.975cm" Top="0.268cm" Value="= Parameters.ReportTitle.Value " Name="textBox10">
+          <Style BackgroundColor="White" Color="0, 176, 80" TextAlign="Center" VerticalAlign="Middle" LineStyle="Dashed">
+            <Font Name="Arial" Size="16pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.398cm" Height="0.441cm" Left="7.747cm" Top="1.47cm" Value="=(Parameters.FromAccNo.Value)" Format="{0:d}" Name="textBox39">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.121cm" Height="0.639cm" Left="4.638cm" Top="3.622cm" Value="دائن" Name="textBox3">
+          <Style BackgroundColor="242, 242, 242" Color="Red" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.652cm" Height="0.667cm" Left="4.638cm" Top="2.955cm" Value="حركة الفترة" Name="textBox17">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.496cm" Height="0.639cm" Left="6.794cm" Top="3.622cm" Value="مدين" Name="textBox4">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.047in" Height="0.304in" Left="4.625in" Top="0.064in" Value="= Parameters.CompanyName.Value" Name="textBox41">
+          <Style TextAlign="Center">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.047in" Height="0.276in" Left="4.625in" Top="0.476in" Value="= Parameters.CompanyAddress.Value" Name="textBox40">
+          <Style TextAlign="Center">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="0.599cm" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="1.441in" Height="0.236in" Left="4.46in" Top="0in" Value="= Fields.AccountName" Multiline="False" Name="textBox48">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.983in" Height="0.236in" Left="2.675in" Top="0in" Value="=Fields.TOTDB" Format="{0:N2}" Multiline="False" Name="textBox47">
+          <Style Color="28, 0, 155" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Calibri" Size="8pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.969in" Height="0.236in" Left="0.856in" Top="0in" Value="= Fields.ABALDB&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" Format="{0:N2}" Multiline="False" Name="textBox46">
+          <Style Color="28, 0, 155" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Calibri" Size="9pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.835in" Height="0.236in" Left="1.826in" Top="0in" Value="=Fields.TOTCR" Format="{0:N2}" Multiline="False" Name="textBox45">
+          <Style Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Calibri" Size="9pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.856in" Height="0.236in" Left="0in" Top="0in" Value="= Abs(Fields.ABALCR)" Format="{0:N2}" Multiline="False" Name="textBox44">
+          <Style Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Calibri" Size="9pt" Bold="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19.59mm" Height="0.236in" Left="149.88mm" Top="0mm" Value="= Fields.AccNo" Multiline="False" Name="textBox43">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="None" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.802in" Height="0.236in" Left="3.658in" Top="0in" Value="= Fields.NetBBAL" Format="{0:#,##0;(#,##0)}" Multiline="False" Name="textBox42">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Calibri" Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <Bindings>
+            <Binding Path="Style.Color" Expression="= IIf(Fields.SDB = 0  ,'Red','Black')" />
+          </Bindings>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportFooterSection Height="2.66cm" Name="reportFooterSection1">
+      <Items>
+        <TextBox Width="1.523in" Height="0.194in" Left="0.22in" Top="0.326in" Value="= abs(Sum(Fields.ABALCR))" Format="{0:N2}" Name="textBox27">
+          <Style Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Calibri" Size="12pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.201cm" Height="1.17cm" Left="14.589cm" Top="0.15cm" Value="إجمالي التقرير " Name="textBox1">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.634in" Height="0.611cm" Left="3.45in" Top="0.059in" KeepTogether="False" Value="= sum(iif(Fields.SDB = Fields.SCR,0,Fields.SDB))" Format="{0:N2}" Name="textBox19">
+          <Style Color="0, 32, 255" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.634in" Height="0.194in" Left="3.45in" Top="0.326in" Value="= sum(iif(Fields.SDB = Fields.SCR,0,Fields.SCR))" Format="{0:N2}" Name="textBox16">
+          <Style Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Calibri" Size="12pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.419cm" Height="0.608cm" Left="13.144cm" Top="0.153cm" Value="مدين" Name="textBox21">
+          <Style BackgroundColor="White" Color="0, 32, 255" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="16pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.419cm" Height="0.194in" Left="13.144cm" Top="0.828cm" Value="دائن" Name="textBox22">
+          <Style BackgroundColor="White" Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="16pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.508in" Height="0.611cm" Left="1.847in" Top="0.052in" Value="=sum(Fields.TOTDB)&#xD;&#xA;" Format="{0:N2}" Name="textBox24">
+          <Style Color="0, 32, 255" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Calibri" Size="12pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.508in" Height="0.194in" Left="1.826in" Top="0.326in" Value="=Sum(Fields.TOTCR)" Format="{0:N2}" Name="textBox26">
+          <Style Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Calibri" Size="12pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.487cm" Height="0.72cm" Left="13.144cm" Top="1.32cm" Value="الصافي" Name="textBox28">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.633in" Height="0.189in" Left="3.45in" Top="0.585in" Value="=Sum(Fields.NetBBAL)" Format="{0:N2}" Name="textBox29">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Calibri" Size="14pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.508in" Height="0.189in" Left="1.826in" Top="0.585in" Value="=Sum(Fields.TOTDB)-Sum(Fields.TOTCR)" Format="{0:N2}" Name="textBox30">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Calibri" Size="14pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.523in" Height="0.189in" Left="0.22in" Top="0.585in" Value="=Sum(Fields.NetBBAL)+Sum(Fields.TOTDB)-Sum(Fields.TOTCR)&#xD;&#xA;" Format="{0:N2}" Name="textBox31">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Calibri" Size="12pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.523in" Height="0.189in" Left="0.22in" Top="0.096in" Value="=Sum( Fields.ABALDB)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" Format="{0:N2}" Name="textBox25">
+          <Style Color="0, 32, 255" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Calibri" Size="12pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportFooterSection>
+    <PageFooterSection Height="0.524cm" Name="pageFooterSection1">
+      <Items>
+        <TextBox Width="3.651cm" Height="0.524cm" Left="4.428cm" Top="0cm" Value="= &quot; صفحة &quot; + CStr(PageNumber) + &quot; من &quot;  + CStr(PageCount)" Name="textBox20">
+          <Style VerticalAlign="Middle">
+            <Font Size="8pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.339cm" Height="0.524cm" Left="8.574cm" Top="0cm" Value="= &quot;بواسطة :&quot;+Cstr(UserIdentity.Name)" Name="textBox23">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="Url" Text="Url" />
+    <ReportParameter Name="FromDate" AllowNull="True" />
+    <ReportParameter Name="ToDate" AllowNull="True" />
+    <ReportParameter Name="ComId" AllowNull="True" />
+    <ReportParameter Name="FromAccNo" AllowNull="True" />
+    <ReportParameter Name="ToAccNo" AllowNull="True" />
+    <ReportParameter Name="NoCst" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="AccNos" AllowNull="True" />
+    <ReportParameter Name="AccNo" AllowNull="True" />
+    <ReportParameter Name="AccountsNames" AllowNull="True" />
+    <ReportParameter Name="AccStat" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="CompanyName" AllowNull="True" />
+    <ReportParameter Name="CompanyAddress" AllowNull="True" />
+    <ReportParameter Name="Logo" AllowNull="True" />
+    <ReportParameter Name="ReportTitle" AllowNull="True" />
+    <ReportParameter Name="hideBgnbal" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="JrnCd" AllowNull="True" />
+    <ReportParameter Name="JrnCds" AllowNull="True" />
+    <ReportParameter Name="FromJrnCd" AllowNull="True" />
+    <ReportParameter Name="ToJrnCd" AllowNull="True" />
+  </ReportParameters>
+</Report>

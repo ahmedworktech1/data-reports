@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="webServiceDataSource1" Width="11.614in" UnitOfMeasure="Mm" Name="ReportPrintSuspendedChecks" SnapToGrid="False" xmlns="http://schemas.telerik.com/reporting/2019/2.0">
+  <DataSources>
+    <WebServiceDataSource ServiceUrl="@Url" Name="webServiceDataSource1" ParameterValues="{&quot;FromDate&quot;:,&quot;ToDate&quot;:,&quot;.AspNetCore.Identity.Application&quot;:,&quot;@Url&quot;:}">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromDate">
+          <Value>
+            <String>= Parameters.FromDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToDate">
+          <Value>
+            <String>= Parameters.ToDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "eg/ReportSuspendedOrphans/GetDataReportPrintSuspendedChecks"</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="2.527in" Name="pageHeaderSection1">
+      <Style BackgroundColor="White">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="4.85cm" Height="0.45cm" Left="24.25cm" Top="0.199cm" Value="رابطة العالم الاسلامي" Name="textBox1">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Andalus" Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.75cm" Height="0.45cm" Left="23.75cm" Top="0.649cm" Value="هيئة الاغاثة الاسلامية العالمية" Name="textBox2">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Andalus" Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.75cm" Height="0.45cm" Left="23.75cm" Top="1.099cm" Value="بالمملكة العربية السعودية" Name="textBox3">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Andalus" Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.404cm" Height="0.5cm" Left="0.808cm" Top="0.149cm" Value="MUSLIM WORLD LEAGUE" Name="textBox19">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.004cm" Height="0.45cm" Left="0.508cm" Top="0.649cm" Value="INTL . ISLAMIC RELIEF ORG" Name="textBox20">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.104cm" Height="0.45cm" Left="0.008cm" Top="1.101cm" Value="THE KONGDOM OF SAUDI ARABIA" Name="textBox21">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.431cm" Height="0.6cm" Left="10.1cm" Top="0.572cm" Value="كشف شيكات المستفيدين الموقوفين" Name="textBox22">
+          <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.712cm" Height="0.959cm" Left="13.328cm" Top="4.797cm" Value="مسلسل" Name="textBox16">
+          <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.604cm" Height="0.959cm" Left="8.724cm" Top="4.797cm" Value="رقم الشيك" Name="textBox17">
+          <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="16.1cm" Height="0.7cm" Left="7.05cm" Top="1.759cm" Value="= Parameters.CompanyName.Value" Name="textBox71">
+          <Style TextAlign="Center">
+            <Font Size="18pt" />
+          </Style>
+        </TextBox>
+        <PictureBox Value="= Parameters.Logo.Value" Width="3.4cm" Height="2.067cm" Left="0.808cm" Top="2.751cm" Sizing="Stretch" MimeType="" Name="pictureBox1">
+          <Style>
+            <BackgroundImage ImageData="null" Repeat="NoRepeat" />
+          </Style>
+        </PictureBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="0.245in" Name="detailSection1">
+      <Style>
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="4.604cm" Height="0.623cm" Left="8.724cm" Top="0cm" Value="= Fields.CheckNo" Name="textBox66">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.711cm" Height="0.623cm" Left="13.328cm" Top="0cm" Value="= Fields.SerialNumber" Name="textBox4">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="1.874in" Name="pageFooterSection1">
+      <Style>
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+    </PageFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ColumnCount="1" ColumnSpacing="0in" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="1mm" Right="1mm" Top="1mm" Bottom="1mm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="Url" AllowNull="True" />
+    <ReportParameter Name="FromDate" AllowNull="True" />
+    <ReportParameter Name="ToDate" AllowNull="True" />
+    <ReportParameter Name="CompanyAddress" />
+    <ReportParameter Name="Logo" />
+    <ReportParameter Name="CompanyName" />
+  </ReportParameters>
+</Report>

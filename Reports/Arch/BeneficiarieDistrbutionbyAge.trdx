@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="11.8in" UnitOfMeasure="Mm" Name="BeneficiarieGovernment" Zoom="0.6666667" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <Style Visible="True">
+    <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+    <BorderColor Top="37, 64, 97" Bottom="37, 64, 97" Left="37, 64, 97" Right="37, 64, 97" />
+    <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+  </Style>
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="archxsandoaa" SelectCommand="WITH CombinedData AS (&#xD;&#xA;    SELECT  &#xD;&#xA;        B.Age,   &#xD;&#xA;        B.Org,    &#xD;&#xA;        B.FILE_TYP&#xD;&#xA;    FROM BENEFICIARIE B   &#xD;&#xA;),&#xD;&#xA;&#xD;&#xA;-- شهداء والمصابين &#xD;&#xA;BeneficiaryCounts AS (&#xD;&#xA;    SELECT &#xD;&#xA;        Age,&#xD;&#xA;        SUM(CASE WHEN Org = 1 AND FILE_TYP = 1 THEN 1 ELSE 0 END) AS DfnsMartr,&#xD;&#xA;        SUM(CASE WHEN Org = 1 AND FILE_TYP = 3 THEN 1 ELSE 0 END) AS DfnsInjrd,&#xD;&#xA;        SUM(CASE WHEN Org = 2 AND FILE_TYP = 1 THEN 1 ELSE 0 END) AS PoliceMartr,&#xD;&#xA;        SUM(CASE WHEN Org = 2 AND FILE_TYP = 3 THEN 1 ELSE 0 END) AS PoliceInjrd,&#xD;&#xA;        SUM(CASE WHEN Org = 3 AND FILE_TYP = 1 THEN 1 ELSE 0 END) AS TdamnMartr,&#xD;&#xA;        SUM(CASE WHEN Org = 3 AND FILE_TYP = 3 THEN 1 ELSE 0 END) AS TdamnInjrd&#xD;&#xA;    FROM CombinedData &#xD;&#xA;    GROUP BY Age&#xD;&#xA;),&#xD;&#xA;&#xD;&#xA;-- المستفيدين (تحسين باستخدام PIVOT)&#xD;&#xA;BeneficiariesCounts AS (&#xD;&#xA;    SELECT &#xD;&#xA;        Age AS Age,&#xD;&#xA;        SUM(CASE WHEN Org = 1 THEN MostafidCount ELSE 0 END) AS DfnsMostafid,&#xD;&#xA;        SUM(CASE WHEN Org = 2 THEN MostafidCount ELSE 0 END) AS PoliceMostafid,&#xD;&#xA;        SUM(CASE WHEN Org = 3 THEN MostafidCount ELSE 0 END) AS TdamnMostafid&#xD;&#xA;    FROM (&#xD;&#xA;        SELECT &#xD;&#xA;            MB.Age,&#xD;&#xA;            MB.Org,&#xD;&#xA;            COUNT(MB.MartyrsBeneficiarieId) AS MostafidCount&#xD;&#xA;        FROM MartyrsBeneficiarie MB&#xD;&#xA;        GROUP BY MB.Age, MB.Org&#xD;&#xA;    ) AS SourceTable&#xD;&#xA;    GROUP BY Age&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;SELECT &#xD;&#xA;    B.Age as Age, &#xD;&#xA;    B.DfnsMartr,&#xD;&#xA;    B.DfnsInjrd,&#xD;&#xA;    COALESCE(BC.DfnsMostafid, 0) AS DfnsMostafid,&#xD;&#xA;    B.PoliceMartr,&#xD;&#xA;    B.PoliceInjrd,&#xD;&#xA;    COALESCE(BC.PoliceMostafid, 0) AS PoliceMostafid,&#xD;&#xA;    B.TdamnMartr,&#xD;&#xA;    B.TdamnInjrd,&#xD;&#xA;    COALESCE(BC.TdamnMostafid, 0) AS TdamnMostafid&#xD;&#xA;FROM BeneficiaryCounts B&#xD;&#xA;LEFT JOIN BeneficiariesCounts BC ON B.Age = BC.Age&#xD;&#xA;ORDER BY B.Age;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="5.588cm" Name="pageHeaderSection1">
+      <Style Visible="True">
+        <Font Bold="True" />
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <PictureBox Image="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" Width="2.286cm" Height="2.032cm" Left="26.924cm" Top="0.382cm" Sizing="Stretch" MimeType="image/jpeg" Name="LogoImage">
+          <Style>
+            <BackgroundImage ImageData="null" Repeat="NoRepeat" />
+          </Style>
+        </PictureBox>
+        <TextBox Width="9.595cm" Height="1.605cm" Left="9.906cm" Top="0.809cm" Value="احصائية عددية بالمراحل السنيه للمستفيدين / المصابين جهات " Angle="0" Name="textBox51">
+          <Style BackgroundColor="242, 242, 242" Color="23, 54, 93" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.726cm" Height="0.762cm" Left="2.761cm" Top="1.375cm" Value=":التاريخ" Name="textBox49">
+          <Style TextAlign="Center">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.032cm" Height="2.608cm" Left="27.94cm" Top="2.794cm" Value="م" Angle="0" Name="textBox48">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.54cm" Height="2.608cm" Left="25.4cm" Top="2.794cm" Value="المرحلة العمرية" Angle="0" Name="textBox47">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.606cm" Height="1.304cm" Left="18.794cm" Top="2.794cm" Value="وزارة الدفاع" Angle="0" Name="textBox46">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.284cm" Height="1.304cm" Left="23.116cm" Top="4.098cm" Value="مستفيد" Angle="0" Name="textBox43">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.058cm" Height="1.304cm" Left="21.058cm" Top="4.098cm" Value="مصاب" Angle="0" Name="textBox42">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.269cm" Height="1.304cm" Left="18.789cm" Top="4.098cm" Value="إجمالى" Angle="0" Name="textBox38">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.586cm" Height="1.304cm" Left="13.208cm" Top="2.794cm" Value="وزارة الداخلية" Angle="0" Name="textBox23">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.778cm" Height="1.304cm" Left="17.011cm" Top="4.098cm" Value="مستفيد" Angle="0" Name="textBox22">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.769cm" Height="1.304cm" Left="15.242cm" Top="4.098cm" Value="مصاب" Angle="0" Name="textBox12">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.034cm" Height="1.304cm" Left="13.208cm" Top="4.098cm" Value="إجمالى" Angle="0" Name="textBox9">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.032cm" Height="1.304cm" Left="11.176cm" Top="4.098cm" Value="مستفيد" Angle="0" Name="textBox8">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.778cm" Height="1.304cm" Left="9.398cm" Top="4.098cm" Value="مصاب" Angle="0" Name="textBox6">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.866cm" Height="1.304cm" Left="7.532cm" Top="4.098cm" Value="إجمالى" Angle="0" Name="textBox5">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.676cm" Height="1.304cm" Left="7.532cm" Top="2.794cm" Value="وزارة التضامن الاجتماعي" Angle="0" Name="textBox4">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.477cm" Height="1.304cm" Left="0.055cm" Top="2.794cm" Value="الاجمالي " Angle="0" Name="textBox11">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.452cm" Height="1.304cm" Left="5.08cm" Top="4.098cm" Value="مستفيد" Angle="0" Name="textBox3">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.319cm" Height="1.304cm" Left="2.761cm" Top="4.098cm" Value="مصاب" Angle="0" Name="textBox1">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.706cm" Height="1.304cm" Left="0.055cm" Top="4.098cm" Value="اجمالي" Angle="0" Name="textBox21">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="1.979cm" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White">
+        <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+        <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+        <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+      </Style>
+      <Items>
+        <TextBox Width="2.032cm" Height="18.36mm" Left="27.94cm" Top="0mm" Value="= RowNumber()" Format="{0:N0}" Name="textBox7">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+          <Action>null</Action>
+        </TextBox>
+        <TextBox Width="2.54cm" Height="18.36mm" Left="25.4cm" Top="0mm" Value="= Fields.Age" Format="{0:N0}" Name="textBox2">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+          <Action>null</Action>
+        </TextBox>
+        <TextBox Width="2.058cm" Height="18.36mm" Left="21.058cm" Top="0mm" Value="= Fields.DfnsInjrd" Format="{0:N0}" Name="textBox15">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+          <Action>
+            <NavigateToUrlAction Url="= Parameters.Url.Value + &quot;arch/Beneficiarie/BeneficiarieDistrbutionbyAge/?CellNo=2&amp;Age=&quot; + Fields.Age+ &quot;&amp;RptNm=Age&quot;" />
+          </Action>
+        </TextBox>
+        <TextBox Width="2.264cm" Height="18.36mm" Left="18.794cm" Top="0mm" Value="= Fields.DfnsMartr + Fields.DfnsInjrd" Format="{0:N0}" Name="textBox13">
+          <Style BackgroundColor="242, 242, 242" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+          <Action>null</Action>
+        </TextBox>
+        <TextBox Width="1.778cm" Height="18.36mm" Left="17.011cm" Top="0mm" Value="= Fields.PoliceMostafid" Format="{0:N0}" Name="textBox19">
+          <Style BackgroundColor="166, 166, 166" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+          <Action>
+            <NavigateToUrlAction Url="= Parameters.Url.Value + &quot;arch/Beneficiarie/BeneficiarieDistrbutionbyAge/?CellNo=4&amp;Age=&quot; + Fields.Age+ &quot;&amp;RptNm=Age&quot;" />
+          </Action>
+        </TextBox>
+        <TextBox Width="1.769cm" Height="18.36mm" Left="15.242cm" Top="0mm" Value="= Fields.PoliceInjrd" Format="{0:N0}" Name="textBox16">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+          <Action>
+            <NavigateToUrlAction Url="= Parameters.Url.Value + &quot;arch/Beneficiarie/BeneficiarieDistrbutionbyAge/?CellNo=5&amp;Age=&quot; + Fields.Age+ &quot;&amp;RptNm=Age&quot;" />
+          </Action>
+        </TextBox>
+        <TextBox Width="2.034cm" Height="18.36mm" Left="13.208cm" Top="0mm" Value="= Fields.PoliceMostafid +  Fields.PoliceInjrd" Format="{0:N0}" Name="textBox14">
+          <Style BackgroundColor="242, 242, 242" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+          <Action>null</Action>
+        </TextBox>
+        <TextBox Width="2.032cm" Height="18.36mm" Left="11.176cm" Top="0mm" Value="= Fields.TdamnMostafid" Format="{0:N0}" Name="textBox25">
+          <Style BackgroundColor="166, 166, 166" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+          <Action>
+            <NavigateToUrlAction Url="= Parameters.Url.Value + &quot;arch/Beneficiarie/BeneficiarieDistrbutionbyAge/?CellNo=7&amp;Age=&quot; + Fields.Age+ &quot;&amp;RptNm=Age&quot;" />
+          </Action>
+        </TextBox>
+        <TextBox Width="1.778cm" Height="18.36mm" Left="9.398cm" Top="0mm" Value="= Fields.TdamnInjrd" Format="{0:N0}" Name="textBox20">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+          <Action>
+            <NavigateToUrlAction Url="= Parameters.Url.Value + &quot;arch/Beneficiarie/BeneficiarieDistrbutionbyAge/?CellNo=8&amp;Age=&quot; + Fields.Age+ &quot;&amp;RptNm=Age&quot;" />
+          </Action>
+        </TextBox>
+        <TextBox Width="1.866cm" Height="19.79mm" Left="7.532cm" Top="0mm" Value="=  Fields.TdamnMostafid +  Fields.TdamnInjrd" Format="{0:N0}" Name="textBox17">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+          <Action>null</Action>
+        </TextBox>
+        <TextBox Width="2.452cm" Height="18.12mm" Left="5.08cm" Top="0mm" Value="= Fields.DfnsMostafid +  Fields.PoliceMostafid + Fields.TdamnMostafid" Format="{0:N0}" Name="textBox24">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+          <Action>
+            <NavigateToUrlAction Url="= Parameters.Url.Value + &quot;arch/Beneficiarie/BeneficiarieDistrbutionbyAge/?CellNo=10&amp;Age=&quot; + Fields.Age+ &quot;&amp;RptNm=Age&quot;" />
+          </Action>
+        </TextBox>
+        <TextBox Width="2.284cm" Height="18.36mm" Left="23.116cm" Top="0mm" Value="= Fields.DfnsMostafid" Format="{0:N0}" Name="textBox10">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+          <Action>
+            <NavigateToUrlAction Url="= Parameters.Url.Value + &quot;arch/Beneficiarie/BeneficiarieDistrbutionbyAge/?CellNo=1&amp;Age=&quot; + Fields.Age+ &quot;&amp;RptNm=Age&quot;" />
+          </Action>
+        </TextBox>
+        <TextBox Width="2.286cm" Height="18.36mm" Left="2.794cm" Top="0mm" Value="= Fields.DfnsInjrd + Fields.PoliceInjrd + Fields.TdamnInjrd" Format="{0:N0}" Name="textBox36">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+          <Action>
+            <NavigateToUrlAction Url="= Parameters.Url.Value + &quot;arch/Beneficiarie/BeneficiarieDistrbutionbyAge/?CellNo=11&amp;Age=&quot; + Fields.Age+ &quot;&amp;RptNm=Age&quot;" />
+          </Action>
+        </TextBox>
+        <TextBox Width="2.706cm" Height="18.12mm" Left="0.055cm" Top="0.24mm" Value="= Fields.DfnsMostafid +  Fields.PoliceMostafid + Fields.TdamnMostafid + Fields.DfnsInjrd + Fields.PoliceInjrd + Fields.TdamnInjrd" Format="{0:N0}" Name="textBox18">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+          <Action>null</Action>
+        </TextBox>
+      </Items>
+      <Action>null</Action>
+    </DetailSection>
+    <ReportFooterSection Height="1.822cm" Name="reportFooterSection1">
+      <Style Visible="False" />
+    </ReportFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="Url" Text="Url" AllowNull="True" />
+    <ReportParameter Name="Logo" AllowNull="True" />
+    <ReportParameter Name="ReportTitle" AllowNull="True" />
+    <ReportParameter Name="Details" Visible="True" AllowNull="True" />
+    <ReportParameter Name="HOrgs" AllowNull="True" />
+    <ReportParameter Name="BeneficiarieId" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="HFileTyp" AllowNull="True" />
+    <ReportParameter Name="ActionTyps" AllowNull="True" />
+    <ReportParameter Name="Rnks" AllowNull="True" />
+    <ReportParameter Name="Weapons" AllowNull="True" />
+    <ReportParameter Name="HMilitaryNo" AllowNull="True" />
+    <ReportParameter Name="HInsurncNo" AllowNull="True" />
+    <ReportParameter Name="HNatId" AllowNull="True" />
+    <ReportParameter Name="FromAccidentDate" AllowNull="True" />
+    <ReportParameter Name="ToAccidentDate" AllowNull="True" />
+    <ReportParameter Name="FromCitationDate" AllowNull="True" />
+    <ReportParameter Name="ToCitationDate" AllowNull="True" />
+    <ReportParameter Name="FromInjuryDate" AllowNull="True" />
+    <ReportParameter Name="ToInjuryDate" AllowNull="True" />
+    <ReportParameter Name="Ctgs" AllowNull="True" />
+    <ReportParameter Name="HOrg" AllowNull="True" />
+    <ReportParameter Name="BtwnDate" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="InJrd" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="FromDateOfBirth" AllowNull="True" />
+    <ReportParameter Name="ToDateOfBirth" AllowNull="True" />
+    <ReportParameter Name="FromAge" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="ToAge" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="HIsPrimaryMember" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="FromEntryDate" AllowNull="True" />
+    <ReportParameter Name="ToEntryDate" AllowNull="True" />
+    <ReportParameter Name="HIsDataCompleted" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="FromDataCompltDate" AllowNull="True" />
+    <ReportParameter Name="ToDataCompltDate" AllowNull="True" />
+    <ReportParameter Name="HFileStat" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="FromDecisionDate" AllowNull="True" />
+    <ReportParameter Name="ToDecisionDate" AllowNull="True" />
+    <ReportParameter Name="FromDecisionYear" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="ToDecisionYear" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="FromAccidentYear" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="ToAccidentYear" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="FromDisabilityPercentage" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="ToDisabilityPercentage" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="HGender" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="HJobId" AllowNull="True" />
+    <ReportParameter Name="Nams" AllowNull="True" />
+    <ReportParameter Name="Govs" AllowNull="True" />
+    <ReportParameter Name="Centers" AllowNull="True" />
+    <ReportParameter Name="FamRelations" AllowNull="True" />
+    <ReportParameter Name="FamNams" AllowNull="True" />
+    <ReportParameter Name="FamTyps" AllowNull="True" />
+    <ReportParameter Name="Rlgns" AllowNull="True" />
+    <ReportParameter Name="EnteredBys" AllowNull="True" />
+    <ReportParameter Name="SubOrgs" AllowNull="True" />
+    <ReportParameter Name="DecisionCds" AllowNull="True" />
+    <ReportParameter Name="EligStatues" AllowNull="True" />
+    <ReportParameter Name="AccidentNos" AllowNull="True" />
+    <ReportParameter Name="MaritalStatues" AllowNull="True" />
+    <ReportParameter Name="Qualifications" AllowNull="True" />
+  </ReportParameters>
+</Report>

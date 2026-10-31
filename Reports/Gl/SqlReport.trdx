@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="17cm" Name="SqlReport" Zoom="1.5" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTE2Ij8+PERNIHhtbG5zOno9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vMjAwMy8xMC9TZXJpYWxpemF0aW9uLyIgeG1sbnM6aT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vc2NoZW1hcy5kYXRhY29udHJhY3Qub3JnLzIwMDQvMDcvVGVsZXJpay5SZXBvcnRpbmcuRGVzaWduLlF1ZXJ5RGVzaWduZXIiPjxFcz48RSB6OklkPSJpMSI+PE1CTj5HTEpSTkxEPC9NQk4+PE1CUCB6OklkPSJpMiIgaTp0eXBlPSJOYW1lc3BhY2UiPjxNQk4+PC9NQk4+PE1PQz48TUIgejpSZWY9ImkxIiAvPjwvTU9DPjwvTUJQPjxNT0M+PE1CIHo6SWQ9ImkzIiBpOnR5cGU9IlAiPjxNQk4+SlJOX0NEPC9NQk4+PE1CUCB6OlJlZj0iaTEiIC8+PFBPPnRydWU8L1BPPjwvTUI+PE1CIHo6SWQ9Imk0IiBpOnR5cGU9IlAiPjxNQk4+VFJfTk88L01CTj48TUJQIHo6UmVmPSJpMSIgLz48UE8+dHJ1ZTwvUE8+PC9NQj48TUIgejpJZD0iaTUiIGk6dHlwZT0iUCI+PE1CTj5MTl9OTzwvTUJOPjxNQlAgejpSZWY9ImkxIiAvPjxQTz50cnVlPC9QTz48L01CPjxNQiB6OklkPSJpNiIgaTp0eXBlPSJQIj48TUJOPkFDQ19OTzwvTUJOPjxNQlAgejpSZWY9ImkxIiAvPjxQTz50cnVlPC9QTz48L01CPjxNQiB6OklkPSJpNyIgaTp0eXBlPSJQIj48TUJOPlRSX0RTPC9NQk4+PE1CUCB6OlJlZj0iaTEiIC8+PFBPPnRydWU8L1BPPjwvTUI+PE1CIHo6SWQ9Imk4IiBpOnR5cGU9IlAiPjxNQk4+U1VNX0NEPC9NQk4+PE1CUCB6OlJlZj0iaTEiIC8+PFBPPnRydWU8L1BPPjwvTUI+PE1CIHo6SWQ9Imk5IiBpOnR5cGU9IlAiPjxNQk4+Q1NUX0NEPC9NQk4+PE1CUCB6OlJlZj0iaTEiIC8+PFBPPnRydWU8L1BPPjwvTUI+PC9NT0M+PEVSIC8+PC9FPjwvRXM+PEZzPjxGPjxPcD5FcXVhbHM8L09wPjxQbj5AR0xKUk5MRF9KUk5fQ0Q8L1BuPjxQeSB6OlJlZj0iaTMiIC8+PFZlIGk6bmlsPSJ0cnVlIiAvPjwvRj48Rj48T3A+RXF1YWxzPC9PcD48UG4+QEdMSlJOTERfVFJfTk88L1BuPjxQeSB6OlJlZj0iaTQiIC8+PFZlIGk6bmlsPSJ0cnVlIiAvPjwvRj48L0ZzPjxNUj50cnVlPC9NUj48UHM+PFAgejpSZWY9ImkzIiAvPjxQIHo6UmVmPSJpNCIgLz48UCB6OlJlZj0iaTUiIC8+PFAgejpSZWY9Imk2IiAvPjxQIHo6UmVmPSJpNyIgLz48UCB6OlJlZj0iaTgiIC8+PFAgejpSZWY9Imk5IiAvPjwvUHM+PFJzIC8+PC9ETT4=" ParameterValues="null" ConnectionString="GLACCOUNTELMENIA" SelectCommand="SELECT    [GLJRNLD].[JRN_CD], &#x9;[GLJRNLD].[TR_NO], &#x9;[GLJRNLD].[LN_NO],'FROM SQL' &#x9;AS ACC_NO, &#x9;[GLJRNLD].[TR_DS], &#x9;[GLJRNLD].[SUM_CD], &#x9;[GLJRNLD].[CST_CD]FROM[GLJRNLD]WHERE 1=1" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="2cm" Name="pageHeaderSection1" />
+    <DetailSection Height="0.6cm" Name="detailSection1">
+      <Items>
+        <TextBox Width="3cm" Height="0.6cm" Left="7.3cm" Top="0cm" Value="= Fields.JRN_CD" Name="textBox3" />
+        <TextBox Width="3cm" Height="0.6cm" Left="10.3cm" Top="0cm" Value="= Fields.LN_NO" Name="textBox4" />
+        <TextBox Width="3cm" Height="0.6cm" Left="1.1cm" Top="0cm" Value="= Fields.ACC_NO" Name="textBox1" />
+        <TextBox Width="3cm" Height="0.6cm" Left="13.3cm" Top="0cm" Value="= Fields.TR_NO" Name="textBox5" />
+        <TextBox Width="3cm" Height="0.6cm" Left="4.3cm" Top="0cm" Value="= Fields.TR_DS" Name="textBox6" />
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="2cm" Name="pageFooterSection1" />
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+</Report>

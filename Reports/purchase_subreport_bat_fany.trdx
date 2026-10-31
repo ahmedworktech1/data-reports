@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="17cm" Name="purchase_subreport_bat_fany" Zoom="1.5" SnapToGrid="False" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="{&quot;@Loc&quot;:&quot;50&quot;,&quot;@TrTy&quot;:&quot;116&quot;,&quot;@FnclTrNo&quot;:&quot;3-ممارسه محدودة-2027/2026&quot;}" ConnectionString="azxsandoaa" SelectCommand="WITH TrRep AS (&#xD;&#xA;    SELECT *,&#xD;&#xA;        ROW_NUMBER() OVER (&#xD;&#xA;            PARTITION BY ISNULL(NULLIF(LTRIM(RTRIM(FNCL_TR_NO)), ''), 'TR#' + CAST(TR_NO AS VARCHAR(20))), LOC, TR_TY&#xD;&#xA;            ORDER BY TR_DT DESC, TR_NO DESC&#xD;&#xA;        ) AS rn_tr&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    WHERE (NULLIF(@Loc, '') IS NULL OR LOC = @Loc)&#xD;&#xA;      AND (@TrTy IS NULL OR TR_TY = @TrTy)&#xD;&#xA;      AND (NULLIF(@FnclTrNo, '') IS NULL OR FNCL_TR_NO = @FnclTrNo)&#xD;&#xA;),&#xD;&#xA;RankedOffers AS (&#xD;&#xA;    SELECT&#xD;&#xA;        ACC_NO,&#xD;&#xA;        ACC_NM,&#xD;&#xA;        FNCL_TR_NO,&#xD;&#xA;        TEC_STAT,&#xD;&#xA;        ORDER_NO,&#xD;&#xA;        TR_NO,&#xD;&#xA;        Tr_Year,&#xD;&#xA;        ROW_NUMBER() OVER (&#xD;&#xA;            PARTITION BY ACC_NO, FNCL_TR_NO&#xD;&#xA;            ORDER BY TR_DT DESC, TR_NO DESC&#xD;&#xA;        ) AS rn&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    WHERE ACC_NO IS NOT NULL&#xD;&#xA;      AND FNCL_TR_NO IS NOT NULL&#xD;&#xA;      AND (NULLIF(@Loc, '') IS NULL OR LOC = @Loc)&#xD;&#xA;      AND (@TrTy IS NULL OR TR_TY = @TrTy)&#xD;&#xA;      AND (NULLIF(@FnclTrNo, '') IS NULL OR FNCL_TR_NO = @FnclTrNo)&#xD;&#xA;),&#xD;&#xA;Offers AS (&#xD;&#xA;    SELECT&#xD;&#xA;        FNCL_TR_NO,&#xD;&#xA;        ACC_NO,&#xD;&#xA;        ACC_NM,&#xD;&#xA;        TEC_STAT,&#xD;&#xA;        LTRIM(RTRIM(CAST(ORDER_NO AS NVARCHAR(50)))) AS OrderNo,&#xD;&#xA;        TRY_CONVERT(INT, LTRIM(RTRIM(CAST(ORDER_NO AS NVARCHAR(50))))) AS OrderNoSort,&#xD;&#xA;        LTRIM(RTRIM(CAST(Tr_Year AS NVARCHAR(50)))) AS OfferYear,&#xD;&#xA;        N'عطاء رقم ' + LTRIM(RTRIM(CAST(ORDER_NO AS NVARCHAR(50))))&#xD;&#xA;          + CASE WHEN NULLIF(LTRIM(RTRIM(CAST(Tr_Year AS NVARCHAR(50)))), '') IS NULL THEN N''&#xD;&#xA;                 ELSE N' / ' + LTRIM(RTRIM(CAST(Tr_Year AS NVARCHAR(50)))) END&#xD;&#xA;          + N'   مقدم من ' + ISNULL(NULLIF(LTRIM(RTRIM(ACC_NM)), N''), N'مورد رقم ' + CAST(ACC_NO AS NVARCHAR(50))) AS OfferLine&#xD;&#xA;    FROM RankedOffers&#xD;&#xA;    WHERE rn = 1&#xD;&#xA;),&#xD;&#xA;Rejected AS (&#xD;&#xA;    SELECT&#xD;&#xA;        FNCL_TR_NO,&#xD;&#xA;        STRING_AGG(OrderNo, N' - ') WITHIN GROUP (ORDER BY OrderNoSort, OrderNo) AS RejNos&#xD;&#xA;    FROM Offers&#xD;&#xA;    WHERE TEC_STAT IN (1, 2)&#xD;&#xA;    GROUP BY FNCL_TR_NO&#xD;&#xA;),&#xD;&#xA;RejectedSup AS (&#xD;&#xA;    SELECT&#xD;&#xA;        FNCL_TR_NO,&#xD;&#xA;        STRING_AGG(ISNULL(NULLIF(LTRIM(RTRIM(ACC_NM)), N''), N'مورد رقم ' + CAST(ACC_NO AS NVARCHAR(50))), N' - ') WITHIN GROUP (ORDER BY OrderNoSort, OrderNo) AS RejSuppliers&#xD;&#xA;    FROM Offers&#xD;&#xA;    WHERE TEC_STAT IN (1, 2)&#xD;&#xA;    GROUP BY FNCL_TR_NO&#xD;&#xA;),&#xD;&#xA;Letter AS (&#xD;&#xA;    SELECT&#xD;&#xA;        R.FNCL_TR_NO,&#xD;&#xA;        1 AS SECTION_ORDER,&#xD;&#xA;        1 AS LINE_ORDER,&#xD;&#xA;        N'أ - استبعاد العطاءات ارقام ' + ISNULL(R.RejNos, N'') + N' المقدمه من ' + ISNULL(S.RejSuppliers, N'') AS SECTION_TITLE,&#xD;&#xA;        N'و ذلك لعدم تقديم عينات عن الأصناف او لعدم إلتزام مقدميها بالمواصفات المطلوبة' AS LINE_TEXT&#xD;&#xA;    FROM Rejected R&#xD;&#xA;    LEFT JOIN RejectedSup S ON S.FNCL_TR_NO = R.FNCL_TR_NO&#xD;&#xA;    UNION ALL&#xD;&#xA;    SELECT&#xD;&#xA;        O.FNCL_TR_NO,&#xD;&#xA;        2 AS SECTION_ORDER,&#xD;&#xA;        ROW_NUMBER() OVER (PARTITION BY O.FNCL_TR_NO ORDER BY O.OrderNoSort, O.OrderNo) AS LINE_ORDER,&#xD;&#xA;        N'ب- النظر فى العطاءات الآتية لمطابقتهـــــا لشروط الإدارة :' AS SECTION_TITLE,&#xD;&#xA;        O.OfferLine AS LINE_TEXT&#xD;&#xA;    FROM Offers O&#xD;&#xA;    WHERE O.TEC_STAT = 0&#xD;&#xA;    UNION ALL&#xD;&#xA;    SELECT&#xD;&#xA;        O.FNCL_TR_NO,&#xD;&#xA;        3 AS SECTION_ORDER,&#xD;&#xA;        ROW_NUMBER() OVER (PARTITION BY O.FNCL_TR_NO ORDER BY O.OrderNoSort, O.OrderNo) AS LINE_ORDER,&#xD;&#xA;        N'توصى اللجنة بقبول العروض الفنية لكل من الآتي :' AS SECTION_TITLE,&#xD;&#xA;        O.OfferLine AS LINE_TEXT&#xD;&#xA;    FROM Offers O&#xD;&#xA;    WHERE O.TEC_STAT = 0&#xD;&#xA;    UNION ALL&#xD;&#xA;    SELECT&#xD;&#xA;        O.FNCL_TR_NO,&#xD;&#xA;        4 AS SECTION_ORDER,&#xD;&#xA;        ROW_NUMBER() OVER (PARTITION BY O.FNCL_TR_NO ORDER BY O.OrderNoSort, O.OrderNo) AS LINE_ORDER,&#xD;&#xA;        N'ورفض العروض الفنية لكل من :' AS SECTION_TITLE,&#xD;&#xA;        O.OfferLine AS LINE_TEXT&#xD;&#xA;    FROM Offers O&#xD;&#xA;    WHERE O.TEC_STAT = 1&#xD;&#xA;)&#xD;&#xA;SELECT&#xD;&#xA;    H.TR_NO,&#xD;&#xA;    H.PURCHAS_NO,&#xD;&#xA;    H.FNCL_TR_NO,&#xD;&#xA;    H.TR_DT,&#xD;&#xA;    H.Tr_Year,&#xD;&#xA;    CAST(ISNULL(L.FNCL_TR_NO, N'') AS NVARCHAR(200)) + N'|' + CAST(L.SECTION_ORDER AS NVARCHAR(10)) AS SECTION_KEY,&#xD;&#xA;    L.SECTION_ORDER,&#xD;&#xA;    L.LINE_ORDER,&#xD;&#xA;    L.SECTION_TITLE,&#xD;&#xA;    L.LINE_TEXT&#xD;&#xA;FROM Letter L&#xD;&#xA;LEFT JOIN TrRep H&#xD;&#xA;    ON H.rn_tr = 1&#xD;&#xA;   AND H.FNCL_TR_NO = L.FNCL_TR_NO&#xD;&#xA;ORDER BY&#xD;&#xA;    L.FNCL_TR_NO,&#xD;&#xA;    L.SECTION_ORDER,&#xD;&#xA;    L.LINE_ORDER" Name="sqlDataSource1">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@Loc">
+          <Value>
+            <String>= Parameters.Loc.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="Int16" Name="@TrTy">
+          <Value>
+            <String>= Parameters.TrTy.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@FnclTrNo">
+          <Value>
+            <String>= Parameters.FnclTrNo.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="0.132cm" Name="pageHeaderSection1" />
+    <DetailSection Height="0.85cm" Name="detailSection1">
+      <Style>
+        <Font Bold="True" />
+      </Style>
+      <Items>
+        <TextBox Width="16.4cm" Height="0.7cm" Left="0.5cm" Top="0.05cm" CanGrow="True" Value="= Fields.LINE_TEXT" Name="textBoxLine">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Size="11pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="0.132cm" Name="pageFooterSection1" />
+    <ReportHeaderSection Height="1.2cm" Name="reportHeaderSection1">
+      <Style>
+        <Font Bold="True" />
+      </Style>
+      <Items>
+        <TextBox Width="5cm" Height="0.7cm" Left="12.0cm" Top="0.25cm" Value="توصى اللجنة بالآتي :" Name="textBox80">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" Underline="True" Size="11pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportHeaderSection>
+    <ReportFooterSection Height="0.132cm" Name="reportFooterSection1" />
+  </Items>
+  <Groups>
+    <Group Name="sectionGroup">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.95cm" Name="groupHeaderSection">
+          <Style>
+            <Font Bold="True" />
+          </Style>
+          <Items>
+            <TextBox Width="16.9cm" Height="0.7cm" Left="0cm" Top="0.15cm" CanGrow="True" Value="= Fields.SECTION_TITLE" Name="textBoxTitle">
+              <Style TextAlign="Right" VerticalAlign="Middle">
+                <Font Bold="True" Size="11pt" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.3cm" Name="groupFooterSection" />
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.SECTION_KEY" />
+      </Groupings>
+    </Group>
+  </Groups>
+  <PageSettings PaperKind="A4" Landscape="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="Loc" AllowNull="True" />
+    <ReportParameter Name="TrTy" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="FnclTrNo" AllowNull="True" />
+  </ReportParameters>
+</Report>

@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="284.16mm" Name="ReportItmCard.trdx" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+ <Style Visible="True">
+    <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+    <BorderColor Top="37, 64, 97" Bottom="37, 64, 97" Left="37, 64, 97" Right="37, 64, 97" />
+    <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+  </Style> 
+ <DataSources>
+    <WebServiceDataSource ParameterValues="{&quot;@Url&quot;:,&quot;.AspNetCore.Identity.Application&quot;:}" AuthParameterValues="null" ServiceUrl="@Url" Name="webServiceDataSource1">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "az/ReportItmCard/GetReportItmCardList"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="23.55mm" Name="PageHeaderSection1">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="12.87mm" Height="4.19mm" Left="166.47mm" Top="17.2mm" Value=":الفترة من " Name="Label335">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18.26mm" Height="4.76mm" Left="109.01mm" Top="17.2mm" Value=":الى" Name="Label338">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="24.34mm" Height="4.76mm" Left="136.53mm" Top="17.2mm" Value="Label341" Name="Label341">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="21.43mm" Height="4.76mm" Left="85.2mm" Top="17.2mm" Value="Label342" Name="Label342">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Arial" Size="10pt" Bold="False" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="6.72mm" Name="DetailSection4">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="3.1cm" Height="6.72mm" Left="22.839cm" Top="0mm" Value="= Fields.Bal" Format="{0:N2}" Name="textBox25">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.2cm" Height="6.72mm" Left="20.639cm" Top="0mm" Value="= Fields.InQty" Format="{0:N2}" Name="textBox27">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.5cm" Height="6.72mm" Left="16.339cm" Top="0mm" Value="= Fields.TrCst" Format="{0:N2}" Name="textBox3">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="6.72mm" Left="18.839cm" Top="0mm" Value="= Fields.OutQty" Format="{0:N2}" Name="textBox29">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.4cm" Height="6.72mm" Left="13.939cm" Top="0mm" Value="= Fields.CtrVal" Format="{0:N2}" Name="textBox4">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.1cm" Height="6.72mm" Left="9.439cm" Top="0mm" Value="= Fields.InvNo" Format="{0:N2}" Name="textBox8">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.1cm" Height="6.72mm" Left="7.339cm" Top="0mm" Value="= Fields.TrNo" Format="{0:N2}" Name="textBox11">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.1cm" Height="6.72mm" Left="5.239cm" Top="0mm" Value="= Fields.LnNo" Format="{0:N2}" Name="textBox14">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.399cm" Height="6.72mm" Left="11.539cm" Top="0mm" Value="= Fields.TrTy" Format="{0:N2}" Name="textBox6">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.3cm" Height="6.72mm" Left="0cm" Top="0mm" Value="= Fields.LocNm" Format="{0:N2}" Name="textBox40">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.477cm" Height="6.72mm" Left="25.939cm" Top="0mm" Value="= Fields.TrDt" Format="{0:N2}" Name="textBox22">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True">
+    <Margins>
+      <MarginsU Left="20mm" Right="20mm" Top="20mm" Bottom="20mm" />
+    </Margins>
+  </PageSettings>
+  <Groups>
+    <Group GroupKeepTogether="All" Name="Group1">
+      <GroupHeader>
+        <GroupHeaderSection Height="6.09mm" Name="GroupHeaderSection1">
+          <Style Visible="True">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <Items>
+            <TextBox Width="10cm" Height="5.56mm" Left="7.3cm" Top="0mm" Value="= Fields.ItmNm" Format="{0:N2}" Name="textBox36">
+              <Style BackgroundColor="White" Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="16pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.1cm" Height="5.56mm" Left="17.3cm" Top="0mm" Value="= Fields.ItmCd" Format="{0:N2}" Name="textBox34">
+              <Style BackgroundColor="White" Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="16pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="16.67mm" Height="5.56mm" Left="204mm" Top="0mm" Value=":الصنف" Name="Label104">
+              <Style Color="WindowText" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="12pt" Bold="True" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0mm" Name="GroupFooterSection0">
+          <Style Visible="True">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.ItmCd" />
+      </Groupings>
+    </Group>
+    <Group GroupKeepTogether="All" Name="Group2">
+      <GroupHeader>
+        <GroupHeaderSection Height="19.05mm" Name="GroupHeaderSection2">
+          <Style Visible="True">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <Items>
+            <TextBox Width="16.4mm" Height="10.85mm" Left="267.76mm" Top="8.2mm" Value="التاريخ" Name="Label113">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="12pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="24.87mm" Height="10.85mm" Left="242.89mm" Top="8.2mm" Value="نوع الحركة" Name="Label140">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="12pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="26.41mm" Height="10.85mm" Left="200.07mm" Top="8.2mm" Value="المستفيد" Name="Label141">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="12pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="61.65mm" Height="5.29mm" Left="127mm" Top="8.2mm" Value="الوارد" Name="Label142">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="12pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="62.71mm" Height="5.29mm" Left="64.29mm" Top="8.2mm" Value="الصادر" Name="Label143">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="12pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="64.29mm" Height="5.29mm" Left="0mm" Top="8.2mm" Value="الرصيد" Name="Label144">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="12pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="20.91mm" Height="5.56mm" Left="64.29mm" Top="13.49mm" Value="اجمالي" Name="Label103">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="22.22mm" Height="5.56mm" Left="85.2mm" Top="13.49mm" Value="سعر" Name="Label150">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="20.9mm" Height="5.56mm" Left="0mm" Top="13.49mm" Value="اجمالي" Name="Label152">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="22.76mm" Height="5.56mm" Left="20.9mm" Top="13.49mm" Value="سعر" Name="Label153">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="20.63mm" Height="5.56mm" Left="43.66mm" Top="13.49mm" Value="كمية" Name="Label154">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="16.4mm" Height="10.85mm" Left="226.48mm" Top="8.2mm" Value="المستند" Name="Label1402">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="12pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="20.91mm" Height="5.56mm" Left="127.26mm" Top="13.49mm" Value="اجمالي" Name="Label146">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="20.9mm" Height="5.56mm" Left="148.17mm" Top="13.49mm" Value="سعر" Name="Label147">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="19.32mm" Height="5.56mm" Left="169.07mm" Top="13.49mm" Value="كمية" Name="inqty">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="19.84mm" Height="5.56mm" Left="107.42mm" Top="13.49mm" Value="كمية" Name="Label151">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="10.84mm" Height="10.85mm" Left="188.65mm" Top="8.2mm" Value="الوحدة" Name="Label355">
+              <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+                <Font Name="Arial" Size="12pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="10cm" Height="6.72mm" Left="6.907cm" Top="0mm" Value="= Fields.LocNm" Format="{0:N2}" Name="textBox41">
+              <Style BackgroundColor="White" Color="31, 73, 125" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="16pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.1cm" Height="6.72mm" Left="16.907cm" Top="0mm" Value="= Fields.Dloc" Format="{0:N2}" Name="textBox38">
+              <Style BackgroundColor="White" Color="31, 73, 125" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="16pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.477cm" Height="6.72mm" Left="20.007cm" Top="0cm" Value="رقم الفرع" Name="textBox37">
+              <Style BackgroundColor="White" Color="31, 73, 125" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="14pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="5.82mm" Name="GroupFooterSection1">
+          <Style Visible="True">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.Dloc" />
+      </Groupings>
+    </Group>
+  </Groups>
+  <ReportParameters>
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="Url" Text="Url" AllowNull="True" />
+    <ReportParameter Name="CompanyName" />
+    <ReportParameter Name="Logo" />
+    <ReportParameter Name="CompanyAddress" />
+    <ReportParameter Name="ReportTitle" />
+    <ReportParameter Name="ReportFileName" />
+  </ReportParameters>
+</Report>

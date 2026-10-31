@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="webServiceDataSource1" Width="9.693in" UnitOfMeasure="Mm" Name="ReportLoans_Ar" Zoom="1.5" ShowDimensions="False" ShowWatermarks="False" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style BackgroundColor="198, 217, 241" />
+  <DataSources>
+    <WebServiceDataSource ParameterValues="{&quot;.AspNetCore.Identity.Application&quot;:&quot;CfDJ8Aqd88nBowFGnzTbMYzhZ450pW2Ls27H8VewBYJANyzwVpZGvEDKtr4O8EAa8CYjQcCdDklTt_xuVzD26RRRfj8rPZFednb2NXdtni-0xt49DPcEl-MmZvuvnYbrDcnde7JTI7oMiFpf5ihW49ybbU46LKHMKRlm-4tE_hUyhWXLnoIpjcrFQATRtztL3eEk_9V7Y16S_RhT2fT0bxS0Te9rVvi_eZ2XWHcD38QTqF1JHf_rBwFJS_drT3wDTDyuonIYWl2T8fU_dRkkN8vbP5sCV_WtbGxeHJpM-UUI682n0Q3jSkvWB6ApGrcNBsIi8JGPiJaEnSc9wZFsJKr8ahsvgn0Ltn4MAtnvQO1JrZs33EazSDzHE9S2c0HNqONI3wwOND7KEGpEB38EQFkExLPlNeP8wx2olnyZXkpXP3gSssCg4k9PZ_IQkodvYXgEXIt7qemnzFlE85XWyuyZ-8sWITo3xtiCusP1xWfJ_WMBuPEBs5NF1t9XXDvObDfMomNJwUXfEKcz2LjFiFw3ZrvaQhGJW6n4Fbl3vYKZSyrcHxKKZxeLfIi5Ywwj3JCdY6Mcbz1uaNAn_IUvM5_AvEVozByzAtNtAQgCp6nwz7Et0XEWZrPJXSRsQxDUe5hyOzLKQcnBtxxRNfL-ghEIn1FhFrD0opmo4eeUUuJ9s2D-k9mQR0s-7frE8QktjcZsuq_6ufk9TIcW2qy711MlCkkw4iVq3djjBZsIU5ae2NeOmPOyu7uYWJxPBSF0clQQgjFQrUMuqnD6ij6Yq6T9FF6t9BCxDfYHY-Pd6BtoXuU0qZlpilLdffbDUrIYfM4UneM0vfvzRy1djqoGbUMLWUnAfK5IKaykYodmHn3ayzkzP4pY-LXi0SuCGD3S6VBthgw8DAzPJMFCFTK-lrBU7wnjjpz6INcYXCaSXChTtjr1vYIohZ8oovWgTaCaaB4BLNQYxcSZ0ocjUX4qamR5je0FRV9i7J-AyiTNdU_qUq5DKL-9WtHLn4wb16qHFmI-BHzjLVJ3DAu67PIOsMemWfDx3exumtm_wGnJ_KXggqYCx2VN5DajaMQimjFx3vcySQ&quot;,&quot;@Url&quot;:&quot;https://localhost:5001/py/ReportLoans/GetDataFamf&quot;,&quot;Chk1&quot;:&quot;\&quot;1\&quot;&quot;,&quot;EmpNo&quot;:&quot;\&quot;1\&quot;&quot;,&quot;EmpNos&quot;:&quot;\&quot;1\&quot;&quot;,&quot;FGha&quot;:&quot;\&quot;1\&quot;&quot;,&quot;FromEmpNo&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Gha&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Ghas&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Mnth&quot;:&quot;\&quot;1\&quot;&quot;,&quot;NoMnths&quot;:&quot;\&quot;1\&quot;&quot;,&quot;OPT&quot;:&quot;\&quot;1\&quot;&quot;,&quot;RemMnths&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Srt&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Status&quot;:&quot;\&quot;1\&quot;&quot;,&quot;TGha&quot;:&quot;\&quot;1\&quot;&quot;,&quot;ToEmpNo&quot;:&quot;\&quot;1\&quot;&quot;,&quot;XCode&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Year&quot;:&quot;\&quot;1\&quot;&quot;}" AuthParameterValues="null" ServiceUrl="@Url" Name="webServiceDataSource1">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "py/ReportLoans/GetDataFamf"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Chk1">
+          <Value>
+            <String>= Parameters.Chk1.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="EmpNo">
+          <Value>
+            <String>= Parameters.EmpNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="EmpNos">
+          <Value>
+            <String>= Parameters.EmpNos.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FGha">
+          <Value>
+            <String>= Parameters.FGha.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromEmpNo">
+          <Value>
+            <String>= Parameters.FromEmpNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Gha">
+          <Value>
+            <String>= Parameters.Gha.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Ghas">
+          <Value>
+            <String>= Parameters.Ghas.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Mnth">
+          <Value>
+            <String>= Parameters.Mnth.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="NoMnths">
+          <Value>
+            <String>= Parameters.NoMnths.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="OPT">
+          <Value>
+            <String>= Parameters.OPT.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="RemMnths">
+          <Value>
+            <String>= Parameters.RemMnths.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Srt">
+          <Value>
+            <String>= Parameters.Srt.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Status">
+          <Value>
+            <String>= Parameters.Status.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="TGha">
+          <Value>
+            <String>= Parameters.TGha.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToEmpNo">
+          <Value>
+            <String>= Parameters.ToEmpNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="XCode">
+          <Value>
+            <String>= Parameters.XCode.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="Year">
+          <Value>
+            <String>= Parameters.Year.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="1.535in" Name="pageHeaderSection1">
+      <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+        <Font Size="8pt" />
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="1.102in" Height="0.366in" Left="7.992in" Top="1.142in" Value="اسم الموظف" Name="textBox8">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.599in" Height="0.366in" Left="9.094in" Top="1.142in" Value="رقم الموظف" Name="textBox3">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.561in" Height="0.366in" Left="6.431in" Top="1.142in" Value="البيان" Name="textBox9">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.551in" Height="0.366in" Left="4.606in" Top="1.142in" Value="شهر البداية" Name="textBox4">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.63in" Height="0.366in" Left="3.976in" Top="1.142in" Value="معدل القسط" Angle="0" Name="textBox12">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.643in" Height="0.366in" Left="5.787in" Top="1.142in" Value=" المبلغ" Name="textBox6">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.63in" Height="0.366in" Left="5.157in" Top="1.142in" Value="قيمة القسط" Name="textBox5">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.669in" Height="0.366in" Left="3.307in" Top="1.142in" Value="المبلغ المتبقي" Name="textBox7">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.743in" Height="0.226in" Left="6.85in" Top="0.1in" Value="= Parameters.CompanyName.Value" Name="textBox47">
+          <Style TextAlign="Center">
+            <Font Size="12pt" Bold="True" />
+            <Padding Left="0pt" Right="0pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.74in" Height="0.226in" Left="6.853in" Top="0.374in" Value="= Parameters.CompanyAddress.Value" Name="textBox19">
+          <Style TextAlign="Center">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.74cm" Height="0.9cm" Left="8.4cm" Top="0.266cm" Value="= Parameters.ReportTitle.Value" Name="textBox34">
+          <Style BackgroundColor="Transparent" Color="23, 54, 93" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.709in" Height="0.366in" Left="2.598in" Top="1.142in" Value="عدد الاقساط" Name="textBox1">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.748in" Height="0.366in" Left="1.85in" Top="1.142in" Value="العدد المتبقي" Name="textBox2">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.748in" Height="0.366in" Left="1.102in" Top="1.142in" Value="المبلغ المسدد" Name="textBox10">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.102in" Height="0.366in" Left="0in" Top="1.142in" Value="الجهة" Name="textBox11">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="0.197in" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="15.2mm" Height="5.01mm" Left="231mm" Top="0mm" Value="= Fields.EmpNo" Name="textBox13">
+          <Style TextAlign="Right">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="28mm" Height="5.01mm" Left="203mm" Top="0mm" Value="= Fields.EmpNm" Name="textBox14">
+          <Style TextAlign="Right">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="17mm" Height="5.01mm" Left="84mm" Top="0mm" Value="= Fields.RemMnths" Name="textBox15">
+          <Style TextAlign="Right">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14mm" Height="5.01mm" Left="117mm" Top="0mm" Value="= Fields.StrtMnth" Name="textBox16">
+          <Style TextAlign="Right">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18mm" Height="5.01mm" Left="66mm" Top="0mm" Value="= Fields.NoMnths" Name="textBox17">
+          <Style TextAlign="Right">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="16.34mm" Height="5.01mm" Left="147mm" Top="0mm" Value="= Fields.LoanAmt" Name="textBox18">
+          <Style TextAlign="Right">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="16mm" Height="5.01mm" Left="101mm" Top="0mm" Value="= Fields.LoanRate" Name="textBox20">
+          <Style TextAlign="Right">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19mm" Height="5.01mm" Left="28mm" Top="0mm" Value="= Fields.PaidAmt" Name="textBox21">
+          <Style TextAlign="Right">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19mm" Height="5.01mm" Left="47mm" Top="0mm" Value="= Fields.RemMnths" Name="textBox22">
+          <Style TextAlign="Right">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="39.66mm" Height="5.01mm" Left="163.34mm" Top="0mm" Value="= Fields.Dscr" Name="textBox23">
+          <Style TextAlign="Right">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="28mm" Height="5.01mm" Left="0mm" Top="0mm" Value="= Fields.DueTo" Name="textBox24">
+          <Style TextAlign="Right">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="16mm" Height="5.01mm" Left="131mm" Top="0mm" Value="= Fields.MnthAmt" Name="textBox25">
+          <Style TextAlign="Right">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ColumnCount="1" ColumnSpacing="0in" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="1in" Right="1in" Top="1in" Bottom="1in" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="Url" AllowNull="True" />
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="ReportTitle" AllowNull="True" />
+    <ReportParameter Name="CompanyName" AllowNull="True" />
+    <ReportParameter Name="CompanyAddress" AllowNull="True" />
+    <ReportParameter Name="Mnth" AllowNull="True" />
+    <ReportParameter Name="Year" AllowNull="True" />
+    <ReportParameter Name="Status" AllowNull="True" />
+    <ReportParameter Name="XCode" AllowNull="True" />
+    <ReportParameter Name="NoMnths" AllowNull="True" />
+    <ReportParameter Name="RemMnths" AllowNull="True" />
+    <ReportParameter Name="EmpNos" AllowNull="True" />
+    <ReportParameter Name="EmpNo" AllowNull="True" />
+    <ReportParameter Name="FromEmpNo" AllowNull="True" />
+    <ReportParameter Name="ToEmpNo" AllowNull="True" />
+    <ReportParameter Name="Ghas" AllowNull="True" />
+    <ReportParameter Name="Gha" AllowNull="True" />
+    <ReportParameter Name="FGha" AllowNull="True" />
+    <ReportParameter Name="TGha" AllowNull="True" />
+    <ReportParameter Name="Chk1" AllowNull="True" />
+    <ReportParameter Name="Srt" AllowNull="True" />
+    <ReportParameter Name="OPT" AllowNull="True" />
+  </ReportParameters>
+</Report>

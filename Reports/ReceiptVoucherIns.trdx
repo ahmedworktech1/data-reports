@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="webServiceDataSource1" Width="20.3cm" PageNumberingStyle="ResetNumberingAndCount" Name="ReceiptVoucherIns" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style>
+    <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+    <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+    <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+  </Style>
+  <DataSources>
+    <WebServiceDataSource ParameterValues="{&quot;.AspNetCore.Identity.Application&quot;:,&quot;@Url&quot;:,&quot;TrNo&quot;:,&quot;rptKey&quot;:,&quot;RptKeyes&quot;:,&quot;Logo&quot;:,&quot;Bild&quot;:,&quot;BildState&quot;:,&quot;BildType&quot;:,&quot;BldCd&quot;:,&quot;Collect&quot;:,&quot;ContractState&quot;:,&quot;FolderOwner&quot;:,&quot;legal&quot;:,&quot;Mnth&quot;:,&quot;Nots&quot;:,&quot;NotsEn&quot;:,&quot;PayStat&quot;:,&quot;PrntStat&quot;:,&quot;Rent&quot;:,&quot;TenantName&quot;:,&quot;TenantNo&quot;:,&quot;UntNo&quot;:,&quot;Valid&quot;:,&quot;Vno&quot;:,&quot;Yr&quot;:,&quot;IsBuild&quot;:}" AuthParameterValues="null" ServiceUrl="@Url" Name="webServiceDataSource1">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "aq/QueryPrepareDiscount/GetDataReport"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="TrNo">
+          <Value>
+            <String>= Parameters.TrNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="rptKey">
+          <Value>
+            <String>= Parameters.rptKey.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="RptKeyes">
+          <Value>
+            <String>= Parameters.RptKeyes.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="Logo">
+          <Value>
+            <String>= Parameters.Logo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Bild">
+          <Value>
+            <String>= Parameters.Bild.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="BildState">
+          <Value>
+            <String>= Parameters.BildState.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="BildType">
+          <Value>
+            <String>= Parameters.BildType.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="BldCd">
+          <Value>
+            <String>= Parameters.BldCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Collect">
+          <Value>
+            <String>= Parameters.Collect.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ContractState">
+          <Value>
+            <String>= Parameters.ContractState.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FolderOwner">
+          <Value>
+            <String>= Parameters.FolderOwner.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="legal">
+          <Value>
+            <String>= Parameters.legal.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Mnth">
+          <Value>
+            <String>= Parameters.Mnth.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Nots">
+          <Value>
+            <String>= Parameters.Nots.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="NotsEn">
+          <Value>
+            <String>= Parameters.NotsEn.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="PayStat">
+          <Value>
+            <String>= Parameters.PayStat.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="PrntStat">
+          <Value>
+            <String>= Parameters.PrntStat.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Rent">
+          <Value>
+            <String>= Parameters.Rent.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="TenantName">
+          <Value>
+            <String>= Parameters.TenantName.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="TenantNo">
+          <Value>
+            <String>= Parameters.TenantNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="UntNo">
+          <Value>
+            <String>= Parameters.UntNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Valid">
+          <Value>
+            <String>= Parameters.Valid.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Vno">
+          <Value>
+            <String>= Parameters.Vno.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Yr">
+          <Value>
+            <String>= Parameters.Yr.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="IsBuild">
+          <Value>
+            <String>= Parameters.IsBuild.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="0.132cm" Name="pageHeaderSection1">
+      <Style Visible="False" />
+    </PageHeaderSection>
+    <DetailSection PageBreak="After" Height="13.1cm" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White">
+        <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+      </Style>
+      <Items>
+        <TextBox Width="1.9cm" Height="0.6cm" Left="18cm" Top="7.786cm" Value="المستلم" Angle="0" Name="textBox15">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.6cm" Left="11.8cm" Top="7.786cm" Value="Recipient" Angle="0" Name="textBox23">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="0.5cm" Left="17.6cm" Top="8.586cm" Value="تاريخ التحصيل" Angle="0" Name="textBox26">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="0.5cm" Left="13.9cm" Top="8.586cm" Value=".................................. " Angle="0" Name="textBox25">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="0.5cm" Left="11.8cm" Top="8.586cm" Value="Date" Angle="0" Name="textBox24">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.5cm" Height="0.5cm" Left="9.6cm" Top="10.986cm" Value="=Fields.M_TenantNm" Name="textBox34">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.5cm" Left="18.1cm" Top="10.986cm" Value="المستأجر" Name="textBox33">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.2cm" Height="0.5cm" Left="13.9cm" Top="11.686cm" Value="=Fields.M_BldDscr" Name="textBox36">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.5cm" Left="18.1cm" Top="11.686cm" Value="العقار" Name="textBox35">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.5cm" Left="10.85cm" Top="11.686cm" Value="=Fields.ContractNo" Culture="uk" Name="textBox38">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.1cm" Height="0.5cm" Left="12.7cm" Top="11.686cm" Value="العقد" Name="textBox37">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.35cm" Height="0.5cm" Left="7.2cm" Top="11.686cm" Value="= Fields.PayedAmt" Format="{0:N3}" Culture="uk" Name="textBox40">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2cm" Height="0.5cm" Left="9.55cm" Top="11.686cm" Value="المبلغ" Name="textBox39">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.2cm" Height="0.714cm" Left="13.9cm" Top="12.386cm" Value="=Fields.untsDscr" Name="textBox46">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.1cm" Height="0.714cm" Left="12.7cm" Top="12.386cm" Value="الفترة" Name="textBox43">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.714cm" Left="18.1cm" Top="12.386cm" Value="الوحدة" Name="textBox45">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.5cm" Height="0.639cm" Left="2.1cm" Top="4.486cm" Value="=Fields.addrs" Format="{0:d}" Name="textBox4">
+          <Style TextAlign="Justify" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.639cm" Left="18cm" Top="4.486cm" Value="العنوان" Name="textBox3">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.589cm" Left="18cm" Top="5.286cm" Value="الوحدة" Name="textBox5">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.639cm" Left="18cm" Top="6.086cm" Value="المبلغ " Name="textBox6">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.493cm" Left="18cm" Top="6.986cm" Value="تأمين" Name="textBox7">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.9cm" Height="0.639cm" Left="9.7cm" Top="6.086cm" Value="= brca.Core.Services.ReportStaticService.Tafqeet(Abs(Fields.PayedAmtTafqeet))" Name="textBox1">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.1cm" Height="0.589cm" Left="8.5cm" Top="5.286cm" Value="=Fields.untsDscr" Name="textBox2">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="12.4cm" Height="0.493cm" Left="5.2cm" Top="6.986cm" Value="=Fields.Nots" Name="textBox8">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.1cm" Height="0.639cm" Left="8.5cm" Top="3.586cm" Value="=Fields.M_BldDscr" Name="textBox11">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="False" Underline="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.639cm" Left="18cm" Top="3.586cm" Value="العقار" Name="textBox12">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.1cm" Height="0.6cm" Left="8.5cm" Top="2.786cm" Value="=Fields.M_TenantNm" Name="= Fields.TrDt">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="False" Underline="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.5cm" Height="0.639cm" Left="0.3cm" Top="4.486cm" Value="Address" Name="textBox22">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.5cm" Height="0.589cm" Left="0.3cm" Top="5.286cm" Value="Unit" Name="textBox21">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.5cm" Height="0.639cm" Left="0.3cm" Top="6.086cm" Value="Paid " Name="textBox20">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.639cm" Left="0.3cm" Top="3.586cm" Value="Property" Name="textBox18">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.5cm" Height="0.6cm" Left="0.3cm" Top="2.786cm" Value="Tenant" Name="textBox9">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.6cm" Left="13.3cm" Top="1.886cm" Value="Print Date" Name="textBox50">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.6cm" Left="15.6cm" Top="1.886cm" Value="= CDate(Fields.TrDt)" Multiline="False" Culture="uk" Name="textBox51">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.7cm" Height="0.6cm" Left="5.2cm" Top="1.886cm" Value="رقم العقد" Name="textBox54">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="0.6cm" Left="0.3cm" Top="1.886cm" Value="Contract No" Name="textBox53">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.1cm" Height="0.6cm" Left="2.9cm" Top="1.886cm" Value="=Fields.ContractNo" Culture="uk" Name="textBox52">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.1cm" Height="0.6cm" Left="17.8cm" Top="1.886cm" Value="تاريخ الطباعة" Name="textBox49">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.571cm" Left="18cm" Top="2.786cm" Value="المستأجر" Name="textBox14">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.1cm" Height="0.6cm" Left="2.1cm" Top="2.786cm" Value="=Fields.M_TenantNmEn" Name="textBox10">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="False" Underline="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.1cm" Height="0.639cm" Left="2.1cm" Top="3.586cm" Value="=Fields.M_BldDscrEn" Name="textBox27">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="False" Underline="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.3cm" Height="0.639cm" Left="2.1cm" Top="6.086cm" Value="= brca.Core.Services.ReportStaticService.TafqeetEng(Abs(Fields.PayedAmtTafqeet))" Name="textBox28">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.7cm" Height="0.589cm" Left="2.1cm" Top="5.286cm" Value="=Fields.untsDscrEn" Name="textBox29">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <Barcode Width="2in" Height="0.354in" Left="0in" Top="4.483in" Value="= Fields.TrNo" Name="barcode2">
+          <Style TextAlign="Right" />
+          <Encoder>
+            <Code128Encoder />
+          </Encoder>
+        </Barcode>
+        <Barcode Width="2in" Height="0.403in" Left="0in" Top="2.789in" Value="= Fields.TrNo" Name="barcode1">
+          <Style TextAlign="Right" />
+          <Encoder>
+            <Code128Encoder />
+          </Encoder>
+        </Barcode>
+        <TextBox Width="11.8cm" Height="0.714cm" Left="0.9cm" Top="12.386cm" Value="=Fields.Nots" Name="textBox19">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="10pt" Bold="False" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="0.6cm" Left="13.9cm" Top="7.786cm" Value="=Fields.UserId" Name="textBox16">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="9pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.2cm" Height="0.657cm" Left="15.7cm" Top="0.686cm" Value="= Fields.PayedAmt" Format="{0:N3}" Culture="uk" Name="textBox17">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="0.557cm" Left="17.9cm" Top="0.129cm" Value="الرقم" Name="textBox48">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.2cm" Height="0.557cm" Left="15.7cm" Top="0.129cm" Value="المبلغ" Name="textBox13">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Segoe UI" Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="0.657cm" Left="17.9cm" Top="0.686cm" Value="= Fields.TrNo" Culture="uk" Name="= Fields.TrNo">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Times New Roman" Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="0.493cm" Name="pageFooterSection1">
+      <Style Visible="False" />
+    </PageFooterSection>
+  </Items>
+  <PageSettings PaperKind="Custom" PaperSize="210mm, 150mm" Landscape="False" ContinuousPaper="True">
+    <Margins>
+      <MarginsU Left="0.3cm" Right="0.3cm" Top="1cm" Bottom="0.5cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="Url" Text="Url" />
+    <ReportParameter Name="TrNo" AllowNull="True" />
+    <ReportParameter Name="rptKey" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="Logo" />
+    <ReportParameter Name="RptKeyes" AllowNull="True" />
+    <ReportParameter Name="BldCd" AllowNull="True" />
+    <ReportParameter Name="ContractState" AllowNull="True" />
+    <ReportParameter Name="Bld" AllowNull="True" />
+    <ReportParameter Name="TenantName" AllowNull="True" />
+    <ReportParameter Name="Bild" AllowNull="True" />
+    <ReportParameter Name="UntNo" AllowNull="True" />
+    <ReportParameter Name="BildType" AllowNull="True" />
+    <ReportParameter Name="BildState" AllowNull="True" />
+    <ReportParameter Name="Rent" AllowNull="True" />
+    <ReportParameter Name="Vno" AllowNull="True" />
+    <ReportParameter Name="TenantNo" AllowNull="True" />
+    <ReportParameter Name="Nots" AllowNull="True" />
+    <ReportParameter Name="NotsEn" AllowNull="True" />
+    <ReportParameter Name="Mnth" AllowNull="True" />
+    <ReportParameter Name="Yr" AllowNull="True" />
+    <ReportParameter Name="PayStat" AllowNull="True" />
+    <ReportParameter Name="FolderOwner" AllowNull="True" />
+    <ReportParameter Name="PrntStat" AllowNull="True" />
+    <ReportParameter Name="CreateStat" AllowNull="True" />
+    <ReportParameter Name="legal" AllowNull="True" />
+    <ReportParameter Name="Valid" AllowNull="True" />
+    <ReportParameter Name="Collect" AllowNull="True" />
+    <ReportParameter Name="IsBuild" AllowNull="True" />
+  </ReportParameters>
+</Report>

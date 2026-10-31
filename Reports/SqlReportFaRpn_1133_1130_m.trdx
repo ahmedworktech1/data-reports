@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="650.46mm" UnitOfMeasure="Mm" Name="SqlReportFaRpn_1133_1130_m" ShowDimensions="False" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style Visible="True">
+    <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+    <BorderColor Top="37, 64, 97" Bottom="37, 64, 97" Left="37, 64, 97" Right="37, 64, 97" />
+    <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+  </Style>
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glx2023tarheel" SelectCommand="SELECT FAMF.FA_CD as FaCd,FAMF.FA_NM_Ar AS FaNm ,FAMF.STRT_DT as StrtDt ,&#xD;&#xA;FAMF.MFA_CD1 as MfaCd1,&#xD;&#xA;famf.cst_cd as cst_cd,(select CST_NM_Ar from GLCST where CST_CD=FAMF.CST_CD) as cst_nm ,&#xD;&#xA;substring(famf.cst_cd,1,2) as mcst_cd,(select CST_NM_Ar from GLCST where CST_CD=substring(famf.cst_cd,1,2)) as mcst_nm,&#xD;&#xA;FAMF.fa_kind,(select DSCR_AR from AppCodes where id='84' and SEQ=FAMF.fa_kind) as momyz,&#xD;&#xA;Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4)) as DPrcVl , &#xD;&#xA;&#xD;&#xA;ISNULL(FADPRC.FA_VL,0) as CFaVl ,&#xD;&#xA;&#xD;&#xA;Cast( ISNULL(FADPRC.TOTADD,0)as decimal(18,4)) as Cadd  ,&#xD;&#xA;&#xD;&#xA;Cast(ISNULL(FADPRC.TOTDSP,0)as decimal(18,4)) as Cdsp  ,&#xD;&#xA;&#xD;&#xA;(ISNULL(FADPRC.FA_VL,0) + Round(Cast(( + ISNULL(FADPRC.TOTADD,0) - &#xD;&#xA;ISNULL(FADPRC.TOTDSP,0))as decimal(18,4)),2)) AS AFaVl  ,&#xD;&#xA;&#xD;&#xA;Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) AS BgDPrc  ,&#xD;&#xA;&#xD;&#xA;Cast(ISNULL((select sum(FADPRC.TOTADDACC)from FADPRC  &#xD;&#xA;where FAMF.FA_CD= FADPRC.FA_CD and FADPRC.PRD='-99991') ,0)as decimal(18,4)) as CaddAcc ,&#xD;&#xA;Round(Cast(ISNULL((select sum(FADPRC.TOTDSPACC)from FADPRC  &#xD;&#xA;where FAMF.FA_CD= FADPRC.FA_CD and FADPRC.PRD='-99991') ,0)as decimal(18,4)),2) as CdspAcc , &#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC.DPREXP)from FADPRC  &#xD;&#xA;where FAMF.FA_CD= FADPRC.FA_CD and FADPRC.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) AS Dprexp1 ,&#xD;&#xA;&#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC.DSP_DPREXP)from FADPRC  &#xD;&#xA;where FAMF.FA_CD= FADPRC.FA_CD and FADPRC.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) AS DSP_DPREXP,&#xD;&#xA;&#xD;&#xA;Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) as QPYrdPrc &#xD;&#xA;,FADPRC.prd&#xD;&#xA;,FAMF.STAT,(select DSCR_AR from AppCodes where id='13' and SEQ=FAMF.STAT) as STAT_NM&#xD;&#xA;,VRTX as place&#xD;&#xA;,FAMF.DOC_NO,FAMF.DOC_DT,FAMF.QTY,FAMF.fa_dcsion as heyaza,FAMF.area &#xD;&#xA;,FAMF.NOTES as wsf_fa_cd,FAMF.NET_TY,(select DSCR_AR from AppCodes where id='99' &#xD;&#xA;and SEQ=FAMF.NET_TY) as no3_alard&#xD;&#xA;,FAMF.MDL_NO,FAMF.CHS_NO,FAMF.PLT_NO,FAMF.MOT_NO,FAMF.PLT_NO_N,FAMF.Mot_No_N,&#xD;&#xA;FAMF.LIC_STRT_DT,FAMF.RESP,(select Dscr_Ar from GLLISTS where Rec_Type='5' and Code=FAMF.RESP) as resp_nm&#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC ON FADPRC.FA_CD=FAMF.FA_CD) LEFT JOIN  GLCST &#xD;&#xA;ON FAMF.CST_CD=GLCST.CST_CD &#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) &#xD;&#xA;and (FAMF.FA_CD like '1133%' or FAMF.FA_CD like '1130%')&#xD;&#xA;and FADPRC.PRD='-99991'&#xD;&#xA;order by FAMF.CST_CD, FAMF.FA_CD" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="4.3cm" Name="pageHeaderSection1">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="3.146cm" Height="0.8cm" Left="61.8cm" Top="3.5cm" Value="رقم الأصل" Name="textBox14">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.905cm" Height="0.8cm" Left="18.595cm" Top="3.5cm" Value="تكلفة أول المدة" Name="textBox1">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.53mm" Height="0.8cm" Left="17.041cm" Top="3.5cm" Value="اضافات" Name="textBox2">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.688cm" Height="0.8cm" Left="15.353cm" Top="3.5cm" Value="استبعادات" Name="textBox4">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.79cm" Height="0.8cm" Left="13.563cm" Top="3.5cm" Value="تكلفة اخر مدة" Name="textBox3">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.119cm" Height="0.8cm" Left="11.444cm" Top="3.5cm" Value="مجمع اهلاك  اول المدة" Name="textBox6">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.865cm" Height="0.8cm" Left="9.579cm" Top="3.5cm" Value="اضافات للمجمع" Name="textBox5">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="0.537cm" Left="26cm" Top="1.446cm" Value="حتى الربع" Name="textBox31">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.8cm" Left="20.5cm" Top="3.5cm" Value="معدل الاهلاك" Name="textBox7">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.837cm" Height="0.8cm" Left="5.877cm" Top="3.5cm" Value="قسط اهلاك عن فترة" Name="textBox8">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.865cm" Height="0.8cm" Left="7.714cm" Top="3.5cm" Value="استبعادات من المجمغ" Name="textBox9">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.141cm" Height="0.8cm" Left="3.736cm" Top="3.5cm" Value="اهلاك سنوات سابقه" Name="textBox11">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.871cm" Height="0.8cm" Left="1.865cm" Top="3.5cm" Value="مجمع اهلاك اخر المدة" Name="textBox12">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.865cm" Height="0.8cm" Left="0cm" Top="3.5cm" Value="صافي القيمة الدفترية" Name="textBox13">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.7cm" Height="0.746cm" Left="21.405cm" Top="0.7cm" Value="التقرير الدفتري للألات (العادية - الشبكة )" Name="textBox62">
+          <Style BackgroundColor="White" Color="Red" TextAlign="Center">
+            <Font Size="14pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4cm" Height="0.8cm" Left="57.8cm" Top="3.5cm" Value="اسم الأصل" Name="textBox15">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="24.182cm" Height="0.8cm" Left="20.518cm" Top="2.7cm" Value="بيانات اضافية" Name="textBox16">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.5cm" Height="0.8cm" Left="53.2cm" Top="3.5cm" Value="الحالة" Name="textBox17">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.3cm" Height="0.8cm" Left="32.9cm" Top="3.5cm" Value="المكان" Name="textBox18">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.399cm" Height="0.8cm" Left="28.5cm" Top="3.5cm" Value="وصف الأصل" Name="textBox22">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.8cm" Left="26.5cm" Top="3.5cm" Value="رقم المستند" Name="textBox25">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.8cm" Left="24.5cm" Top="3.5cm" Value="تاريخ المستند" Name="textBox26">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.8cm" Left="22.499cm" Top="3.5cm" Value="الكمية" Name="textBox27">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="20.5cm" Height="0.8cm" Left="0cm" Top="2.7cm" Value="بيانات الإهلاك" Name="textBox28">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.1cm" Height="0.8cm" Left="54.7cm" Top="3.5cm" Value="مميز الأصل" Name="textBox10">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="0.537cm" Left="24.305cm" Top="1.446cm" Value="= Fields.prd" Name="textBox78">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.5cm" Height="0.8cm" Left="51.7cm" Top="3.5cm" Value="الموديل" Name="textBox19">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.8cm" Left="49.9cm" Top="3.5cm" Value="رقم الشاسيه" Name="textBox21">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.8cm" Left="48cm" Top="3.5cm" Value="رقم اللوحة" Name="textBox24">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.8cm" Left="46.1cm" Top="3.5cm" Value="رقم اللوحة جديد" Name="textBox32">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.8cm" Left="44.2cm" Top="3.5cm" Value="رقم الماتور" Name="textBox45">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.8cm" Left="42.299cm" Top="3.5cm" Value="رقم الماتور جديد" Name="textBox48">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.8cm" Left="40.399cm" Top="3.5cm" Value="تاريخ الترخيص" Name="textBox79">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.199cm" Height="0.8cm" Left="37.2cm" Top="3.5cm" Value="صاحب العهدة " Name="textBox80">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.6cm" Height="0.6cm" Left="57.5cm" Top="0.246cm" Value="شركة مصر الوسطى لتوزيع الكهرباء" Name="textBox93">
+          <Style TextAlign="Center">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.6cm" Height="0.6cm" Left="57.5cm" Top="0.846cm" Value="القطاع المالي والاداري" Name="textBox92">
+          <Style TextAlign="Center">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.6cm" Height="0.6cm" Left="57.5cm" Top="1.446cm" Value="الحسابات الاليه" Name="textBox89">
+          <Style TextAlign="Center">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="0.672cm" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White">
+        <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+        <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+        <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+      </Style>
+      <Items>
+        <TextBox Width="2.141cm" Height="6.72mm" Left="37.54mm" Top="0mm" Value="= Fields.QPYrdPrc" Format="{0:N2}" Multiline="False" Name="textBox142">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="6.72mm" Left="205.18mm" Top="0mm" Value="= Fields.DPrcVl" Multiline="False" Name="textBox141">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.905cm" Height="6.72mm" Left="186.13mm" Top="0mm" Value="= Fields.CFaVl" Format="{0:N2}" Multiline="False" Name="textBox140">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.688cm" Height="6.72mm" Left="153.71mm" Top="0mm" Value="= Fields.Cdsp" Format="{0:N2}" Multiline="False" Name="textBox137">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.79cm" Height="6.72mm" Left="135.81mm" Top="0mm" Value="= Fields.AFaVl" Format="{0:N2}" Multiline="False" Name="textBox136">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.119cm" Height="6.72mm" Left="114.62mm" Top="0mm" Value="= Fields.BgDPrc" Format="{0:N2}" Multiline="False" Name="textBox135">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.865cm" Height="6.72mm" Left="95.97mm" Top="0mm" Value="= Fields.CaddAcc" Format="{0:N2}" Multiline="False" Name="textBox133">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.865cm" Height="6.72mm" Left="77.32mm" Top="0mm" Value="= Fields.CdspAcc+Fields.DSP_DPREXP" Format="{0:N2}" Multiline="False" Name="textBox132">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.837cm" Height="6.72mm" Left="58.95mm" Top="0mm" Value="= Fields.Dprexp1" Format="{0:N2}" Multiline="False" Name="textBox130">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.871cm" Height="6.72mm" Left="18.83mm" Top="0mm" Value="= IsNull( Fields.BgDPrc,0)+IsNull( Fields.CaddAcc,0)-IsNull( Fields.CdspAcc,0)+IsNull( Fields.DSP_DPREXP,0)+IsNull( Fields.Dprexp1,0)+IsNull( Fields.QPYrdPrc,0)" Format="{0:N2}" Multiline="False" Name="textBox129">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.53mm" Height="6.72mm" Left="170.59mm" Top="0mm" Value="= Fields.Cadd" Format="{0:N2}" Multiline="False" Name="textBox91">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.865cm" Height="6.72mm" Left="0.18mm" Top="0mm" Value="= IsNull( Fields.AFaVl,0) - (IsNull( Fields.BgDPrc,0)+IsNull( Fields.CaddAcc,0)-IsNull( Fields.DSP_DPREXP,0)+IsNull( Fields.CdspAcc,0)+IsNull( Fields.Dprexp1,0)+IsNull( Fields.QPYrdPrc,0))" Format="{0:N2}" Multiline="False" Name="textBox90">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="40mm" Height="6.72mm" Left="578mm" Top="0mm" Value="= Fields.FaNm" Multiline="False" Name="textBox143">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="31.46mm" Height="6.72mm" Left="618mm" Top="0mm" Value="= Fields.FaCd" Multiline="False" Name="textBox144">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15mm" Height="6.72mm" Left="532mm" Top="0mm" Value="= Fields.STAT_NM" Multiline="False" Name="textBox29">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="43mm" Height="6.72mm" Left="329mm" Top="0mm" Value="= Fields.place" Multiline="False" Name="textBox30">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="43.99mm" Height="6.72mm" Left="285mm" Top="0mm" Value="= Fields.wsf_fa_cd" Multiline="False" Name="textBox47">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="20mm" Height="6.72mm" Left="265mm" Top="0mm" Value="= Fields.DOC_NO" Multiline="False" Name="textBox49">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="20mm" Height="6.72mm" Left="245mm" Top="0mm" Value="= Fields.DOC_DT" Multiline="False" Name="textBox50">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19.81mm" Height="6.72mm" Left="225.18mm" Top="0mm" Value="= Fields.QTY" Multiline="False" Name="textBox51">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="31mm" Height="6.72mm" Left="547mm" Top="0mm" Value="= Fields.momyz" Multiline="False" Name="textBox20">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15mm" Height="6.72mm" Left="517mm" Top="0mm" Value="= Fields.MDL_NO" Multiline="False" Name="textBox81">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18mm" Height="6.72mm" Left="499mm" Top="0mm" Value="= Fields.CHS_NO" Multiline="False" Name="textBox82">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19mm" Height="6.72mm" Left="480mm" Top="0mm" Value="= Fields.PLT_NO" Multiline="False" Name="textBox83">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19mm" Height="6.72mm" Left="461mm" Top="0mm" Value="= Fields.PLT_NO_N" Multiline="False" Name="textBox84">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19mm" Height="6.72mm" Left="442mm" Top="0mm" Value="= Fields.MOT_NO" Multiline="False" Name="textBox85">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19mm" Height="6.72mm" Left="422.99mm" Top="0mm" Value="= Fields.Mot_No_N" Multiline="False" Name="textBox86">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19mm" Height="6.72mm" Left="403.99mm" Top="0mm" Value="= Fields.LIC_STRT_DT.Kind" Multiline="False" Name="textBox87">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="31.99mm" Height="6.72mm" Left="372mm" Top="0mm" Value="= Fields.resp_nm" Multiline="False" Name="textBox88">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportFooterSection Height="0.956cm" Name="reportFooterSection1">
+      <Items>
+        <TextBox Width="9.982cm" Height="0.852cm" Left="20.518cm" Top="0.104cm" Value=" الاجمالي العام " Multiline="False" Name="textBox33">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="18pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19.05mm" Height="0.852cm" Left="185.95mm" Top="1.04mm" Value="= sum(Fields.CFaVl)&#xD;&#xA;" Format="{0:N2}" Multiline="False" Name="textBox34">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.865cm" Height="0.852cm" Left="95.79mm" Top="1.04mm" Value="=sum(Fields.CaddAcc)" Format="{0:N2}" Multiline="False" Name="textBox40">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.871cm" Height="0.852cm" Left="18.65mm" Top="1.04mm" Value="= IsNull( sum(Fields.BgDPrc),0)+IsNull( sum(Fields.CaddAcc),0)-IsNull( sum(Fields.CdspAcc),0)+sum(IsNull( Fields.DSP_DPREXP,0))+IsNull( sum(Fields.Dprexp1),0)+IsNull( sum(Fields.QPYrdPrc),0)&#xD;&#xA;" Format="{0:N2}" Multiline="False" Name="textBox36">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.141cm" Height="0.852cm" Left="37.36mm" Top="1.04mm" Value="=sum(Fields.QPYrdPrc)" Format="{0:N2}" Multiline="False" Name="textBox37">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.837cm" Height="0.852cm" Left="58.77mm" Top="1.04mm" Value="= Round(sum(Fields.Dprexp1),2)" Format="{0:N2}" Multiline="False" Name="textBox38">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.865cm" Height="0.852cm" Left="77.14mm" Top="1.04mm" Value="= sum(Fields.CdspAcc)+sum(Fields.DSP_DPREXP)" Format="{0:N2}" Multiline="False" Name="textBox39">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.865cm" Height="0.852cm" Left="0mm" Top="1.04mm" Value="= IsNull( sum(Fields.AFaVl),0) - (IsNull( sum(Fields.BgDPrc),0)+IsNull( sum(Fields.CaddAcc),0)-sum(IsNull( Fields.DSP_DPREXP,0))+IsNull( sum(Fields.CdspAcc),0)+IsNull( sum(Fields.Dprexp1),0)+IsNull( sum(Fields.QPYrdPrc),0))" Format="{0:N2}" Multiline="False" Name="textBox35">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.119cm" Height="0.852cm" Left="114.44mm" Top="1.04mm" Value="=sum(Fields.BgDPrc)" Format="{0:N2}" Multiline="False" Name="textBox41">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.79cm" Height="0.852cm" Left="135.63mm" Top="1.04mm" Value="=sum( Fields.AFaVl)" Format="{0:N2}" Multiline="False" Name="textBox42">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="5pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.688cm" Height="0.852cm" Left="153.53mm" Top="1.04mm" Value="= sum(Fields.Cdsp)" Format="{0:N2}" Multiline="False" Name="textBox43">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.53mm" Height="0.852cm" Left="170.41mm" Top="1.04mm" Value="=sum(fields.Cadd)" Format="{0:N2}" Multiline="False" Name="textBox44">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Groups>
+    <Group Name="group1">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.132cm" Name="groupHeaderSection1" />
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.896cm" Name="groupFooterSection1">
+          <Items>
+            <TextBox Width="40mm" Height="8.96mm" Left="20.5cm" Top="0cm" Value="= Fields.mcst_nm" Multiline="False" Name="textBox75">
+              <Style BackgroundColor="ButtonFace" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="40mm" Height="8.96mm" Left="24.5cm" Top="0cm" Value="= Fields.mcst_cd" Multiline="False" Name="textBox76">
+              <Style BackgroundColor="ButtonFace" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="20mm" Height="8.96mm" Left="28.5cm" Top="0cm" Value="اجمالي القطاع" Multiline="False" Name="textBox77">
+              <Style BackgroundColor="ButtonFace" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.141cm" Height="8.96mm" Left="37.36mm" Top="0mm" Value="= sum(Fields.QPYrdPrc)" Format="{0:N2}" Multiline="False" Name="textBox68">
+              <Style BackgroundColor="ButtonFace" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.865cm" Height="8.96mm" Left="77.14mm" Top="0mm" Value="= sum(Fields.CdspAcc)+sum(Fields.DSP_DPREXP)" Format="{0:N2}" Multiline="False" Name="textBox65">
+              <Style BackgroundColor="ButtonFace" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.837cm" Height="8.96mm" Left="58.77mm" Top="0mm" Value="= sum(Fields.Dprexp1)" Format="{0:N2}" Multiline="False" Name="textBox66">
+              <Style BackgroundColor="ButtonFace" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.871cm" Height="8.96mm" Left="18.65mm" Top="0mm" Value="= sum(IsNull( Fields.BgDPrc,0))+sum(IsNull( Fields.CaddAcc,0))-sum(IsNull( Fields.CdspAcc,0))+sum(IsNull( Fields.DSP_DPREXP,0))+sum(IsNull( Fields.Dprexp1,0))+sum(IsNull( Fields.QPYrdPrc,0))" Format="{0:N2}" Multiline="False" Name="textBox67">
+              <Style BackgroundColor="ButtonFace" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.865cm" Height="8.96mm" Left="0mm" Top="0mm" Value="= sum(IsNull( Fields.AFaVl,0)) - (sum(IsNull( Fields.BgDPrc,0))+sum(IsNull( Fields.CaddAcc,0))-sum(IsNull( Fields.DSP_DPREXP,0))+sum(IsNull( Fields.CdspAcc,0))+sum(IsNull( Fields.Dprexp1,0))+sum(IsNull( Fields.QPYrdPrc,0)))" Format="{0:N2}" Multiline="False" Name="textBox64">
+              <Style BackgroundColor="ButtonFace" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.688cm" Height="8.96mm" Left="153.53mm" Top="0mm" Value="= sum(Fields.Cdsp)" Format="{0:N2}" Multiline="False" Name="textBox69">
+              <Style BackgroundColor="ButtonFace" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.79cm" Height="8.96mm" Left="135.63mm" Top="0mm" Value="= sum(Fields.AFaVl)" Format="{0:N2}" Multiline="False" Name="textBox70">
+              <Style BackgroundColor="ButtonFace" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.119cm" Height="8.96mm" Left="114.44mm" Top="0mm" Value="= sum(Fields.BgDPrc)" Format="{0:N2}" Multiline="False" Name="textBox71">
+              <Style BackgroundColor="ButtonFace" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.865cm" Height="8.96mm" Left="95.79mm" Top="0mm" Value="= sum(Fields.CaddAcc)" Format="{0:N2}" Multiline="False" Name="textBox72">
+              <Style BackgroundColor="ButtonFace" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="15.53mm" Height="8.96mm" Left="170.41mm" Top="0mm" Value="= sum(Fields.Cadd)" Format="{0:N2}" Multiline="False" Name="textBox73">
+              <Style BackgroundColor="ButtonFace" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.905cm" Height="8.96mm" Left="185.95mm" Top="0mm" Value="= sum(Fields.CFaVl)" Format="{0:N2}" Multiline="False" Name="textBox74">
+              <Style BackgroundColor="ButtonFace" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.mcst_cd" />
+      </Groupings>
+    </Group>
+    <Group Name="group">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.672cm" Name="groupHeaderSection" />
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.896cm" Name="groupFooterSection">
+          <Items>
+            <TextBox Width="20mm" Height="8.96mm" Left="28.5cm" Top="0cm" Value="اجمالي م.تكلفة" Multiline="False" Name="textBox139">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="40mm" Height="8.96mm" Left="24.5cm" Top="0cm" Value="= Fields.cst_cd" Multiline="False" Name="textBox23">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="40mm" Height="8.96mm" Left="20.5cm" Top="0cm" Value="= Fields.cst_nm" Multiline="False" Name="textBox46">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.905cm" Height="8.96mm" Left="185.95mm" Top="0mm" Value="= sum(Fields.CFaVl)" Format="{0:N2}" Multiline="False" Name="textBox52">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="15.53mm" Height="8.96mm" Left="170.41mm" Top="0mm" Value="= sum(Fields.Cadd)" Format="{0:N2}" Multiline="False" Name="textBox53">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.865cm" Height="8.96mm" Left="95.79mm" Top="0mm" Value="= sum(Fields.CaddAcc)" Format="{0:N2}" Multiline="False" Name="textBox54">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.119cm" Height="8.96mm" Left="114.44mm" Top="0mm" Value="= sum(Fields.BgDPrc)" Format="{0:N2}" Multiline="False" Name="textBox55">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.79cm" Height="8.96mm" Left="135.63mm" Top="0mm" Value="= sum(Fields.AFaVl)" Format="{0:N2}" Multiline="False" Name="textBox56">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.688cm" Height="8.96mm" Left="153.53mm" Top="0mm" Value="= sum(Fields.Cdsp)" Format="{0:N2}" Multiline="False" Name="textBox57">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.141cm" Height="8.96mm" Left="37.36mm" Top="0mm" Value="= sum(Fields.QPYrdPrc)" Format="{0:N2}" Multiline="False" Name="textBox63">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.871cm" Height="8.96mm" Left="18.65mm" Top="0mm" Value="= sum(IsNull( Fields.BgDPrc,0))+sum(IsNull( Fields.CaddAcc,0))-sum(IsNull( Fields.CdspAcc,0))+sum(IsNull( Fields.DSP_DPREXP,0))+sum(IsNull( Fields.Dprexp1,0))+sum(IsNull( Fields.QPYrdPrc,0))" Format="{0:N2}" Multiline="False" Name="textBox59">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.837cm" Height="8.96mm" Left="58.77mm" Top="0mm" Value="= sum(Fields.Dprexp1)" Format="{0:N2}" Multiline="False" Name="textBox60">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.865cm" Height="8.96mm" Left="77.14mm" Top="0mm" Value="= sum(Fields.CdspAcc)+sum(Fields.DSP_DPREXP)" Format="{0:N2}" Multiline="False" Name="textBox61">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.865cm" Height="8.96mm" Left="0mm" Top="0mm" Value="= sum(IsNull( Fields.AFaVl,0)) - (sum(IsNull( Fields.BgDPrc,0))+sum(IsNull( Fields.CaddAcc,0))-sum(IsNull( Fields.DSP_DPREXP,0))+sum(IsNull( Fields.CdspAcc,0))+sum(IsNull( Fields.Dprexp1,0))+sum(IsNull( Fields.QPYrdPrc,0)))" Format="{0:N2}" Multiline="False" Name="textBox58">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.cst_cd" />
+      </Groupings>
+    </Group>
+  </Groups>
+</Report>

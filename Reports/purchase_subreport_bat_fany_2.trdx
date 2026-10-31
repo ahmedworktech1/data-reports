@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="17cm" Name="purchase_subreport_bat_fany" SnapToGrid="False" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="{&quot;@Loc&quot;:&quot;50&quot;,&quot;@TrTy&quot;:&quot;116&quot;,&quot;@FnclTrNo&quot;:&quot;3-ممارسه محدودة-2026/2025&quot;}" ConnectionString="azxsandoaa" SelectCommand="WITH TrRep AS (&#xD;&#xA;    SELECT *,&#xD;&#xA;        ROW_NUMBER() OVER (&#xD;&#xA;            PARTITION BY ISNULL(NULLIF(LTRIM(RTRIM(FNCL_TR_NO)), ''), 'TR#' + CAST(TR_NO AS VARCHAR(20))), LOC, TR_TY&#xD;&#xA;            ORDER BY TR_DT DESC, TR_NO DESC&#xD;&#xA;        ) AS rn_tr&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    WHERE (NULLIF(@Loc, '') IS NULL OR LOC = @Loc)&#xD;&#xA;      AND (@TrTy IS NULL OR TR_TY = @TrTy)&#xD;&#xA;      AND (NULLIF(@FnclTrNo, '') IS NULL OR FNCL_TR_NO = @FnclTrNo)&#xD;&#xA;),&#xD;&#xA;&#xD;&#xA;Ranked AS (&#xD;&#xA;    SELECT&#xD;&#xA;        ACC_NO,&#xD;&#xA;        FNCL_TR_NO,&#xD;&#xA;        TEC_STAT,&#xD;&#xA;        ROW_NUMBER() OVER (&#xD;&#xA;            PARTITION BY ACC_NO, FNCL_TR_NO&#xD;&#xA;            ORDER BY TR_DT DESC, TR_NO DESC&#xD;&#xA;        ) AS rn&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    WHERE ACC_NO IS NOT NULL&#xD;&#xA;      AND FNCL_TR_NO IS NOT NULL&#xD;&#xA;      AND (NULLIF(@Loc, '') IS NULL OR LOC = @Loc)&#xD;&#xA;      AND (@TrTy IS NULL OR TR_TY = @TrTy)&#xD;&#xA;      AND (NULLIF(@FnclTrNo, '') IS NULL OR FNCL_TR_NO = @FnclTrNo)&#xD;&#xA;),&#xD;&#xA;&#xD;&#xA;RankedDistinct AS (&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        ACC_NO,&#xD;&#xA;        FNCL_TR_NO,&#xD;&#xA;        TEC_STAT&#xD;&#xA;    FROM Ranked&#xD;&#xA;    WHERE rn = 1&#xD;&#xA;),&#xD;&#xA;&#xD;&#xA;Suppliers AS (&#xD;&#xA;    SELECT&#xD;&#xA;        FNCL_TR_NO,&#xD;&#xA;        COUNT(CASE WHEN TEC_STAT = 0 THEN 1 END) AS عدد_العطاءات_المقبولة,&#xD;&#xA;        COUNT(CASE WHEN TEC_STAT = 1 THEN 1 END) AS عدد_العطاءات_المرفوضة,&#xD;&#xA;        COUNT(CASE WHEN TEC_STAT = 2 THEN 1 END) AS عدد_العطاءات_المعتذرة,&#xD;&#xA;        STRING_AGG(&#xD;&#xA;            CASE WHEN TEC_STAT = 0 THEN N'مورد رقم ' + CAST(ACC_NO AS NVARCHAR) END,&#xD;&#xA;            N' - '&#xD;&#xA;        ) AS مورد_مقبول,&#xD;&#xA;        STRING_AGG(&#xD;&#xA;            CASE WHEN TEC_STAT = 1 THEN N'مورد رقم ' + CAST(ACC_NO AS NVARCHAR) END,&#xD;&#xA;            N' - '&#xD;&#xA;        ) AS مورد_مرفوض,&#xD;&#xA;        STRING_AGG(&#xD;&#xA;            CASE WHEN TEC_STAT = 2 THEN N'مورد رقم ' + CAST(ACC_NO AS NVARCHAR) END,&#xD;&#xA;            N' - '&#xD;&#xA;        ) AS مورد_معتذر&#xD;&#xA;    FROM RankedDistinct&#xD;&#xA;    GROUP BY FNCL_TR_NO&#xD;&#xA;),&#xD;&#xA;&#xD;&#xA;AllMembers AS (&#xD;&#xA;    /* رئيس اللجنة */&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        A.TR_NO,&#xD;&#xA;        A.PURCHAS_NO,&#xD;&#xA;        A.FNCL_TR_NO,&#xD;&#xA;        A.TR_DT,&#xD;&#xA;        A.TR_TY,&#xD;&#xA;        A.LOC,&#xD;&#xA;        A.Tchncl_Dcsn_Dt,&#xD;&#xA;        A.Fncl_Dcsn_Dt,&#xD;&#xA;        A.CMMTTE_RMRK_DCSN,&#xD;&#xA;        A.PYMNT_MTHD,&#xD;&#xA;        A.LoadType,&#xD;&#xA;        A.Vst_No,&#xD;&#xA;        A.Tr_Year,&#xD;&#xA;        A.Cmmtte_Dscn_No_Dcsn,&#xD;&#xA;        A.Cmmtte_Dscn_Dt_Dcsn,&#xD;&#xA;        A.Nt_Extrnl_Mmbr_Dcsn,&#xD;&#xA;        A.Order_No,&#xD;&#xA;        A.Tchncl_Opn_Dt,&#xD;&#xA;        A.PRCHS_OPRTN_TYP,&#xD;&#xA;        A.Tchncl_Dcsn_End_Dt,&#xD;&#xA;        A.rmrk9,&#xD;&#xA;        A.RMRK_EXTRA,&#xD;&#xA;        P.EMP_NAME AS MemberName,&#xD;&#xA;        N'رئيس اللجنة' AS MEMBER_TYPE,&#xD;&#xA;        NM.Emp_Name AS nm&#xD;&#xA;    FROM TrRep A&#xD;&#xA;    INNER JOIN PYEMPMF_H P&#xD;&#xA;        ON P.EMP_NO = TRY_CAST(&#xD;&#xA;            REPLACE(REPLACE(REPLACE(COALESCE(A.Cmmtte_Chrmn_Dcsn,''), '''',''),'&quot;',''),' ','')&#xD;&#xA;        AS INT)&#xD;&#xA;    LEFT JOIN PYEMPMF_H NM ON NM.EMP_NO = A.ENTEREDBY&#xD;&#xA;    WHERE A.rn_tr = 1&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;&#xD;&#xA;    /* عضو داخلي */&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        A.TR_NO,&#xD;&#xA;        A.PURCHAS_NO,&#xD;&#xA;        A.FNCL_TR_NO,&#xD;&#xA;        A.TR_DT,&#xD;&#xA;        A.TR_TY,&#xD;&#xA;        A.LOC,&#xD;&#xA;        A.Tchncl_Dcsn_Dt,&#xD;&#xA;        A.Fncl_Dcsn_Dt,&#xD;&#xA;        A.CMMTTE_RMRK_DCSN,&#xD;&#xA;        A.PYMNT_MTHD,&#xD;&#xA;        A.LoadType,&#xD;&#xA;        A.Vst_No,&#xD;&#xA;        A.Tr_Year,&#xD;&#xA;        A.Cmmtte_Dscn_No_Dcsn,&#xD;&#xA;        A.Cmmtte_Dscn_Dt_Dcsn,&#xD;&#xA;        A.Nt_Extrnl_Mmbr_Dcsn,&#xD;&#xA;        A.Order_No,&#xD;&#xA;        A.Tchncl_Opn_Dt,&#xD;&#xA;        A.PRCHS_OPRTN_TYP,&#xD;&#xA;        A.Tchncl_Dcsn_End_Dt,&#xD;&#xA;        A.rmrk9,&#xD;&#xA;        A.RMRK_EXTRA,&#xD;&#xA;        P.EMP_NAME AS MemberName,&#xD;&#xA;        N'عضو داخلي' AS MEMBER_TYPE,&#xD;&#xA;        NM.Emp_Name AS nm&#xD;&#xA;    FROM TrRep A&#xD;&#xA;    OUTER APPLY (&#xD;&#xA;        SELECT DISTINCT TRY_CAST(value AS INT) AS EMP_NO&#xD;&#xA;        FROM STRING_SPLIT(&#xD;&#xA;            REPLACE(REPLACE(REPLACE(COALESCE(A.Cmmtte_Intrnl_Mmbrs_Dcsn,''), ';',','),'''',''),'&quot;',''),&#xD;&#xA;            ','&#xD;&#xA;        )&#xD;&#xA;        WHERE TRY_CAST(value AS INT) IS NOT NULL&#xD;&#xA;    ) X&#xD;&#xA;    INNER JOIN PYEMPMF_H P ON P.EMP_NO = X.EMP_NO&#xD;&#xA;    LEFT JOIN PYEMPMF_H NM ON NM.EMP_NO = A.ENTEREDBY&#xD;&#xA;    WHERE A.rn_tr = 1&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;&#xD;&#xA;    /* عضو خارجي */&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        A.TR_NO,&#xD;&#xA;        A.PURCHAS_NO,&#xD;&#xA;        A.FNCL_TR_NO,&#xD;&#xA;        A.TR_DT,&#xD;&#xA;        A.TR_TY,&#xD;&#xA;        A.LOC,&#xD;&#xA;        A.Tchncl_Dcsn_Dt,&#xD;&#xA;        A.Fncl_Dcsn_Dt,&#xD;&#xA;        A.CMMTTE_RMRK_DCSN,&#xD;&#xA;        A.PYMNT_MTHD,&#xD;&#xA;        A.LoadType,&#xD;&#xA;        A.Vst_No,&#xD;&#xA;        A.Tr_Year,&#xD;&#xA;        A.Cmmtte_Dscn_No_Dcsn,&#xD;&#xA;        A.Cmmtte_Dscn_Dt_Dcsn,&#xD;&#xA;        A.Nt_Extrnl_Mmbr_Dcsn,&#xD;&#xA;        A.Order_No,&#xD;&#xA;        A.Tchncl_Opn_Dt,&#xD;&#xA;        A.PRCHS_OPRTN_TYP,&#xD;&#xA;        A.Tchncl_Dcsn_End_Dt,&#xD;&#xA;        A.rmrk9,&#xD;&#xA;        A.RMRK_EXTRA,&#xD;&#xA;        L.DSCR_AR AS MemberName,&#xD;&#xA;        N'عضو خارجي' AS MEMBER_TYPE,&#xD;&#xA;        NM.Emp_Name AS nm&#xD;&#xA;    FROM TrRep A&#xD;&#xA;    OUTER APPLY (&#xD;&#xA;        SELECT DISTINCT TRY_CAST(value AS INT) AS CODE&#xD;&#xA;        FROM STRING_SPLIT(&#xD;&#xA;            REPLACE(REPLACE(REPLACE(COALESCE(A.Cmmtte_Extrnl_Mmbrs_Dcsn,''), ';',','),'''',''),'&quot;',''),&#xD;&#xA;            ','&#xD;&#xA;        )&#xD;&#xA;        WHERE TRY_CAST(value AS INT) IS NOT NULL&#xD;&#xA;    ) X&#xD;&#xA;    INNER JOIN AZLISTS L ON L.CODE = X.CODE AND L.REC_TYPE = 61&#xD;&#xA;    LEFT JOIN PYEMPMF_H NM ON NM.EMP_NO = A.ENTEREDBY&#xD;&#xA;    WHERE A.rn_tr = 1&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;&#xD;&#xA;    /* عضو أمن داخلي */&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        A.TR_NO,&#xD;&#xA;        A.PURCHAS_NO,&#xD;&#xA;        A.FNCL_TR_NO,&#xD;&#xA;        A.TR_DT,&#xD;&#xA;        A.TR_TY,&#xD;&#xA;        A.LOC,&#xD;&#xA;        A.Tchncl_Dcsn_Dt,&#xD;&#xA;        A.Fncl_Dcsn_Dt,&#xD;&#xA;        A.CMMTTE_RMRK_DCSN,&#xD;&#xA;        A.PYMNT_MTHD,&#xD;&#xA;        A.LoadType,&#xD;&#xA;        A.Vst_No,&#xD;&#xA;        A.Tr_Year,&#xD;&#xA;        A.Cmmtte_Dscn_No_Dcsn,&#xD;&#xA;        A.Cmmtte_Dscn_Dt_Dcsn,&#xD;&#xA;        A.Nt_Extrnl_Mmbr_Dcsn,&#xD;&#xA;        A.Order_No,&#xD;&#xA;        A.Tchncl_Opn_Dt,&#xD;&#xA;        A.PRCHS_OPRTN_TYP,&#xD;&#xA;        A.Tchncl_Dcsn_End_Dt,&#xD;&#xA;        A.rmrk9,&#xD;&#xA;        A.RMRK_EXTRA,&#xD;&#xA;        P.EMP_NAME AS MemberName,&#xD;&#xA;        N'عضو أمن داخلي' AS MEMBER_TYPE,&#xD;&#xA;        NM.Emp_Name AS nm&#xD;&#xA;    FROM TrRep A&#xD;&#xA;    INNER JOIN PYEMPMF_H P&#xD;&#xA;        ON P.EMP_NO = TRY_CAST(&#xD;&#xA;            REPLACE(REPLACE(REPLACE(COALESCE(A.Cmmtte_Intrnl_Scrty_Dcsn,''), '''',''),'&quot;',''),' ','')&#xD;&#xA;        AS INT)&#xD;&#xA;    LEFT JOIN PYEMPMF_H NM ON NM.EMP_NO = A.ENTEREDBY&#xD;&#xA;    WHERE A.rn_tr = 1&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;&#xD;&#xA;    /* عضو مجلس دولة */&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        A.TR_NO,&#xD;&#xA;        A.PURCHAS_NO,&#xD;&#xA;        A.FNCL_TR_NO,&#xD;&#xA;        A.TR_DT,&#xD;&#xA;        A.TR_TY,&#xD;&#xA;        A.LOC,&#xD;&#xA;        A.Tchncl_Dcsn_Dt,&#xD;&#xA;        A.Fncl_Dcsn_Dt,&#xD;&#xA;        A.CMMTTE_RMRK_DCSN,&#xD;&#xA;        A.PYMNT_MTHD,&#xD;&#xA;        A.LoadType,&#xD;&#xA;        A.Vst_No,&#xD;&#xA;        A.Tr_Year,&#xD;&#xA;        A.Cmmtte_Dscn_No_Dcsn,&#xD;&#xA;        A.Cmmtte_Dscn_Dt_Dcsn,&#xD;&#xA;        A.Nt_Extrnl_Mmbr_Dcsn,&#xD;&#xA;        A.Order_No,&#xD;&#xA;        A.Tchncl_Opn_Dt,&#xD;&#xA;        A.PRCHS_OPRTN_TYP,&#xD;&#xA;        A.Tchncl_Dcsn_End_Dt,&#xD;&#xA;        A.rmrk9,&#xD;&#xA;        A.RMRK_EXTRA,&#xD;&#xA;        L.DSCR_AR AS MemberName,&#xD;&#xA;        N'عضو مجلس دولة' AS MEMBER_TYPE,&#xD;&#xA;        NM.Emp_Name AS nm&#xD;&#xA;    FROM TrRep A&#xD;&#xA;    INNER JOIN AZLISTS L&#xD;&#xA;        ON L.CODE = TRY_CAST(&#xD;&#xA;            REPLACE(REPLACE(REPLACE(COALESCE(A.Nt_Extrnl_Mmbr_Dcsn,''), '''',''),'&quot;',''),' ','')&#xD;&#xA;        AS INT)&#xD;&#xA;       AND L.REC_TYPE = 61&#xD;&#xA;    LEFT JOIN PYEMPMF_H NM ON NM.EMP_NO = A.ENTEREDBY&#xD;&#xA;    WHERE A.rn_tr = 1&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;SELECT DISTINCT&#xD;&#xA;    N.TR_NO,&#xD;&#xA;    N.PURCHAS_NO,&#xD;&#xA;    N.FNCL_TR_NO,&#xD;&#xA;    S.عدد_العطاءات_المقبولة,&#xD;&#xA;    S.عدد_العطاءات_المرفوضة,&#xD;&#xA;    S.عدد_العطاءات_المعتذرة,&#xD;&#xA;    S.مورد_مقبول,&#xD;&#xA;    S.مورد_مرفوض,&#xD;&#xA;    S.مورد_معتذر,&#xD;&#xA;    N.TR_DT,&#xD;&#xA;    N.Tchncl_Dcsn_Dt,&#xD;&#xA;    N.Fncl_Dcsn_Dt,&#xD;&#xA;    N.CMMTTE_RMRK_DCSN,&#xD;&#xA;    N.Nt_Extrnl_Mmbr_Dcsn,&#xD;&#xA;    SC.DSCR_AR AS Nt_Extrnl_Mmbr_Dcsn_Name,&#xD;&#xA;    N.TR_TY,&#xD;&#xA;    N.LOC,&#xD;&#xA;    N.MEMBER_TYPE,&#xD;&#xA;    N.MemberName,&#xD;&#xA;    CASE WHEN N.MEMBER_TYPE = N'رئيس اللجنة' THEN 0 ELSE 1 END AS SORT_ORDER,&#xD;&#xA;    N.nm,&#xD;&#xA;    T.DSCR_AR AS OprTypeName,&#xD;&#xA;    PM.DSCR_AR AS PYMNT_MTHD_Name,&#xD;&#xA;    LT.DSCR_AR AS LoadTypeName,&#xD;&#xA;    N.Vst_No,&#xD;&#xA;    N.Tr_Year,&#xD;&#xA;    N.Cmmtte_Dscn_No_Dcsn,&#xD;&#xA;    N.Cmmtte_Dscn_Dt_Dcsn,&#xD;&#xA;    N.Order_No,&#xD;&#xA;    N.Tchncl_Opn_Dt,&#xD;&#xA;    N.Tchncl_Dcsn_End_Dt,&#xD;&#xA;    N.rmrk9,&#xD;&#xA;    N.PRCHS_OPRTN_TYP,&#xD;&#xA;    PT.DSCR_AR AS PRCHS_OPRTN_TYP_Name&#xD;&#xA;FROM AllMembers N&#xD;&#xA;LEFT JOIN Suppliers S ON S.FNCL_TR_NO = N.FNCL_TR_NO&#xD;&#xA;LEFT JOIN AZTRTY T ON T.TR_TY = N.TR_TY&#xD;&#xA;LEFT JOIN AZTRTY PT ON PT.TR_TY = N.PRCHS_OPRTN_TYP&#xD;&#xA;LEFT JOIN AppCodes PM ON PM.ID = '11031' AND PM.SEQ = N.PYMNT_MTHD&#xD;&#xA;LEFT JOIN AppCodes LT ON LT.ID = '10244' AND LT.SEQ = N.LoadType&#xD;&#xA;LEFT JOIN AZLISTS SC&#xD;&#xA;    ON SC.CODE = TRY_CAST(&#xD;&#xA;        REPLACE(REPLACE(REPLACE(COALESCE(N.Nt_Extrnl_Mmbr_Dcsn,''), '''',''),'&quot;',''),' ','')&#xD;&#xA;    AS INT)&#xD;&#xA;   AND SC.REC_TYPE = 61&#xD;&#xA;ORDER BY&#xD;&#xA;    N.TR_NO,&#xD;&#xA;    SORT_ORDER,&#xD;&#xA;    N.MemberName;" Name="sqlDataSource1" >
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@Loc">
+          <Value>
+            <String>= Parameters.Loc.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="Int16" Name="@TrTy">
+          <Value>
+            <String>= Parameters.TrTy.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@FnclTrNo">
+          <Value>
+            <String>= Parameters.FnclTrNo.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="0.132cm" Name="pageHeaderSection1" />
+    <DetailSection Height="0.508cm" Name="detailSection1">
+      <Style>
+        <Font Bold="True" />
+      </Style>
+      <Items>
+        <TextBox Width="1.2in" Height="0.2in" Left="1.364in" Top="0in" Value="= Fields.MEMBER_TYPE" Name="textBox20">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.542in" Height="0.2in" Left="4.322in" Top="0in" Value="التوقيع :" Name="textBox19">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.2in" Height="0.2in" Left="4.864in" Top="0in" Value="-" Name="textBox18">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.315in" Height="0.2in" Left="5.064in" Top="0in" Value="= RowNumber()" Name="textBox16">
+          <Style VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="0.132cm" Name="pageFooterSection1" />
+    <ReportHeaderSection Height="0.052in" Name="reportHeaderSection1">
+      <Style TextAlign="Right">
+        <Font Bold="True" />
+      </Style>
+    </ReportHeaderSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="Loc" AllowNull="True" />
+    <ReportParameter Name="TrTy" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="FnclTrNo" AllowNull="True" />
+  </ReportParameters>
+</Report>

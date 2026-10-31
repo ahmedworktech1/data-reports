@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="webServiceDataSource1" Width="11.614in" UnitOfMeasure="Mm" Name="ReportTransfere" SnapToGrid="False" xmlns="http://schemas.telerik.com/reporting/2019/2.0">
+  <DataSources>
+    <WebServiceDataSource ServiceUrl="@Url" Name="webServiceDataSource1" ParameterValues="{&quot;TransfereId&quot;:&quot;\&quot;1\&quot;&quot;,&quot;.AspNetCore.Identity.Application&quot;:&quot;CfDJ8HQ1FR3nclBPnarVYYnOkw7vac5nbsZ9d35a9HGEXEV2wluFKzonU41oG4pK_IUJn5l-TBzgqicw6QIUqCmkFGRZ3ntNUSFAxMn76x8kh9Xje_4SYC-04Jkr1FnFiKh9lQqUx3IOaJHhyzUjZhgZCUiGqj8Lf4KEUP4uNRftbgbeZb2oGgrcvGDyKGpgyfTagHmxr4ILstN1t0bcoUeaiLG5LJzeNWSKUYeMsddv36ArMPpte-WSThVYT-_oSaBgbiMnCIdZ0VgN6LNlrEACDkfJVYqwl1RlH_f3XFEJ0M147nWh57rC2ZCl8paYEbGNUnhRDyrgx1HE-kDN5KaKGjMI-uR3GQ4On9DXOubEXpZoXNwpxQnJpd7b2BOPEoqpHS9-x7dIydmDIzsRhLJvZAU4FqdybitExRYEnaVm9cbpd-3T7XWuJFCB6u7YeM7Hk7bYV7ccoULZjrabzuTAbsR984qZCLqlVaNiFOxByS5kSI1UMVIL_R5bL3ANXKNiMs8ymCH9ZSyRSN744r11eijkZ31L2wXMuct8cbYi6tStTc_Ew4qfXZhtqrMQ4-8CewWCS7zLVKwsonH5x6dXDnaIRleAaGXsEwFq-q8CAZzth2X6n24-fsorSCOFwNrQ3D831yFx3KMUXWl08s_MF0i_Ayplg7ZmkOQSkbMlGp-ujFx38GejnLVAkyAwiAGS4KFBuCZ2muyCI2PGu3hsrJv3PviVOsZikjV3eLT7GinxSC-HeJFm5s4RI8NCKwss-CZO0b3kcoXGRWCDvd3786EaOWV0FcYKTufjfR_LaO2_grL4HFt1kct59E1OOcLGb9F5V6cK9Qgj0fHdnUmPuDNOfUJyziWM9CUDKosMYt-N&quot;,&quot;@Url&quot;:&quot;http://localhost:5001/eg/ReportTransfere/GetDataReportTransfere&quot;}">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Query" Name="TransfereId">
+          <Value>
+            <String>= Parameters.TransfereId.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "eg/ReportTransfere/GetDataReportTransfere"</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="2.37in" Name="pageHeaderSection1">
+      <Style BackgroundColor="198, 217, 241">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="4.85cm" Height="0.45cm" Left="24.25cm" Top="0.199cm" Value="رابطة العالم الاسلامي" Name="textBox1">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Andalus" Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.75cm" Height="0.45cm" Left="23.75cm" Top="0.649cm" Value="هيئة الاغاثة الاسلامية العالمية" Name="textBox2">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Andalus" Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.75cm" Height="0.45cm" Left="23.75cm" Top="1.099cm" Value="بالمملكة العربية السعودية" Name="textBox3">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Andalus" Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.404cm" Height="0.5cm" Left="0.7cm" Top="0cm" Value="MUSLIM WORLD LEAGUE" Name="textBox19">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.004cm" Height="0.45cm" Left="0.4cm" Top="0.5cm" Value="INTL . ISLAMIC RELIEF ORG" Name="textBox20">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.104cm" Height="0.45cm" Left="0cm" Top="0.952cm" Value="THE KONGDOM OF SAUDI ARABIA" Name="textBox21">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.574cm" Height="0.6cm" Left="13.037cm" Top="1.506cm" Value="التحويل" Name="textBox22">
+          <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.104cm" Height="0.7cm" Left="0cm" Top="1.402cm" Value="= Parameters.CompanyName.Value" Name="textBox66">
+          <Style TextAlign="Center">
+            <Font Size="18pt" />
+          </Style>
+        </TextBox>
+        <PictureBox Value="= Parameters.Logo.Value" Width="2.504cm" Height="1.402cm" Left="14.478cm" Top="0cm" Sizing="Stretch" MimeType="" Name="LogoImage">
+          <Style>
+            <BackgroundImage ImageData="null" Repeat="NoRepeat" />
+          </Style>
+        </PictureBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="0.245in" Name="detailSection1">
+      <Style BackgroundColor="198, 217, 241">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+    </DetailSection>
+    <PageFooterSection Height="1.874in" Name="pageFooterSection1">
+      <Style BackgroundColor="198, 217, 241">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="1.4cm" Height="0.4cm" Left="1.6cm" Top="3.36cm" Value="الختم" Name="textBox38">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ColumnCount="1" ColumnSpacing="0in" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="1mm" Right="1mm" Top="1mm" Bottom="1mm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="Url" AllowNull="True" />
+    <ReportParameter Name="CompanyAddress" />
+    <ReportParameter Name="Logo" />
+    <ReportParameter Name="CompanyName" />
+    <ReportParameter Name="TransfereId" AllowNull="True" />
+  </ReportParameters>
+</Report>

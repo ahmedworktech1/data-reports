@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource2" Width="17cm" Name="Report1" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="GLXYathreb" SelectCommand="SELECT&#xD;&#xA;&#x9;GLCSH_TR_H.TR_TY, &#xD;&#xA;(select csh_dscr from GLCSHMF where CSH_CD=GLCSH_TR_H.CSH_CD) as M_CshDscr,&#xD;&#xA;&#x9;GLCSH_TR_H.TR_NO, &#xD;&#xA;&#x9;GLCSH_TR_H.TR_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.CSH_CD, &#xD;&#xA;&#x9;GLCSH_TR_H.CST_CD,&#xD;&#xA;(select cst_NM_Ar from glcst where CST_CD=GLCSH_TR_H.CST_CD ) as cst_name_ar,&#xD;&#xA;&#x9;GLCSH_TR_H.TOT_AMT, &#xD;&#xA;&#x9;GLCSH_TR_H.TO_NM, &#xD;&#xA;&#x9;GLCSH_TR_H.TOADR, &#xD;&#xA;&#x9;GLCSH_TR_H.DOC_TY, &#xD;&#xA;&#x9;GLCSH_TR_H.DOC_NO, &#xD;&#xA;&#x9;GLCSH_TR_H.CHK_NO, &#xD;&#xA;&#x9;GLCSH_TR_H.BNK_ID, &#xD;&#xA;&#x9;GLCSH_TR_H.BNK_BRNCH, &#xD;&#xA;&#x9;GLCSH_TR_H.BACC_NO, &#xD;&#xA;&#x9;GLCSH_TR_H.RMRK, &#xD;&#xA;&#x9;GLCSH_TR_H.REP_CD, &#xD;&#xA;&#x9;GLCSH_TR_H.REP_CD1, &#xD;&#xA;&#x9;GLCSH_TR_H.POSTED, &#xD;&#xA;&#x9;GLCSH_TR_H.PJRN_CD, &#xD;&#xA;&#x9;GLCSH_TR_H.PTR_NO, &#xD;&#xA;&#x9;GLCSH_TR_H.POSTED_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.POSTED_BY, &#xD;&#xA;&#x9;GLCSH_TR_H.EnteredBy, &#xD;&#xA;&#x9;GLCSH_TR_H.UpdatedBy, &#xD;&#xA;&#x9;GLCSH_TR_H.EntryDate, &#xD;&#xA;&#x9;GLCSH_TR_H.UpdateDate, &#xD;&#xA;&#x9;GLCSH_TR_H.DOCS, &#xD;&#xA;&#x9;GLCSH_TR_H.RDOCS, &#xD;&#xA;&#x9;GLCSH_TR_H.PAID, &#xD;&#xA;&#x9;GLCSH_TR_H.PAID_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.PAID_BY, &#xD;&#xA;&#x9;GLCSH_TR_H.CSH_TY, &#xD;&#xA;&#x9;GLCSH_TR_H.PRNTD, &#xD;&#xA;&#x9;GLCSH_TR_H.CUR_CD, &#xD;&#xA;&#x9;GLCSH_TR_H.HCUR_VL, &#xD;&#xA;&#x9;GLCSH_TR_H.HRATE, &#xD;&#xA;&#x9;GLCSH_TR_H.REVISD, &#xD;&#xA;&#x9;GLCSH_TR_H.REVISD_BY, &#xD;&#xA;&#x9;GLCSH_TR_H.REVISD_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.R_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.DblAct, &#xD;&#xA;&#x9;GLCSH_TR_H.DblAct_ty, &#xD;&#xA;&#x9;GLCSH_TR_H.DblAct_No, &#xD;&#xA;&#x9;GLCSH_TR_H.SRC, &#xD;&#xA;&#x9;GLCSH_TR_H.HPJRN_CD, &#xD;&#xA;&#x9;GLCSH_TR_H.HPTR_NO, &#xD;&#xA;&#x9;GLCSH_TR_H.TOT_NUM_WRD, &#xD;&#xA;&#x9;GLCSH_TR_H.tmp_no, &#xD;&#xA;&#x9;GLCSH_TR_H.HDUE_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.COM_ID, &#xD;&#xA;&#x9;GLCSH_TR_H.ROLL_NO, &#xD;&#xA;&#x9;GLCSH_TR_H.SUM_CD, &#xD;&#xA;&#x9;(select sum_NM_Ar from GLSUMS where SUM_CD=GLCSH_TR_H.SUM_CD) as sum_name_Ar ,&#xD;&#xA;&#x9;GLCSH_TR_H.SSUM_CD,&#xD;&#xA;&#x9;(select SSUM_NM_Ar from GLSSUMS where SSUM_CD=GLCSH_TR_H.SSUM_CD ) as ssum_name_Ar ,&#xD;&#xA;&#x9;GLCSH_TR_H.ALT_CHK_NO, &#xD;&#xA;&#x9;GLCSH_TR_H.DIST_DON, &#xD;&#xA;&#x9;GLCSH_TR_H.CHK_stat, &#xD;&#xA;&#x9;GLCSH_TR_H.chk_stat_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.ALT_TR_NO, &#xD;&#xA;&#x9;GLCSH_TR_H.TO_FRST_ACC, &#xD;&#xA;&#x9;GLCSH_TR_H.BY_ACC_RPT, &#xD;&#xA;&#x9;GLCSH_TR_H.tmp_jrn_cd, &#xD;&#xA;&#x9;GLCSH_TR_H.SCST_CD, &#xD;&#xA;&#x9;GLCSH_TR_H.RMRK_EN, &#xD;&#xA;&#x9;GLCSH_TR_H.HCHK_NO, &#xD;&#xA;&#x9;GLCSH_TR_H.HBNK_ID, &#xD;&#xA;&#x9;GLCSH_TR_H.HJ_TR_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.HJ_POSTED_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.HJ_PAID_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.HJ_REVISD_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.HJ_R_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.HJ_HDUE_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.HJ_chk_stat_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.LOC, &#xD;&#xA;&#x9;GLCSH_TR_H.Ptr_ty, &#xD;&#xA;&#x9;GLCSH_TR_H.Ptr_no1, &#xD;&#xA;&#x9;GLCSH_TR_H.Sp_ty, &#xD;&#xA;&#x9;GLCSH_TR_H.SPD_Id, &#xD;&#xA;&#x9;GLCSH_TR_H.SP_Id, &#xD;&#xA;&#x9;GLCSH_TR_H.SP_NO, &#xD;&#xA;&#x9;GLCSH_TR_H.EgBatch, &#xD;&#xA;&#x9;GLCSH_TR_H.CntryId, &#xD;&#xA;&#x9;GLCSH_TR_H.Posted1F2, &#xD;&#xA;&#x9;GLCSH_TR_H.EgPayOffNumber, &#xD;&#xA;&#x9;GLCSH_TR_H.EgTransfereNumber, &#xD;&#xA;&#x9;GLCSH_TR_H.EgEndorseNumber, &#xD;&#xA;&#x9;GLCSH_TR_H.REFS_X, &#xD;&#xA;&#x9;GLCSH_TR_H.WF_TR_NO, &#xD;&#xA;&#x9;GLCSH_TR_H.WF_LN_NO, &#xD;&#xA;&#x9;GLCSH_TR_H.FTR_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.TTR_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.CNT_ID, &#xD;&#xA;&#x9;GLCSH_TR_H.HJ_FTR_DT, &#xD;&#xA;&#x9;GLCSH_TR_H.RMRK, &#xD;&#xA;&#x9;GLCSH_TR_H.HJ_TTR_DT,&#xD;&#xA;&#x9;GLCSH_TR.TO_ACC,&#xD;&#xA;&#x9;(select Acc_NM_Ar from GLMF where ACC_NO=GLCSH_TR.TO_ACC) as GLMF_name_Ar&#xD;&#xA;FROM &#xD;&#xA;GLCSH_TR_H join &#xD;&#xA;GLCSH_TR&#xD;&#xA;on GLCSH_TR_H.TR_TY = GLCSH_TR.TR_TY AND GLCSH_TR_H.TR_NO = GLCSH_TR.TR_NO" Name="sqlDataSource2" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="0.132cm" Name="pageHeaderSection1">
+      <Style Visible="False" />
+    </PageHeaderSection>
+    <DetailSection PageBreak="BeforeAndAfter" Height="16.368cm" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <Panel Width="16.6cm" Height="8.7cm" Left="0.2cm" Top="3.968cm" Name="panel1">
+          <Style BackgroundColor="244, 244, 244">
+            <BorderStyle Default="Solid" />
+            <Padding Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+          </Style>
+          <Items>
+            <TextBox Width="1.5cm" Height="0.432cm" Left="6.2cm" Top="0.4cm" Value="تحرير في :" Name="textBox3">
+              <Style TextAlign="Left" VerticalAlign="Middle">
+                <Font Size="9pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="7.9cm" Height="0.8cm" Left="8.4cm" Top="7.5cm" Value="الاجمالي" Name="textBox5">
+              <Style BackgroundColor="190, 190, 190" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="12pt" Bold="True" />
+                <BorderStyle Default="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.5cm" Height="0.432cm" Left="14.8cm" Top="0.832cm" Value="رقم السند:" Name="textBox12">
+              <Style TextAlign="Left" VerticalAlign="Middle">
+                <Font Size="9pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.9cm" Height="0.432cm" Left="11.6cm" Top="0.3cm" Value="= Fields.M_CshDscr" Name="textBox13">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.5cm" Height="0.432cm" Left="14.8cm" Top="0.4cm" Value="الخزينة:" Name="textBox14">
+              <Style TextAlign="Left" VerticalAlign="Middle">
+                <Font Size="9pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.9cm" Height="0.432cm" Left="11.6cm" Top="0.832cm" Value="= Fields.TR_NO" Name="textBox11">
+              <Style Color="Red" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" Bold="True" />
+                <BorderStyle Default="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="5.4cm" Height="0.8cm" Left="10.9cm" Top="1.6cm" Value=" حساب " Name="textBox10">
+              <Style BackgroundColor="190, 190, 190" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="12pt" Bold="True" />
+                <BorderStyle Default="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="5.5cm" Height="0.8cm" Left="0.3cm" Top="1.6cm" Value=" بند احصائى" Name="textBox22">
+              <Style BackgroundColor="190, 190, 190" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="12pt" Bold="True" />
+                <BorderStyle Default="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="5.1cm" Height="0.8cm" Left="5.8cm" Top="1.6cm" Value=" مركز تكلفة" Name="textBox23">
+              <Style BackgroundColor="190, 190, 190" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="12pt" Bold="True" />
+                <BorderStyle Default="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="13cm" Height="0.8cm" Left="0.3cm" Top="6.1cm" Value="البيان" Name="textBox4">
+              <Style BackgroundColor="190, 190, 190" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="12pt" Bold="True" />
+                <BorderStyle Default="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3cm" Height="0.8cm" Left="13.3cm" Top="6.1cm" Value="المبلغ" Name="textBox24">
+              <Style BackgroundColor="190, 190, 190" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="12pt" Bold="True" />
+                <BorderStyle Default="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="5.4cm" Height="1cm" Left="10.9cm" Top="2.4cm" Value="= Fields.GLMF_name_Ar" Name="textBox7">
+              <Style TextAlign="Center">
+                <Font Size="9pt" Bold="True" />
+                <BorderStyle Default="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="5.1cm" Height="1cm" Left="5.8cm" Top="2.4cm" Value="= Fields.cst_name_ar" Name="textBox25">
+              <Style TextAlign="Center">
+                <Font Size="9pt" Bold="True" />
+                <BorderStyle Default="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="5.5cm" Height="1cm" Left="0.3cm" Top="2.4cm" Value="= Fields.ssum_name_Ar" Name="textBox26">
+              <Style TextAlign="Center">
+                <Font Size="9pt" Bold="True" />
+                <BorderStyle Default="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3cm" Height="0.6cm" Left="13.3cm" Top="6.9cm" Value="= Fields.TOT_AMT" Name="textBox27">
+              <Style TextAlign="Center">
+                <BorderStyle Default="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="13cm" Height="0.6cm" Left="0.3cm" Top="6.9cm" Value="= Fields.RMRK" Name="textBox28">
+              <Style TextAlign="Center">
+                <Font Size="9pt" Bold="True" />
+                <BorderStyle Default="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="8.1cm" Height="0.8cm" Left="0.3cm" Top="7.5cm" Value="= Fields.TOT_AMT" Name="textBox29">
+              <Style TextAlign="Center">
+                <BorderStyle Default="Solid" />
+              </Style>
+            </TextBox>
+            <TextBox Width="4cm" Height="0.7cm" Left="12.3cm" Top="3.591cm" Value="أرجو التكرم بصرف مبلغ وقدرة :" Name="textBox30">
+              <Style TextAlign="Left" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="4cm" Height="0.532cm" Left="12.3cm" Top="4.537cm" Value="للسيد /" Name="textBox32">
+              <Style TextAlign="Left" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="11.7cm" Height="0.6cm" Left="0.3cm" Top="4.537cm" Value="= Fields.TO_NM" Name="textBox33">
+              <Style TextAlign="Center">
+                <Font Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="4cm" Height="0.5cm" Left="12.3cm" Top="5.4cm" Value="وذلك تحت حساب " Name="textBox34">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="4cm" Height="0.6cm" Left="7.2cm" Top="5.3cm" Value="وبيانة تفصيليا كالاتى :" Name="textBox35">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="4.3cm" Height="0.425cm" Left="1.5cm" Top="0.407cm" Value="= Fields.EntryDate" Name="textBox36">
+              <Style>
+                <Font Size="9pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="11.7cm" Height="0.547cm" Left="0.3cm" Top="3.744cm" Value="= brca.Core.Services.ReportStaticService.Tafqeet(Fields.Tot_Amt)" Name="textBox31">
+              <Style TextAlign="Center">
+                <Font Bold="True" />
+              </Style>
+            </TextBox>
+          </Items>
+        </Panel>
+        <Panel Width="16.6cm" Height="3.532cm" Left="0.2cm" Top="0.236cm" Name="panel2">
+          <Style BackgroundColor="234, 234, 234">
+            <BorderStyle Default="Solid" />
+          </Style>
+          <Items>
+            <PictureBox Value="= Parameters.Logo.Value" Width="3.2cm" Height="2.968cm" Left="0.3cm" Top="0.332cm" Sizing="Stretch" MimeType="" Name="LogoImage">
+              <Style>
+                <BackgroundImage ImageData="null" Repeat="NoRepeat" />
+              </Style>
+            </PictureBox>
+            <TextBox Width="7.6cm" Height="1.132cm" Left="4.6cm" Top="1.132cm" Value="أذن صرف نقديه بالادارة" Name="textBox9">
+              <Style TextAlign="Center">
+                <Font Size="22pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="6.8cm" Height="0.432cm" Left="9.5cm" Top="2.868cm" Value="= Parameters.CompanyName.Value" Name="textBox17">
+              <Style TextAlign="Left">
+                <Font Size="9pt" />
+              </Style>
+            </TextBox>
+          </Items>
+        </Panel>
+        <Panel Width="16.6cm" Height="1.6cm" Left="0.2cm" Top="14.568cm" Name="panel3">
+          <Style BackgroundColor="221, 221, 221">
+            <BorderStyle Default="Solid" />
+          </Style>
+          <Items>
+            <TextBox Width="5cm" Height="0.45cm" Left="6.2cm" Top="0.826cm" Value="......................................................." Name="textBox18">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="8pt" Bold="False" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3cm" Height="0.45cm" Left="7.2cm" Top="0.376cm" Value="مهندس" Name="textBox19">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3cm" Height="0.45cm" Left="1.5cm" Top="0.376cm" Value="رئيس القطاع " Name="textBox21">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3cm" Height="0.55cm" Left="12.8cm" Top="0.276cm" Value="محاسب" Name="textBox15">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="4.3cm" Height="0.45cm" Left="12cm" Top="0.826cm" Value="......................................................." Name="textBox20">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="8pt" Bold="False" />
+              </Style>
+            </TextBox>
+            <TextBox Width="5.5cm" Height="0.45cm" Left="0.3cm" Top="0.826cm" Value="......................................................." Name="textBox16">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="8pt" Bold="False" />
+              </Style>
+            </TextBox>
+          </Items>
+        </Panel>
+        <Panel Width="16.6cm" Height="1.5cm" Left="0.2cm" Top="12.868cm" Name="panel4">
+          <Style BackgroundColor="221, 221, 221">
+            <BorderStyle Default="Solid" />
+          </Style>
+          <Items>
+            <TextBox Width="6.9cm" Height="0.45cm" Left="0.3cm" Top="0.876cm" Value="......................................................." Name="textBox1">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="8pt" Bold="False" />
+              </Style>
+            </TextBox>
+            <TextBox Width="6.9cm" Height="0.476cm" Left="0.3cm" Top="0.4cm" Value="رئيس الحسابات" Name="textBox2">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="7.1cm" Height="0.45cm" Left="9.2cm" Top="0.4cm" Value="رئيس قسم المراجعة:" Name="textBox6">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="7.1cm" Height="0.45cm" Left="9.2cm" Top="0.876cm" Value="......................................................." Name="textBox8">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="8pt" Bold="False" />
+              </Style>
+            </TextBox>
+          </Items>
+        </Panel>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="0.6cm" Name="pageFooterSection1">
+      <Style Visible="False" />
+    </PageFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="trNo" />
+    <ReportParameter Name="trTy" />
+    <ReportParameter Name="CompanyName">
+      <Value>
+        <String></String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="Logo" />
+    <ReportParameter Name="CompanyAddress" />
+  </ReportParameters>
+</Report>

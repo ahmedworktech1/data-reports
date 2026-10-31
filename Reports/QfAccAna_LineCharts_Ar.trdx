@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report Width="10.118in" UnitOfMeasure="Mm" Name="TrTyAnalysis_LineCharts_Ar" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style TextAlign="Center" VerticalAlign="Middle" />
+  <DataSources>
+    <WebServiceDataSource ParameterValues="{&quot;@Url&quot;:&quot;https://localhost:44355/gl/QueryAccountsAnalysis/GetChartsDataAnalysis&quot;,&quot;.AspNetCore.Identity.Application&quot;:&quot;CfDJ8ObTT2MeOiJPrKH0WWrWzL-GfdPrADqE8WC4lOUTOspVW9G-iCz8hUVjQV3gOkw4wnxGGRPRBk0Ntt0Y52pt_1Z46mSlZuzeHtn1_kyxQhGLIJhHjJ-J63PGqBRb0Lzr7EsaDyuQHS46SOYg3rQ3-yVVY8uQ6Zc7QNJy74ZubRCNsVQHicewjSzrlUPzRFbEs04DMKQZX1NftDXpe9i-T6Q3CDCzkvU1bW_QJsUY3ndMZX3a4SmbRUIK3OvEZLf_6qKagNh7n_UjkFCP5T1Rr83JcymVuxiUt5K0tS3nRL6a_N98GDLkFXU9aw0w6QQwmS4si7h3jeP8PMNm3gi9IS4Z12Y093XnEho7rFhQpjcpQ9Gxzl9D8H1tX1G0bkh2SZFbPyTg_m20B-zerf2p8JJ9TuSiysuuSR0GVnHTxrrpy0TKGes6JZS7KoFGpmpQcAaXBQU8p_h57G0CU797Y_82ooWlt9x9cbTiL0ElSXd2LZNMels_yvYRDZV2RSIicitCNp3GU98L2a3B_08ZCIYdqMCB11vEhM_oIkHkFcS9RB9cwJ3gKOCbnSC5TY7kOSRajS2-AhGcS_9sAslGT6YK6nKrsSA8LxoZ0EU_-yftX6WdR5Feg8OqCma3MY8vN_xLq1m2Dk_oyRuuM_cP_9y9aZ6i1kB9IbhtFKIMCrMcAojqWjzYNWhny4gO0kHuoiWI06mxcQuL3cTScujEeepeyLQiGBm4ukPuExQMaLOo2rF9NQsr6AcrOUQ-ITlnHQbzAkLcINJpJK6MyJgjJbcOOuJ_zblx-13eIByJjCERfPuLlltaXPBlQyD9sjVxNKXkAOIK-Q6yU-YDOIir1LBPJA0OHmvT3xkPDXVjwyhNOLPXokaWGFelWHaqgPUTDg&quot;,&quot;Group1&quot;:&quot;acc_no&quot;,&quot;Group2&quot;:&quot;cst_cd&quot;,&quot;Group3&quot;:&quot;sum_cd&quot;,&quot;Group4&quot;:&quot;ssum_cd&quot;,&quot;FromDate&quot;:&quot; &quot;,&quot;ToDate&quot;:&quot;  &quot;,&quot;FromAccNo&quot;:&quot;  &quot;,&quot;ToAccNo&quot;:&quot;  &quot;,&quot;IsChart&quot;:&quot;1&quot;,&quot;XFact&quot;:&quot;1&quot;,&quot;TrTy&quot;:&quot;  &quot;,&quot;SSumCds&quot;:&quot;  &quot;,&quot;ReportCurCd&quot;:&quot;  &quot;,&quot;CstCds&quot;:&quot;  &quot;,&quot;CurCd&quot;:&quot;  &quot;,&quot;glsysndxPrd&quot;:&quot;  &quot;,&quot;prds&quot;:&quot;  &quot;,&quot;OthersItemsAna&quot;:&quot;  &quot;}" AuthParameterValues="null" ServiceUrl="@Url" Name="webServiceDataSource1">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "gl/QueryAccountsAnalysis/GetChartsDataAnalysis"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Group1">
+          <Value>
+            <String>= Parameters.Group1.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Group2">
+          <Value>
+            <String>= Parameters.Group2.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Group3">
+          <Value>
+            <String>= Parameters.Group3.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Group4">
+          <Value>
+            <String>= Parameters.Group4.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromDate">
+          <Value>
+            <String>= Parameters.FromDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToDate">
+          <Value>
+            <String>= Parameters.ToDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromAccNo">
+          <Value>
+            <String>= Parameters.FromAccNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToAccNo">
+          <Value>
+            <String>= Parameters.ToAccNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="IsChart">
+          <Value>
+            <String>= Parameters.IsChart.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="XFact">
+          <Value>
+            <String>= Parameters.XFact.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="TrTy">
+          <Value>
+            <String>= Parameters.TrTy.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="SSumCds">
+          <Value>
+            <String>= Parameters.SSumCds.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ReportCurCd">
+          <Value>
+            <String>= Parameters.ReportCurCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="CstCds">
+          <Value>
+            <String>= Parameters.CstCds.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="CurCd">
+          <Value>
+            <String>= Parameters.CurCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="glsysndxPrd">
+          <Value>
+            <String>= Parameters.glsysndxPrd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="prds">
+          <Value>
+            <String>= Parameters.prds.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="OthersItemsAna">
+          <Value>
+            <String>= Parameters.OthersItemsAna.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="2.7cm" Name="pageHeaderSection1">
+      <Style>
+        <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="11.8cm" Height="1.7cm" Left="6.7cm" Top="0cm" Value="التقرير التحليلي للحركة بيانى خطي" Name="textBox21">
+          <Style Color="Red" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Urdu Typesetting" Size="24pt" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="0.736cm" Name="detailSection1">
+      <Style Visible="False" />
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Groups>
+    <Group Name="group">
+      <GroupHeader>
+        <GroupHeaderSection Height="17.8cm" Name="groupHeaderSection">
+          <Items>
+            <Graph DataSourceName="webServiceDataSource1" Width="257mm" Height="128mm" Left="0mm" Top="0mm" Name="graph1">
+              <PlotAreaStyle LineWidth="0cm" LineColor="LightGray" />
+              <Axes>
+                <GraphAxis Name="graphAxis2">
+                  <MajorGridLineStyle LineWidth="1px" LineColor="LightGray" />
+                  <MinorGridLineStyle Visible="False" LineWidth="1px" LineColor="LightGray" />
+                  <Scale>
+                    <CategoryScale />
+                  </Scale>
+                </GraphAxis>
+                <GraphAxis Name="graphAxis1">
+                  <MajorGridLineStyle LineWidth="1px" LineColor="LightGray" />
+                  <MinorGridLineStyle Visible="False" LineWidth="1px" LineColor="LightGray" />
+                  <Scale>
+                    <NumericalScale />
+                  </Scale>
+                </GraphAxis>
+              </Axes>
+              <CoordinateSystems>
+                <CartesianCoordinateSystem XAxis="graphAxis2" YAxis="graphAxis1" Name="cartesianCoordinateSystem1" />
+              </CoordinateSystems>
+              <Legend>
+                <Style LineWidth="0cm" LineColor="LightGray" />
+              </Legend>
+              <Style>
+                <Padding Left="10px" Right="10px" Top="10px" Bottom="10px" />
+              </Style>
+              <SeriesGroups>
+                <GraphGroup Name="group1_DSCRGroup">
+                  <Groupings>
+                    <Grouping Expression="= Fields.Group1_DSCR" />
+                  </Groupings>
+                  <Sortings>
+                    <Sorting Expression="= Fields.Group1_DSCR" Direction="Asc" />
+                  </Sortings>
+                </GraphGroup>
+              </SeriesGroups>
+              <CategoryGroups>
+                <GraphGroup Name="group1Group">
+                  <Groupings>
+                    <Grouping Expression="= Fields.Group1" />
+                  </Groupings>
+                  <Sortings>
+                    <Sorting Expression="= Fields.Group1" Direction="Asc" />
+                  </Sortings>
+                </GraphGroup>
+              </CategoryGroups>
+              <Series>
+                <LineSeries CoordinateSystem="cartesianCoordinateSystem1" CategoryGroup="group1Group" SeriesGroup="group1_DSCRGroup" Size="null" MarkerSize="5px" MarkerMinSize="5px" MarkerMaxSize="50px" Y="= Sum(Fields.sBAL)" ArrangeMode="Stacked" DataPointLabel="= Sum(Fields.sBAL)" Name="lineSeries1">
+                  <LineStyle LineWidth="1px" />
+                  <DataPointStyle Visible="True" />
+                  <DataPointLabelStyle Visible="False" />
+                  <LegendItem Value="= Fields.Group1_DSCR" />
+                  <MissingValuesLineStyle Visible="False" LineWidth="1px" />
+                  <ToolTip Title="= Fields.Group1_DSCR" Text="= Sum(Fields.sBAL)" />
+                </LineSeries>
+              </Series>
+              <Titles>
+                <GraphTitle Text="graph1" Position="TopCenter">
+                  <Style LineWidth="0cm" LineColor="LightGray" />
+                </GraphTitle>
+              </Titles>
+            </Graph>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.132cm" Name="groupFooterSection" />
+      </GroupFooter>
+    </Group>
+  </Groups>
+  <ReportParameters>
+    <ReportParameter Name="FromDate" Text="2010-01-01" AllowNull="True">
+      <Value>
+        <String></String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="ToDate" Text="2010-01-01" AllowNull="True">
+      <Value>
+        <String></String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="Group1" Text="Group1" AllowNull="True" />
+    <ReportParameter Name="Group2" Text="Group2" AllowNull="True" />
+    <ReportParameter Name="Group3" Text="Group3" AllowNull="True" />
+    <ReportParameter Name="Group4" Text="Group4" AllowNull="True" />
+    <ReportParameter Name="XFact" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="IsChart" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="FromAccNo" />
+    <ReportParameter Name="ToAccNo" AllowNull="True" />
+    <ReportParameter Name="Url" AllowNull="True" />
+    <ReportParameter Name="Login" AllowNull="True" />
+    <ReportParameter Name="TrTy" AllowNull="True" />
+    <ReportParameter Name="SSumCds" AllowNull="True" />
+    <ReportParameter Name="CurCd" AllowNull="True" />
+    <ReportParameter Name="CstCds" AllowNull="True" />
+    <ReportParameter Name="ReportCurCd" AllowNull="True" />
+    <ReportParameter Name="prds" AllowNull="True" />
+    <ReportParameter Name="glsysndxPrd" AllowNull="True" />
+    <ReportParameter Name="OthersItemsAna" AllowNull="True" />
+  </ReportParameters>
+</Report>

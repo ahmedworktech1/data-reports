@@ -1,0 +1,19 @@
+﻿// Configure bundling and minification for the project.
+// More info at https://go.microsoft.com/fwlink/?LinkId=808241
+[
+  {
+    "inputFiles": [ "wwwroot/source/js" ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "outputFileName": "wwwroot/erp/erp.g.js"
+  },
+  {
+    "inputFiles": [ "wwwroot/source/css" ],
+    "minify": {
+      "enabled": true
+    },
+    "outputFileName": "wwwroot/erp/erp.g.css"
+  }
+]

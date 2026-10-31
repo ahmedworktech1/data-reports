@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="12.192cm" Name="اجراءات لجنه فتح المظاريف الفنية" Zoom="1.5" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="WITH AllMembers AS (&#xD;&#xA;    /* رئيس اللجنة */&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        AZTRH.TR_NO, AZTRH.PURCHAS_NO, AZTRH.LOC, AZTRH.TR_TY,&#xD;&#xA;        AZTRH.FNCL_TR_NO, AZTRH.TR_DT, AZTRH.TCHNCL_OPN_DT, AZTRH.Fncl_Opn_Dt,&#xD;&#xA;        AZTRH.PYMNT_MTHD, AZTRH.LoadType, AZTRH.Vst_No, AZTRH.Tr_Year,&#xD;&#xA;        AZTRH.Cmmtte_End_Dt_Opn,&#xD;&#xA;        CH.EMP_NAME AS CMMTTE_CHRMN_OPN,&#xD;&#xA;        CH.EMP_NAME AS MemberName,&#xD;&#xA;        1 AS SORT_ORDER,&#xD;&#xA;        'رئيس اللجنة' AS MEMBER_TYPE,&#xD;&#xA;        (SELECT Emp_Name FROM PYEMPMF_H WHERE PYEMPMF_H.emp_no = AZTRH.ENTEREDBY) AS nm&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    LEFT JOIN PYEMPMF_H CH ON CH.EMP_NO = TRY_CAST(&#xD;&#xA;        REPLACE(REPLACE(REPLACE(AZTRH.CMMTTE_CHRMN_OPN,'''',''),'&quot;',''),' ','') AS INT)&#xD;&#xA;    WHERE (1=1) AND CH.EMP_NO IS NOT NULL&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;&#xD;&#xA;    /* الأعضاء الداخليين */&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        AZTRH.TR_NO, AZTRH.PURCHAS_NO, AZTRH.LOC, AZTRH.TR_TY,&#xD;&#xA;        AZTRH.FNCL_TR_NO, AZTRH.TR_DT, AZTRH.TCHNCL_OPN_DT, AZTRH.Fncl_Opn_Dt,&#xD;&#xA;        AZTRH.PYMNT_MTHD, AZTRH.LoadType, AZTRH.Vst_No, AZTRH.Tr_Year,&#xD;&#xA;        AZTRH.Cmmtte_End_Dt_Opn,&#xD;&#xA;        CH.EMP_NAME, PYEMPMF_H.EMP_NAME, 2, 'عضو داخلي',&#xD;&#xA;        (SELECT Emp_Name FROM PYEMPMF_H WHERE PYEMPMF_H.emp_no = AZTRH.ENTEREDBY) AS nm&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    LEFT JOIN PYEMPMF_H CH ON CH.EMP_NO = TRY_CAST(&#xD;&#xA;        REPLACE(REPLACE(REPLACE(AZTRH.CMMTTE_CHRMN_OPN,'''',''),'&quot;',''),' ','') AS INT)&#xD;&#xA;    OUTER APPLY (&#xD;&#xA;        SELECT DISTINCT TRY_CAST(value AS INT) AS EMP_NO&#xD;&#xA;        FROM STRING_SPLIT(&#xD;&#xA;            REPLACE(REPLACE(REPLACE(COALESCE(AZTRH.CMMTTE_INTRNL_MMBRS_OPN,''),';',','),'''',''),'&quot;',''), ',')&#xD;&#xA;        WHERE TRY_CAST(value AS INT) IS NOT NULL&#xD;&#xA;    ) S&#xD;&#xA;    INNER JOIN PYEMPMF_H ON PYEMPMF_H.EMP_NO = S.EMP_NO&#xD;&#xA;    WHERE (1=1)&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;&#xD;&#xA;    /* الأعضاء الخارجيين */&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        AZTRH.TR_NO, AZTRH.PURCHAS_NO, AZTRH.LOC, AZTRH.TR_TY,&#xD;&#xA;        AZTRH.FNCL_TR_NO, AZTRH.TR_DT, AZTRH.TCHNCL_OPN_DT, AZTRH.Fncl_Opn_Dt,&#xD;&#xA;        AZTRH.PYMNT_MTHD, AZTRH.LoadType, AZTRH.Vst_No, AZTRH.Tr_Year,&#xD;&#xA;        AZTRH.Cmmtte_End_Dt_Opn,&#xD;&#xA;        CH.EMP_NAME, AZLISTS.DSCR_AR, 3, 'عضو خارجي',&#xD;&#xA;        (SELECT Emp_Name FROM PYEMPMF_H WHERE PYEMPMF_H.emp_no = AZTRH.ENTEREDBY) AS nm&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    LEFT JOIN PYEMPMF_H CH ON CH.EMP_NO = TRY_CAST(&#xD;&#xA;        REPLACE(REPLACE(REPLACE(AZTRH.CMMTTE_CHRMN_OPN,'''',''),'&quot;',''),' ','') AS INT)&#xD;&#xA;    OUTER APPLY (&#xD;&#xA;        SELECT DISTINCT TRY_CAST(value AS INT) AS CODE&#xD;&#xA;        FROM STRING_SPLIT(&#xD;&#xA;            REPLACE(REPLACE(REPLACE(COALESCE(AZTRH.CMMTTE_EXTRNL_MMBRS_OPN,''),';',','),'''',''),'&quot;',''), ',')&#xD;&#xA;        WHERE TRY_CAST(value AS INT) IS NOT NULL&#xD;&#xA;    ) X&#xD;&#xA;    INNER JOIN AZLISTS ON AZLISTS.CODE = X.CODE AND AZLISTS.REC_TYPE = 61&#xD;&#xA;    WHERE (1=1)&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;&#xD;&#xA;    /* عضو أمن داخلي */&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        AZTRH.TR_NO, AZTRH.PURCHAS_NO, AZTRH.LOC, AZTRH.TR_TY,&#xD;&#xA;        AZTRH.FNCL_TR_NO, AZTRH.TR_DT, AZTRH.TCHNCL_OPN_DT, AZTRH.Fncl_Opn_Dt,&#xD;&#xA;        AZTRH.PYMNT_MTHD, AZTRH.LoadType, AZTRH.Vst_No, AZTRH.Tr_Year,&#xD;&#xA;        AZTRH.Cmmtte_End_Dt_Opn,&#xD;&#xA;        CH.EMP_NAME, PYEMPMF_H.EMP_NAME, 4, 'عضو أمن داخلي',&#xD;&#xA;        (SELECT Emp_Name FROM PYEMPMF_H WHERE PYEMPMF_H.emp_no = AZTRH.ENTEREDBY) AS nm&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    LEFT JOIN PYEMPMF_H CH ON CH.EMP_NO = TRY_CAST(&#xD;&#xA;        REPLACE(REPLACE(REPLACE(AZTRH.CMMTTE_CHRMN_OPN,'''',''),'&quot;',''),' ','') AS INT)&#xD;&#xA;    INNER JOIN PYEMPMF_H ON PYEMPMF_H.EMP_NO = TRY_CAST(&#xD;&#xA;        REPLACE(REPLACE(REPLACE(COALESCE(AZTRH.Cmmtte_Intrnl_Scrty_Opn,''),'''',''),'&quot;',''),' ','') AS INT)&#xD;&#xA;    WHERE (1=1)&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;&#xD;&#xA;    /* عضو أمن خارجي */&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        AZTRH.TR_NO, AZTRH.PURCHAS_NO, AZTRH.LOC, AZTRH.TR_TY,&#xD;&#xA;        AZTRH.FNCL_TR_NO, AZTRH.TR_DT, AZTRH.TCHNCL_OPN_DT, AZTRH.Fncl_Opn_Dt,&#xD;&#xA;        AZTRH.PYMNT_MTHD, AZTRH.LoadType, AZTRH.Vst_No, AZTRH.Tr_Year,&#xD;&#xA;        AZTRH.Cmmtte_End_Dt_Opn,&#xD;&#xA;        CH.EMP_NAME, AZLISTS.DSCR_AR, 4, 'عضو أمن خارجي',&#xD;&#xA;        (SELECT Emp_Name FROM PYEMPMF_H WHERE PYEMPMF_H.emp_no = AZTRH.ENTEREDBY) AS nm&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    LEFT JOIN PYEMPMF_H CH ON CH.EMP_NO = TRY_CAST(&#xD;&#xA;        REPLACE(REPLACE(REPLACE(AZTRH.CMMTTE_CHRMN_OPN,'''',''),'&quot;',''),' ','') AS INT)&#xD;&#xA;    INNER JOIN AZLISTS ON AZLISTS.CODE = TRY_CAST(&#xD;&#xA;        REPLACE(REPLACE(REPLACE(COALESCE(AZTRH.CMMTTE_EXTRNL_SCRTY_OPN,''),'''',''),'&quot;',''),' ','') AS INT)&#xD;&#xA;        AND AZLISTS.REC_TYPE = 61&#xD;&#xA;    WHERE (1=1)&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;&#xD;&#xA;    /* عضو مجلس دولة */&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        AZTRH.TR_NO, AZTRH.PURCHAS_NO, AZTRH.LOC, AZTRH.TR_TY,&#xD;&#xA;        AZTRH.FNCL_TR_NO, AZTRH.TR_DT, AZTRH.TCHNCL_OPN_DT, AZTRH.Fncl_Opn_Dt,&#xD;&#xA;        AZTRH.PYMNT_MTHD, AZTRH.LoadType, AZTRH.Vst_No, AZTRH.Tr_Year,&#xD;&#xA;        AZTRH.Cmmtte_End_Dt_Opn,&#xD;&#xA;        CH.EMP_NAME, AZLISTS.DSCR_AR, 5, 'عضو مجلس دولة',&#xD;&#xA;        (SELECT Emp_Name FROM PYEMPMF_H WHERE PYEMPMF_H.emp_no = AZTRH.ENTEREDBY) AS nm&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    LEFT JOIN PYEMPMF_H CH ON CH.EMP_NO = TRY_CAST(&#xD;&#xA;        REPLACE(REPLACE(REPLACE(AZTRH.CMMTTE_CHRMN_OPN,'''',''),'&quot;',''),' ','') AS INT)&#xD;&#xA;    INNER JOIN AZLISTS ON AZLISTS.CODE = TRY_CAST(&#xD;&#xA;        REPLACE(REPLACE(REPLACE(COALESCE(AZTRH.Nt_Extrnl_Mmbr_Opn,''),'''',''),'&quot;',''),' ','') AS INT)&#xD;&#xA;        AND AZLISTS.REC_TYPE = 61&#xD;&#xA;    WHERE (1=1)&#xD;&#xA;),&#xD;&#xA;Numbered AS (&#xD;&#xA;    SELECT *,&#xD;&#xA;        ROW_NUMBER() OVER (&#xD;&#xA;            PARTITION BY TR_NO&#xD;&#xA;            ORDER BY SORT_ORDER, MemberName&#xD;&#xA;        ) AS Serial_No&#xD;&#xA;    FROM AllMembers&#xD;&#xA;)&#xD;&#xA;SELECT&#xD;&#xA;    N.TR_NO, N.PURCHAS_NO, N.FNCL_TR_NO, N.TR_DT, N.TCHNCL_OPN_DT, N.Fncl_Opn_Dt, N.TR_TY, N.LOC,&#xD;&#xA;    CASE&#xD;&#xA;        WHEN MONTH(N.TR_DT) &gt;= 7&#xD;&#xA;        THEN CAST(YEAR(N.TR_DT)+1 AS VARCHAR) + '/' + CAST(YEAR(N.TR_DT) AS VARCHAR)&#xD;&#xA;        ELSE CAST(YEAR(N.TR_DT) AS VARCHAR) + '/' + CAST(YEAR(N.TR_DT)-1 AS VARCHAR)&#xD;&#xA;    END AS Fiscal_Year,&#xD;&#xA;    N.MEMBER_TYPE,&#xD;&#xA;    N.MemberName,&#xD;&#xA;    N.Serial_No,&#xD;&#xA;    N.nm,&#xD;&#xA;    -- ① نوع العملية من AZTRTY&#xD;&#xA;    T.DSCR_AR AS OprTypeName,&#xD;&#xA;    -- ② طريقة الدفع من AppCodes ID=11031&#xD;&#xA;    PM.DSCR_AR AS PYMNT_MTHD_Name,&#xD;&#xA;    -- ③ نوع التحميل من AppCodes ID=10244&#xD;&#xA;    LT.DSCR_AR AS LoadTypeName,&#xD;&#xA;    -- ④ رقم الزيارة وسنة المعاملة مباشرة من AllMembers&#xD;&#xA;    N.Vst_No,&#xD;&#xA;    N.Tr_Year,&#xD;&#xA;    -- ⑤ تاريخ انتهاء اللجنة&#xD;&#xA;    N.Cmmtte_End_Dt_Opn&#xD;&#xA;FROM Numbered N&#xD;&#xA;-- Join نوع العملية&#xD;&#xA;LEFT JOIN AZTRTY T ON T.TR_TY = N.TR_TY&#xD;&#xA;-- Join طريقة الدفع&#xD;&#xA;LEFT JOIN AppCodes PM ON PM.ID = '11031' AND PM.SEQ = N.PYMNT_MTHD&#xD;&#xA;-- Join نوع التحميل&#xD;&#xA;LEFT JOIN AppCodes LT ON LT.ID = '10244' AND LT.SEQ = N.LoadType&#xD;&#xA;ORDER BY N.Serial_No;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <DetailSection Height="0.508cm" Name="detailSection1">
+      <Style TextAlign="Center" VerticalAlign="Middle">
+        <Font Bold="True" />
+      </Style>
+      <Items>
+        <TextBox Width="1.2in" Height="0.2in" Left="0.5in" Top="0in" Value="= Fields.MEMBER_TYPE" Name="textBox15">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.5in" Height="0.2in" Left="3.9in" Top="0in" Value="التوقيع:" Name="textBox12">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.2in" Height="0.2in" Left="4.3in" Top="0in" Value="-" Name="textBox10">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.315in" Height="0.2in" Left="4.4in" Top="0in" Value="= Fields.Serial_No" Name="textBox9">
+          <Style VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0.5cm" Right="0.5cm" Top="0.5cm" Bottom="0.5cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Groups>
+    <Group Name="group">
+      <GroupHeader>
+        <GroupHeaderSection Height="0cm" Name="groupHeaderSection" />
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0cm" Name="groupFooterSection" />
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.MEMBER_TYPE" />
+        <Grouping Expression="= Fields.MemberName" />
+        <Grouping Expression="= Fields.Serial_No" />
+      </Groupings>
+    </Group>
+  </Groups>
+  <ReportParameters>
+    <ReportParameter Name="Locparam" AllowNull="True" />
+    <ReportParameter Name="TrTyparam" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="FNCLTRNOparam" AllowNull="True" />
+  </ReportParameters>
+</Report>

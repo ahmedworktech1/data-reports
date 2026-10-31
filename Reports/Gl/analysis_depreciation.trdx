@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="298mm" UnitOfMeasure="Mm" Name="analysis_depreciation" ShowDimensions="False" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style Visible="True">
+    <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+    <BorderColor Top="37, 64, 97" Bottom="37, 64, 97" Left="37, 64, 97" Right="37, 64, 97" />
+    <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+  </Style>
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glx2023tarheel" SelectCommand="SELECT&#xD;&#xA;'' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, 'الأراضي' as Fa_nm,'' as prd&#xD;&#xA; ,sum(case when prd='4' then (ISNULL(FADPRC_Q.FA_VL,0)) else 0 end) as CFaVl &#xD;&#xA;,sum(case when prd='4' then Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) else 0 end ) as Cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4)) else 0 end) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) else 0 end) AS BgDPrc&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4)) else 0 end) as CaddAcc &#xD;&#xA;,sum(case when prd='4' then Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4) ),2) &#xD;&#xA;+Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2) else 0 end) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '111%') &#xD;&#xA;group by substring(famf.FA_CD,1,3)&#xD;&#xA;-----------------------------------------&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الأول' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, 'مباني' as Fa_nm,prd as prd&#xD;&#xA;,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC1,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum((Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2) +&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '112%') and PRD='1'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الثاني' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, '' as Fa_nm,prd as prd&#xD;&#xA; ,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC2,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)+&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '112%') and PRD='2'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الثالث' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, '' as Fa_nm,prd as prd&#xD;&#xA; ,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC3,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)&#xD;&#xA;+Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '112%') and PRD='3'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الرابع' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, '' as Fa_nm,prd as prd&#xD;&#xA; ,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC4,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)+&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '112%') and PRD='4'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, 'اجمالي المباني' as Fa_nm,0 as prd&#xD;&#xA; ,sum(case when prd='4' then (ISNULL(FADPRC_Q.FA_VL,0)) else 0 end) as CFaVl &#xD;&#xA;,sum(case when prd='4' then Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) else 0 end ) as Cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4)) else 0 end) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) else 0 end) AS BgDPrc&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4)) else 0 end) as CaddAcc &#xD;&#xA;,sum(case when prd='4' then Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4) ),2)+&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2) else 0 end) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '112%') &#xD;&#xA;group by substring(famf.FA_CD,1,3)&#xD;&#xA;-------------------------------------------&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الأول' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, 'الالات' as Fa_nm,prd as prd&#xD;&#xA;,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC1,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum((Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)&#xD;&#xA;+Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '113%') and PRD='1'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الثاني' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, '' as Fa_nm,prd as prd&#xD;&#xA; ,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC2,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)&#xD;&#xA;+Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '113%') and PRD='2'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الثالث' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, '' as Fa_nm,prd as prd&#xD;&#xA; ,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC3,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)&#xD;&#xA;+Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '113%') and PRD='3'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الرابع' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, '' as Fa_nm,prd as prd&#xD;&#xA; ,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC4,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)&#xD;&#xA;+Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '113%') and PRD='4'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, 'اجمالي الالات' as Fa_nm,0 as prd&#xD;&#xA; ,sum(case when prd='4' then (ISNULL(FADPRC_Q.FA_VL,0)) else 0 end) as CFaVl &#xD;&#xA;,sum(case when prd='4' then Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) else 0 end ) as Cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4)) else 0 end) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) else 0 end) AS BgDPrc&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4)) else 0 end) as CaddAcc &#xD;&#xA;,sum(case when prd='4' then Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4) ),2) &#xD;&#xA;+Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2) else 0 end) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '113%') &#xD;&#xA;group by substring(famf.FA_CD,1,3)&#xD;&#xA;--------------------------------------------------&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الأول' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, 'وسائل نقل' as Fa_nm,prd as prd&#xD;&#xA;,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC1,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum((Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)+&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '114%') and PRD='1'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الثاني' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, '' as Fa_nm,prd as prd&#xD;&#xA; ,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC2,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)+&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '114%') and PRD='2'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الثالث' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, '' as Fa_nm,prd as prd&#xD;&#xA; ,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC3,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)+&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '114%') and PRD='3'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الرابع' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, '' as Fa_nm,prd as prd&#xD;&#xA; ,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC4,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)+&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '114%') and PRD='4'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, 'اجمالي وسائل نقل' as Fa_nm,0 as prd&#xD;&#xA; ,sum(case when prd='4' then (ISNULL(FADPRC_Q.FA_VL,0)) else 0 end) as CFaVl &#xD;&#xA;,sum(case when prd='4' then Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) else 0 end ) as Cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4)) else 0 end) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) else 0 end) AS BgDPrc&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4)) else 0 end) as CaddAcc &#xD;&#xA;,sum(case when prd='4' then Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4) ),2) &#xD;&#xA;+Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2) else 0 end) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '114%') &#xD;&#xA;group by substring(famf.FA_CD,1,3)&#xD;&#xA;--------------------------------------------------&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الأول' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, 'عدد وأدوات' as Fa_nm,prd as prd&#xD;&#xA;,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC1,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum((Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)+&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '115%') and PRD='1'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الثاني' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, '' as Fa_nm,prd as prd&#xD;&#xA; ,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC2,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)+&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '115%') and PRD='2'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الثالث' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, '' as Fa_nm,prd as prd&#xD;&#xA; ,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC3,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)+&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '115%') and PRD='3'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الرابع' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, '' as Fa_nm,prd as prd&#xD;&#xA; ,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC4,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)+&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '115%') and PRD='4'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, 'اجمالي عدد وأدوات' as Fa_nm,0 as prd&#xD;&#xA; ,sum(case when prd='4' then (ISNULL(FADPRC_Q.FA_VL,0)) else 0 end) as CFaVl &#xD;&#xA;,sum(case when prd='4' then Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) else 0 end ) as Cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4)) else 0 end) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) else 0 end) AS BgDPrc&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4)) else 0 end) as CaddAcc &#xD;&#xA;,sum(case when prd='4' then Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4) ),2) &#xD;&#xA;+Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2) else 0 end) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '115%') &#xD;&#xA;group by substring(famf.FA_CD,1,3)&#xD;&#xA;--------------------------------------------------&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الأول' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, 'الاثاث' as Fa_nm,prd as prd&#xD;&#xA;,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC1,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum((Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)+&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '116%') and PRD='1'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الثاني' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, '' as Fa_nm,prd as prd&#xD;&#xA; ,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC2,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)+&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '116%') and PRD='2'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الثالث' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, '' as Fa_nm,prd as prd&#xD;&#xA; ,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC3,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)+&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '116%') and PRD='3'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'الربع الرابع' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, '' as Fa_nm,prd as prd&#xD;&#xA; ,sum(ISNULL(FADPRC_Q.FA_VL,0)) as CFaVl &#xD;&#xA;,sum(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4))) as Cadd&#xD;&#xA;,sum(Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4))) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC4,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4))) AS BgDPrc&#xD;&#xA;,sum(Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4))) as CaddAcc &#xD;&#xA;,sum(Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4)),2)+&#xD;&#xA;Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2)) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '116%') and PRD='4'&#xD;&#xA;group by substring(famf.FA_CD,1,3),PRD&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,3) as FA_CD, 'اجمالي الأثاث' as Fa_nm,0 as prd&#xD;&#xA; ,sum(case when prd='4' then (ISNULL(FADPRC_Q.FA_VL,0)) else 0 end) as CFaVl &#xD;&#xA;,sum(case when prd='4' then Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) else 0 end ) as Cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4)) else 0 end) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) else 0 end) AS BgDPrc&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4)) else 0 end) as CaddAcc &#xD;&#xA;,sum(case when prd='4' then Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4) ),2) &#xD;&#xA;+Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2) else 0 end) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '116%') &#xD;&#xA;group by substring(famf.FA_CD,1,3)&#xD;&#xA;--------------------------------------------------&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,2) as FA_CD, 'اجمالي الأصول الثابتة' as Fa_nm,0 as prd&#xD;&#xA; ,sum(case when prd='4' then (ISNULL(FADPRC_Q.FA_VL,0)) else 0 end) as CFaVl &#xD;&#xA;,sum(case when prd='4' then Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) else 0 end ) as Cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4)) else 0 end) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) else 0 end) AS BgDPrc&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4)) else 0 end) as CaddAcc &#xD;&#xA;,sum(case when prd='4' then Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4) ),2) &#xD;&#xA;+Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2) else 0 end) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '11%') &#xD;&#xA;group by substring(famf.FA_CD,1,2)&#xD;&#xA;--------------------------------------------------&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,2) as FA_CD, 'الأصول الغير ملموسة' as Fa_nm,0 as prd&#xD;&#xA; ,sum(case when prd='4' then (ISNULL(FADPRC_Q.FA_VL,0)) else 0 end) as CFaVl &#xD;&#xA;,sum(case when prd='4' then Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) else 0 end ) as Cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4)) else 0 end) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) else 0 end) AS BgDPrc&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4)) else 0 end) as CaddAcc &#xD;&#xA;,sum(case when prd='4' then Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4) ),2) &#xD;&#xA;+Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2) else 0 end) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '15%') &#xD;&#xA;group by substring(famf.FA_CD,1,2)&#xD;&#xA;---------------------------------------------------------&#xD;&#xA;union all&#xD;&#xA;SELECT&#xD;&#xA;'' as prd_nm&#xD;&#xA;,substring(famf.FA_CD,1,1) as FA_CD, 'اجمالي الأصول ' as Fa_nm,0 as prd&#xD;&#xA; ,sum(case when prd='4' then (ISNULL(FADPRC_Q.FA_VL,0)) else 0 end) as CFaVl &#xD;&#xA;,sum(case when prd='4' then Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) else 0 end ) as Cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4)) else 0 end) as Cdsp&#xD;&#xA;,sum((Round(Cast((ISNULL((FADPRC_Q.DPREXP) ,0) )as decimal(18,4)),2) &#xD;&#xA;+ Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) )) as Dprexp1&#xD;&#xA;,sum(&#xD;&#xA;(Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) * Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4))/100)/4&#xD;&#xA;) as Dprexp1_cadd&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) else 0 end) AS BgDPrc&#xD;&#xA;,sum(case when prd='4' then Cast(ISNULL((FADPRC_Q.TOTADDACC) ,0)as decimal(18,4)) else 0 end) as CaddAcc &#xD;&#xA;,sum(case when prd='4' then Round(Cast(ISNULL((FADPRC_Q.TOTDSPACC) ,0)as decimal(18,4) ),2) &#xD;&#xA;+Round(Cast(ISNULL((FADPRC_Q.DSP_DPREXP) ,0)as decimal(18,4) ),2) else 0 end) as CdspAcc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD)&#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '11%' or FAMF.FA_CD like '15%') &#xD;&#xA;group by substring(famf.FA_CD,1,1)" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="4.7cm" Name="pageHeaderSection1">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="2.632cm" Height="0.8cm" Left="24.468cm" Top="3.9cm" Value="أول المدة" Name="textBox1">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="33.95mm" Height="0.8cm" Left="21.073cm" Top="3.1cm" Value="اضافات" Name="textBox2">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.573cm" Height="0.8cm" Left="17.5cm" Top="3.1cm" Value="استبعادات" Name="textBox4">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.456cm" Height="1.6cm" Left="8.612cm" Top="3.1cm" Value="مجمع اهلاك  اول المدة" Name="textBox6">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.847cm" Height="1.6cm" Left="6.765cm" Top="3.1cm" Value="اضافات للمجمع" Name="textBox5">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.395cm" Height="0.537cm" Left="10.718cm" Top="1.3cm" Value="= Parameters.DefaultReportTitle.Value" Name="textBox31">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.11cm" Height="0.8cm" Left="15.363cm" Top="3.9cm" Value="قسط الاهلاك والاستهلاك" Name="textBox8">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.865cm" Height="1.6cm" Left="4.9cm" Top="3.1cm" Value="استبعادات مجمع الاهلاك " Name="textBox9">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.24cm" Height="1.6cm" Left="2.66cm" Top="3.1cm" Value="مجمع اهلاك اخر المدة" Name="textBox12">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.66cm" Height="1.6cm" Left="0cm" Top="3.1cm" Value="صافي القيمة الدفترية" Name="textBox13">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.332cm" Height="0.8cm" Left="24.468cm" Top="3.1cm" Value="اجمالي الأصول أول الفترة" Name="textBox15">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="27mm" Height="0.8cm" Left="27.1cm" Top="3.9cm" Value="النوع" Name="textBox7">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18.95mm" Height="0.8cm" Left="22.573cm" Top="3.9cm" Value="القيمة" Name="textBox10">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15mm" Height="0.8cm" Left="21.073cm" Top="3.9cm" Value="التاريخ" Name="textBox14">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19.73mm" Height="0.8cm" Left="19.1cm" Top="3.9cm" Value="القيمة" Name="textBox17">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="16.27mm" Height="0.8cm" Left="17.473cm" Top="3.9cm" Value="التاريخ" Name="textBox16">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.405cm" Height="0.8cm" Left="11.069cm" Top="3.1cm" Value="الاهلاك" Name="textBox3">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.1cm" Height="0.8cm" Left="13.263cm" Top="3.9cm" Value="اهلاك الاضافة" Name="textBox18">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.194cm" Height="0.8cm" Left="11.069cm" Top="3.9cm" Value="اجمالي الاهلاك" Name="textBox19">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.6cm" Height="0.6cm" Left="22.9cm" Top="0.2cm" Value="شركة مصر الوسطى لتوزيع الكهرباء" Name="textBox93">
+          <Style TextAlign="Center">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.6cm" Height="0.6cm" Left="22.9cm" Top="0.8cm" Value="القطاع المالي والاداري" Name="textBox92">
+          <Style TextAlign="Center">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.6cm" Height="0.6cm" Left="22.9cm" Top="1.4cm" Value="الحسابات الاليه" Name="textBox89">
+          <Style TextAlign="Center">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="0.921cm" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White">
+        <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+        <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+        <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+      </Style>
+      <Items>
+        <TextBox Width="1.973cm" Height="9mm" Left="191mm" Top="0mm" Value="= Fields.Cdsp" Format="{0:N2}" Multiline="False" Name="textBox137">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.456cm" Height="9mm" Left="86.12mm" Top="0mm" Value="= IIf(Len(Fields.Fa_nm)&gt;0,Fields.BgDPrc,'')" Format="{0:N2}" Multiline="False" Name="textBox135">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.847cm" Height="9mm" Left="67.65mm" Top="0mm" Value="= Fields.CaddAcc" Format="{0:N2}" Multiline="False" Name="textBox133">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.865cm" Height="9mm" Left="49mm" Top="0mm" Value="= Fields.CdspAcc" Format="{0:N2}" Multiline="False" Name="textBox132">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.195cm" Height="9mm" Left="110.68mm" Top="0mm" Value="= Fields.Dprexp1" Format="{0:N2}" Multiline="False" Name="textBox130">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.24cm" Height="9mm" Left="26.6mm" Top="0mm" Value="= IIf(Len(Fields.prd_nm)&gt;0,'',&#xD;&#xA;IsNull( Fields.BgDPrc,0)+IsNull( Fields.CaddAcc,0)-IsNull( Fields.CdspAcc,0)+IsNull( Fields.Dprexp1,0)&#xD;&#xA;) " Format="{0:N2}" Multiline="False" Name="textBox129">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18.95mm" Height="9mm" Left="225.73mm" Top="0mm" Value="= Fields.Cadd" Format="{0:N2}" Multiline="False" Name="textBox91">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.642cm" Height="9mm" Left="0.18mm" Top="0mm" Value="= IIf(Len(Fields.prd_nm)&gt;0,'',&#xD;&#xA;(IsNull(Fields.CFaVl,0)+ IsNull(Fields.Cadd,0)- IsNull(Fields.Cdsp,0)) - (IsNull( Fields.BgDPrc,0)+IsNull( Fields.CaddAcc,0)-IsNull( Fields.CdspAcc,0)+IsNull( Fields.Dprexp1,0))&#xD;&#xA;)" Format="{0:N2}" Multiline="False" Name="textBox90">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15mm" Height="9mm" Left="210.73mm" Top="0mm" Value="= Fields.prd_nm" Format="{0:N2}" Multiline="False" Name="textBox11">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="16mm" Height="9mm" Left="175mm" Top="0mm" Value="= Fields.prd_nm" Format="{0:N2}" Multiline="False" Name="textBox20">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.1cm" Height="9mm" Left="132.63mm" Top="0mm" Value="= Fields.Dprexp1_cadd" Format="{0:N2}" Multiline="False" Name="textBox21">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.111cm" Height="9mm" Left="153.63mm" Top="0mm" Value="= IsNull(Fields.Dprexp1,0)-IsNull(Fields.Dprexp1_cadd,0)" Format="{0:N2}" Multiline="False" Name="textBox22">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.632cm" Height="9mm" Left="244.68mm" Top="0.21mm" Value="= IIf(Len(Fields.Fa_nm)&gt;0,Fields.CFaVl,'')" Format="{0:N2}" Multiline="False" Name="textBox140">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Default="White" Top="White" Bottom="White" Left="64, 64, 64" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="27mm" Height="9mm" Left="271mm" Top="0mm" Value="= Fields.Fa_nm" Multiline="False" Name="textBox143">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Default="White" Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportFooterSection Height="0.132cm" Name="reportFooterSection1" />
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Groups>
+    <Group Name="group">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.132cm" Name="groupHeaderSection" />
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.132cm" Name="groupFooterSection" />
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.FA_CD" />
+      </Groupings>
+    </Group>
+  </Groups>
+  <ReportParameters>
+    <ReportParameter Name="DefaultReportTitle" />
+  </ReportParameters>
+</Report>

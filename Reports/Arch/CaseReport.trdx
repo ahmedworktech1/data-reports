@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="6.5in" Name="CaseReport" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="archx" SelectCommand=" SELECT &#xD;&#xA;    c.[CaseID],&#xD;&#xA;    c.[CourtID],&#xD;&#xA;    CASE c.[CaseType]&#xD;&#xA;        WHEN 1 THEN N'القضاء المدني'&#xD;&#xA;        WHEN 2 THEN N'القضاء الإداري'&#xD;&#xA;        WHEN 3 THEN N'القضاء الجنائي'&#xD;&#xA;        ELSE N'غير معروف'&#xD;&#xA;    END AS [CaseTypeName],&#xD;&#xA;    CASE c.[CaseDegree]&#xD;&#xA;        WHEN 11 THEN N'القضية'&#xD;&#xA;        WHEN 12 THEN N'استئناف'&#xD;&#xA;        WHEN 13 THEN N'نقض'&#xD;&#xA;        WHEN 21 THEN N'القضية'&#xD;&#xA;        WHEN 22 THEN N'طعن'&#xD;&#xA;        WHEN 31 THEN N'محكمة جنح أو جنايات'&#xD;&#xA;        WHEN 32 THEN N'محكمة جنح مستأنف/ جنايات مستأنف'&#xD;&#xA;        WHEN 33 THEN N'الطعن بالنقض'&#xD;&#xA;        ELSE N'غير معروف'&#xD;&#xA;    END AS [CaseDegreeName],&#xD;&#xA;    c.[CaseType],&#xD;&#xA;    c.[CaseDegree],&#xD;&#xA;    c.[CaseNumber],&#xD;&#xA;    c.[CaseDescription],&#xD;&#xA;    c.[PlaintiffName],&#xD;&#xA;    c.[DefendantName],&#xD;&#xA;    c.[FilingDate],&#xD;&#xA;    c.[CourtDecision] AS CaseCourtDecision,&#xD;&#xA;    c.[GovernorateID],&#xD;&#xA;    c.[CityID],&#xD;&#xA;    cd.[CaseDId],&#xD;&#xA;    cd.[SessionDate],&#xD;&#xA;    cd.[CourtDecision] AS SessionCourtDecision,&#xD;&#xA;    cd.[CourtName],&#xD;&#xA;    cd.[Governorate],&#xD;&#xA;    cd.[City],&#xD;&#xA;&#x9;ci.DscrAr as CityName,&#xD;&#xA;&#x9;g.DscrAr as GovermentName,&#xD;&#xA;&#x9;cr.CourtName as CrtName&#xD;&#xA;FROM [Cases] c&#xD;&#xA;JOIN [dbo].[CasesD] cd&#xD;&#xA;    ON c.[CaseID] = cd.[CaseId]&#xD;&#xA;JOIN [dbo].[Courts] cr&#xD;&#xA;&#x9;ON cd.CourtName = cr.CourtID&#xD;&#xA;Join [brca_archx12].[Brca].[AppCodes] ci&#xD;&#xA;    ON cd.City = ci.Seq AND ci.Id = 72&#xD;&#xA;Join [brca_archx12].[Brca].[AppCodes] g&#xD;&#xA;    ON cd.Governorate = g.Seq AND g.Id = 71" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="0.5in" Name="pageHeaderSection1" />
+    <DetailSection Height="0.2in" Name="detailSection1">
+      <Items>
+        <TextBox Width="1.2in" Height="0.2in" Left="4.9in" Top="0in" Value="= Fields.CaseDId" Name="textBox9">
+          <Style>
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.5in" Height="0.2in" Left="3.4in" Top="0in" Value="= Fields.SessionDate" Name="textBox12">
+          <Style>
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.8in" Height="0.2in" Left="0.1in" Top="0in" Value="= Fields.SessionCourtDecision" Name="textBox14">
+          <Style>
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.1in" Height="0.2in" Left="2.3in" Top="0in" Value="= Fields.CrtName" Name="textBox20">
+          <Style>
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7in" Height="0.2in" Left="1.6in" Top="0in" Value="= Fields.CityName" Name="textBox15">
+          <Style>
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7in" Height="0.2in" Left="0.9in" Top="0in" Value="= Fields.GovermentName" Name="textBox17">
+          <Style>
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="1.1in" Name="pageFooterSection1" />
+  </Items>
+  <PageSettings PaperKind="Letter" Landscape="False" ColumnCount="1" ColumnSpacing="0in">
+    <Margins>
+      <MarginsU Left="1in" Right="1in" Top="1in" Bottom="1in" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Groups>
+    <Group Name="group">
+      <GroupHeader>
+        <GroupHeaderSection Height="1in" Name="groupHeaderSection">
+          <Items>
+            <TextBox Width="1.2in" Height="0.2in" Left="4.9in" Top="0.3in" Value="= Fields.CaseID" Name="textBox1">
+              <Style>
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.2in" Height="0.2in" Left="4.9in" Top="0.1in" Value="رقم القضية" Name="textBox2">
+              <Style>
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.4in" Height="0.2in" Left="3.5in" Top="0.1in" Value="نوعها" Name="textBox3">
+              <Style>
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.4in" Height="0.2in" Left="3.5in" Top="0.3in" Value="= Fields.CaseTypeName" Name="textBox4">
+              <Style>
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.4in" Height="0.2in" Left="2.1in" Top="0.1in" Value="درجتها" Name="textBox5">
+              <Style>
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.4in" Height="0.2in" Left="2.1in" Top="0.3in" Value="= Fields.CaseDegreeName" Name="textBox6">
+              <Style>
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.4in" Height="0.2in" Left="0.7in" Top="0.1in" Value="تاريخها" Name="textBox7">
+              <Style>
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.4in" Height="0.2in" Left="0.7in" Top="0.3in" Value="= Fields.FilingDate" Name="textBox8">
+              <Style>
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.2in" Height="0.2in" Left="4.9in" Top="0.8in" Value="رقم الجلسة" Name="textBox10">
+              <Style>
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.5in" Height="0.2in" Left="3.4in" Top="0.8in" Value="تاريخها" Name="textBox11">
+              <Style>
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.8in" Height="0.2in" Left="0.1in" Top="0.8in" Value="الحكم" Name="textBox13">
+              <Style>
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.1in" Height="0.2in" Left="2.3in" Top="0.8in" Value="المحكمة" Name="textBox19">
+              <Style>
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.7in" Height="0.2in" Left="1.6in" Top="0.8in" Value="المدينة" Name="textBox21">
+              <Style>
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.7in" Height="0.2in" Left="0.9in" Top="0.8in" Value="المحافظة" Name="textBox16">
+              <Style>
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.2in" Name="groupFooterSection" />
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.CaseID" />
+      </Groupings>
+    </Group>
+  </Groups>
+</Report>

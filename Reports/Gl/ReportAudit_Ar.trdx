@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="webServiceDataSource1" Width="17cm" Name="ReportAudit" xmlns="http://schemas.telerik.com/reporting/2019/2.0">
+  <DataSources>
+    <WebServiceDataSource ServiceUrl="http://localhost:56226/br/ReportAudit/GetDataReportAudit" Name="webServiceDataSource1" ParameterValues="{&quot;CreatedDateFrom&quot;:&quot;\&quot;1\&quot;&quot;,&quot;CreatedDateTo&quot;:&quot;\&quot;1\&quot;&quot;,&quot;TableName&quot;:&quot;\&quot;1\&quot;&quot;,&quot;UserId&quot;:&quot;\&quot;1\&quot;&quot;,&quot;.AspNetCore.Identity.Application&quot;:&quot;CfDJ8NGKY0Qnr0VOpuLl7Ut0Cm9FS9Vd8alsBMCoYijTawgfdBaKE1VPkFMQr3UHVnGW105j6xNvrIFPRMvHAGdCZFysBwmr3ka24qQ2K4UyP4ilwZJuyGxkOU3mlrkCqtNhiQzYLAiIuSAKpDDa1sJ24sxdaUsnRvPEpqzP_T-wVyrAJVk5oa-bv7eFOpeYPzKPCYMCv-uELyp29QvT9QUvPlLhYwyh9HqFW8Wflu8l0Zjclo-RUO0tQMIYpXSrFpdJjs6F-wKvLIQ04FCifcc_hmB-Dhtr1-oTQK4MMrBCltFFaLmwwoEYepSzsk76y4dbcKWOyaD23a5YV-BC4cyuQLplSABo1kLqw4Sz38rbd3a54Xsm85t98yVFgxK713m4me6b6Rfu7lK0t9dWZFLx_CVcdHNj3429zL2H-elHCc--RN4yo1l1pALakPvCwK2Ca8UHTxCx-D254CKj0WgTGpDOJc54l8iqu5i5RduEeN4-A1Bv88eqiEVKeLh5SnDcq6zUs2FtmiTEkOFV-DrLw7RQ2hhz9txkXRyV5GlO-gqO&quot;}">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Query" Name="CreatedDateFrom">
+          <Value>
+            <String>= Parameters.CreatedDateFrom.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="CreatedDateTo">
+          <Value>
+            <String>= Parameters.CreatedDateTo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="TableName">
+          <Value>
+            <String>= Parameters.TableName.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="UserId">
+          <Value>
+            <String>= Parameters.UserId.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="5.015cm" Name="pageHeaderSection1">
+      <Style>
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="2.6in" Height="0.4in" Left="2.047in" Top="0.236in" Value="تقرير مراقبة الاستخدام " Name="textBox2">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="16pt" Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.6cm" Left="14.8cm" Top="0.601cm" Value="= &quot;بواسطة :&quot;+Cstr(UserIdentity.Name)" Name="textBox23">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="0.6cm" Left="0.3cm" Top="0.601cm" Value="= &quot; صفحة &quot; + CStr(PageNumber) + &quot; من &quot;  + CStr(PageCount)" Name="textBox20">
+          <Style VerticalAlign="Middle">
+            <Font Size="8pt" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.968in" Height="0.975in" Left="1.496in" Top="0.999in" Value="القيمة الحديثة" Name="textBox6">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.417in" Height="0.975in" Left="3.465in" Top="0.999in" Value="القيمة القديمة" Name="textBox7">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.905in" Height="0.975in" Left="4.882in" Top="0.999in" Value="Keys" Name="textBox8">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.905in" Height="0.975in" Left="5.787in" Top="0.999in" Value="المستخدم" Name="textBox9">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.748in" Height="0.975in" Left="0in" Top="0.999in" Value="التاريخ" Name="textBox11">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.748in" Height="0.975in" Left="0.748in" Top="0.999in" Value="اسم الجدول" Name="textBox3">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="16.1cm" Height="0.7cm" Left="0.45cm" Top="1.715cm" Value="= Parameters.CompanyName.Value" Name="textBox17">
+          <Style TextAlign="Center">
+            <Font Size="18pt" />
+          </Style>
+        </TextBox>
+        <PictureBox Value="= Parameters.Logo.Value" Width="2.895cm" Height="1.568cm" Left="11.804cm" Top="0.147cm" Sizing="Stretch" MimeType="" Name="LogoImage">
+          <Style>
+            <BackgroundImage ImageData="null" Repeat="NoRepeat" />
+          </Style>
+        </PictureBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="2.815cm" Name="detailSection1">
+      <Items>
+        <TextBox Width="2.3cm" Height="2.4cm" Left="14.7cm" Top="0.415cm" Value="= Fields.UserId" Name="textBox1">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="2.4cm" Left="12.4cm" Top="0.415cm" Value="= Fields.Keys" Name="textBox4">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="2.4cm" Left="1.9cm" Top="0.415cm" Value="= Fields.TableName" Name="textBox12">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="2.4cm" Left="0cm" Top="0.415cm" Value="= Fields.CreatedDate" Format="{0:d}" Name="textBox13">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5cm" Height="2.4cm" Left="3.8cm" Top="0.415cm" Value="= Fields.NewValues" Name="textBox5">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.6cm" Height="2.4cm" Left="8.8cm" Top="0.415cm" Value="= Fields.OldValues" Name="textBox10">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="2cm" Name="pageFooterSection1">
+      <Style TextAlign="Center" VerticalAlign="Middle">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+    </PageFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="Url" AllowNull="True" />
+    <ReportParameter Name="UserId" AllowNull="True" />
+    <ReportParameter Name="TransactionType" AllowNull="True" />
+    <ReportParameter Name="TableName" AllowNull="True" />
+    <ReportParameter Name="CreatedDateFrom" AllowNull="True" />
+    <ReportParameter Name="CreatedDateTo" AllowNull="True" />
+    <ReportParameter Name="Logo" />
+    <ReportParameter Name="CompanyAddress" />
+    <ReportParameter Name="CompanyName" />
+  </ReportParameters>
+</Report>

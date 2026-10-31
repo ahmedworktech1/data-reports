@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="25.1cm" Name="testReportNew" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azx2024" SelectCommand="&#xD;&#xA;Select azaccmf.Acc_NO,azaccmf.Acc_Nm_AR,ISNULL(Bgn_bl,0) as bgn_bl,&#xD;&#xA;azaccmf.CCT_REP,(select rep_nm_ar from azreps where azaccmf.CCT_REP = azreps.rep_cd) as rep_nm_ar,&#xD;&#xA;TRY_CONVERT(DATETIME, '01/01/1901', 102)  AS FROM_date, &#xD;&#xA;TRY_CONVERT(DATETIME, '01/01/1902', 102) AS TO_date,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;isnull(BGN_BL,0) &#xD;&#xA;+&#xD;&#xA;ISNULL((SELECT SUM(isnull(PKPRC,0) * isnull(QTY,0)+ isnull(STAX_VL,0) +ISNULL(HTAX,0)-ISNULL(HDISC,0) -isnull(DISC,0)) &#xD;&#xA;FROM AZTRD WHERE ACC_NO=AZACCMF.ACC_NO &#xD;&#xA;AND ( GRP = 1 AND TR_TY IN  (SELECT TR_TY FROM AZTRTY WHERE (AFFACCCR = 1 OR AFFACCDB = 1) AND TR_TY =  AZTRD.TR_TY) ) &#xD;&#xA;AND (TR_DT &gt;=   '01/01/1901'   AND TR_DT &lt;=  '01/01/1902'  )),0) &#xD;&#xA;-&#xD;&#xA;ISNULL((SELECT SUM(PKPRC * QTY+ STAX_VL +ISNULL(HTAX,0)-ISNULL(HDISC,0) -DISC)&#xD;&#xA;FROM AZTRD WHERE ACC_NO=AZACCMF.ACC_NO &#xD;&#xA;AND ( GRP = 0 AND TR_TY IN  (SELECT TR_TY FROM AZTRTY WHERE (AFFACCCR = 1 OR AFFACCDB = 1) AND TR_TY =  AZTRD.TR_TY))&#xD;&#xA;AND (TR_DT &gt;=   '01/01/1901'   AND TR_DT &lt;=  '01/01/1902'  )),0) &#xD;&#xA;-&#xD;&#xA;&#xD;&#xA;ISNULL((SELECT SUM(ISNULL(CR_vl,0)-ISNULL(DB_vl,0))&#xD;&#xA;FROM accstat_w WHERE ACC_NO=AZACCMF.ACC_NO AND &#xD;&#xA;(GRP = 4 AND TR_TY IN  (SELECT TR_TY FROM AZTRTY WHERE (AFFACCCR = 1 OR AFFACCDB = 1) AND TR_TY =  accstat_w.TR_TY))&#xD;&#xA;AND (TR_DT &gt;=   '01/01/1901'   AND TR_DT &lt;=  '01/01/1902'  )),0) &#xD;&#xA;+&#xD;&#xA;isnull((SELECT SUM(isnull(PKPRC,0) * isnull(QTY,0)+ isnull(STAX_VL,0) +ISNULL(HTAX,0)-ISNULL(HDISC,0) - isnull(DISC,0))&#xD;&#xA;FROM AZTRD WHERE ACC_NO=AZACCMF.ACC_NO AND ( GRP = 1 AND TR_TY IN  (SELECT TR_TY FROM AZTRTY WHERE (AFFACCCR = 1 OR AFFACCDB = 1) AND TR_TY =  AZTRD.TR_TY) )&#xD;&#xA;AND (TR_DT &gt;=   '01/01/1901'   AND TR_DT &lt;=  '01/01/1902'  )),0)&#xD;&#xA;-&#xD;&#xA;isnull((SELECT SUM(isnull(PKPRC,0) * isnull(QTY,0)+ isnull(STAX_VL,0) +ISNULL(HTAX,0)-ISNULL(HDISC,0) - isnull(DISC,0))&#xD;&#xA;FROM AZTRD WHERE ACC_NO=AZACCMF.ACC_NO AND &#xD;&#xA;( GRP = 0 AND TR_TY IN  (SELECT TR_TY FROM AZTRTY WHERE (AFFACCCR = 1 OR AFFACCDB = 1) AND TR_TY =  AZTRD.TR_TY))  &#xD;&#xA;AND (TR_DT &gt;=   '01/01/1901'   AND TR_DT &lt;=  '01/01/1902'  )),0)  &#xD;&#xA;-&#xD;&#xA;isnull((SELECT SUM(ISNULL(CR_vl,0)-ISNULL(DB_vl,0)) &#xD;&#xA;FROM accstat_w WHERE ACC_NO=AZACCMF.ACC_NO AND ( GRP = 4 AND TR_TY IN  (SELECT TR_TY FROM AZTRTY WHERE (AFFACCCR = 1 OR AFFACCDB = 1) AND TR_TY =  accstat_w.TR_TY)) &#xD;&#xA;AND (TR_DT &gt;=   '01/01/1901'   AND TR_DT &lt;=  '01/01/1902'  )),0) as 'الرصيد النهائى' ,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;(select MAX (tr_dt) from AZTRH where aztrh.ACC_NO= azaccmf.Acc_NO AND (TR_DT &gt;=   '01/01/1901'   AND TR_DT &lt;=  '01/01/1902'  ) )as max_tr_ty,&#xD;&#xA;(select MAX (tr_dt) from accstat_w where accstat_w.ACC_NO= azaccmf.Acc_NO AND (TR_DT &gt;=   '01/01/1901'   AND TR_DT &lt;=  '01/01/1902'  ) )as max_acc_tr_ty&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;  &#xD;&#xA;From azaccmf,aztrd &#xD;&#xA;where azaccmf.Rec_id=3 and azaccmf.acc_ty =2 &#xD;&#xA;and  1=1&#xD;&#xA;GROUP BY AZACCMF.CCT_REP,AZACCMF.ACC_NO ,AZACCMF.ACC_NM_AR,AZACCMF.BGN_BL&#xD;&#xA;HAVING &#xD;&#xA;(ROUND (isnull(BGN_BL,0),2) &#xD;&#xA;+&#xD;&#xA;ROUND(ISNULL((SELECT SUM(isnull(PKPRC,0) * isnull(QTY,0)+ isnull(STAX_VL,0) +ISNULL(HTAX,0)-ISNULL(HDISC,0) -isnull(DISC,0)) &#xD;&#xA;FROM AZTRD WHERE ACC_NO=AZACCMF.ACC_NO &#xD;&#xA;AND ( GRP = 1 AND TR_TY IN  (SELECT TR_TY FROM AZTRTY WHERE (AFFACCCR = 1 OR AFFACCDB = 1) AND TR_TY =  AZTRD.TR_TY) ) &#xD;&#xA;AND (TR_DT &gt;=   '01/01/1901'   AND TR_DT &lt;=  '01/01/1902'  )),0) ,2)&#xD;&#xA;-&#xD;&#xA;ROUND(ISNULL((SELECT SUM(PKPRC * QTY+ STAX_VL +ISNULL(HTAX,0)-ISNULL(HDISC,0) -DISC)&#xD;&#xA;FROM AZTRD WHERE ACC_NO=AZACCMF.ACC_NO &#xD;&#xA;AND ( GRP = 0 AND TR_TY IN  (SELECT TR_TY FROM AZTRTY WHERE (AFFACCCR = 1 OR AFFACCDB = 1) AND TR_TY =  AZTRD.TR_TY))&#xD;&#xA;AND (TR_DT &gt;=   '01/01/1901'   AND TR_DT &lt;=  '01/01/1902'  )),0) ,2)&#xD;&#xA;-&#xD;&#xA;&#xD;&#xA;ROUND(ISNULL((SELECT SUM(ISNULL(CR_vl,0)-ISNULL(DB_vl,0))&#xD;&#xA;FROM accstat_w WHERE ACC_NO=AZACCMF.ACC_NO AND &#xD;&#xA;(GRP = 4 AND TR_TY IN  (SELECT TR_TY FROM AZTRTY WHERE (AFFACCCR = 1 OR AFFACCDB = 1) AND TR_TY =  accstat_w.TR_TY))&#xD;&#xA;AND (TR_DT &gt;=   '01/01/1901'   AND TR_DT &lt;=  '01/01/1902'  )),0),2) &#xD;&#xA;+&#xD;&#xA;ROUND(isnull((SELECT SUM(isnull(PKPRC,0) * isnull(QTY,0)+ isnull(STAX_VL,0) +ISNULL(HTAX,0)-ISNULL(HDISC,0) - isnull(DISC,0))&#xD;&#xA;FROM AZTRD WHERE ACC_NO=AZACCMF.ACC_NO AND ( GRP = 1 AND TR_TY IN  (SELECT TR_TY FROM AZTRTY WHERE (AFFACCCR = 1 OR AFFACCDB = 1) AND TR_TY =  AZTRD.TR_TY) )&#xD;&#xA;AND (TR_DT &gt;=   '01/01/1901'   AND TR_DT &lt;=  '01/01/1902'  )),0),2)&#xD;&#xA;-&#xD;&#xA;ROUND(isnull((SELECT SUM(isnull(PKPRC,0) * isnull(QTY,0)+ isnull(STAX_VL,0) +ISNULL(HTAX,0)-ISNULL(HDISC,0) - isnull(DISC,0))&#xD;&#xA;FROM AZTRD WHERE ACC_NO=AZACCMF.ACC_NO AND &#xD;&#xA;( GRP = 0 AND TR_TY IN  (SELECT TR_TY FROM AZTRTY WHERE (AFFACCCR = 1 OR AFFACCDB = 1) AND TR_TY =  AZTRD.TR_TY))  &#xD;&#xA;AND (TR_DT &gt;=   '01/01/1901'   AND TR_DT &lt;=  '01/01/1902'  )),0),2) &#xD;&#xA;-&#xD;&#xA;ROUND(isnull((SELECT SUM(ISNULL(CR_vl,0)-ISNULL(DB_vl,0)) &#xD;&#xA;FROM accstat_w WHERE ACC_NO=AZACCMF.ACC_NO AND ( GRP = 4 AND TR_TY IN  (SELECT TR_TY FROM AZTRTY WHERE (AFFACCCR = 1 OR AFFACCDB = 1) AND TR_TY =  accstat_w.TR_TY)) &#xD;&#xA;AND (TR_DT &gt;=   '01/01/1901'   AND TR_DT &lt;=  '01/01/1902'  )),0),2)&lt;&gt;0)&#xD;&#xA;&#xD;&#xA;order by AZACCMF.CCT_REP,AZACCMF.ACC_NO ,AZACCMF.ACC_NM_AR,AZACCMF.BGN_BL&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;--جملة اخرى لمعرفة الرصيد من كشف الحساب&#xD;&#xA;--select SUM(C_BAL) from ACCSTAT where Acc_NO = '130102010' AND (TR_DT &lt;  {D'2015-04-01'}) &#xD;&#xA;--select SUM(C_BAL) from ACCSTAT where Acc_NO = '130102010' AND (TR_DT &gt;=    {D'2015-04-01'}    AND TR_DT &lt;=   {D'2015-05-31'}) " Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="1.1cm" Name="pageHeaderSection1">
+      <Style VerticalAlign="Middle">
+        <Font Bold="True" />
+        <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+      </Style>
+      <Items>
+        <TextBox Width="6.3cm" Height="0.6cm" Left="11.901cm" Top="0.3cm" Value="ارصده عملاء بالمندوب " Name="textBox7">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <HtmlTextBox Width="1.301cm" Height="0.6cm" Left="10.3cm" Top="0.33cm" Value="&lt;p style=&quot;text-align: center&quot;&gt;من&lt;/p&gt;" Name="htmlTextBox1">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </HtmlTextBox>
+        <HtmlTextBox Width="1.301cm" Height="0.6cm" Left="5.4cm" Top="0.3cm" Value="&lt;p style=&quot;text-align: center&quot;&gt;الى&lt;/p&gt;" Name="htmlTextBox2">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </HtmlTextBox>
+        <TextBox Width="3.2cm" Height="0.6cm" Left="2.2cm" Top="0.3cm" Value="= Fields.TO_date" Format="{0:d}" Name="textBox17">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.3cm" Height="0.6cm" Left="7cm" Top="0.33cm" Value="= Fields.FROM_date" Format="{0:d}" Name="textBox18">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="0.8cm" Name="detailSection1">
+      <Style>
+        <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="3cm" Height="0.8cm" Left="16.3cm" Top="0cm" Value="= Fields.Acc_NO" Name="textBox12">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.7cm" Height="0.8cm" Left="12.6cm" Top="0cm" Value="= Fields.Acc_Nm_AR" Name="textBox13">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.8cm" Left="9.6cm" Top="0cm" Value="= Fields.max_tr_ty" Format="{0:d}" Name="textBox14">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.8cm" Left="6.599cm" Top="0cm" Value="= Fields.max_acc_tr_ty" Format="{0:d}" Name="textBox15">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.698cm" Height="0.8cm" Left="2.901cm" Top="0cm" Value="= Fields.[الرصيد النهائى]" Format="{0:0.00}" Name="textBox16">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="0.6cm" Name="pageFooterSection1">
+      <Style Visible="True" />
+      <Items>
+        <TextBox Width="8.599cm" Height="0.6cm" Left="2.602cm" Top="0cm" Value="= sum(Fields.[الرصيد النهائى])" Format="{0:0.00}" Name="textBox5">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.599cm" Height="0.6cm" Left="11.201cm" Top="0cm" Value="الاجمالى العام " Name="textBox4">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+    <ReportFooterSection Height="0.132cm" Name="reportFooterSection1" />
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Groups>
+    <Group Name="group">
+      <GroupHeader>
+        <GroupHeaderSection Height="1.4cm" Name="groupHeaderSection">
+          <Items>
+            <TextBox Width="7.599cm" Height="0.7cm" Left="10.801cm" Top="0cm" Value="ارصده العملاء" Name="textBox20">
+              <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="7.201cm" Height="0.7cm" Left="3.6cm" Top="0cm" Value="= Fields.rep_nm_ar" Name="textBox2">
+              <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.7cm" Height="0.7cm" Left="12.6cm" Top="0.7cm" Value="اسم العميل" Name="textBox8">
+              <Style BackgroundColor="155, 187, 89" TextAlign="Center" VerticalAlign="Middle">
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3cm" Height="0.7cm" Left="16.3cm" Top="0.7cm" Value="رقم العميل" Name="textBox6">
+              <Style BackgroundColor="155, 187, 89" TextAlign="Center" VerticalAlign="Middle">
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3cm" Height="0.7cm" Left="9.6cm" Top="0.7cm" Value="اخر تعامل مبيعات" Name="textBox9">
+              <Style BackgroundColor="155, 187, 89" TextAlign="Center" VerticalAlign="Middle">
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3cm" Height="0.7cm" Left="6.599cm" Top="0.7cm" Value="اخر تعامل سداد" Name="textBox10">
+              <Style BackgroundColor="155, 187, 89" TextAlign="Center" VerticalAlign="Middle">
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.698cm" Height="0.7cm" Left="2.901cm" Top="0.7cm" Value="الرصيد" Name="textBox11">
+              <Style BackgroundColor="155, 187, 89" TextAlign="Center" VerticalAlign="Middle">
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.6cm" Name="groupFooterSection">
+          <Items>
+            <TextBox Width="7.399cm" Height="0.6cm" Left="11.001cm" Top="0cm" Value="الاجمالى" Name="textBox1">
+              <Style BackgroundColor="155, 187, 89" TextAlign="Center" VerticalAlign="Middle">
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="6.9cm" Height="0.6cm" Left="4.101cm" Top="0cm" Value="= sum(Fields.[الرصيد النهائى])" Format="{0:0.00}" Name="textBox3">
+              <Style BackgroundColor="155, 187, 89" TextAlign="Center" VerticalAlign="Middle">
+                <Font Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.CCT_REP" />
+      </Groupings>
+    </Group>
+  </Groups>
+</Report>

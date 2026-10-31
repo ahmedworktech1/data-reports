@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="webServiceDataSource1" Width="10.064in" Name="ReportExpierdAr" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <Style BackgroundColor="198, 217, 241" />
+  <DataSources>
+    <WebServiceDataSource ParameterValues="{&quot;.AspNetCore.Identity.Application&quot;:&quot;CfDJ8FXyCoqZVAdPofjdBJRzWSVw-eqL3zA_XC7znEGpVJcW6SbYzAG6BAA_GlKriSH2IUnNwkFShQzsEpBaeplYPsdFKT-0ipdlwUcjR24N8gR8RDt4q2AF0lZYZmy4T-OOf63Xd1M4U1s7BablSzphuaFUjnqB1FeiXS7oAKeLzuReO3m-INHAP8HyLHCSmbulI38-DnLXQaJzmxtKVpLFlv9Ir9dPZ6Wtv-Jq0XwkRl5W_UZiPrfTXlmkxmAT7UqZs21jtO0t77UdqedSl5fs3OhP7eMjsVjV7w7WNdfyzHfGoEY9WjEpgjRw3JrRlUFiGEhszGpeu4H54FttQlnxloMp73OdptM9PD6yx6sEYai5ML5Pls1RLbTCOyQJlGoIZgxOzPfv3aP-3cG3YLvANk4nxw8O_C_zcscMoJvrQ71eMQi5s2RX3VfwaIm7plG8SlgCPt6bYKdpiK6oXYU40V-gPh7EB4wZkMRdG_VKsH1XSfpxAqE_0ZdOG1QsC-7yhBmtdMqoNxS4Jr2Rcn4AjznHUB87tEELbr__P7NBwi2L7_7Q9QLVv6RtUGwJ_CkQJjd1AHp26S753p2GgSHhVmP5hcsTTVZVZYuME0zGhpCMeL9DO8e5PxA_m8Ligy_jP_LFpbYgAlfs69fidnTjQwXOZheV4Ek7APWEzQADZNiJYujkhE8yvK_ILRhXr5RhT3dtAWLIpSWIpx23A0GECqlUwST4vsNXpjupdOnMb5NPjMDGiV0a2SfmQSI251qxBF0e6hVYI1OY5oOqqc_ZdQ8pdNDvmJYKzXMfurGhTEuCqDp26ngNaoYGmElrpUcl-g&quot;,&quot;@Url&quot;:&quot;https://localhost:5001/gl/ReportExpired/GetDataExpierd&quot;,&quot;DMYs&quot;:&quot;\&quot;\&quot;&quot;,&quot;DMY&quot;:&quot;\&quot;\&quot;&quot;,&quot;FClosDt&quot;:&quot;\&quot;\&quot;&quot;,&quot;TClosDt&quot;:&quot;\&quot;\&quot;&quot;,&quot;FVendorNo&quot;:&quot;\&quot;\&quot;&quot;,&quot;TVendorNo&quot;:&quot;\&quot;\&quot;&quot;,&quot;GuaranteTy&quot;:&quot;\&quot;\&quot;&quot;,&quot;GrDs&quot;:&quot;\&quot;\&quot;&quot;,&quot;GrTy&quot;:&quot;\&quot;\&quot;&quot;,&quot;St&quot;:&quot;\&quot;\&quot;&quot;,&quot;CstCd&quot;:&quot;\&quot;\&quot;&quot;,&quot;GrNo&quot;:&quot;\&quot;\&quot;&quot;,&quot;DeliveryStatus&quot;:&quot;\&quot;\&quot;&quot;,&quot;SsumCd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromLcAmount&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToLcAmount&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromLastupdFin&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToLastupdFin&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromLastupdVl&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToLastupdVl&quot;:&quot;\&quot;\&quot;&quot;,&quot;Seg1Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;Seg2Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;Seg3Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;Seg4Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;Seg5Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;Seg6Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;Seg7Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;Seg8Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;Seg9Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;Seg10Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;Seg11Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;Seg12Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;Seg13Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;Seg14Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;Seg15Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSeg1Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSeg1Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSeg2Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSeg2Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSeg3Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSeg3Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSeg4Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSeg4Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSeg5Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSeg5Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSeg6Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSeg6Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSeg7Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSeg7Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSeg8Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSeg8Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSeg9Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSeg9Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSeg10Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSeg10Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSeg11Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSeg11Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSeg12Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSeg12Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSeg13Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSeg13Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSeg14Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSeg14Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;FromSeg15Cd&quot;:&quot;\&quot;\&quot;&quot;,&quot;ToSeg15Cd&quot;:&quot;\&quot;\&quot;&quot;}" AuthParameterValues="null" ServiceUrl="@Url" Name="webServiceDataSource1">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "gl/ReportExpired/GetDataExpierd"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="DMYs">
+          <Value>
+            <String>= Parameters.DMYs.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="DMY">
+          <Value>
+            <String>= Parameters.DMY.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FClosDt">
+          <Value>
+            <String>= Parameters.FClosDt.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="TClosDt">
+          <Value>
+            <String>= Parameters.TClosDt.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FVendorNo">
+          <Value>
+            <String>= Parameters.FVendorNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="TVendorNo">
+          <Value>
+            <String>= Parameters.TVendorNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="GuaranteTy">
+          <Value>
+            <String>= Parameters.GuaranteTy.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="GrDs">
+          <Value>
+            <String>= Parameters.GrDs.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="GrTy">
+          <Value>
+            <String>= Parameters.GrTy.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="St">
+          <Value>
+            <String>= Parameters.St.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="CstCd">
+          <Value>
+            <String>= Parameters.CstCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="GrNo">
+          <Value>
+            <String>= Parameters.GrNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="DeliveryStatus">
+          <Value>
+            <String>= Parameters.DeliveryStatus.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="SsumCd">
+          <Value>
+            <String>= Parameters.SsumCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromLcAmount">
+          <Value>
+            <String>= Parameters.FromLcAmount.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToLcAmount">
+          <Value>
+            <String>= Parameters.ToLcAmount.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromLastupdFin">
+          <Value>
+            <String>= Parameters.FromLastupdFin.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToLastupdFin">
+          <Value>
+            <String>= Parameters.ToLastupdFin.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromLastupdVl">
+          <Value>
+            <String>= Parameters.FromLastupdVl.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToLastupdVl">
+          <Value>
+            <String>= Parameters.ToLastupdVl.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Seg1Cd">
+          <Value>
+            <String>= Parameters.Seg1Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Seg2Cd">
+          <Value>
+            <String>= Parameters.Seg2Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Seg3Cd">
+          <Value>
+            <String>= Parameters.Seg3Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Seg4Cd">
+          <Value>
+            <String>= Parameters.Seg4Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Seg5Cd">
+          <Value>
+            <String>= Parameters.Seg5Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Seg6Cd">
+          <Value>
+            <String>= Parameters.Seg6Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Seg7Cd">
+          <Value>
+            <String>= Parameters.Seg7Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Seg8Cd">
+          <Value>
+            <String>= Parameters.Seg8Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Seg9Cd">
+          <Value>
+            <String>= Parameters.Seg9Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Seg10Cd">
+          <Value>
+            <String>= Parameters.Seg10Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Seg11Cd">
+          <Value>
+            <String>= Parameters.Seg11Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Seg12Cd">
+          <Value>
+            <String>= Parameters.Seg12Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Seg13Cd">
+          <Value>
+            <String>= Parameters.Seg13Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Seg14Cd">
+          <Value>
+            <String>= Parameters.Seg14Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Seg15Cd">
+          <Value>
+            <String>= Parameters.Seg15Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSeg1Cd">
+          <Value>
+            <String>= Parameters.FromSeg1Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSeg1Cd">
+          <Value>
+            <String>= Parameters.ToSeg1Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSeg2Cd">
+          <Value>
+            <String>= Parameters.FromSeg2Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSeg2Cd">
+          <Value>
+            <String>= Parameters.ToSeg2Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSeg3Cd">
+          <Value>
+            <String>= Parameters.FromSeg3Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSeg3Cd">
+          <Value>
+            <String>= Parameters.ToSeg3Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSeg4Cd">
+          <Value>
+            <String>= Parameters.FromSeg4Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSeg4Cd">
+          <Value>
+            <String>= Parameters.ToSeg4Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSeg5Cd">
+          <Value>
+            <String>= Parameters.FromSeg5Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSeg5Cd">
+          <Value>
+            <String>= Parameters.ToSeg5Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSeg6Cd">
+          <Value>
+            <String>= Parameters.FromSeg6Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSeg6Cd">
+          <Value>
+            <String>= Parameters.ToSeg6Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSeg7Cd">
+          <Value>
+            <String>= Parameters.FromSeg7Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSeg7Cd">
+          <Value>
+            <String>= Parameters.ToSeg7Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSeg8Cd">
+          <Value>
+            <String>= Parameters.FromSeg8Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSeg8Cd">
+          <Value>
+            <String>= Parameters.ToSeg8Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSeg9Cd">
+          <Value>
+            <String>= Parameters.FromSeg9Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSeg9Cd">
+          <Value>
+            <String>= Parameters.ToSeg9Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSeg10Cd">
+          <Value>
+            <String>= Parameters.FromSeg10Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSeg10Cd">
+          <Value>
+            <String>= Parameters.ToSeg10Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSeg11Cd">
+          <Value>
+            <String>= Parameters.FromSeg11Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSeg11Cd">
+          <Value>
+            <String>= Parameters.ToSeg11Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSeg12Cd">
+          <Value>
+            <String>= Parameters.FromSeg12Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSeg12Cd">
+          <Value>
+            <String>= Parameters.ToSeg12Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSeg13Cd">
+          <Value>
+            <String>= Parameters.FromSeg13Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSeg13Cd">
+          <Value>
+            <String>= Parameters.ToSeg13Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSeg14Cd">
+          <Value>
+            <String>= Parameters.FromSeg14Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSeg14Cd">
+          <Value>
+            <String>= Parameters.ToSeg14Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSeg15Cd">
+          <Value>
+            <String>= Parameters.FromSeg15Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSeg15Cd">
+          <Value>
+            <String>= Parameters.ToSeg15Cd.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="1.266in" Name="pageHeaderSection1">
+      <Style BackgroundColor="Transparent" TextAlign="Center" VerticalAlign="Middle">
+        <Font Size="8pt" />
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="2.6in" Height="0.4in" Left="3.627in" Top="0.083in" Value="خطابات الضمان المنتهية" CanGrow="False" Name="textBox2">
+          <Style BackgroundColor="0, 176, 240" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Microsoft Sans Serif" Size="16pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.063in" Height="0.266in" Left="8.056in" Top="1in" Value="رقم الخطاب" Name="textBox8">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.111in" Height="0.266in" Left="5.945in" Top="1in" Value="الاسم" Name="textBox3">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.9in" Height="0.266in" Left="1.024in" Top="1in" Value="حالة الضمان" Name="textBox4">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.024in" Height="0.266in" Left="0in" Top="1in" Value="تاريخ الصلاحية" Name="textBox12">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.024in" Height="0.266in" Left="3.622in" Top="1in" Value="اسم البنك" Name="textBox7">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.898in" Height="0.266in" Left="2.724in" Top="1in" Value=" الضمان" Name="textBox6">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.8in" Height="0.266in" Left="1.924in" Top="1in" Value="قيمة الضمان" Name="textBox5">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.945in" Height="0.266in" Left="9.119in" Top="1in" Value="نوع الخطاب" Name="textBox9">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.299in" Height="0.266in" Left="4.646in" Top="1in" Value="مركز التكلفة" Name="textBox18">
+          <Style BackgroundColor="Yellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.154cm" Height="0.6cm" Left="2.957cm" Top="0.2cm" Value="= &quot;بواسطة :&quot;+Cstr(UserIdentity.Name)" CanGrow="False" Name="textBox70">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.2cm" Height="0.6cm" Left="2.911cm" Top="1.4cm" Value="= &quot; صفحة &quot; + CStr(PageNumber) + &quot; من &quot;  + CStr(PageCount)" CanGrow="False" Name="textBox69">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.55cm" Height="0.587cm" Left="4.561cm" Top="0.8cm" Value="تاريخ الطباعة:" CanGrow="False" Name="textBox68">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.625cm" Height="0.6cm" Left="2.911cm" Top="0.8cm" Value="=Today()" Format="{0:d}" CanGrow="False" Name="textBox67">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.15in" Height="0.433in" Left="6.875in" Top="0.049in" Value="= Parameters.CompanyName.Value" CanGrow="False" Name="textBox47">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <Padding Left="0pt" Right="0pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.15in" Height="0.287in" Left="6.875in" Top="0.51in" Value="= Parameters.CompanyAddress.Value" CanGrow="False" Name="textBox46">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <PictureBox Value="= Parameters.Logo.Value" Width="25mm" Height="18.4mm" Left="4.11mm" Top="2.11mm" Sizing="ScaleProportional" MimeType="" Name="pictureBox1" />
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="0.2in" Name="detailSection1">
+      <Style BackgroundColor="Transparent">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="0.945in" Height="0.2in" Left="9.119in" Top="0in" Value="= Fields.letterName" Name="textBox1">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.024in" Height="0.2in" Left="3.622in" Top="0in" Value="= Fields.BnkName" Name="textBox10">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.898in" Height="0.2in" Left="2.724in" Top="0in" Value="= Fields.GuaranteeName" Name="textBox11">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.9in" Height="0.2in" Left="1.024in" Top="0in" Value="= Fields.GuaranteeStatus" Name="textBox13">
+          <Style BackgroundColor="Transparent" TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.024in" Height="0.2in" Left="0in" Top="0in" Value="= Fields.ClosDt" Name="textBox14">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.8in" Height="0.2in" Left="1.924in" Top="0in" Value="= Fields.LcAmount" Name="textBox15">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.111in" Height="0.2in" Left="5.945in" Top="0in" Value="= Fields.RpaccsName" Name="textBox17">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.063in" Height="0.2in" Left="8.056in" Top="0in" Value="= Fields.LcNo" Name="textBox16">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.299in" Height="0.2in" Left="4.646in" Top="0in" Value="= Fields.CstCdNm" Name="textBox19">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ColumnCount="1" ColumnSpacing="0in" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="Url" AllowNull="True" />
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="DMYs" AllowNull="True" />
+    <ReportParameter Name="DMY" AllowNull="True" />
+    <ReportParameter Name="FVendorNo" AllowNull="True" />
+    <ReportParameter Name="TVendorNo" AllowNull="True" />
+    <ReportParameter Name="FClosDt" AllowNull="True" />
+    <ReportParameter Name="TClosDt" AllowNull="True" />
+    <ReportParameter Name="GuaranteTy" AllowNull="True" />
+    <ReportParameter Name="GrDs" AllowNull="True" />
+    <ReportParameter Name="GrTy" AllowNull="True" />
+    <ReportParameter Name="St" AllowNull="True" />
+    <ReportParameter Name="CstCd" AllowNull="True" />
+    <ReportParameter Name="GrNo" AllowNull="True" />
+    <ReportParameter Name="DeliveryStatus" AllowNull="True" />
+    <ReportParameter Name="SsumCd" AllowNull="True" />
+    <ReportParameter Name="FromLcAmount" AllowNull="True" />
+    <ReportParameter Name="ToLcAmount" AllowNull="True" />
+    <ReportParameter Name="FromLastupdFin" AllowNull="True" />
+    <ReportParameter Name="ToLastupdFin" AllowNull="True" />
+    <ReportParameter Name="FromLastupdVl" AllowNull="True" />
+    <ReportParameter Name="ToLastupdVl" AllowNull="True" />
+    <ReportParameter Name="Seg1Cd" AllowNull="True" />
+    <ReportParameter Name="Seg2Cd" AllowNull="True" />
+    <ReportParameter Name="Seg3Cd" AllowNull="True" />
+    <ReportParameter Name="Seg4Cd" AllowNull="True" />
+    <ReportParameter Name="Seg5Cd" AllowNull="True" />
+    <ReportParameter Name="Seg6Cd" AllowNull="True" />
+    <ReportParameter Name="Seg7Cd" AllowNull="True" />
+    <ReportParameter Name="Seg8Cd" AllowNull="True" />
+    <ReportParameter Name="Seg9Cd" AllowNull="True" />
+    <ReportParameter Name="Seg10Cd" AllowNull="True" />
+    <ReportParameter Name="Seg11Cd" AllowNull="True" />
+    <ReportParameter Name="Seg12Cd" AllowNull="True" />
+    <ReportParameter Name="Seg13Cd" AllowNull="True" />
+    <ReportParameter Name="Seg14Cd" AllowNull="True" />
+    <ReportParameter Name="Seg15Cd" AllowNull="True" />
+    <ReportParameter Name="FromSeg1Cd" AllowNull="True" />
+    <ReportParameter Name="ToSeg1Cd" AllowNull="True" />
+    <ReportParameter Name="FromSeg2Cd" AllowNull="True" />
+    <ReportParameter Name="ToSeg2Cd" AllowNull="True" />
+    <ReportParameter Name="FromSeg3Cd" AllowNull="True" />
+    <ReportParameter Name="ToSeg3Cd" AllowNull="True" />
+    <ReportParameter Name="FromSeg4Cd" AllowNull="True" />
+    <ReportParameter Name="ToSeg4Cd" AllowNull="True" />
+    <ReportParameter Name="FromSeg5Cd" AllowNull="True" />
+    <ReportParameter Name="ToSeg5Cd" AllowNull="True" />
+    <ReportParameter Name="FromSeg6Cd" AllowNull="True" />
+    <ReportParameter Name="ToSeg6Cd" AllowNull="True" />
+    <ReportParameter Name="FromSeg7Cd" AllowNull="True" />
+    <ReportParameter Name="ToSeg7Cd" AllowNull="True" />
+    <ReportParameter Name="FromSeg8Cd" AllowNull="True" />
+    <ReportParameter Name="ToSeg8Cd" AllowNull="True" />
+    <ReportParameter Name="FromSeg9Cd" AllowNull="True" />
+    <ReportParameter Name="ToSeg9Cd" AllowNull="True" />
+    <ReportParameter Name="FromSeg10Cd" AllowNull="True" />
+    <ReportParameter Name="ToSeg10Cd" AllowNull="True" />
+    <ReportParameter Name="FromSeg11Cd" AllowNull="True" />
+    <ReportParameter Name="ToSeg11Cd" AllowNull="True" />
+    <ReportParameter Name="FromSeg12Cd" AllowNull="True" />
+    <ReportParameter Name="ToSeg12Cd" AllowNull="True" />
+    <ReportParameter Name="FromSeg13Cd" AllowNull="True" />
+    <ReportParameter Name="ToSeg13Cd" AllowNull="True" />
+    <ReportParameter Name="FromSeg14Cd" AllowNull="True" />
+    <ReportParameter Name="ToSeg14Cd" AllowNull="True" />
+    <ReportParameter Name="FromSeg15Cd" AllowNull="True" />
+    <ReportParameter Name="ToSeg15Cd" AllowNull="True" />
+    <ReportParameter Name="Logo" AllowNull="True" />
+    <ReportParameter Name="CompanyName" AllowNull="True" />
+    <ReportParameter Name="CompanyAddress" />
+  </ReportParameters>
+</Report>

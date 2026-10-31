@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="21.5cm" UnitOfMeasure="Cm" Name="FA_CD_WithOut_CST_CD_n" ShowDimensions="False" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style Visible="True">
+    <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+    <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+    <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+  </Style>
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glx2023" SelectCommand="SELECT  &#xD;&#xA;  &#xD;&#xA;  (sum(isnull(DPRC,0))- isnull((SELECT sum(isnull(val,0)) FROM FAJRNL where FAJRNL.fa_cd = famf.fa_cd  and tr_ty = '1' ),0)) AS famf_dprc,&#xD;&#xA;  isnull((SELECT sum(isnull(val,0)) FROM FAJRNL where FAJRNL.fa_cd = famf.fa_cd  and tr_ty = '1' ),0) as TOTADD,&#xD;&#xA;  isnull((SELECT sum(isnull(Q_PYRDPRC,0)) FROM FADPRC where FADPRC.fa_cd = famf.fa_cd ),0) as Q_PYRDPRC,&#xD;&#xA;  isnull((SELECT sum(isnull(dprexp,0)) FROM FADPRC where FADPRC.fa_cd = famf.fa_cd   ),0) as dprexp,&#xD;&#xA;  ( (sum(isnull(DPRC,0))- isnull((SELECT sum(isnull(val,0)) FROM FAJRNL where FAJRNL.fa_cd = famf.fa_cd  and tr_ty = '1' ),0))&#xD;&#xA;  +&#xD;&#xA;  isnull((SELECT sum(isnull(val,0)) FROM FAJRNL where FAJRNL.fa_cd = famf.fa_cd  and tr_ty = '1' ),0)&#xD;&#xA;  -&#xD;&#xA;  isnull((SELECT sum(isnull(Q_PYRDPRC,0)) FROM FADPRC where FADPRC.fa_cd = famf.fa_cd ),0)&#xD;&#xA;  -&#xD;&#xA;  isnull((SELECT sum(isnull(dprexp,0)) FROM FADPRC where FADPRC.fa_cd = famf.fa_cd   ),0)) as tot  &#xD;&#xA;FROM &#xD;&#xA;    famf &#xD;&#xA;WHERE fa_cd like '119230%' and 1=1&#xD;&#xA;group by fa_cd" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="4.7cm" Name="pageHeaderSection1">
+      <Items>
+        <TextBox Width="3.5cm" Height="0.8cm" Left="0cm" Top="3.8cm" Value="صافى القيمة الدفترية" Name="textBox6">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.6cm" Height="0.8cm" Left="6.8cm" Top="3.8cm" Value="استهلاك ستوات سابقة" Name="textBox8">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.3cm" Height="0.8cm" Left="3.5cm" Top="3.8cm" Value="قسط الاستهلاك " Name="textBox11">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.14cm" Height="0.6cm" Left="6.35cm" Top="2.286cm" Value="اجمالى الشركة (بيان اجمالى الاصول الغير ملموسة)" Name="textBox5">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.362in" Height="0.112in" Left="6.693in" Top="0.114in" Value="وزارة الكهرباء والطاقة المتجددة" Name="textBox26">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.362in" Height="0.128in" Left="6.699in" Top="0.236in" Value="الشركة القابضة لكهرباء مصر" Name="textBox25">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.444in" Height="0.128in" Left="6.623in" Top="0.367in" Value="شركة مصر الوسطى لتوزيع الكهرباء" Name="textBox63">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.362in" Height="0.128in" Left="6.694in" Top="0.498in" Value="قطاعات الشئون المالية" Name="textBox64">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.362in" Height="0.128in" Left="6.692in" Top="0.63in" Value="الحسابات الآلية" Name="textBox65">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.9cm" Height="0.8cm" Left="10.4cm" Top="3.8cm" Value="الاضافات" Name="textBox3">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.6cm" Height="0.8cm" Left="17.3cm" Top="3.8cm" Value="البيان" Name="textBox2">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4cm" Height="0.8cm" Left="13.3cm" Top="3.8cm" Value="التكلفة الدفترية اول المدة" Name="textBox1">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="0.132cm" Name="detailSection1">
+      <Style Visible="False" />
+    </DetailSection>
+    <ReportFooterSection Height="0.7cm" Name="reportFooterSection1">
+      <Items>
+        <TextBox Width="3.5cm" Height="0.7cm" Left="0cm" Top="0cm" Value="= IsNull( sum(Fields.tot),0)" Format="{0}" Name="textBox13">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4cm" Height="0.7cm" Left="13.3cm" Top="0cm" Value="=IsNull( sum(Fields.famf_dprc),0)" Format="{0}" Name="textBox9">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.9cm" Height="0.7cm" Left="10.4cm" Top="0cm" Value="= IsNull( sum(Fields.TOTADD),0)" Format="{0}" Name="textBox10">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.6cm" Height="0.7cm" Left="6.8cm" Top="0cm" Value="= IsNull( sum(Fields.Q_PYRDPRC),0)" Format="{0}" Name="textBox4">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.3cm" Height="0.7cm" Left="3.5cm" Top="0cm" Value="= IsNull( sum(Fields.dprexp),0)" Format="{0}" Name="textBox12">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.6cm" Height="0.7cm" Left="17.3cm" Top="0cm" Value="اجمالى الاصول" Name="textBox7">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="DefaultReportTitle" />
+  </ReportParameters>
+</Report>

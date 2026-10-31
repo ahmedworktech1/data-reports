@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="21cm" Name="Budget_Execution_Report_WithCommitments" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glxsandoaaAhmedHasan" SelectCommand="WITH &#xD;&#xA;&#xD;&#xA;-- الفترة&#xD;&#xA;ReportPeriod AS (&#xD;&#xA;    SELECT &#xD;&#xA;        MAX(CAST(G.fPRD_No AS VARCHAR(20))) AS fprd_no,&#xD;&#xA;        MAX(CAST(G.tPRD_NO AS VARCHAR(20))) AS tPRD_NO&#xD;&#xA;    FROM GLBDG G&#xD;&#xA;    WHERE G.CHKTOT = '0'&#xD;&#xA;),&#xD;&#xA;&#xD;&#xA;-- 1. بنود الارتباط الفردية تحت كل حساب رئيسي (ربط مباشر على BDG_CTG)&#xD;&#xA;RevenueLinks AS (&#xD;&#xA;    SELECT &#xD;&#xA;        A.SEQ AS Seq,&#xD;&#xA;        ROW_NUMBER() OVER (PARTITION BY A.SEQ ORDER BY FL.Linq_Id) AS SubIdx,&#xD;&#xA;        FL.Description AS LinkText,&#xD;&#xA;        CAST(FL.RESERVED AS DECIMAL(18,2)) AS Commitment,          -- الارتباط&#xD;&#xA;        CAST(FL.ActualReserved AS DECIMAL(18,2)) AS Reserved  -- المحجوز الفعلي&#xD;&#xA;    FROM appcodes A&#xD;&#xA;    INNER JOIN Financial_Linq FL &#xD;&#xA;        ON FL.BDG_CTG = A.SEQ&#xD;&#xA;    WHERE A.ID = 63&#xD;&#xA;      AND A.SEQ IN (SELECT DISTINCT M.BDG_CTG FROM GLMF M WHERE M.ACC_NO LIKE '40%' AND M.BDG_CTG IS NOT NULL)&#xD;&#xA;),&#xD;&#xA;ExpenseLinks AS (&#xD;&#xA;    SELECT &#xD;&#xA;        A.SEQ AS Seq,&#xD;&#xA;        ROW_NUMBER() OVER (PARTITION BY A.SEQ ORDER BY FL.Linq_Id) AS SubIdx,&#xD;&#xA;        FL.Description AS LinkText,&#xD;&#xA;        CAST(FL.RESERVED AS DECIMAL(18,2)) AS Commitment,&#xD;&#xA;        CAST(FL.ActualReserved AS DECIMAL(18,2)) AS Reserved&#xD;&#xA;    FROM appcodes A&#xD;&#xA;    INNER JOIN Financial_Linq FL &#xD;&#xA;        ON FL.BDG_CTG = A.SEQ&#xD;&#xA;    WHERE A.ID = 63&#xD;&#xA;      AND A.SEQ IN (SELECT DISTINCT M.BDG_CTG FROM GLMF M WHERE M.ACC_NO LIKE '30%' AND M.BDG_CTG IS NOT NULL)&#xD;&#xA;),&#xD;&#xA;&#xD;&#xA;-- 2. إجمالي الارتباط والمحجوز لكل حساب رئيسي (Seq)&#xD;&#xA;RevenueLinkTotals AS (&#xD;&#xA;    SELECT Seq, &#xD;&#xA;           SUM(ISNULL(Commitment, 0)) AS TotalCommitment, &#xD;&#xA;           SUM(ISNULL(Reserved, 0)) AS TotalReserved&#xD;&#xA;    FROM RevenueLinks&#xD;&#xA;    GROUP BY Seq&#xD;&#xA;),&#xD;&#xA;ExpenseLinkTotals AS (&#xD;&#xA;    SELECT Seq, &#xD;&#xA;           SUM(ISNULL(Commitment, 0)) AS TotalCommitment, &#xD;&#xA;           SUM(ISNULL(Reserved, 0)) AS TotalReserved&#xD;&#xA;    FROM ExpenseLinks&#xD;&#xA;    GROUP BY Seq&#xD;&#xA;),&#xD;&#xA;&#xD;&#xA;-- 3. تفاصيل الإيرادات (موازنة + فعلي + ارتباط ومحجوز) - ديناميكي من GLMF + appcodes&#xD;&#xA;RevenueDetails AS (&#xD;&#xA;    SELECT &#xD;&#xA;        A.SEQ AS Seq, &#xD;&#xA;        MAX(A.DSCR_AR) AS Text, &#xD;&#xA;        CAST(SUM(ISNULL(BdgCalc.BudgetAmt, 0)) AS DECIMAL(18,2)) AS Amount,&#xD;&#xA;        CAST(SUM(ISNULL(ActCalc.ActualAmt, 0)) * -1 AS DECIMAL(18,2)) AS ActualAmount,&#xD;&#xA;        MAX(ISNULL(RLT.TotalCommitment, 0)) AS Commitment,&#xD;&#xA;        MAX(ISNULL(RLT.TotalReserved, 0)) AS Reserved&#xD;&#xA;    FROM GLMF M&#xD;&#xA;    INNER JOIN appcodes A &#xD;&#xA;        ON A.SEQ = M.BDG_CTG &#xD;&#xA;       AND A.ID = 63&#xD;&#xA;    CROSS APPLY (&#xD;&#xA;        SELECT SUM(G.BDG) AS BudgetAmt FROM GLBDG G &#xD;&#xA;        WHERE G.ACC_NO = M.ACC_NO AND G.CHKTOT = '0'&#xD;&#xA;    ) BdgCalc&#xD;&#xA;    CROSS APPLY (&#xD;&#xA;        SELECT SUM(J.db_vl - J.cr_vl) AS ActualAmt FROM gljrnld J &#xD;&#xA;        WHERE J.ACC_NO = M.ACC_NO&#xD;&#xA;    ) ActCalc&#xD;&#xA;    LEFT JOIN RevenueLinkTotals RLT &#xD;&#xA;        ON RLT.Seq = A.SEQ&#xD;&#xA;    WHERE M.ACC_NO LIKE '40%'&#xD;&#xA;      AND M.BDG_CTG IS NOT NULL&#xD;&#xA;    GROUP BY A.SEQ&#xD;&#xA;),&#xD;&#xA;&#xD;&#xA;-- 4. تفاصيل المصروفات (موازنة + فعلي + ارتباط ومحجوز) - ديناميكي من GLMF + appcodes&#xD;&#xA;ExpenseDetails AS (&#xD;&#xA;    SELECT &#xD;&#xA;        A.SEQ AS Seq, &#xD;&#xA;        MAX(A.DSCR_AR) AS Text,&#xD;&#xA;        CAST(SUM(ISNULL(BdgCalc.BudgetAmt, 0)) AS DECIMAL(18,2)) AS Amount,&#xD;&#xA;        CAST(SUM(ISNULL(ActCalc.ActualAmt, 0)) AS DECIMAL(18,2)) AS ActualAmount,&#xD;&#xA;        MAX(ISNULL(ELT.TotalCommitment, 0)) AS Commitment,&#xD;&#xA;        MAX(ISNULL(ELT.TotalReserved, 0)) AS Reserved&#xD;&#xA;    FROM GLMF M&#xD;&#xA;    INNER JOIN appcodes A &#xD;&#xA;        ON A.SEQ = M.BDG_CTG &#xD;&#xA;       AND A.ID = 63&#xD;&#xA;    CROSS APPLY (&#xD;&#xA;        SELECT SUM(G.BDG) AS BudgetAmt FROM GLBDG G &#xD;&#xA;        WHERE G.ACC_NO = M.ACC_NO AND G.CHKTOT = '0'&#xD;&#xA;    ) BdgCalc&#xD;&#xA;    CROSS APPLY (&#xD;&#xA;        SELECT SUM(J.db_vl - J.cr_vl) AS ActualAmt FROM gljrnld J &#xD;&#xA;        WHERE J.ACC_NO = M.ACC_NO&#xD;&#xA;    ) ActCalc&#xD;&#xA;    LEFT JOIN ExpenseLinkTotals ELT &#xD;&#xA;        ON ELT.Seq = A.SEQ&#xD;&#xA;    WHERE M.ACC_NO LIKE '30%'&#xD;&#xA;      AND M.BDG_CTG IS NOT NULL&#xD;&#xA;    GROUP BY A.SEQ&#xD;&#xA;),&#xD;&#xA;&#xD;&#xA;-- 5. التجميع النهائي&#xD;&#xA;CombinedReport AS (&#xD;&#xA;    -- أولاً: الإيرادات&#xD;&#xA;    SELECT NULL AS SerialNo, 'أولاً: الإيرادات' AS StatementText, &#xD;&#xA;           CAST(0 AS DECIMAL(18,2)) AS Amount, CAST(0 AS DECIMAL(18,2)) AS ActualAmount,&#xD;&#xA;           CAST(0 AS DECIMAL(18,2)) AS Commitment, CAST(0 AS DECIMAL(18,2)) AS Reserved,&#xD;&#xA;           CAST(0 AS DECIMAL(18,2)) AS Increase, CAST(0 AS DECIMAL(18,2)) AS Deficit,&#xD;&#xA;           CAST(0 AS DECIMAL(9,4)) AS ExecPct,&#xD;&#xA;           1000 AS SortOrder, 'SectionTitle' AS SectionType&#xD;&#xA;&#xD;&#xA;    -- الحساب الرئيسي (موازنة + فعلي + ارتباط + محجوز + زيادة/عجز/نسبة)&#xD;&#xA;    UNION ALL&#xD;&#xA;    SELECT &#xD;&#xA;        Seq, Text, Amount, ActualAmount, Commitment, Reserved,&#xD;&#xA;        CASE WHEN ActualAmount &lt; Amount THEN Amount - ActualAmount ELSE 0 END,&#xD;&#xA;        CASE WHEN ActualAmount &gt; Amount THEN ActualAmount - Amount ELSE 0 END,&#xD;&#xA;        CASE WHEN ISNULL(Amount, 0) = 0 THEN CAST(0 AS DECIMAL(18,4)) ELSE CAST(ActualAmount AS DECIMAL(18,4)) / Amount END,&#xD;&#xA;        1000 + Seq * 100, 'Detail'&#xD;&#xA;    FROM RevenueDetails&#xD;&#xA;&#xD;&#xA;    -- بنود الارتباط تحت كل حساب رئيسي&#xD;&#xA;    UNION ALL&#xD;&#xA;    SELECT &#xD;&#xA;        NULL, LinkText, CAST(0 AS DECIMAL(18,2)), CAST(0 AS DECIMAL(18,2)), &#xD;&#xA;        ISNULL(Commitment,0), ISNULL(Reserved,0),&#xD;&#xA;        CAST(0 AS DECIMAL(18,2)), CAST(0 AS DECIMAL(18,2)), CAST(0 AS DECIMAL(9,4)),&#xD;&#xA;        1000 + Seq * 100 + SubIdx, 'CommitmentItem'&#xD;&#xA;    FROM RevenueLinks&#xD;&#xA;&#xD;&#xA;    -- إجمالي الإيرادات (موازنة)&#xD;&#xA;    UNION ALL&#xD;&#xA;    SELECT NULL, 'إجمالي الإيرادات (موازنة)', SUM(Amount), SUM(ActualAmount), SUM(Commitment), SUM(Reserved),&#xD;&#xA;        CASE WHEN SUM(ActualAmount) &lt; SUM(Amount) THEN SUM(Amount) - SUM(ActualAmount) ELSE 0 END,&#xD;&#xA;        CASE WHEN SUM(ActualAmount) &gt; SUM(Amount) THEN SUM(ActualAmount) - SUM(Amount) ELSE 0 END,&#xD;&#xA;        CASE WHEN SUM(Amount) = 0 THEN CAST(0 AS DECIMAL(18,4)) ELSE CAST(SUM(ActualAmount) AS DECIMAL(18,4)) / SUM(Amount) END,&#xD;&#xA;        2999, 'BudgetTotal'&#xD;&#xA;    FROM RevenueDetails&#xD;&#xA;&#xD;&#xA;    -- ثانياً: المصروفات&#xD;&#xA;    UNION ALL&#xD;&#xA;    SELECT NULL, 'ثانياً: المصروفات', 0, 0, 0, 0, 0, 0, 0, 3000, 'SectionTitle'&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;    SELECT &#xD;&#xA;        Seq, Text, Amount, ActualAmount, Commitment, Reserved,&#xD;&#xA;        CASE WHEN ActualAmount &lt; Amount THEN Amount - ActualAmount ELSE 0 END,&#xD;&#xA;        CASE WHEN ActualAmount &gt; Amount THEN ActualAmount - Amount ELSE 0 END,&#xD;&#xA;        CASE WHEN ISNULL(Amount, 0) = 0 THEN CAST(0 AS DECIMAL(18,4)) ELSE CAST(ActualAmount AS DECIMAL(18,4)) / Amount END,&#xD;&#xA;        3000 + Seq * 100, 'Detail'&#xD;&#xA;    FROM ExpenseDetails&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;    SELECT &#xD;&#xA;        NULL, LinkText, CAST(0 AS DECIMAL(18,2)), CAST(0 AS DECIMAL(18,2)), &#xD;&#xA;        ISNULL(Commitment,0), ISNULL(Reserved,0),&#xD;&#xA;        CAST(0 AS DECIMAL(18,2)), CAST(0 AS DECIMAL(18,2)), CAST(0 AS DECIMAL(9,4)),&#xD;&#xA;        3000 + Seq * 100 + SubIdx, 'CommitmentItem'&#xD;&#xA;    FROM ExpenseLinks&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;    SELECT NULL, 'إجمالي المصروفات (موازنة)', SUM(Amount), SUM(ActualAmount), SUM(Commitment), SUM(Reserved),&#xD;&#xA;        CASE WHEN SUM(ActualAmount) &lt; SUM(Amount) THEN SUM(Amount) - SUM(ActualAmount) ELSE 0 END,&#xD;&#xA;        CASE WHEN SUM(ActualAmount) &gt; SUM(Amount) THEN SUM(ActualAmount) - SUM(Amount) ELSE 0 END,&#xD;&#xA;        CASE WHEN SUM(Amount) = 0 THEN CAST(0 AS DECIMAL(18,4)) ELSE CAST(SUM(ActualAmount) AS DECIMAL(18,4)) / SUM(Amount) END,&#xD;&#xA;        5999, 'BudgetTotal'&#xD;&#xA;    FROM ExpenseDetails&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;-- النهائي&#xD;&#xA;SELECT &#xD;&#xA;    CR.SerialNo, &#xD;&#xA;    CR.StatementText, &#xD;&#xA;    CR.Amount,&#xD;&#xA;    CR.ActualAmount,&#xD;&#xA;    CR.Commitment,&#xD;&#xA;    CR.Reserved,&#xD;&#xA;    CR.Increase,&#xD;&#xA;    CR.Deficit,&#xD;&#xA;    CR.ExecPct,&#xD;&#xA;    CR.SectionType,&#xD;&#xA;    RP.fprd_no,&#xD;&#xA;    RP.tPRD_NO,&#xD;&#xA;    CR.SortOrder,&#xD;&#xA;    CASE &#xD;&#xA;        WHEN CR.SortOrder BETWEEN 1000 AND 2999 THEN 1&#xD;&#xA;        WHEN CR.SortOrder BETWEEN 3000 AND 5999 THEN 2&#xD;&#xA;        ELSE 0 &#xD;&#xA;    END AS ReportSection&#xD;&#xA;FROM CombinedReport CR&#xD;&#xA;CROSS JOIN ReportPeriod RP&#xD;&#xA;ORDER BY CR.SortOrder;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="5.763cm" Name="pageHeaderSection1">
+      <Style>
+        <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Default="0.5pt" Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <PictureBox Value="= Parameters.Logo.Value" Width="29mm" Height="17mm" Left="2mm" Top="2mm" Sizing="Stretch" MimeType="" Name="pictureBox1" />
+        <TextBox Width="7.4cm" Height="1.7cm" Left="10.7cm" Top="0.2cm" Value="صندوق تكريم شهداء و ضحايا و مفقودي  ومصابي العمليات الحربيه و الارهابيه و الامنيه و أسرهم" Name="textBox30">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="0.537cm" Left="7.4cm" Top="0.826cm" Value="من تاريخ" Name="textBox150">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <Bindings>
+            <Binding Path="Visible" Expression="= IIf(Len(Parameters.FromAnnualPrd.Value) &gt; 0, True, False)" />
+          </Bindings>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="0.537cm" Left="6.4cm" Top="1.363cm" Value="الي تاريخ" Name="textBox149">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <Bindings>
+            <Binding Path="Visible" Expression="= IIf(Len(Parameters.FromAnnualPrd.Value) &gt; 0, True, False)" />
+          </Bindings>
+        </TextBox>
+        <TextBox Width="3.272cm" Height="0.537cm" Left="3.128cm" Top="1.363cm" Value="=Fields.tprd_no.ToString().Substring(0, 4) + &quot;/&quot; + Fields.tprd_no.ToString().Substring(4, 2)" Format="{0:d}" Name="textBox148">
+          <Style Color="0, 32, 96" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <Bindings>
+            <Binding Path="Visible" Expression="= IIf(Len(Parameters.FromAnnualPrd.Value) &gt; 0, True, False)" />
+          </Bindings>
+        </TextBox>
+        <TextBox Width="3.935cm" Height="0.537cm" Left="3.137cm" Top="0.826cm" Value="=Fields.fprd_no.ToString().Substring(0, 4) + &quot;/&quot; + Fields.fprd_no.ToString().Substring(4, 2)" Format="{0:d}" Name="textBox1">
+          <Style Color="0, 32, 96" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <Bindings>
+            <Binding Path="Visible" Expression="= IIf(Len(Parameters.FromAnnualPrd.Value) &gt; 0, True, False)" />
+          </Bindings>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="0.537cm" Left="11.942cm" Top="3.1cm" Value="= Parameters.FromPrd.Value" Format="{0:d}" Name="textBox2">
+          <Style Color="0, 32, 96" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="0.549cm" Left="6.042cm" Top="3.1cm" Value="= Parameters.ToPrd.Value" Format="{0:d}" Name="textBox18">
+          <Style Color="0, 32, 96" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.358cm" Height="0.537cm" Left="14.242cm" Top="3.1cm" Value="عن الفتره من" Name="textBox3">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.716cm" Height="0.537cm" Left="8.342cm" Top="3.1cm" Value="الى" Name="textBox8">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.9cm" Height="0.9cm" Left="6.042cm" Top="2.2cm" Value="نسبة التنفيذ من الموازنة (الارتباطات)" Name="textBox4">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="1.061cm" Left="0.2cm" Top="4cm" Value="نسبة التنفيذ" Name="textBoxHdrPct">
+          <Style BackgroundColor="250, 192, 144" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="1.061cm" Left="1.8cm" Top="4cm" Value="عجز" Name="textBoxHdrDeficit">
+          <Style BackgroundColor="250, 192, 144" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="1.061cm" Left="3.8cm" Top="4cm" Value="زيادة" Name="textBoxHdrIncrease">
+          <Style BackgroundColor="250, 192, 144" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="1.061cm" Left="5.8cm" Top="4cm" Value="المحجوز الفعلي" Name="textBoxHdrReserved">
+          <Style BackgroundColor="250, 192, 144" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="1.061cm" Left="7.8cm" Top="4cm" Value="الارتباط" Name="textBoxHdrCommitment">
+          <Style BackgroundColor="250, 192, 144" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.4cm" Height="1.061cm" Left="9.8cm" Top="4cm" Value="المنصرف الفعلي" Name="textBoxHdrActual">
+          <Style BackgroundColor="250, 192, 144" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.4cm" Height="1.061cm" Left="12.2cm" Top="4cm" Value="القيمة (جم)" Name="textBox7">
+          <Style BackgroundColor="250, 192, 144" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.4cm" Height="1.061cm" Left="14.6cm" Top="4cm" Value="البيـــــــــــــــــــان" Name="textBox9">
+          <Style BackgroundColor="250, 192, 144" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.8cm" Height="1.061cm" Left="20cm" Top="4cm" Value="م" Name="textBox5">
+          <Style BackgroundColor="250, 192, 144" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="0.7cm" Name="detailSection1">
+      <Items>
+        <TextBox Width="1.6cm" Height="0.7cm" Left="0.2cm" Top="0cm" Value="=Fields.ExecPct" Format="{0:P1}" Name="textBoxPct">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="6pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="0.5pt" Bottom="0.5pt" Left="1pt" Right="1pt" />
+          </Style>
+          <ConditionalFormatting>
+            <FormattingRule>
+              <Style BackgroundColor="Aqua" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي الإيرادات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="226, 198, 255" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي المصروفات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241">
+                <Font Bold="True" />
+              </Style>
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="In" Value="SectionTitle|BudgetTotal" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="255, 242, 204" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;COMMITMENTITEM&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;DETAIL&quot;" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.7cm" Left="1.8cm" Top="0cm" Value="=Fields.Deficit" Format="{0:N2}" Name="textBoxDeficit">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="6pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="0.5pt" Bottom="0.5pt" Left="1pt" Right="1pt" />
+          </Style>
+          <ConditionalFormatting>
+            <FormattingRule>
+              <Style BackgroundColor="Aqua" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي الإيرادات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="226, 198, 255" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي المصروفات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241">
+                <Font Bold="True" />
+              </Style>
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="In" Value="SectionTitle|BudgetTotal" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="255, 242, 204" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;COMMITMENTITEM&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;DETAIL&quot;" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.7cm" Left="3.8cm" Top="0cm" Value="=Fields.Increase" Format="{0:N2}" Name="textBoxIncrease">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="6pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="0.5pt" Bottom="0.5pt" Left="1pt" Right="1pt" />
+          </Style>
+          <ConditionalFormatting>
+            <FormattingRule>
+              <Style BackgroundColor="Aqua" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي الإيرادات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="226, 198, 255" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي المصروفات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241">
+                <Font Bold="True" />
+              </Style>
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="In" Value="SectionTitle|BudgetTotal" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="255, 242, 204" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;COMMITMENTITEM&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;DETAIL&quot;" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.7cm" Left="5.8cm" Top="0cm" Value="=Fields.Reserved" Format="{0:N2}" Name="textBoxReserved">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="6pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="0.5pt" Bottom="0.5pt" Left="1pt" Right="1pt" />
+          </Style>
+          <ConditionalFormatting>
+            <FormattingRule>
+              <Style BackgroundColor="Aqua" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي الإيرادات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="226, 198, 255" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي المصروفات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241">
+                <Font Bold="True" />
+              </Style>
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="In" Value="SectionTitle|BudgetTotal" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="255, 242, 204" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;COMMITMENTITEM&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;DETAIL&quot;" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+        </TextBox>
+        <TextBox Width="2cm" Height="0.7cm" Left="7.8cm" Top="0cm" Value="=Fields.Commitment" Format="{0:N2}" Name="textBoxCommitment">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="6pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="0.5pt" Bottom="0.5pt" Left="1pt" Right="1pt" />
+          </Style>
+          <ConditionalFormatting>
+            <FormattingRule>
+              <Style BackgroundColor="Aqua" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي الإيرادات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="226, 198, 255" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي المصروفات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241">
+                <Font Bold="True" />
+              </Style>
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="In" Value="SectionTitle|BudgetTotal" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="255, 242, 204" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;COMMITMENTITEM&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;DETAIL&quot;" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+        </TextBox>
+        <TextBox Width="2.4cm" Height="0.7cm" Left="9.8cm" Top="0cm" Value="=Fields.ActualAmount" Format="{0:N2}" Name="textBoxActual">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="6pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="0.5pt" Bottom="0.5pt" Left="1pt" Right="1pt" />
+          </Style>
+          <ConditionalFormatting>
+            <FormattingRule>
+              <Style BackgroundColor="Aqua" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي الإيرادات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="226, 198, 255" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي المصروفات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241">
+                <Font Bold="True" />
+              </Style>
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="In" Value="SectionTitle|BudgetTotal" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="255, 242, 204" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;COMMITMENTITEM&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;DETAIL&quot;" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+        </TextBox>
+        <TextBox Width="2.4cm" Height="0.7cm" Left="12.2cm" Top="0cm" Value="=Fields.Amount" Format="{0:N2}" Name="textBox10">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="6pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="0.5pt" Bottom="0.5pt" Left="1pt" Right="1pt" />
+          </Style>
+          <ConditionalFormatting>
+            <FormattingRule>
+              <Style BackgroundColor="Aqua" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي الإيرادات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="226, 198, 255" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي المصروفات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241">
+                <Font Bold="True" />
+              </Style>
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="In" Value="SectionTitle|BudgetTotal" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="255, 242, 204" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;COMMITMENTITEM&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;DETAIL&quot;" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+        </TextBox>
+        <TextBox Width="5.4cm" Height="0.7cm" Left="14.6cm" Top="0cm" Value="=Fields.StatementText" Name="textBox6">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="0.5pt" Bottom="0.5pt" Left="1pt" Right="1pt" />
+          </Style>
+          <ConditionalFormatting>
+            <FormattingRule>
+              <Style BackgroundColor="Aqua" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي الإيرادات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="226, 198, 255" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي المصروفات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241">
+                <Font Bold="True" />
+              </Style>
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="In" Value="SectionTitle|BudgetTotal" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="255, 242, 204" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;COMMITMENTITEM&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;DETAIL&quot;" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+        </TextBox>
+        <TextBox Width="0.8cm" Height="0.7cm" Left="20cm" Top="0cm" Value="=Fields.SerialNo" Name="textBox11">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="0.5pt" Bottom="0.5pt" Left="1pt" Right="1pt" />
+          </Style>
+          <ConditionalFormatting>
+            <FormattingRule>
+              <Style BackgroundColor="Aqua" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي الإيرادات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="226, 198, 255" />
+              <Filters>
+                <Filter Expression="= Fields.StatementText" Operator="Equal" Value="=&quot;إجمالي المصروفات (موازنة)&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241">
+                <Font Bold="True" />
+              </Style>
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="In" Value="SectionTitle|BudgetTotal" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="255, 242, 204" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;COMMITMENTITEM&quot;" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style BackgroundColor="220, 230, 241" />
+              <Filters>
+                <Filter Expression="= Fields.SectionType" Operator="Equal" Value="=&quot;DETAIL&quot;" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="4.675cm" Name="pageFooterSection1">
+      <Items>
+        <TextBox Width="34mm" Height="6mm" Left="60.42mm" Top="30.92mm" Value="= 'صفحة'" Culture="ar-EG" Name="textBox67">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4cm" Height="0.6cm" Left="11.742cm" Top="3.692cm" Value="= &quot;المستخدم : &quot;+Cstr(UserIdentity.Name)" Name="textBox62">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4cm" Height="0.6cm" Left="11.742cm" Top="3.092cm" Value="طبع بواسطة" Name="textBox63">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14mm" Height="6mm" Left="80.42mm" Top="36.92mm" Value="= PageNumber" CanGrow="False" Culture="ar-EG" Name="textBox66">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6mm" Height="6mm" Left="74.42mm" Top="36.92mm" Value="= 'من'" Culture="ar-EG" Name="textBox65">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14mm" Height="6mm" Left="60.42mm" Top="36.92mm" Value="= PageCount" CanGrow="False" Culture="ar-EG" Name="textBox64">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6cm" Height="1.1cm" Left="0.558cm" Top="0.383cm" Value="رئيس الادارة المركزية للاستثمار و ادارة موارد الصندوق " Name="textBox13">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4cm" Height="0.6cm" Left="14.958cm" Top="0.383cm" Value="المدير التنفيذي" Name="textBox12">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+    <ReportFooterSection Height="0.132cm" Name="reportFooterSection1" />
+  </Items>
+  <PageSettings PaperKind="Custom" PaperSize="210mm, 297mm" Landscape="False" ContinuousPaper="True">
+    <Margins>
+      <MarginsU Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Groups>
+    <Group Name="groupReportSection">
+      <GroupHeader>
+        <GroupHeaderSection PageBreak="Before" Height="0cm" Name="groupHeaderSectionRS" />
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.132cm" Name="groupFooterSectionRS" />
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.ReportSection" />
+      </Groupings>
+    </Group>
+  </Groups>
+  <ReportParameters>
+    <ReportParameter Name="FromDate" AllowNull="True" />
+    <ReportParameter Name="ToDate" AllowNull="True" />
+    <ReportParameter Name="Logo" AllowNull="True" />
+    <ReportParameter Name="filter_TR_DT" AllowNull="True" />
+    <ReportParameter Name="filter_TO_TR_DT" AllowNull="True" />
+    <ReportParameter Name="ToAnnualPrd" AllowNull="True" />
+    <ReportParameter Name="FromAnnualPrd" AllowNull="True" />
+    <ReportParameter Name="fprd_no" AllowNull="True" />
+    <ReportParameter Name="FromPrd" AllowNull="True" />
+    <ReportParameter Name="ToPrd" AllowNull="True" />
+    <ReportParameter Name="PeriodFrom" AllowNull="True" />
+    <ReportParameter Name="PeriodTo" AllowNull="True" />
+  </ReportParameters>
+</Report>

@@ -1,0 +1,10 @@
+# Third-party vendored static assets (Kendo / DevExpress / FontAwesome / images).
+# They are compiled library bundles, not project knowledge: excluding them keeps the
+# graph signal on the ERP's own docs, configs, scripts, tests and Telerik reports.
+wwwroot/_content/
+
+# Machine-readable mirror of refs/reports/catalog-*.md (1.1 MB of JSON).
+# The catalog shards carry the same content in graph form; indexing the JSON too
+# would only add thousands of property nodes.
+refs/reports/index.json
+

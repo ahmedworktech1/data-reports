@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>خريطة ذهنية — قاعدة بيانات azx_sandoaa_ahmed (tr_ty 100 و 120 و 251)</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --panel: #1e293b;
+    --card: #273449;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --green: #22c55e;
+    --blue: #3b82f6;
+    --amber: #f59e0b;
+    --red: #ef4444;
+    --radius: 14px;
+    --gap: 14px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 24px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 6px; }
+  .sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 20px; }
+  .tag {
+    display: inline-block;
+    background: var(--panel);
+    border: 1px solid #334155;
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-left: 8px;
+    margin-top: 6px;
+  }
+
+  /* ماهر: عقدة رئيسية */
+  .container { max-width: 1100px; margin: 0 auto; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
+  @media (max-width: 820px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  .panel {
+    background: var(--panel);
+    border-radius: var(--radius);
+    padding: 20px;
+    border: 1px solid #334155;
+  }
+  .panel h2 {
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+  .panel p { line-height: 1.7; margin-bottom: 10px; color: var(--muted); }
+  .panel .key {
+    display: inline-block;
+    background: var(--blue);
+    border-radius: 8px;
+    padding: 2px 10px;
+    font-size: 0.85rem;
+    color: #fff;
+    font-weight: 600;
+  }
+  .panel .green { background: #166534; border: 1px solid #22c55e; }
+  .panel .amber { background: #92400e; border: 1px solid #f59e0b; }
+  .panel .red { background: #7f1d1d; border: 1px solid #ef4444; }
+
+  /* مسار البيانات */
+  .flow {
+    position: relative;
+    padding: 18px 0 6px 0;
+  }
+  .flow::before {
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: 20%;
+    right: 20%;
+    height: 3px;
+    background: linear-gradient(90deg, #334155, var(--green), #334155);
+    border-radius: 3px;
+  }
+  .node {
+    display: inline-block;
+    background: var(--card);
+    border: 2px solid #334155;
+    border-radius: 10px;
+    padding: 12px 18px;
+    text-align: center;
+    position: relative;
+    min-width: 130px;
+    transition: transform 0.15s;
+  }
+  .node:hover { transform: translateY(-3px); }
+  .node .nm { font-weight: 700; font-size: 1rem; }
+  .node .tbl { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+  .node.green { border-color: var(--green); }
+  .node.amber { border-color: var(--amber); }
+  .node.red { border-color: var(--red); }
+  .node.blue { border-color: var(--blue); }
+  .node .arrow {
+    position: absolute;
+    top: 50%; right: -32px;
+    color: var(--muted);
+    font-size: 1.2rem;
+  }
+
+  /* الأعلى/أسفل */
+  .col { display: flex; flex-direction: column; gap: var(--gap); }
+  .col + .col { margin-top: var(--gap); }
+
+  .steps { list-style: none; }
+  .steps li {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 12px 16px;
+    border-left: 4px solid var(--amber);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .steps li .n {
+    background: var(--amber);
+    color: #fff;
+    border-radius: 50%;
+    width: 24px; height: 24px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+
+  .code {
+    background: #0b1120;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-family: 'Cascadia Code', 'Fira Code', monospace;
+    font-size: 0.82rem;
+    overflow-x: auto;
+    line-height: 1.6;
+    color: #a5f3fc;
+    border: 1px solid #1e293b;
+  }
+  .code .k { color: #f472b6; }
+  .code .t { color: #facc15; }
+  .code .o { color: #38bdf8; }
+  .code .m { color: #a78bfa; }
+
+  .table-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .table-card {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid #334155;
+  }
+  .table-card .nm { font-weight: 700; }
+  .table-card .cols { font-size: 0.8rem; color: var(--muted); }
+
+  footer {
+    margin-top: 28px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>🌐 خريطة عقلية — كيف تعمل قاعدة بيانات <code style="color:#38bdf8">azx_sandoaa_ahmed</code></h1>
+  <p class="sub">شرح مبسّط بدوّن <span class="tag">tr_ty 100</span> <span class="tag">tr_ty 120</span> <span class="tag">tr_ty 251</span></p>
+
+  <div class="grid-2">
+    <!-- الشمال: تدفقات -->
+    <div class="panel">
+      <h2>دوران الحركة والبيانات</h2>
+      <p style="color:#cbd5e1">كل حركة تخزن في <strong>رأس</strong> و<strong>تفاصيل</strong>، ويفصل بينها <span class="key">tr_ty</span>.</p>
+      <div class="flow">
+        <div class="node blue"><div class="nm">AZTRH</div><div class="tbl">رأس الحركة (509)</div><div class="arrow">▼</div></div>
+        <div class="node green"><div class="nm">AZTRD</div><div class="tbl">تفاصيل الحركة (412)</div><div class="arrow">▼</div></div>
+        <div class="node blue"><div class="nm">AZTRTY</div><div class="tbl">وصف النوع (47)</div>
+      </div>
+      <p style="margin-top:12px">المفتاح المركب <strong>LOC + TR_TY + TR_NO</strong> يوصّل بين الرأس والتفاصيل.</p>
+
+      <h2>المستخدِمون (المصادر)</h2>
+      <div class="col" style="margin-top:14px">
+        <div class="table-card"><div class="nm">AZITMS</div><div class="cols">الصنف بذكر أسماء الصنوع ووصف الحركة</div></div>
+        <div class="table-card"><div class="nm">AZLOCS</div><div class="cols">المخازن والفرع (LOC)</div></div>
+        <div class="table-card"><div class="nm">AZUSRJBSD</div><div class="cols">قابلية تعديل الكمية (101-110)</div></div>
+        <div class="table-card"><div class="nm">AZACCMF</div><div class="cols">دليل الحسابات (Stpd='1')</div></div>
+        <div class="table-card"><div class="nm">DLVRLOC</div><div class="cols">مكان التسليم</div></div>
+        <div class="table-card"><div class="nm">Workflow</div><div class="cols">RequestInstanceLogs, Transitions, States, BrcaUsers</div></div>
+      </div>
+    </div>
+
+    <!-- الجنوب: خلاصة سريعة -->
+    <div class="panel">
+      <h2>الخلاصة السريعة</h2>
+      <ul class="steps">
+        <li>
+          <div class="n">1</div>
+          <div><strong>tr_ty = 100</strong> — طلب احتياج / مشتريات مبكرة<br>
+          <span style="color:#cbd5e1">يعرض: الصنف، الكمية، السعر، المخزن، التاريخت، الحساب، اسم الحركة.</span></div>
+        </li>
+        <li>
+          <div class="n">2</div>
+          <div><strong>tr_ty = 120</strong> — عمليات الموردين<br>
+          <span style="color:#cbd5e1">يعرض: العميل، المستند المالي، التاريخ، المبلغ، الصنف، الكمية، السعر، مكان التسليم.</span></div>
+        </li>
+        <li>
+          <div class="n">3</div>
+          <div><strong>tr_ty = 251</strong> — إدارة / طلب<br>
+          <span style="color:#cbd5e1">يعرض: سجلات الانتقال، الحالة (من وحيد)، الأحداث (Trigger)، المستخدم.</span></div>
+        </li>
+      </ul>
+
+      <h2>أين الملفات؟</h2>
+      <div class="table-grid" style="margin-top:10px">
+        <div class="table-card"><div class="nm">AZTRH / AZTRD</div><div class="cols">رأس / تفاصيل الحركة</div></div>
+        <div class="table-card"><div class="nm">AZTRTY</div><div class="cols">وصف أنواع الحركة</div></div>
+        <div class="table-card"><div class="nm">AZUSRJBSD</div><div class="cols">قابلية التعديل</div></div>
+        <div class="table-card"><div class="nm">AZACCMF</div><div class="cols">الحسابات</div></div>
+        <div class="table-card"><div class="nm">*.trdx</div><div class="cols">التقارير في Reports/Az/</div></div>
+        <div class="table-card"><div class="nm">_ahmed_db.mjs</div><div class="cols">أداة القراءة</div></div>
+      </div>
+
+      <p style="margin-top:14px; font-size:0.82rem; color:#94a3b8;">ملاحظة: الملفات تحتوي على <strong>المخطط</strong> فقط وليس البيانات الفعلية، فلا يمكن تسمية القيم بدون الاتصال بالقاعدة مباشرة.</p>
+    </div>
+  </div>
+
+  <!-- قاعدة البيانات الشاملة -->
+  <div class="panel" style="margin-top:20px">
+    <h2>🔍 العلاقات بين الجداول (الشبكة الكاملة)</h2>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:12px">
+      <div style="background:#16324f; border:1px solid #274b6d; border-radius:10px; padding:12px">
+        <div style="font-weight:700">AZTRH</div>
+        <div style="font-size:0.8rem;color:#94a3b8">LOC, TR_TY, TR_NO, TR_DT, Acc_No, ...</div>
+      </div>
+      <div style="background:#16324f; border:1px solid #274b6d; border-radius:10px; padding:12px">
+        <div style="font-weight:700">AZTRD</div>
+        <div style="font-size:0.8rem;color:#94a3b8">LOC, TR_TY, TR_NO, LN_NO, ITM_CD, QTY, PKPRC, ...</div>
+      </div>
+      <div style="background:#16324f; border:1px solid #274b6d; border-radius:10px; padding:12px">
+        <div style="font-weight:700">AZITMS</div>
+        <div style="font-size:0.8rem;color:#94a3b8">ITM_CD → الصنف والاحتياج</div>
+      </div>
+      <div style="background:#16324f; border:1px solid #274b6d; border-radius:10px; padding:12px">
+        <div style="font-weight:700">AZLOCS</div>
+        <div style="font-size:0.8rem;color:#94a3b8">LOC → المخزن / الفرع</div>
+      </div>
+      <div style="background:#16324f; border:1px solid #274b6d; border-radius:10px; padding:12px">
+        <div style="font-weight:700">AZTRTY</div>
+        <div style="font-size:0.8rem;color:#94a3b8">TR_TY → وصف الحركة (ديسكريبشن)</div>
+      </div>
+      <div style="background:#16324f; border:1px solid #274b6d; border-radius:10px; padding:12px">
+        <div style="font-weight:700">AZACCMF</div>
+        <div style="font-size:0.8rem;color:#94a3b8">Stpd='1' → الحسابات المحدّدة</div>
+      </div>
+      <div style="background:#16324f; border:1px solid #274b6d; border-radius:10px; padding:12px">
+        <div style="font-weight:700">AZUSRJBSD</div>
+        <div style="font-size:0.8rem;color:#94a3b8">101–110 → قابلية التعديل (CAN_EDT_QTY)</div>
+      </div>
+      <div style="background:#16324f; border:1px solid #274b6d; border-radius:10px; padding:12px">
+        <div style="font-weight:700">Workflow</div>
+        <div style="font-size:0.8rem;color:#94a3b8">RequestInstanceLogs→Transitions→States→Triggers→BrcaUsers</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- مسار بيانات 120 -->
+  <div class="panel" style="margin-top:20px">
+    <h2>📊 مسار البيانات لـ <span class="key" style="background:#166534;border-color:#22c55e">tr_ty = 120</span> (عمليات الموردين)</h2>
+    <div class="flow" style="padding-top:24px">
+      <div class="node amber"><div class="nm">AZTRH</div><div class="tbl">الرأس (بدون التفاصيل المالية)</div><div class="arrow">▼</div></div>
+      <div class="node amber"><div class="nm">AZTRD</div><div class="tbl">التفاصيل (الكمية، السعر)</div><div class="arrow">▼</div></div>
+      <div class="node green"><div class="nm">AZACCMF</div><div class="tbl">Stpd='1'</div><div class="arrow">▼</div></div>
+      <div class="node green"><div class="nm">AZTRTY</div><div class="tbl">وصف العملية</div><div class="arrow">▼</div></div>
+      <div class="node blue"><div class="nm">DLVRLOC</div><div class="tbl">التسليم</div>
+    </div>
+    <p style="margin-top:12px">النتيجة: <strong style="color:#cbd5e1">"بيان بعمليات الموردين"</strong> يظهر لكل عملية المبلغ، العميل، المستند المالي، التاريخ، وخطوط الصنف.</p>
+  </div>
+
+  <!-- مكتبة الأوامر -->
+  <div class="panel" style="margin-top:20px">
+    <h2>🛠 أوامر القراءة السريعة (مدير الأوامر)</h2>
+    <div class="code"><span class="k">#</span> عدّ الحركات لكل نوع في رأس الحركة
+<span class="t">node scripts/_ahmed_db.mjs</span> <span class="s">"SELECT TR_TY, COUNT(*) FROM AZTRH GROUP BY TR_TY"</span>
+
+<span class="k">#</span> عدّ السطور لكل نوع
+<span class="t">node scripts/_ahmed_db.mjs</span> <span class="s">"SELECT TR_TY, COUNT(*) FROM AZTRD GROUP BY TR_TY"</span>
+
+<span class="k">#</span> حركات محددة
+<span class="t">node scripts/_ahmed_db.mjs</span> <span class="s">"SELECT TOP 20 TR_NO, TR_TY, TR_DT, Acc_No FROM AZTRH WHERE TR_TY IN (100,120) ORDER BY TR_TY, TR_DT"</span>
+</div>
+  </div>
+
+  <footer>
+    تمّ التحضير من مشروع <code>AGP.Arch.erpx.Web.Home.server</code> &bull; خريطة عقلية للمخزن <code style="color:#38bdf8">azx_sandoaa_ahmed</code> &bull; العربية · فصحى مبسّطة
+  </footer>
+</div>
+</body>
+</html>

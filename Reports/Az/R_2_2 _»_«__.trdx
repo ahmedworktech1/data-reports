@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="210mm" Name="userReport1" ShowDimensions="False" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="Data Source=DESKTOP-8H6N6Q7;Initial Catalog=GL_Althahab_2021;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM RPT_OUT ORDER BY LN_NO,SLN_NO&#xA;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="57.68mm" Name="PageHeaderSection1">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <Shape Width="22.23mm" Height="7.94mm" Left="13.23mm" Top="49.74mm" Stretch="True" Name="ppShape70">
+          <Style BackgroundColor="233, 233, 233" LineStyle="Solid" LineWidth="1pt" LineColor="Black" />
+          <ShapeType>
+            <PolygonShape VertexCount="4" Rounding="0" StartAngle="45" />
+          </ShapeType>
+        </Shape>
+        <Shape Width="68.53mm" Height="7.94mm" Left="34.93mm" Top="49.74mm" Stretch="True" Name="ppShape1">
+          <Style BackgroundColor="233, 233, 233" LineStyle="Solid" LineWidth="1pt" LineColor="Black" />
+          <ShapeType>
+            <PolygonShape VertexCount="4" Rounding="0" StartAngle="45" />
+          </ShapeType>
+        </Shape>
+        <Shape Width="41.54mm" Height="7.94mm" Left="141.82mm" Top="49.74mm" Stretch="True" Name="ppShape2">
+          <Style BackgroundColor="233, 233, 233" LineStyle="Solid" LineWidth="1pt" LineColor="Black" />
+          <ShapeType>
+            <PolygonShape VertexCount="4" Rounding="0" StartAngle="45" />
+          </ShapeType>
+        </Shape>
+        <TextBox Width="14.02mm" Height="3.44mm" Left="16.93mm" Top="51.36mm" Value="الدليل" Name="Label3">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.78mm" Height="3.44mm" Left="50.8mm" Top="51.36mm" Value="البيان" Name="Label4">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="28.58mm" Height="3.97mm" Left="149.23mm" Top="51.63mm" Value="كلي" Name="Label5">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <Shape Width="39.16mm" Height="7.94mm" Left="102.92mm" Top="49.74mm" Stretch="True" Name="ppShape3">
+          <Style BackgroundColor="233, 233, 233" LineStyle="Solid" LineWidth="1pt" LineColor="Black" />
+          <ShapeType>
+            <PolygonShape VertexCount="4" Rounding="0" StartAngle="45" />
+          </ShapeType>
+        </Shape>
+        <TextBox Width="22.75mm" Height="3.97mm" Left="110.33mm" Top="51.36mm" Value="جزئي" Name="Label1">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="50.42mm" Height="5.84mm" Left="93.66mm" Top="39.46mm" Value="قائمة الدخل من الفترة المالية   " Name="Label2">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Arial" Size="14pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="32.02mm" Height="5.03mm" Left="60.59mm" Top="39.46mm" Value="= Fields.COND1" Name="DBText1">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Top">
+            <Font Name="Arial" Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="22.75mm" Height="5mm" Left="30.16mm" Top="39.46mm" Value="= Fields.COND2" Name="DBText6">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Top">
+            <Font Name="Arial" Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.76mm" Height="5mm" Left="55.3mm" Top="39.46mm" Value="الى" Name="Label6">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Arial" Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="7.94mm" Name="DetailSection3">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <Shape Width="0.27mm" Height="7.94mm" Left="141.82mm" Top="0mm" Stretch="True" Name="ppShape4">
+          <Style BackgroundColor="White" LineStyle="Solid" LineWidth="1pt" LineColor="Black" />
+          <ShapeType>
+            <PolygonShape VertexCount="4" Rounding="0" StartAngle="45" />
+          </ShapeType>
+        </Shape>
+        <Shape Width="0.27mm" Height="7.94mm" Left="34.93mm" Top="0mm" Stretch="True" Name="ppShape14">
+          <Style BackgroundColor="White" LineStyle="Solid" LineWidth="1pt" LineColor="Black" />
+          <ShapeType>
+            <PolygonShape VertexCount="4" Rounding="0" StartAngle="45" />
+          </ShapeType>
+        </Shape>
+        <Shape Width="0.27mm" Height="7.94mm" Left="102.92mm" Top="0mm" Stretch="True" Name="ppShape15">
+          <Style BackgroundColor="White" LineStyle="Solid" LineWidth="1pt" LineColor="Black" />
+          <ShapeType>
+            <PolygonShape VertexCount="4" Rounding="0" StartAngle="45" />
+          </ShapeType>
+        </Shape>
+        <Shape Width="0.27mm" Height="7.94mm" Left="183.09mm" Top="0mm" Stretch="True" Name="ppShape16">
+          <Style BackgroundColor="White" LineStyle="Solid" LineWidth="1pt" LineColor="Black" />
+          <ShapeType>
+            <PolygonShape VertexCount="4" Rounding="0" StartAngle="45" />
+          </ShapeType>
+        </Shape>
+        <TextBox Width="64.56mm" Height="3.7mm" Left="36.78mm" Top="1.06mm" Value="= Fields.ACC_NM" Name="DBText2">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Top">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="39.69mm" Height="4.5mm" Left="142.35mm" Top="1.59mm" Value="= Fields.NETA1" Name="DBText3">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="36.25mm" Height="4.5mm" Left="103.45mm" Top="1.59mm" Value="= Fields.NETA2" Name="DBText4">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <Shape Width="0.27mm" Height="7.94mm" Left="13.23mm" Top="0mm" Stretch="True" Name="ppShape6">
+          <Style BackgroundColor="White" LineStyle="Solid" LineWidth="1pt" LineColor="Black" />
+          <ShapeType>
+            <PolygonShape VertexCount="4" Rounding="0" StartAngle="45" />
+          </ShapeType>
+        </Shape>
+        <TextBox Width="17.46mm" Height="4.5mm" Left="15.08mm" Top="1.59mm" Value="= Fields.ACC_NO" Name="DBText5">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Top">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="64.56mm" Height="3.44mm" Left="36.78mm" Top="4.5mm" Value="= Fields.DSCR1" Name="DBText7">
+          <Style Color="WindowText" TextAlign="Right" VerticalAlign="Top">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="13.76mm" Height="3.97mm" Left="185.74mm" Top="1.59mm" Value="= Fields.NETA1" Name="DBText11">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Top">
+            <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportFooterSection Height="32.81mm" Name="ReportFooterSection6">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="34.66mm" Height="5.82mm" Left="137.32mm" Top="16.14mm" Value="توقيع المدير المالى" Name="Label10">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Arial" Size="14pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="35.98mm" Height="5.82mm" Left="24.08mm" Top="16.14mm" Value="توقيع  المدير العام" Name="Label101">
+          <Style Color="Black" TextAlign="Center" VerticalAlign="Top">
+            <Font Name="Arial" Size="14pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="56.89mm" Height="5.29mm" Left="124.88mm" Top="25.14mm" Value="......................................................" Name="Label9">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Top">
+            <Font Name="Arial" Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="56.89mm" Height="5.29mm" Left="11.64mm" Top="27.52mm" Value="......................................................" Name="Label11">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Top">
+            <Font Name="Arial" Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ColumnCount="1" ColumnSpacing="0cm">
+    <Margins>
+      <MarginsU Left="20mm" Right="20mm" Top="20mm" Bottom="20mm" />
+    </Margins>
+  </PageSettings>
+  <Groups>
+    <Group Name="Group0">
+      <GroupHeader>
+        <GroupHeaderSection Height="0cm" Name="groupHeaderSection" />
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0cm" Name="GroupFooterSection" />
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.SUM_CD" />
+      </Groupings>
+    </Group>
+  </Groups>
+</Report>

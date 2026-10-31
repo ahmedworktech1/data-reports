@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="17cm" Name="purcahse_test_fat7mazryf" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="{&quot;@TrNoParam&quot;:&quot;1&quot;,&quot;@LocParam&quot;:&quot;50&quot;,&quot;@TrTyParam&quot;:&quot;115&quot;,&quot;@FNCLTRNO&quot;:&quot;2-مناقصه عامة-2026/2025&quot;}" ConnectionString="azxsandoaa" SelectCommand="SELECT DISTINCT&#xD;&#xA;    aztrh.vst_no,&#xD;&#xA;    aztrh.Rmrk7,&#xD;&#xA;    aztrh.PYMNT_MTHD,&#xD;&#xA;    PM.DSCR_AR AS PYMNT_MTHD_Name,&#xD;&#xA;    aztrh.acc_no,&#xD;&#xA;    aztrh.acc_nm&#xD;&#xA;FROM aztrh&#xD;&#xA;&#xD;&#xA;LEFT JOIN AppCodes PM &#xD;&#xA;    ON PM.ID = '11031' &#xD;&#xA;    AND PM.SEQ = aztrh.PYMNT_MTHD&#xD;&#xA;WHERE &#xD;&#xA;     AZTRH.loc = @LocParam&#xD;&#xA;    AND AZTRH.tr_ty =  @TrTyParam&#xD;&#xA;    AND AZTRH.FNCL_TR_NO = @FNCLTRNO" Name="sqlDataSource1">
+      <Parameters>
+      <SqlDataSourceParameter DbType="String" Name="@TrNoParam">
+          <Value>
+            <String>= Parameters.TrNoParam.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@LocParam">
+          <Value>
+            <String>= Parameters.LocParam.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="Int16" Name="@TrTyParam">
+          <Value>
+            <String>= Parameters.TrTyParam.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@FNCLTRNO">
+          <Value>
+            <String>= Parameters.FNCLTRNOparam.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="0.132cm" Name="pageHeaderSection10">
+      <Style Visible="False" />
+    </PageHeaderSection>
+    <DetailSection KeepTogether="False" Height="0.8cm" Name="detailSection1">
+      <Items>
+        <TextBox Width="1.8cm" Height="0.8cm" Left="11.6cm" Top="0cm" Value="= Fields.Vst_No" Name="textBox34">
+          <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.65cm" Height="0.8cm" Left="16.15cm" Top="0cm" Value="=RowNumber()" Name="textBox36">
+          <Style BackgroundColor="191, 191, 191" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.6cm" Height="0.8cm" Left="0.2cm" Top="0cm" Value="= Fields.Rmrk7" Name="textBox1">
+          <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.8cm" Left="9.8cm" Top="0cm" Value="= Fields.PYMNT_MTHD_Name" Name="textBox2">
+          <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.75cm" Height="0.8cm" Left="13.4cm" Top="0cm" Value="= Fields.acc_nm" Name="textBox3">
+          <Style BackgroundColor="166, 166, 166" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection PrintOnFirstPage="False" PrintOnLastPage="False" Height="0.132cm" Name="pageFooterSection1">
+      <Style Visible="False" />
+    </PageFooterSection>
+    <ReportHeaderSection KeepTogether="False" Height="1.2cm" Name="reportHeaderSection1">
+      <Items>
+        <TextBox Width="2.749cm" Height="1.2cm" Left="13.4cm" Top="0cm" Value="إسم مقدم العطاء" Name="textBox26">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="1.2cm" Left="11.6cm" Top="0cm" Value="التأمين&#xD;&#xA;المستحق" Name="textBox28">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.65cm" Height="1.2cm" Left="16.149cm" Top="0cm" Value="م" Name="textBox25">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="1.2cm" Left="9.8cm" Top="0cm" Value="نوع  الدفع" Name="textBox47">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.6cm" Height="1.2cm" Left="0.2cm" Top="0cm" Value="المخالفات التى وردت بالعطاء" Name="textBox33">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" Underline="False" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportHeaderSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="LocParam" AllowNull="True" />
+    <ReportParameter Name="TrNoParam" AllowNull="True" />
+    <ReportParameter Name="TrTyParam" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="FNCLTRNOparam" AllowNull="True" />
+  </ReportParameters>
+</Report>

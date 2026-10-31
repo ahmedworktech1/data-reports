@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="16.894cm" Name="Z_FAMF" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="GLXAsset" SelectCommand="SELECT * FROM FAMF" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <ReportFooterSection Height="0.714cm" Name="reportFooter">
+      <Style Visible="True" />
+      <Items>
+        <TextBox Width="2.754cm" Height="0.6cm" Left="0.053cm" Top="0.053cm" Value="Grand total:" CanGrow="True" Name="textBox1" StyleName="Caption">
+          <Style TextAlign="Right" />
+        </TextBox>
+        <TextBox Width="2.754cm" Height="0.6cm" Left="2.86cm" Top="0.053cm" Value="= Count(Fields.FA_CD)" CanGrow="True" Name="fA_CDCountFunctionTextBox1" StyleName="Data" />
+        <TextBox Width="2.754cm" Height="0.6cm" Left="5.667cm" Top="0.053cm" Value="= Count(Fields.fa_DT)" CanGrow="True" Name="fa_DTCountFunctionTextBox1" StyleName="Data" />
+        <TextBox Width="2.754cm" Height="0.6cm" Left="8.474cm" Top="0.053cm" Value="= Count(Fields.FA_NM_AR)" CanGrow="True" Name="fA_NM_ARCountFunctionTextBox1" StyleName="Data" />
+        <TextBox Width="2.754cm" Height="0.6cm" Left="11.28cm" Top="0.053cm" Value="= Count(Fields.FA_NM_EN)" CanGrow="True" Name="fA_NM_ENCountFunctionTextBox1" StyleName="Data" />
+        <TextBox Width="2.754cm" Height="0.6cm" Left="14.087cm" Top="0.053cm" Value="= Sum(Fields.QTY)" CanGrow="True" Name="qTYSumFunctionTextBox1" StyleName="Data" />
+      </Items>
+    </ReportFooterSection>
+    <PageHeaderSection Height="0.714cm" Name="pageHeader">
+      <Items>
+        <TextBox Width="16.788cm" Height="0.6cm" Left="0.053cm" Top="0.053cm" Value="Z_FAMF" Name="reportNameTextBox" StyleName="PageInfo" />
+      </Items>
+    </PageHeaderSection>
+    <PageFooterSection Height="0.714cm" Name="pageFooter">
+      <Items>
+        <TextBox Width="8.368cm" Height="0.6cm" Left="0.053cm" Top="0.053cm" Value="=NOW()" Name="currentTimeTextBox" StyleName="PageInfo" />
+        <TextBox Width="8.368cm" Height="0.6cm" Left="8.474cm" Top="0.053cm" Value="=PageNumber" Name="pageInfoTextBox" StyleName="PageInfo">
+          <Style TextAlign="Right" />
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+    <ReportHeaderSection Height="2.706cm" Name="reportHeader">
+      <Items>
+        <TextBox Width="16.894cm" Height="2cm" Left="0cm" Top="0cm" Value="Z_FAMF" Name="titleTextBox" StyleName="Title" />
+        <TextBox Width="2.754cm" Height="0.6cm" Left="0.053cm" Top="2.053cm" Value="FA_CD:" CanGrow="True" Name="fA_CDCaptionTextBox1" StyleName="Caption">
+          <Style BackgroundColor="128, 128, 255" Color="Black" />
+        </TextBox>
+        <TextBox Width="2.754cm" Height="0.6cm" Left="2.86cm" Top="2.053cm" Value="= Fields.FA_CD" CanGrow="True" Name="fA_CDDataTextBox" StyleName="Data" />
+        <TextBox Width="2.754cm" Height="0.6cm" Left="5.667cm" Top="2.053cm" Value="FA_NM_AR:" CanGrow="True" Name="fA_NM_ARCaptionTextBox1" StyleName="Caption">
+          <Style BackgroundColor="128, 128, 255" Color="Black" />
+        </TextBox>
+        <TextBox Width="2.754cm" Height="0.6cm" Left="8.474cm" Top="2.053cm" Value="= Fields.FA_NM_AR" CanGrow="True" Name="fA_NM_ARDataTextBox" StyleName="Data" />
+        <TextBox Width="2.754cm" Height="0.6cm" Left="11.28cm" Top="2.053cm" Value="FA_NM_EN:" CanGrow="True" Name="fA_NM_ENCaptionTextBox1" StyleName="Caption">
+          <Style BackgroundColor="128, 128, 255" Color="Black" />
+        </TextBox>
+        <TextBox Width="2.754cm" Height="0.6cm" Left="14.087cm" Top="2.053cm" Value="= Fields.FA_NM_EN" CanGrow="True" Name="fA_NM_ENDataTextBox" StyleName="Data" />
+      </Items>
+    </ReportHeaderSection>
+    <DetailSection Height="0.714cm" Name="detail">
+      <Items>
+        <TextBox Width="2.754cm" Height="0.6cm" Left="2.86cm" Top="0.053cm" Value="= Fields.FA_CD" CanGrow="True" Name="fA_CDDataTextBox1" StyleName="Data" />
+        <TextBox Width="2.754cm" Height="0.6cm" Left="5.667cm" Top="0.053cm" Value="= Fields.fa_DT" CanGrow="True" Name="fa_DTDataTextBox" StyleName="Data" />
+        <TextBox Width="2.754cm" Height="0.6cm" Left="8.474cm" Top="0.053cm" Value="= Fields.FA_NM_AR" CanGrow="True" Name="fA_NM_ARDataTextBox1" StyleName="Data" />
+        <TextBox Width="2.754cm" Height="0.6cm" Left="11.28cm" Top="0.053cm" Value="= Fields.FA_NM_EN" CanGrow="True" Name="fA_NM_ENDataTextBox1" StyleName="Data" />
+        <TextBox Width="2.754cm" Height="0.6cm" Left="14.087cm" Top="0.053cm" Value="= Fields.QTY" CanGrow="True" Name="qTYDataTextBox" StyleName="Data" />
+      </Items>
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4">
+    <Margins>
+      <MarginsU Left="20mm" Right="20mm" Top="20mm" Bottom="20mm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style Color="105, 103, 109">
+        <Font Name="Book Antiqua" Size="18pt" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="ReportItemBase" StyleName="Title" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style BackgroundColor="105, 103, 109" Color="206, 185, 102" VerticalAlign="Middle">
+        <Font Name="Book Antiqua" Size="10pt" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="ReportItemBase" StyleName="Caption" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style VerticalAlign="Middle">
+        <Font Name="Book Antiqua" Size="9pt" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="ReportItemBase" StyleName="Data" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style Color="160, 160, 160" VerticalAlign="Middle">
+        <Font Name="Book Antiqua" Size="8pt" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="ReportItemBase" StyleName="PageInfo" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Groups>
+    <Group Name="labelsGroup">
+      <GroupHeader>
+        <GroupHeaderSection PrintOnEveryPage="True" Height="0.714cm" Name="labelsGroupHeaderSection">
+          <Items>
+            <TextBox Width="2.754cm" Height="0.6cm" Left="0.053cm" Top="0.053cm" Value="fa_DT Year" CanGrow="True" Name="fa_DT.YearCaptionTextBox" StyleName="Caption">
+              <Style BackgroundColor="128, 128, 255" Color="Black" />
+            </TextBox>
+            <TextBox Width="2.754cm" Height="0.6cm" Left="2.86cm" Top="0.053cm" Value="FA_CD" CanGrow="True" Name="fA_CDCaptionTextBox" StyleName="Caption">
+              <Style BackgroundColor="128, 128, 255" Color="Black" />
+            </TextBox>
+            <TextBox Width="2.754cm" Height="0.6cm" Left="5.667cm" Top="0.053cm" Value="fa_DT" CanGrow="True" Name="fa_DTCaptionTextBox" StyleName="Caption">
+              <Style BackgroundColor="128, 128, 255" Color="Black" />
+            </TextBox>
+            <TextBox Width="2.754cm" Height="0.6cm" Left="8.474cm" Top="0.053cm" Value="FA_NM_AR" CanGrow="True" Name="fA_NM_ARCaptionTextBox" StyleName="Caption">
+              <Style BackgroundColor="128, 128, 255" Color="Black" />
+            </TextBox>
+            <TextBox Width="2.754cm" Height="0.6cm" Left="11.28cm" Top="0.053cm" Value="FA_NM_EN" CanGrow="True" Name="fA_NM_ENCaptionTextBox" StyleName="Caption">
+              <Style BackgroundColor="128, 128, 255" Color="Black" />
+            </TextBox>
+            <TextBox Width="2.754cm" Height="0.6cm" Left="14.087cm" Top="0.053cm" Value="QTY" CanGrow="True" Name="qTYCaptionTextBox" StyleName="Caption">
+              <Style BackgroundColor="128, 128, 255" Color="Black" />
+            </TextBox>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.714cm" Name="labelsGroupFooterSection">
+          <Style Visible="False" />
+        </GroupFooterSection>
+      </GroupFooter>
+    </Group>
+    <Group Name="fa_DTYearGroup">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.714cm" Name="fa_DTYearGroupHeaderSection">
+          <Items>
+            <TextBox Width="2.754cm" Height="0.6cm" Left="0.053cm" Top="0.053cm" Value="= Fields.fa_DT.Year" CanGrow="True" Name=" fa_DT.YearDataTextBox" StyleName="Data" />
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.714cm" Name="fa_DTYearGroupFooterSection">
+          <Items>
+            <TextBox Width="2.754cm" Height="0.6cm" Left="0.053cm" Top="0.053cm" Value="Sub-total:" CanGrow="True" Name="textBox2" StyleName="Caption">
+              <Style TextAlign="Right" />
+            </TextBox>
+            <TextBox Width="2.754cm" Height="0.6cm" Left="2.86cm" Top="0.053cm" Value="= Count(Fields.FA_CD)" CanGrow="True" Name="fA_CDCountFunctionTextBox" StyleName="Data" />
+            <TextBox Width="2.754cm" Height="0.6cm" Left="5.667cm" Top="0.053cm" Value="= Count(Fields.fa_DT)" CanGrow="True" Name="fa_DTCountFunctionTextBox" StyleName="Data" />
+            <TextBox Width="2.754cm" Height="0.6cm" Left="8.474cm" Top="0.053cm" Value="= Count(Fields.FA_NM_AR)" CanGrow="True" Name="fA_NM_ARCountFunctionTextBox" StyleName="Data" />
+            <TextBox Width="2.754cm" Height="0.6cm" Left="11.28cm" Top="0.053cm" Value="= Count(Fields.FA_NM_EN)" CanGrow="True" Name="fA_NM_ENCountFunctionTextBox" StyleName="Data" />
+            <TextBox Width="2.754cm" Height="0.6cm" Left="14.087cm" Top="0.053cm" Value="= Sum(Fields.QTY)" CanGrow="True" Name="qTYSumFunctionTextBox" StyleName="Data" />
+          </Items>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.fa_DT.Year" />
+      </Groupings>
+    </Group>
+  </Groups>
+</Report>

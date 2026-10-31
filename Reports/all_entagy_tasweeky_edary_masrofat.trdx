@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="29.7cm" Name="QueryGlJrnl1" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glx2024" SelectCommand="SELECT 'التكاليف الإنتاجية' AS s,&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN acc_no LIKE '4[6]2%' &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '61' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;&#x9;+&#xA;&#x9;&#x9; CAST(ROUND(SUM(CASE &#xA;        WHEN acc_no LIKE '4[6]2%' &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('62', '63')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;CAST(ROUND(SUM(CASE &#xA;WHEN acc_no LIKE '4[6]2%' &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;AS tot,&#xA;&#xA;&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]211%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '61' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;&#x9;+&#xA;CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]211%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('62', '63')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;&#x9;CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[6]211%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;AS s1,&#xA;&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]215%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '61' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;+&#xA;&#x9; CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]215%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('62', '63')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[6]215%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9; AS s2,&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN acc_no LIKE '4[6]216%' &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '61' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;&#x9;+&#xA;CAST(ROUND(SUM(CASE &#xA;        WHEN acc_no LIKE '4[6]216%' &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('62', '63')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;CAST(ROUND(SUM(CASE &#xA;WHEN acc_no LIKE '4[6]216%' &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;AS s3,&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]218%' or acc_no LIKE '4[6]217%' or acc_no LIKE '4[6]214%' or acc_no LIKE '4[6]213%' or acc_no LIKE '4[6]212%'  ) &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '61' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;+&#xA;&#x9; CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]218%' or acc_no LIKE '4[6]217%' or acc_no LIKE '4[6]214%' or acc_no LIKE '4[6]213%' or acc_no LIKE '4[6]212%'  ) &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('62', '63')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[6]218%' or acc_no LIKE '4[6]217%' or acc_no LIKE '4[6]214%' or acc_no LIKE '4[6]213%' or acc_no LIKE '4[6]212%'  ) &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9; AS s4,&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]218%' or acc_no LIKE '4[6]217%' or acc_no LIKE '4[6]216%'  or acc_no LIKE '4[6]215%'  or acc_no LIKE '4[6]214%' or acc_no LIKE '4[6]213%' or acc_no LIKE '4[6]212%' or acc_no LIKE '4[6]211%' ) &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '61' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;+&#xA;&#x9;&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]218%' or acc_no LIKE '4[6]217%' or acc_no LIKE '4[6]216%'  or acc_no LIKE '4[6]215%'  or acc_no LIKE '4[6]214%' or acc_no LIKE '4[6]213%' or acc_no LIKE '4[6]212%' or acc_no LIKE '4[6]211%' ) &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('62', '63')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;&#x9;CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[6]218%' or acc_no LIKE '4[6]217%' or acc_no LIKE '4[6]216%'  or acc_no LIKE '4[6]215%'  or acc_no LIKE '4[6]214%' or acc_no LIKE '4[6]213%' or acc_no LIKE '4[6]212%' or acc_no LIKE '4[6]211%' ) &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;AS tot1,&#xA;&#xA;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]22%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '61' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;+&#xA;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]22%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('62', '63')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;&#x9;CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[6]22%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;AS s6,&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]23%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '61' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)  &#xA;&#x9;&#x9;+&#xA;CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]23%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('62', '63')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA; CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[6]23%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;as s7,&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]24%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '61' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]24%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('62', '63')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;  CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[6]24%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9; AS s8,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]25%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '61' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;&#x9;+&#xA; CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]25%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('62', '63')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;  CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[6]25%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;AS s9,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]26%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '61' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;+&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[6]26%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('62', '63')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;  CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[6]26%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9; AS s10&#xA;&#xA;&#xA;FROM gljrnld  &#xA;WHERE (acc_no LIKE '4[6]2%') &#xA;      AND (1=1)&#xA;union all&#xA;SELECT 'التكاليف التسويقية' AS s,&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN acc_no LIKE '4[7]2%' &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '71' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;&#x9;+&#xA;&#x9;&#x9; CAST(ROUND(SUM(CASE &#xA;        WHEN acc_no LIKE '4[7]2%' &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('72', '73')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;CAST(ROUND(SUM(CASE &#xA;WHEN acc_no LIKE '4[7]2%' &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;AS tot,&#xA;&#xA;&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]211%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '71' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;&#x9;+&#xA;CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]211%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('72', '73')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;&#x9;CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[7]211%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;AS s1,&#xA;&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]215%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '71' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;+&#xA;&#x9; CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]215%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('72', '73')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[7]215%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9; AS s2,&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN acc_no LIKE '4[7]216%' &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '71' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;&#x9;+&#xA;CAST(ROUND(SUM(CASE &#xA;        WHEN acc_no LIKE '4[7]216%' &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('72', '73')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;CAST(ROUND(SUM(CASE &#xA;WHEN acc_no LIKE '4[7]216%' &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;AS s3,&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]218%' or acc_no LIKE '4[7]217%' or acc_no LIKE '4[7]214%' or acc_no LIKE '4[7]213%' or acc_no LIKE '4[7]212%'  ) &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '71' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;+&#xA;&#x9; CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]218%' or acc_no LIKE '4[7]217%' or acc_no LIKE '4[7]214%' or acc_no LIKE '4[7]213%' or acc_no LIKE '4[7]212%'  ) &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('72', '73')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[7]218%' or acc_no LIKE '4[7]217%' or acc_no LIKE '4[7]214%' or acc_no LIKE '4[7]213%' or acc_no LIKE '4[7]212%'  ) &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9; AS s4,&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]218%' or acc_no LIKE '4[7]217%' or acc_no LIKE '4[7]216%'  or acc_no LIKE '4[7]215%'  or acc_no LIKE '4[7]214%' or acc_no LIKE '4[7]213%' or acc_no LIKE '4[7]212%' or acc_no LIKE '4[7]211%' ) &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '71' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;+&#xA;&#x9;&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]218%' or acc_no LIKE '4[7]217%' or acc_no LIKE '4[7]216%'  or acc_no LIKE '4[7]215%'  or acc_no LIKE '4[7]214%' or acc_no LIKE '4[7]213%' or acc_no LIKE '4[7]212%' or acc_no LIKE '4[7]211%' ) &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('72', '73')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;&#x9;CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[7]218%' or acc_no LIKE '4[7]217%' or acc_no LIKE '4[7]216%'  or acc_no LIKE '4[7]215%'  or acc_no LIKE '4[7]214%' or acc_no LIKE '4[7]213%' or acc_no LIKE '4[7]212%' or acc_no LIKE '4[7]211%' ) &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;AS tot1,&#xA;&#xA;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]22%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '71' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;+&#xA;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]22%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('72', '73')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;&#x9;CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[7]22%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;AS s6,&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]23%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '71' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)  &#xA;&#x9;&#x9;+&#xA;CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]23%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('72', '73')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA; CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[7]23%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;as s7,&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]24%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '71' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]24%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('72', '73')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;  CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[7]24%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9; AS s8,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]25%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '71' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;&#x9;+&#xA; CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]25%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('72', '73')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;  CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[7]25%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;AS s9,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]26%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '71' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;+&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[7]26%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('72', '73')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;  CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[7]26%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9; AS s10&#xA;&#xA;&#xA;FROM gljrnld  &#xA;WHERE (acc_no LIKE '4[7]2%') &#xA;      AND (1=1)&#xA;&#xA;union all&#xA;SELECT 'التكاليف الإدارية والتمويلية' AS s,&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN acc_no LIKE '4[8]2%' &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '81' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;&#x9;+&#xA;&#x9;&#x9; CAST(ROUND(SUM(CASE &#xA;        WHEN acc_no LIKE '4[8]2%' &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('82', '83')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;CAST(ROUND(SUM(CASE &#xA;WHEN acc_no LIKE '4[8]2%' &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;AS tot,&#xA;&#xA;&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]211%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '81' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;&#x9;+&#xA;CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]211%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('82', '83')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;&#x9;CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[8]211%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;AS s1,&#xA;&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]215%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '81' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;+&#xA;&#x9; CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]215%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('82', '83')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[8]215%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9; AS s2,&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN acc_no LIKE '4[8]216%' &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '81' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;&#x9;+&#xA;CAST(ROUND(SUM(CASE &#xA;        WHEN acc_no LIKE '4[8]216%' &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('82', '83')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;CAST(ROUND(SUM(CASE &#xA;WHEN acc_no LIKE '4[8]216%' &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;AS s3,&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]218%' or acc_no LIKE '4[8]217%' or acc_no LIKE '4[8]214%' or acc_no LIKE '4[8]213%' or acc_no LIKE '4[8]212%'  ) &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '81' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;+&#xA;&#x9; CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]218%' or acc_no LIKE '4[8]217%' or acc_no LIKE '4[8]214%' or acc_no LIKE '4[8]213%' or acc_no LIKE '4[8]212%'  ) &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('82', '83')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[8]218%' or acc_no LIKE '4[8]217%' or acc_no LIKE '4[8]214%' or acc_no LIKE '4[8]213%' or acc_no LIKE '4[8]212%'  ) &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9; AS s4,&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]218%' or acc_no LIKE '4[8]217%' or acc_no LIKE '4[8]216%'  or acc_no LIKE '4[8]215%'  or acc_no LIKE '4[8]214%' or acc_no LIKE '4[8]213%' or acc_no LIKE '4[8]212%' or acc_no LIKE '4[8]211%' ) &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '81' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;+&#xA;&#x9;&#xA;    CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]218%' or acc_no LIKE '4[8]217%' or acc_no LIKE '4[8]216%'  or acc_no LIKE '4[8]215%'  or acc_no LIKE '4[8]214%' or acc_no LIKE '4[8]213%' or acc_no LIKE '4[8]212%' or acc_no LIKE '4[8]211%' ) &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('82', '83')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;&#x9;CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[8]218%' or acc_no LIKE '4[8]217%' or acc_no LIKE '4[8]216%'  or acc_no LIKE '4[8]215%'  or acc_no LIKE '4[8]214%' or acc_no LIKE '4[8]213%' or acc_no LIKE '4[8]212%' or acc_no LIKE '4[8]211%' ) &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;AS tot1,&#xA;&#xA;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]22%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '81' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;+&#xA;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]22%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('82', '83')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;&#x9;CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[8]22%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;AS s6,&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]23%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '81' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)  &#xA;&#x9;&#x9;+&#xA;CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]23%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('82', '83')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA; CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[8]23%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;as s7,&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]24%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '81' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]24%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('82', '83')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;  CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[8]24%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9; AS s8,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]25%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '81' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT) &#xA;&#x9;&#x9;+&#xA; CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]25%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('82', '83')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;  CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[8]25%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;AS s9,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]26%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) = '81' &#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;+&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CAST(ROUND(SUM(CASE &#xA;        WHEN (acc_no LIKE '4[8]26%') &#xA;             AND SUBSTRING(cst_cd, 6, 7) IN ('82', '83')&#xA;             AND cst_cd NOT LIKE '11%' &#xA;        THEN db_vl - cr_vl &#xA;        ELSE 0 END) / 1000.0, 0) AS BIGINT)&#xA;&#x9;&#x9;+&#xA;&#x9;  CAST(ROUND(SUM(CASE &#xA;WHEN (acc_no LIKE '4[8]26%') &#xA;&#xA;   AND CST_CD LIKE '11%'&#xA;THEN db_vl - cr_vl &#xA;ELSE 0 END) / 1000.0, 0) AS BIGINT)&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9; AS s10&#xA;&#xA;&#xA;FROM gljrnld  &#xA;WHERE (acc_no LIKE '4[8]2%') &#xA;      AND (1=1)&#xA;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="4.2cm" Name="pageHeaderSection1">
+      <Style BackgroundColor="" />
+      <Items>
+        <TextBox Width="6.4cm" Height="1cm" Left="22.9cm" Top="3.2cm" Value="مركز التكلفة" Name="textBox2">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.799cm" Height="1cm" Left="21.1cm" Top="3.2cm" Value="إجمــــالي" Name="textBox6">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.112in" Left="10.346in" Top="0.075in" Value="وزارة الكهرباء والطاقة المتجددة" Name="textBox26">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.128in" Left="10.352in" Top="0.197in" Value="الشركة القابضة لكهرباء مصر" Name="textBox25">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.227in" Height="0.128in" Left="10.276in" Top="0.328in" Value="شركة مصر الوسطى لتوزيع الكهرباء" Name="textBox63">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.128in" Left="10.347in" Top="0.459in" Value="قطاعات الشئون المالية" Name="textBox64">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.128in" Left="10.345in" Top="0.591in" Value="الحسابات الآلية" Name="textBox65">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="0.5cm" Left="16.4cm" Top="3.7cm" Value="م.نقل وانتقالات واتصالات" Name="textBox5">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.3cm" Height="0.5cm" Left="13.1cm" Top="3.7cm" Value="ايجار اصول ثابتة بخلاف العقارات" Name="textBox8">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.5cm" Left="11.3cm" Top="3.7cm" Value="م. خدمية أخرى" Name="textBox9">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="1cm" Left="0.3cm" Top="3.2cm" Value="ضرائب غير مباشرة" Name="textBox11">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.2cm" Height="0.6cm" Left="0.4cm" Top="2.388cm" Value="(القيمة بالألف جنيه)" Name="textBox20">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.9cm" Height="0.6cm" Left="10.5cm" Top="0.943cm" Value="إجمالي التكاليف الإنتاجية والتسويقية والإدارية" Name="textBox3">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.9cm" Height="0.6cm" Left="10.5cm" Top="1.543cm" Value="قائمة المصروفات  ح/42" Name="textBox17">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.2cm" Height="0.6cm" Left="14.1cm" Top="2.4cm" Value="= Parameters.filter_TR_DT.Value" Format="{0:d}" Name="textBox19">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.1cm" Height="0.6cm" Left="6.6cm" Top="2.4cm" Value="= Parameters.filter_TO_TR_DT.Value" Format="{0:d}" Name="textBox18">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.2cm" Height="0.6cm" Left="19.3cm" Top="2.4cm" Value="عن الفترة من" Name="textBox30">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.4cm" Height="0.6cm" Left="12.7cm" Top="2.388cm" Value="حتى" Name="textBox15">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.9cm" Height="0.5cm" Left="19.2cm" Top="3.7cm" Value="م . صيانة" Name="textBox21">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="12.1cm" Height="0.5cm" Left="9cm" Top="3.2cm" Value="مزايا عينية" Name="textBox31">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="0.5cm" Left="9cm" Top="3.7cm" Value="إجمالي" Name="textBox32">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.4cm" Height="1cm" Left="2.2cm" Top="3.2cm" Value="ضرائب عقارية" Name="textBox35">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.4cm" Height="1cm" Left="3.6cm" Top="3.2cm" Value="ايجار عقارات" Name="textBox38">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="1cm" Left="5cm" Top="3.2cm" Value="الفوائد" Name="textBox41">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2cm" Height="1cm" Left="7cm" Top="3.2cm" Value="الإهلاك" Name="textBox44">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="1.186cm" Name="detailSection1">
+      <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle" />
+      <Items>
+        <TextBox Width="63.99mm" Height="11.86mm" Left="229.01mm" Top="0mm" Value="= Fields.s" Multiline="False" Name="textBox1">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18.01mm" Height="11.86mm" Left="211mm" Top="0mm" Value="= Fields.tot" Format="{0:#.}" Multiline="False" Name="textBox14">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="28mm" Height="11.86mm" Left="164mm" Top="0mm" Value="= Fields.s2" Format="{0:#.}" Multiline="False" Name="textBox12">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="33mm" Height="11.86mm" Left="131mm" Top="0mm" Value="= Fields.s3" Format="{0:#.}" Multiline="False" Name="textBox4">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18mm" Height="11.86mm" Left="113mm" Top="0mm" Value="= Fields.s4" Format="{0:#.}" Multiline="False" Name="textBox7">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19mm" Height="11.86mm" Left="3mm" Top="0mm" Value="= Fields.s10" Format="{0:#.}" Multiline="False" Name="textBox10">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19mm" Height="11.86mm" Left="192mm" Top="0mm" Value="= Fields.s1" Format="{0:#.}" Multiline="False" Name="textBox22">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="23mm" Height="11.86mm" Left="90mm" Top="0mm" Value="= Fields.tot1" Format="{0:#.}" Multiline="False" Name="textBox33">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14mm" Height="11.86mm" Left="22mm" Top="0mm" Value="= Fields.s9" Format="{0:#.}" Multiline="False" Name="textBox36">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14mm" Height="11.86mm" Left="36mm" Top="0mm" Value="= Fields.s8" Format="{0:#.}" Multiline="False" Name="textBox39">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="20mm" Height="11.86mm" Left="50mm" Top="0mm" Value="= Fields.s7" Format="{0:#.}" Multiline="False" Name="textBox42">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="20mm" Height="11.86mm" Left="70mm" Top="0mm" Value="= Fields.s6" Format="{0:#.}" Multiline="False" Name="textBox45">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportFooterSection Height="1.414cm" Name="reportFooterSection1">
+      <Style BackgroundColor="White" />
+      <Items>
+        <TextBox Width="19mm" Height="12.98mm" Left="3mm" Top="0mm" Value="=Sum(s10)" Format="{0:#.}" Multiline="False" Name="textBox27">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="17.99mm" Height="12.98mm" Left="211mm" Top="0mm" Value="=Sum(tot)" Format="{0:#.}" Multiline="False" Name="textBox13">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="28mm" Height="12.98mm" Left="164mm" Top="0mm" Value="=Sum(s2)" Format="{0:#.}" Multiline="False" Name="textBox16">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="33mm" Height="12.98mm" Left="131mm" Top="0mm" Value="=Sum(s3)" Format="{0:#.}" Multiline="False" Name="textBox29">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18mm" Height="12.98mm" Left="113mm" Top="0mm" Value="=Sum(s4)" Format="{0:#.}" Multiline="False" Name="textBox28">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.399cm" Height="1.298cm" Left="22.901cm" Top="0cm" Value="الإجمالي العام" Angle="0" Name="textBox24">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Groove" Left="Groove" Right="Groove" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="19mm" Height="12.98mm" Left="192mm" Top="0mm" Value="=Sum(s1)" Format="{0:#.}" Multiline="False" Name="textBox23">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="23mm" Height="12.98mm" Left="90mm" Top="0mm" Value="=Sum(tot1)" Format="{0:#.}" Multiline="False" Name="textBox34">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14mm" Height="12.98mm" Left="22mm" Top="0mm" Value="=Sum(s9)" Format="{0:#.}" Multiline="False" Name="textBox37">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14mm" Height="12.98mm" Left="36mm" Top="0mm" Value="=Sum(s8)" Format="{0:#.}" Multiline="False" Name="textBox40">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="20mm" Height="12.98mm" Left="50mm" Top="0mm" Value="=Sum(s7)" Format="{0:#.}" Multiline="False" Name="textBox43">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="20mm" Height="12.98mm" Left="70mm" Top="0mm" Value="=Sum(s6)" Format="{0:#.}" Multiline="False" Name="textBox46">
+          <Style BackgroundColor="242, 242, 242" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportFooterSection>
+    <PageFooterSection Height="0.132cm" Name="pageFooterSection1" />
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0mm" Right="0mm" Top="0mm" Bottom="0mm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="Url" Text="Url" />
+    <ReportParameter Name="login" Text="login" />
+    <ReportParameter Name="filter" AllowNull="True" />
+    <ReportParameter Name="filter_TR_DT" />
+    <ReportParameter Name="filter_TO_TR_DT" />
+    <ReportParameter Name="DefaultReportTitle" />
+  </ReportParameters>
+</Report>

@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="11.693in" Culture="ar-EG" UnitOfMeasure="Mm" Name="AllAnalysis8Columns" SnapToGrid="False" SnapToSnapLines="False" ShowDimensions="False" ShowWatermarks="False" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style BackgroundColor="White" TextAlign="Center" />
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="GLACCOUNTELMENIA" SelectCommand="select * from Rptcols" Name="sqlDataSource1">
+      <CalculatedFields>
+        <CalculatedField Name="tot" Expression="= IsNull(Fields.VAL01_1,0) +&#xD;&#xA; IsNull(Fields.VAL02_1,0) +&#xD;&#xA; IsNull(Fields.VAL03_1,0) +&#xD;&#xA; IsNull(Fields.VAL04_1,0) +&#xD;&#xA; IsNull(Fields.VAL05_1,0) +&#xD;&#xA; IsNull(Fields.VAL06_1,0) +&#xD;&#xA; IsNull(Fields.VAL07_1,0) +&#xD;&#xA; IsNull(Fields.VAL08_1,0) +&#xD;&#xA; IsNull(Fields.VAL09_1,0) +&#xD;&#xA; IsNull(Fields.VAL10_1,0) +&#xD;&#xA; IsNull(Fields.VAL11_1,0)">
+          <DataType>System.Double</DataType>
+        </CalculatedField>
+      </CalculatedFields>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="1.515in" Name="pageHeaderSection1">
+      <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+        <Font Size="8pt" />
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="0.775in" Height="0.465in" Left="7.898in" Top="1.04in" Value="=Item(1, Split(&quot;,&quot;, Parameters.ColumnsNames.Value))" CanGrow="False" Multiline="True" Name="textBox3">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.775in" Height="0.465in" Left="7.123in" Top="1.04in" Value="=Item(2, Split(&quot;,&quot;, Parameters.ColumnsNames.Value))" CanGrow="False" Multiline="True" Name="textBox4">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.771in" Height="0.465in" Left="6.351in" Top="1.04in" Value="=Item(3, Split(&quot;,&quot;, Parameters.ColumnsNames.Value))" CanGrow="False" Multiline="True" Name="textBox5">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.77in" Height="0.465in" Left="5.581in" Top="1.04in" Value="=Item(4, Split(&quot;,&quot;, Parameters.ColumnsNames.Value))" CanGrow="False" Multiline="True" Name="textBox6">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.771in" Height="0.465in" Left="4.809in" Top="1.04in" Value="=Item(5, Split(&quot;,&quot;, Parameters.ColumnsNames.Value))" CanGrow="False" Multiline="True" Name="textBox7">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.752in" Height="0.465in" Left="4.055in" Top="1.04in" Value="=Item(6, Split(&quot;,&quot;, Parameters.ColumnsNames.Value))" CanGrow="False" Multiline="True" Name="textBox10">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.745in" Height="0.465in" Left="3.304in" Top="1.04in" Value="=Item(7, Split(&quot;,&quot;, Parameters.ColumnsNames.Value))" CanGrow="False" Multiline="True" Name="textBox11">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.848in" Height="0.174in" Left="5.344in" Top="0.531in" Value="= CDate(Parameters.FromDate.Value)" Format="{0:d}" Name="textBox35">
+          <Style>
+            <Font Size="10pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.963in" Height="0.184in" Left="3.736in" Top="0.517in" Value="= CDate(Parameters.ToDate.Value)" Format="{0:d}" Name="textBox36">
+          <Style>
+            <Font Size="10pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.546in" Height="0.195in" Left="6.264in" Top="0.525in" Value="من تاريخ" Name="textBox37">
+          <Style>
+            <Font Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.546in" Height="0.195in" Left="4.729in" Top="0.511in" Value="الي تاريخ" Name="textBox38">
+          <Style>
+            <Font Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="7.892cm" Height="0.9cm" Left="9.468cm" Top="0.205cm" Value="= Parameters.ReportTitle.Value" Name="textBox2">
+          <Style BackgroundColor="242, 242, 242" Color="23, 54, 93" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.774in" Height="0.465in" Left="8.674in" Top="1.04in" Value="=Item(0, Split(&quot;,&quot;, Parameters.ColumnsNames.Value))" CanGrow="False" Multiline="True" Name="textBox8">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.196in" Height="0.464in" Left="9.455in" Top="1.037in" Value="الوصف" CanGrow="False" Multiline="False" Name="textBox9">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.378cm" Height="0.461in" Left="0.033in" Top="1.04in" Value="المجموع" CanGrow="False" Multiline="False" Name="textBox54">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.459in" Height="0.216in" Left="5.709in" Top="0.779in" Value="= PageNumber" Format="{0:d}" Name="textBox57">
+          <Style TextAlign="Right">
+            <Font Size="10pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.271in" Height="0.216in" Left="5.438in" Top="0.779in" Value="= &quot; من &quot; " Format="{0:d}" Name="textBox56">
+          <Style>
+            <Font Size="10pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.875in" Height="0.216in" Left="4.563in" Top="0.779in" Value="=  PageCount" Format="{0:d}" Name="textBox58">
+          <Style TextAlign="Left">
+            <Font Size="10pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.778in" Height="0.465in" Left="2.526in" Top="1.04in" Value="=Item(8, Split(&quot;,&quot;, Parameters.ColumnsNames.Value))" CanGrow="False" Multiline="True" Name="textBox1">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.302in" Height="0.112in" Left="10.324in" Top="0.043in" Value="وزارة الكهرباء والطاقة المتجددة" Name="textBox33">
+          <Style>
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.302in" Height="0.128in" Left="10.33in" Top="0.165in" Value="الشركة القابضة لكهرباء مصر" Name="textBox34">
+          <Style>
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.302in" Height="0.128in" Left="10.336in" Top="0.296in" Value="شركة مصر الوسطى لتوزيع الكهرباء" Name="textBox63">
+          <Style>
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.302in" Height="0.128in" Left="10.325in" Top="0.427in" Value="قطاعات الشئون المالية" Name="textBox64">
+          <Style>
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.302in" Height="0.128in" Left="10.323in" Top="0.559in" Value="الحسابات الآلية" Name="textBox65">
+          <Style>
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.761in" Height="0.457in" Left="1.758in" Top="1.042in" Value="=Item(9, Split(&quot;,&quot;, Parameters.ColumnsNames.Value))" CanGrow="False" Multiline="True" Name="textBox59">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.778in" Height="0.457in" Left="0.975in" Top="1.042in" Value="=Item(10, Split(&quot;,&quot;, Parameters.ColumnsNames.Value))" CanGrow="False" Multiline="True" Name="textBox66">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="0.052in" Name="detailSection1">
+      <Style Visible="False" BackgroundColor="White">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+    </DetailSection>
+    <ReportFooterSection Height="1.244cm" Name="reportFooterSection1">
+      <Style BackgroundColor="White" />
+      <Items>
+        <TextBox Width="2.191in" Height="0.443in" Left="9.455in" Top="0.002in" Value="الاجمالي العام" CanGrow="False" Multiline="True" Name="textBox40">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.767in" Height="0.45in" Left="7.905in" Top="0.002in" Value="= IsNull( sum(Fields.VAL02_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox26">
+          <Style BackgroundColor="Transparent" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.378cm" Height="1.159cm" Left="0.085cm" Top="0cm" Value="=SUM(Fields.tot )" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="False" Name="textBox25">
+          <Style BackgroundColor="Transparent" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.773in" Height="0.45in" Left="8.68in" Top="0.002in" Value="= IsNull( sum(Fields.VAL01_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox27">
+          <Style BackgroundColor="Transparent" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.767in" Height="0.45in" Left="7.131in" Top="0.002in" Value="= IsNull( sum(Fields.VAL03_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox28">
+          <Style BackgroundColor="Transparent" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.771in" Height="0.45in" Left="6.359in" Top="0.002in" Value="= IsNull( sum(Fields.VAL04_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox29">
+          <Style BackgroundColor="Transparent" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.77in" Height="0.45in" Left="5.589in" Top="0.002in" Value="= IsNull( sum(Fields.VAL05_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox30">
+          <Style BackgroundColor="Transparent" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.771in" Height="0.45in" Left="4.817in" Top="0.002in" Value="= IsNull( sum(Fields.VAL06_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox31">
+          <Style BackgroundColor="Transparent" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.744in" Height="0.45in" Left="4.071in" Top="0.002in" Value="= IsNull( sum(Fields.VAL07_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox32">
+          <Style BackgroundColor="Transparent" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.745in" Height="0.45in" Left="3.32in" Top="0.002in" Value="= IsNull( sum(Fields.VAL08_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox39">
+          <Style BackgroundColor="Transparent" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.78in" Height="0.45in" Left="2.536in" Top="0in" Value="= IsNull( sum(Fields.VAL09_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox51">
+          <Style BackgroundColor="Transparent" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.755in" Height="0.45in" Left="1.775in" Top="0in" Value="= IsNull( sum(Fields.VAL10_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox62">
+          <Style BackgroundColor="Transparent" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.797in" Height="0.45in" Left="0.975in" Top="0in" Value="= IsNull( sum(Fields.VAL11_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox69">
+          <Style BackgroundColor="Transparent" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportFooterSection>
+    <PageFooterSection Height="0.132cm" Name="pageFooterSection1" />
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ColumnCount="1" ColumnSpacing="0in" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Sortings>
+    <Sorting Expression="= Fields.FLD1" Direction="Asc" />
+    <Sorting Expression="= Fields.FLD2" Direction="Asc" />
+  </Sortings>
+  <Groups>
+    <Group Name="Fld1Group">
+      <GroupHeader>
+        <GroupHeaderSection Height="1.022cm" Name="fld1GrpHeaderSection">
+          <Style Visible="True" BackgroundColor="White" />
+          <Items>
+            <TextBox Width="0.717in" Height="0.383in" Left="10.935in" Top="0.019in" Value="= Fields.FLD1" CanGrow="False" Multiline="False" TextWrap="False" Name="textBox52">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.478in" Height="0.383in" Left="9.456in" Top="0.018in" Value="= Fields.FLD1_DSCR" CanGrow="False" Multiline="True" TextWrap="False" Name="textBox41">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.745in" Height="0.383in" Left="3.316in" Top="0.01in" Value="= IsNull( sum(Fields.VAL08_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox81">
+              <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.744in" Height="0.383in" Left="4.067in" Top="0.01in" Value="= IsNull( sum(Fields.VAL07_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox80">
+              <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.771in" Height="0.383in" Left="4.813in" Top="0.01in" Value="= IsNull( sum(Fields.VAL06_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox79">
+              <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.77in" Height="0.383in" Left="5.585in" Top="0.01in" Value="= IsNull( sum(Fields.VAL05_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox78">
+              <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.771in" Height="0.383in" Left="6.355in" Top="0.01in" Value="= IsNull( sum(Fields.VAL04_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox77">
+              <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.767in" Height="0.383in" Left="7.127in" Top="0.01in" Value="= IsNull( sum(Fields.VAL03_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox76">
+              <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.773in" Height="0.383in" Left="8.683in" Top="0.01in" Value="= IsNull( sum(Fields.VAL01_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox75">
+              <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.782in" Height="0.383in" Left="7.894in" Top="0.01in" Value="= IsNull( sum(Fields.VAL02_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox74">
+              <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.378cm" Height="0.383in" Left="0.095cm" Top="0.025cm" Value="=SUM(Fields.tot )" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="False" Name="textBox73">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.775in" Height="0.383in" Left="2.538in" Top="0.01in" Value="= IsNull( sum(Fields.VAL09_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox72">
+              <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.75in" Height="0.383in" Left="1.787in" Top="0.01in" Value="= IsNull( sum(Fields.VAL10_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox71">
+              <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.8in" Height="0.383in" Left="0.979in" Top="0.01in" Value="= IsNull( sum(Fields.VAL11_1),0)" Format="{0:N0}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox70">
+              <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="1.124cm" Name="fld1GrpFooterSection">
+          <Style Visible="False" BackgroundColor="Transparent" />
+          <Items>
+            <TextBox Width="0.717in" Height="0.434in" Left="10.935in" Top="0in" Value="= Fields.FLD1" CanGrow="False" Multiline="False" TextWrap="False" Name="textBox23">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.745in" Height="0.434in" Left="3.32in" Top="0in" Value="= IsNull( sum(Fields.VAL08_1),0)" Format="{0:##.000;(##.000);}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox22">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="6pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.744in" Height="0.434in" Left="4.071in" Top="0in" Value="= IsNull( sum(Fields.VAL07_1),0)" Format="{0:##.000;(##.000);}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox21">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="6pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.771in" Height="0.434in" Left="4.817in" Top="0in" Value="= IsNull( sum(Fields.VAL06_1),0)" Format="{0:##.000;(##.000);}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox20">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="6pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.77in" Height="0.434in" Left="5.589in" Top="0in" Value="= IsNull( sum(Fields.VAL05_1),0)" Format="{0:##.000;(##.000);}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox19">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="6pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.771in" Height="0.434in" Left="6.359in" Top="0in" Value="= IsNull( sum(Fields.VAL04_1),0)" Format="{0:##.000;(##.000);}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox18">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="6pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.767in" Height="0.434in" Left="7.131in" Top="0in" Value="= IsNull( sum(Fields.VAL03_1),0)" Format="{0:##.000;(##.000);}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox17">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="6pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.773in" Height="0.434in" Left="8.68in" Top="0in" Value="= IsNull( sum(Fields.VAL01_1),0)" Format="{0:##.000;(##.000);}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox16">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="6pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="1.479in" Height="0.434in" Left="9.455in" Top="0in" Value="= Fields.FLD1_DSCR" CanGrow="False" Multiline="True" TextWrap="False" Name="textBox15">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.767in" Height="0.434in" Left="7.905in" Top="0in" Value="= IsNull( sum(Fields.VAL02_1),0)" Format="{0:##.000;(##.000);}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox14">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="6pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.378cm" Height="1.096cm" Left="0.086cm" Top="0cm" Value="=SUM(Fields.tot )" Format="{0:##.000;(##.000);}" CanGrow="False" Multiline="True" TextWrap="False" Name="textBox13">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="6pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.78in" Height="0.434in" Left="2.536in" Top="0in" Value="= IsNull( sum(Fields.VAL09_1),0)" Format="{0:##.000;(##.000);}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox24">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="6pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.755in" Height="0.434in" Left="1.775in" Top="0in" Value="= IsNull( sum(Fields.VAL10_1),0)" Format="{0:##.000;(##.000);}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox61">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="6pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.797in" Height="0.434in" Left="0.975in" Top="0in" Value="= IsNull( sum(Fields.VAL11_1),0)" Format="{0:##.000;(##.000);}" CanGrow="False" Multiline="True" TextWrap="True" Name="textBox68">
+              <Style BackgroundColor="255, 215, 255" TextAlign="Center" VerticalAlign="Middle">
+                <Font Name="Arial" Size="6pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.FLD1" />
+      </Groupings>
+    </Group>
+  </Groups>
+  <ReportParameters>
+    <ReportParameter Name="CompanyName" AllowNull="True" />
+    <ReportParameter Name="CompanyAddress" AllowNull="True" />
+    <ReportParameter Name="Logo" AllowNull="True" />
+    <ReportParameter Name="FromDate" AllowNull="True" />
+    <ReportParameter Name="ToDate" AllowNull="True" />
+    <ReportParameter Name="ColumnsNames" AllowNull="True" />
+    <ReportParameter Name="ReportTitle" />
+  </ReportParameters>
+</Report>

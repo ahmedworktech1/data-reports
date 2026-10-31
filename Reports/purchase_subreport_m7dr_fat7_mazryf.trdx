@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.telerik.com/reporting/2023/1.0" DataSourceName="sqlDataSource1" Width="15.748cm" Name="purchase_subreport_m7dr_fat7_mazryf" Zoom="1.5">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="{&quot;@LocParam&quot;:&quot;50&quot;,&quot;@TrTyParam&quot;:&quot;115&quot;,&quot;@FNCLTRNO&quot;:&quot;2-مناقصه عامة-2026/2025&quot;}" ConnectionString="azxsandoaa" SelectCommand="SELECT&#13;&#10;    t.vst_no,&#13;&#10;    dbo.num_to_str(t.vst_no) AS tfqet,&#13;&#10;    t.tr_dt,&#13;&#10;    t.Rmrk7,&#13;&#10;    t.PYMNT_MTHD,&#13;&#10;    PM.DSCR_AR AS PYMNT_MTHD_Name,&#13;&#10;    t.acc_no,&#13;&#10;    t.acc_nm&#13;&#10;FROM (&#13;&#10;    SELECT *,&#13;&#10;        ROW_NUMBER() OVER (&#13;&#10;            PARTITION BY FNCL_TR_NO, acc_no&#13;&#10;            ORDER BY CASE WHEN PYMNT_MTHD IS NULL THEN 1 ELSE 0 END, TR_NO DESC&#13;&#10;        ) AS rn&#13;&#10;    FROM aztrh&#13;&#10;    WHERE AZTRH.loc = @LocParam&#13;&#10;      AND AZTRH.tr_ty = @TrTyParam&#13;&#10;      AND AZTRH.FNCL_TR_NO = @FNCLTRNO&#13;&#10;) t&#13;&#10;LEFT JOIN AppCodes PM&#13;&#10;    ON PM.ID = '11031'&#13;&#10;    AND PM.SEQ = t.PYMNT_MTHD&#13;&#10;WHERE t.rn = 1" Name="sqlDataSource1">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@LocParam">
+          <Value>
+            <String>= Parameters.Locparam.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="Int16" Name="@TrTyParam">
+          <Value>
+            <String>= Parameters.TrTyparam.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@FNCLTRNO">
+          <Value>
+            <String>= Parameters.FNCLTRNOparam.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <DetailSection Height="0.84cm" Name="detailSection1">
+      <Items>
+        <TextBox Width="2.2cm" Height="0.4cm" Left="1.548cm" Top="0cm" Value="=IIf(Fields.TR_DT Is Nothing, '-', Fields.TR_DT)" Format="{0:dd/MM/yyyy}" Culture="en" Name="textBox123" CanGrow="True">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.1cm" Height="0.4cm" Left="3.748cm" Top="0cm" Value="بتاريخ " Name="textBox53">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.2cm" Height="0.4cm" Left="4.848cm" Top="0cm" Value="= Fields.PYMNT_MTHD_Name" CanShrink="True" Name="textBox90">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.3cm" Height="0.4cm" Left="7.048cm" Top="0cm" Value="بموجـــب" Name="textBox52">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3cm" Height="0.4cm" Left="8.348cm" Top="0cm" Value="= Fields.acc_nm" Name="textBox1">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.6cm" Height="0.4cm" Left="11.348cm" Top="0cm" Value="تــــــــأمين مؤقت مقــــــدم مــــن " Name="textBox51">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.3cm" Height="0.4cm" Left="14.948cm" Top="0cm" Value="-" Name="textBox2">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.5cm" Height="0.4cm" Left="15.248cm" Top="0cm" Value="= RowNumber()" Name="textBox56">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="11.048cm" Height="0.4cm" Left="0cm" Top="0.42cm" Value="= Fields.tfqet" CanGrow="True" Name="textBox3">
+          <Style TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.9cm" Height="0.4cm" Left="11.048cm" Top="0.42cm" Value="فقط" Name="textBox4">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.9cm" Height="0.4cm" Left="11.948cm" Top="0.42cm" Value="جنيه " Name="textBox55">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.4cm" Left="12.848cm" Top="0.42cm" Value="= Fields.VST_NO" Culture="ar-EG" Name="textBox99">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.1cm" Height="0.4cm" Left="14.648cm" Top="0.42cm" Value="بمبلغ" Name="textBox54">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="Locparam" AllowNull="True" />
+    <ReportParameter Name="TrTyparam" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="FNCLTRNOparam" AllowNull="True" />
+  </ReportParameters>
+</Report>

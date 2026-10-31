@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="16.894cm" Name="Aztrh100" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa2" SelectCommand="SELECT dbo.AZLOCS.LOC, dbo.AZLOCS.LOC_NM_AR,&#xD;&#xA;dbo.AZTRD.ITM_CD, dbo.AZITMS.ITM_NM_AR,&#xD;&#xA;aztrh.TR_TY,dbo.AZTRTY.Dscr_AR&#xD;&#xA;,dbo.AZTRH.TR_NO&#xD;&#xA;FROM dbo.AZTRH JOIN dbo.AZTRD &#xD;&#xA;ON aztrh.LOC = dbo.AZTRD.LOC&#xD;&#xA;AND AZTRD.TR_TY = AZTRH.TR_TY&#xD;&#xA;AND AZTRh.TR_NO = AZTRD.TR_NO&#xD;&#xA;JOIN dbo.AZITMS ON azitms.ITM_CD = aztrd.ITM_CD&#xD;&#xA;JOIN dbo.AZLOCS ON azlocs.LOC = aztrd.LOC&#xD;&#xA;JOIN dbo.AZTRTY ON aztrty.Tr_Ty = aztrh.TR_TY" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="0.714cm" Name="pageHeader">
+      <Items>
+        <TextBox Width="16.788cm" Height="0.6cm" Left="0.053cm" Top="0.053cm" Value="طلب احتياج" Name="reportNameTextBox" StyleName="PageInfo" />
+      </Items>
+    </PageHeaderSection>
+    <PageFooterSection Height="0.714cm" Name="pageFooter">
+      <Items>
+        <TextBox Width="8.368cm" Height="0.6cm" Left="0.053cm" Top="0.053cm" Value="=NOW()" Name="currentTimeTextBox" StyleName="PageInfo">
+          <Style TextAlign="Right" />
+        </TextBox>
+        <TextBox Width="8.368cm" Height="0.6cm" Left="8.474cm" Top="0.053cm" Value="=PageNumber" Name="pageInfoTextBox" StyleName="PageInfo">
+          <Style TextAlign="Right" />
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+    <ReportHeaderSection Height="2.706cm" Name="reportHeader">
+      <Items>
+        <TextBox Width="16.894cm" Height="2cm" Left="0cm" Top="0cm" Value="طلب احتياج" Name="titleTextBox" StyleName="Title" />
+        <TextBox Width="4.157cm" Height="0.6cm" Left="0.053cm" Top="2.053cm" Value="رقم المخزن" CanGrow="True" Name="lOCCaptionTextBox" StyleName="Caption">
+          <Style TextAlign="Right" />
+        </TextBox>
+        <TextBox Width="4.157cm" Height="0.6cm" Left="4.263cm" Top="2.053cm" Value="= Fields.LOC" CanGrow="True" Name="lOCDataTextBox" StyleName="Data" />
+        <TextBox Width="4.157cm" Height="0.6cm" Left="8.474cm" Top="2.053cm" Value="المخزن" CanGrow="True" Name="lOC_NM_ARCaptionTextBox" StyleName="Caption">
+          <Style TextAlign="Right" />
+        </TextBox>
+        <TextBox Width="4.157cm" Height="0.6cm" Left="12.684cm" Top="2.053cm" Value="= Fields.LOC_NM_AR" CanGrow="True" Name="lOC_NM_ARDataTextBox" StyleName="Data" />
+      </Items>
+    </ReportHeaderSection>
+    <ReportFooterSection Height="0.714cm" Name="reportFooter" />
+    <DetailSection Height="0.714cm" Name="detail">
+      <Items>
+        <TextBox Width="6.868cm" Height="0.6cm" Left="3.053cm" Top="0.053cm" Value="= Fields.ITM_CD" CanGrow="True" Name="iTM_CDDataTextBox" StyleName="Data" />
+        <TextBox Width="6.868cm" Height="0.6cm" Left="9.974cm" Top="0.053cm" Value="= Fields.ITM_NM_AR" CanGrow="True" Name="iTM_NM_ARDataTextBox" StyleName="Data" />
+      </Items>
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4">
+    <Margins>
+      <MarginsU Left="20mm" Right="20mm" Top="20mm" Bottom="20mm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style Color="28, 58, 112">
+        <Font Name="Tahoma" Size="18pt" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="ReportItemBase" StyleName="Title" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style BackgroundColor="28, 58, 112" Color="White" VerticalAlign="Middle">
+        <Font Name="Tahoma" Size="10pt" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="ReportItemBase" StyleName="Caption" />
+        <StyleSelector Type="ReportItemBase" StyleName="SubTotalCaption" />
+        <StyleSelector Type="ReportItemBase" StyleName="GrandTotalCaption" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style Color="Black" VerticalAlign="Middle">
+        <Font Name="Tahoma" Size="9pt" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="ReportItemBase" StyleName="Data" />
+        <StyleSelector Type="ReportItemBase" StyleName="TotalData" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style Color="Black" VerticalAlign="Middle">
+        <Font Name="Tahoma" Size="8pt" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="ReportItemBase" StyleName="PageInfo" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Groups>
+    <Group Name="tR_TYGroup">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.714cm" Name="tR_TYGroupHeaderSection">
+          <Items>
+            <TextBox Width="3cm" Height="0.6cm" Left="0.053cm" Top="0.053cm" Value="رقم الحركة" CanGrow="True" Name=" TR_TYCaptionTextBox" StyleName="Caption">
+              <Style TextAlign="Right" />
+            </TextBox>
+            <TextBox Width="13.683cm" Height="0.6cm" Left="3.106cm" Top="0.053cm" Value="= Fields.TR_TY" CanGrow="True" Name=" TR_TYDataTextBox" StyleName="Data" />
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.714cm" Name="tR_TYGroupFooterSection" />
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.TR_TY" />
+      </Groupings>
+    </Group>
+    <Group Name="dscr_ARGroup">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.714cm" Name="dscr_ARGroupHeaderSection">
+          <Items>
+            <TextBox Width="3cm" Height="0.6cm" Left="1.053cm" Top="0.053cm" Value="الحركة" CanGrow="True" Name=" Dscr_ARCaptionTextBox" StyleName="Caption">
+              <Style TextAlign="Right" />
+            </TextBox>
+            <TextBox Width="12.683cm" Height="0.6cm" Left="4.106cm" Top="0.053cm" Value="= Fields.Dscr_AR" CanGrow="True" Name=" Dscr_ARDataTextBox" StyleName="Data" />
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.714cm" Name="dscr_ARGroupFooterSection" />
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.Dscr_AR" />
+      </Groupings>
+    </Group>
+    <Group Name="tR_NOGroup">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.714cm" Name="tR_NOGroupHeaderSection">
+          <Items>
+            <TextBox Width="3cm" Height="0.6cm" Left="2.053cm" Top="0.053cm" Value="رقم الإذن" CanGrow="True" Name=" TR_NOCaptionTextBox" StyleName="Caption">
+              <Style TextAlign="Right" />
+            </TextBox>
+            <TextBox Width="11.683cm" Height="0.6cm" Left="5.106cm" Top="0.053cm" Value="= Fields.TR_NO" CanGrow="True" Name=" TR_NODataTextBox" StyleName="Data" />
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.714cm" Name="tR_NOGroupFooterSection" />
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.TR_NO" />
+      </Groupings>
+    </Group>
+    <Group Name="labelsGroup">
+      <GroupHeader>
+        <GroupHeaderSection PrintOnEveryPage="True" Height="0.714cm" Name="labelsGroupHeaderSection">
+          <Items>
+            <TextBox Width="6.868cm" Height="0.6cm" Left="3.053cm" Top="0.053cm" Value="رقم الصنف" CanGrow="True" Name="iTM_CDCaptionTextBox" StyleName="Caption" />
+            <TextBox Width="6.868cm" Height="0.6cm" Left="9.974cm" Top="0.053cm" Value="اسم الصنف" CanGrow="True" Name="iTM_NM_ARCaptionTextBox" StyleName="Caption" />
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.714cm" Name="labelsGroupFooterSection">
+          <Style Visible="False" />
+        </GroupFooterSection>
+      </GroupFooter>
+    </Group>
+  </Groups>
+</Report>

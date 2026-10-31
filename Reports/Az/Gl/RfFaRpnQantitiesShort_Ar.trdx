@@ -1,0 +1,1604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="webServiceDataSource1" Width="11.693in" UnitOfMeasure="Mm" Name="RfFaRpnQantitiesShort_Ar" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <Style Visible="True">
+    <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+    <BorderColor Top="37, 64, 97" Bottom="37, 64, 97" Left="37, 64, 97" Right="37, 64, 97" />
+    <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+  </Style>
+  <DataSources>
+    <WebServiceDataSource ParameterValues="{&quot;.AspNetCore.Identity.Application&quot;:&quot;CfDJ8N_dgKWJzghBjwORQIlTnSDsmpv-Gs6jn0wlew8hUFFnCtsSemxL4Yx1oBrpBr9r5dtPk3nUyty2-UPzgJme_5-dlGd9uveLTL0JPJ6QTV8FSSED6qeCKINCy6MnKpdRAEpCkQtemQCiNn7zR41WdxXxg1mB5LABVk2yBAiWvc0QY2qd2kCeRVYH9cKVapBuD3eoaAvnKl0pIbO2SfsQ-VCKvh9Iv_-bLD3VZFhdHmM-U7MdlnkRtr27157JfArzPiU79jiQst1i3iP6eUf_zivuhWn4Z5wz18RuauLjk4u0XsudU9VrFPn-tAj7UuhPx3n3OZYJhbTv3tgjhCc9J1BV68OYQeWmk5tsYl0mRqJXTK9Ft6y7EFi2HWGHM8L8x8fpatUi3b1e1AAmKw3PbTxCBw8BPkTXudq4Wt7C6PwrjNnqOWAQ7qXsn9iGvyGmtNuWT-9Oc3j_ZopPThJHXXmOBsjL09zsct2zSvqoJ_Y9F3M4fruzyyYNfFLCoYeycIj5fsOaxq4YCFzMw--VL3EUx6Fzxn7q734EiN5uCI0gJN6iHzNVe0AZkFLwS3E1srTps_kLLWILZMZpNbGtLG3YQbNeGH_WWgTA0km_atNSbBdA6rcw8IyzZKDPLPMOmPaHpY86gO3gRy69-N_SPisTH43gHcRYhAjiP75UekuO4oQOl7KWBtr4hAPINhGN71X-ISCB0rGrS7QYgpVn5ZGOPoINk47Gcq7nhn9avNDIeRhBdWH1DE5cLRkOeWgdZKh8HsyeyFO04PLj78Y1oVKOJGkux6iCUMIzC0HvNCGmQYfUC32QrpnrD6IBtGTdPQ&quot;,&quot;@Url&quot;:&quot;https://localhost:5001/gl/ReportFaRpn/GetDataFaRpn&quot;,&quot;FaCds&quot;:&quot;\&quot;1\&quot;&quot;,&quot;FaCdFrom&quot;:&quot;\&quot;1\&quot;&quot;,&quot;FaCdTo&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Resp&quot;:&quot;\&quot;1\&quot;&quot;,&quot;FacdDescrpation&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Place&quot;:&quot;\&quot;1\&quot;&quot;,&quot;FundSrc&quot;:&quot;\&quot;1\&quot;&quot;,&quot;FaKind&quot;:&quot;\&quot;1\&quot;&quot;,&quot;FaDsp&quot;:&quot;\&quot;1\&quot;&quot;,&quot;CstCd&quot;:&quot;\&quot;1\&quot;&quot;,&quot;FromCstCd&quot;:&quot;\&quot;1\&quot;&quot;,&quot;ToCstCd&quot;:&quot;\&quot;1\&quot;&quot;,&quot;ComId&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Reason&quot;:&quot;\&quot;1\&quot;&quot;,&quot;PrdType&quot;:&quot;\&quot;1\&quot;&quot;,&quot;PrdFrom&quot;:&quot;\&quot;1\&quot;&quot;,&quot;PrdTo&quot;:&quot;\&quot;1\&quot;&quot;,&quot;FundSumCds&quot;:&quot;\&quot;1\&quot;&quot;,&quot;FundSumCdFrom&quot;:&quot;\&quot;1\&quot;&quot;,&quot;FundSumCdTo&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Stat&quot;:&quot;\&quot;1\&quot;&quot;,&quot;FromDate&quot;:&quot;\&quot;1\&quot;&quot;,&quot;ToDate&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Model&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Mcst1&quot;:&quot;\&quot;1\&quot;&quot;,&quot;ChkcstCd&quot;:&quot;\&quot;1\&quot;&quot;,&quot;ChkFaCd1&quot;:&quot;\&quot;1\&quot;&quot;,&quot;ChkFaCd2&quot;:&quot;\&quot;1\&quot;&quot;,&quot;ChkFaCd3&quot;:&quot;\&quot;1\&quot;&quot;,&quot;ChkFaCd4&quot;:&quot;\&quot;1\&quot;&quot;,&quot;ChkMcstCd&quot;:&quot;\&quot;1\&quot;&quot;,&quot;ReportLine&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Xreport&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Report1&quot;:&quot;\&quot;1\&quot;&quot;,&quot;ColGrop&quot;:&quot;\&quot;1\&quot;&quot;,&quot;GropLine1&quot;:&quot;\&quot;1\&quot;&quot;,&quot;GropLine2&quot;:&quot;\&quot;1\&quot;&quot;,&quot;GropLine3&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Strt1&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Strt2&quot;:&quot;\&quot;1\&quot;&quot;,&quot;Strt3&quot;:&quot;\&quot;1\&quot;&quot;,&quot;SumCd&quot;:&quot;\&quot;1\&quot;&quot;,&quot;ChkOCst&quot;:&quot;\&quot;1\&quot;&quot;,&quot;DocType&quot;:&quot;\&quot;1\&quot;&quot;,&quot;MFaCd1&quot;:&quot;\&quot;1\&quot;&quot;,&quot;MFaCd2&quot;:&quot;\&quot;1\&quot;&quot;,&quot;MFaCd3&quot;:&quot;\&quot;1\&quot;&quot;,&quot;MFaCd4&quot;:&quot;\&quot;1\&quot;&quot;,&quot;FaCods&quot;:&quot;\&quot;\&quot;&quot;,&quot;ParmsFromOtherConds&quot;:&quot;\&quot;\&quot;&quot;}" AuthParameterValues="null" ServiceUrl="@Url" RequestTimeout="1000" Name="webServiceDataSource1">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "gl/ReportFaRpn/GetDataFaRpn"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FaCds">
+          <Value>
+            <String>= Parameters.FaCds.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FaCdFrom">
+          <Value>
+            <String>= Parameters.FaCdFrom.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FaCdTo">
+          <Value>
+            <String>= Parameters.FaCdTo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Resp">
+          <Value>
+            <String>= Parameters.Resp.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FacdDescrpation">
+          <Value>
+            <String>= Parameters.FacdDescrpation.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Place">
+          <Value>
+            <String>= Parameters.Place.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FundSrc">
+          <Value>
+            <String>= Parameters.FundSrc.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FaKind">
+          <Value>
+            <String>= Parameters.FaKind.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FaDsp">
+          <Value>
+            <String>= Parameters.FaDsp.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="CstCd">
+          <Value>
+            <String>= Parameters.CstCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromCstCd">
+          <Value>
+            <String>= Parameters.FromCstCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToCstCd">
+          <Value>
+            <String>= Parameters.ToCstCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ComId">
+          <Value>
+            <String>= Parameters.ComId.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Reason">
+          <Value>
+            <String>= Parameters.Reason.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="PrdType">
+          <Value>
+            <String>= Parameters.PrdType.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="PrdFrom">
+          <Value>
+            <String>= Parameters.PrdFrom.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="PrdTo">
+          <Value>
+            <String>= Parameters.PrdTo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FundSumCds">
+          <Value>
+            <String>= Parameters.FundSumCds.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FundSumCdFrom">
+          <Value>
+            <String>= Parameters.FundSumCdFrom.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FundSumCdTo">
+          <Value>
+            <String>= Parameters.FundSumCdTo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Stat">
+          <Value>
+            <String>= Parameters.Stat.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromDate">
+          <Value>
+            <String>= Parameters.FromDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToDate">
+          <Value>
+            <String>= Parameters.ToDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Model">
+          <Value>
+            <String>= Parameters.Model.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Mcst1">
+          <Value>
+            <String>= Parameters.Mcst1.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkcstCd">
+          <Value>
+            <String>= Parameters.ChkcstCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkFaCd1">
+          <Value>
+            <String>= Parameters.ChkFaCd1.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkFaCd2">
+          <Value>
+            <String>= Parameters.ChkFaCd2.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkFaCd3">
+          <Value>
+            <String>= Parameters.ChkFaCd3.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkFaCd4">
+          <Value>
+            <String>= Parameters.ChkFaCd4.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkMcstCd">
+          <Value>
+            <String>= Parameters.ChkMcstCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="ReportLine">
+          <Value>
+            <String>= Parameters.ReportLine.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Xreport">
+          <Value>
+            <String>= Parameters.Xreport.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Report1">
+          <Value>
+            <String>= Parameters.Report1.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ColGrop">
+          <Value>
+            <String>= Parameters.ColGrop.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="GropLine1">
+          <Value>
+            <String>= Parameters.GropLine1.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="GropLine2">
+          <Value>
+            <String>= Parameters.GropLine2.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="GropLine3">
+          <Value>
+            <String>= Parameters.GropLine3.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Strt1">
+          <Value>
+            <String>= Parameters.Strt1.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Strt2">
+          <Value>
+            <String>= Parameters.Strt2.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Strt3">
+          <Value>
+            <String>= Parameters.Strt3.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="SumCd">
+          <Value>
+            <String>= Parameters.SumCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkOCst">
+          <Value>
+            <String>= Parameters.ChkOCst.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="DocType">
+          <Value>
+            <String>= Parameters.DocType.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="MFaCd1">
+          <Value>
+            <String>= Parameters.MFaCd1.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="MFaCd2">
+          <Value>
+            <String>= Parameters.MFaCd2.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="MFaCd3">
+          <Value>
+            <String>= Parameters.MFaCd3.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="MFaCd4">
+          <Value>
+            <String>= Parameters.MFaCd4.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FaCods">
+          <Value>
+            <String>= Parameters.FaCods.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ParmsFromOtherConds">
+          <Value>
+            <String>= Parameters.ParmsFromOtherConds.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="5cm" Name="pageHeaderSection1">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="1.6cm" Height="0.537cm" Left="18.3cm" Top="2cm" Value="من" Name="textBox32">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.6cm" Height="0.537cm" Left="11.964cm" Top="2cm" Value="حتى" Name="textBox31">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.464cm" Height="0.537cm" Left="7.5cm" Top="2cm" Value="= IIf(Parameters.PrdType.Value=1,Format(&quot;{0} - {1}-{2}&quot;,&quot;01&quot;,Substr(Parameters.PrdFrom.Value,0,4),Substr(Parameters.PrdFrom.Value,4,6)),Parameters.PrdFrom.Value) " Format="{0:dd/MM/yyyy}" Name="textBox46">
+          <Style Color="0, 32, 96" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="16pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.3cm" Height="0.537cm" Left="14cm" Top="2cm" Value="= &quot;1&quot;" Format="{0:d}" Name="textBox45">
+          <Style Color="0, 32, 96" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="16pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="12cm" Height="0.9cm" Left="8cm" Top="0.254cm" Value="= Parameters.ReportTitle.Value" Name="textBox10">
+          <Style BackgroundColor="196, 189, 150" Color="23, 54, 93" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.892in" Height="0.226in" Left="8.504in" Top="0.099in" Value="= Parameters.CompanyName.Value" Name="textBox56">
+          <Style TextAlign="Center">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.889in" Height="0.226in" Left="8.504in" Top="0.354in" Value="= Parameters.CompanyAddress.Value" Name="textBox55">
+          <Style TextAlign="Center">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="0.6cm" Left="0.5cm" Top="0.656cm" Value="= &quot; صفحة &quot; + CStr(PageNumber) + &quot; من &quot;  + CStr(PageCount)" Name="textBox20">
+          <Style VerticalAlign="Middle">
+            <Font Size="8pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.8cm" Height="0.6cm" Left="3.3cm" Top="0.656cm" Value="= &quot;بواسطة :&quot;+Cstr(UserIdentity.Name)" Name="textBox23">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.14cm" Height="0.746cm" Left="11.964cm" Top="1.254cm" Value="كميات مختصر" Name="textBox62">
+          <Style BackgroundColor="White" Color="Red" TextAlign="Center">
+            <Font Size="14pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.473cm" Height="0.552cm" Left="16.296cm" Top="3.556cm" Value="تكلفة اول مدة" Name="textBox1">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.695cm" Height="1.27cm" Left="20.769cm" Top="3.556cm" Value="البيان" Name="textBox14">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.234cm" Height="0.552cm" Left="18.535cm" Top="4.248cm" Value="قيمة" Name="textBox7">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.238cm" Height="0.552cm" Left="16.296cm" Top="4.248cm" Value="كمية" Name="textBox91">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.454cm" Height="0.552cm" Left="11.842cm" Top="3.556cm" Value="الأضافات" Name="textBox4">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.25cm" Height="0.552cm" Left="14.046cm" Top="4.248cm" Value="قيمة" Name="textBox3">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.204cm" Height="0.552cm" Left="11.842cm" Top="4.248cm" Value="كمية" Name="textBox2">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.341cm" Height="0.552cm" Left="6.5cm" Top="3.556cm" Value="الاستبعادات" Name="textBox8">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.694cm" Height="0.552cm" Left="9.148cm" Top="4.248cm" Value="قيمة" Name="textBox6">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.648cm" Height="0.552cm" Left="6.5cm" Top="4.248cm" Value="كمية" Name="textBox5">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.499cm" Height="0.552cm" Left="0.001cm" Top="3.556cm" Value="تكلفة اخر المدة" Name="textBox12">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.257cm" Height="0.552cm" Left="3.243cm" Top="4.248cm" Value="قيمة" Name="textBox11">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.243cm" Height="0.552cm" Left="0cm" Top="4.248cm" Value="كمية" Name="textBox9">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="0.794cm" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White">
+        <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+        <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+        <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+      </Style>
+      <Items>
+        <TextBox Width="36.82mm" Height="6.72mm" Left="260mm" Top="0mm" Value="= Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(CStr( Fields.FaCd), &quot;0&quot;, &quot;٠&quot;), &quot;1&quot;, &quot;١&quot;), &quot;2&quot;, &quot;٢&quot;), &quot;3&quot;, &quot;٣&quot;), &quot;4&quot;, &quot;٤&quot;), &quot;5&quot;, &quot;٥&quot;), &quot;6&quot;, &quot;٦&quot;), &quot;7&quot;, &quot;٧&quot;), &quot;8&quot;, &quot;٨&quot;), &quot;9&quot;, &quot;٩&quot;)" Multiline="False" Name="textBox15">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="52.13mm" Height="6.72mm" Left="207.87mm" Top="0mm" Value="= Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(CStr( Fields.FaNm), &quot;0&quot;, &quot;٠&quot;), &quot;1&quot;, &quot;١&quot;), &quot;2&quot;, &quot;٢&quot;), &quot;3&quot;, &quot;٣&quot;), &quot;4&quot;, &quot;٤&quot;), &quot;5&quot;, &quot;٥&quot;), &quot;6&quot;, &quot;٦&quot;), &quot;7&quot;, &quot;٧&quot;), &quot;8&quot;, &quot;٨&quot;), &quot;9&quot;, &quot;٩&quot;)" Multiline="False" Name="textBox16">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.238cm" Height="6.72mm" Left="18.535cm" Top="0mm" Value="= Fields.FaVl" Format="{0:N2}" Name="textBox17">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.238cm" Height="6.72mm" Left="16.296cm" Top="0mm" Value="= Fields.BgQty" Format="{0:N2}" Name="textBox19">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.25cm" Height="6.72mm" Left="14.046cm" Top="0mm" Value="= Fields.Totadd" Format="{0:N2}" Name="textBox13">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.204cm" Height="6.72mm" Left="11.842cm" Top="0mm" Value="= Fields.TotaddQty" Format="{0:N2}" Name="textBox18">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.694cm" Height="6.72mm" Left="9.148cm" Top="0mm" Value="= Fields.Totdsp" Format="{0:N2}" Name="textBox21">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.648cm" Height="6.72mm" Left="6.5cm" Top="0mm" Value="= Fields.TotdspQty" Format="{0:N2}" Name="textBox22">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.257cm" Height="6.72mm" Left="3.243cm" Top="0mm" Value="= Fields.AFaVl" Format="{0:N2}" Name="textBox24">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.243cm" Height="6.72mm" Left="0cm" Top="0mm" Value="= Fields.FaQty" Format="{0:N2}" Name="textBox25">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+      </Items>
+      <Bindings>
+        <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkMcstCd.Value=0,false,true)" />
+      </Bindings>
+    </DetailSection>
+    <ReportFooterSection Height="0.673cm" Name="reportFooterSection1">
+      <Items>
+        <TextBox Width="8.829cm" Height="0.672cm" Left="20.835cm" Top="0.001cm" Value=" الاجمالي العام " Multiline="False" Name="textBox33">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="18pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.238cm" Height="6.72mm" Left="18.535cm" Top="0mm" Value="= sum(Fields.FaVl)" Format="{0:N2}" Name="textBox98">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.238cm" Height="6.72mm" Left="16.296cm" Top="0mm" Value="=sum( Fields.BgQty)" Format="{0:N2}" Name="textBox97">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.25cm" Height="6.72mm" Left="14.046cm" Top="0mm" Value="=sum( Fields.Totadd)" Format="{0:N2}" Name="textBox96">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.204cm" Height="6.72mm" Left="11.842cm" Top="0mm" Value="= sum(Fields.TotaddQty)" Format="{0:N2}" Name="textBox95">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.694cm" Height="6.72mm" Left="9.148cm" Top="0mm" Value="=sum( Fields.Totdsp)" Format="{0:N2}" Name="textBox94">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.648cm" Height="6.72mm" Left="6.5cm" Top="0mm" Value="= sum(Fields.TotdspQty)" Format="{0:N2}" Name="textBox93">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.257cm" Height="6.72mm" Left="3.243cm" Top="0mm" Value="= sum(Fields.AFaVl)" Format="{0:N2}" Name="textBox92">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.243cm" Height="6.72mm" Left="0cm" Top="0mm" Value="= sum(Fields.FaQty)" Format="{0:N2}" Name="textBox90">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Groups>
+    <Group Name="group2">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.247in" Name="groupHeaderSection2">
+          <Style Visible="False" />
+          <Items>
+            <TextBox Width="68.35mm" Height="6.28mm" Left="140mm" Top="0mm" Value="= Fields.MfaCd1Name" Multiline="False" Name="textBox75">
+              <Style BackgroundColor="Yellow" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+              <Bindings>
+                <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkFaCd1.Value=0,false,true)" />
+              </Bindings>
+            </TextBox>
+            <TextBox Width="38.28mm" Height="6.28mm" Left="208.35mm" Top="0mm" Value="= Fields.MfaCd1" Multiline="False" Name="textBox72">
+              <Style BackgroundColor="Yellow" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+              <Bindings>
+                <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkFaCd1.Value=0,false,true)" />
+              </Bindings>
+            </TextBox>
+            <TextBox Width="50.01mm" Height="0.628cm" Left="24.663cm" Top="0cm" Value="مجموعه 1" Multiline="False" Name="textBox51">
+              <Style BackgroundColor="255, 192, 0" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.265in" Name="groupFooterSection2">
+          <Style Visible="True" />
+          <Items>
+            <TextBox Width="50.01mm" Height="6.28mm" Left="24.663cm" Top="0cm" Value="= Fields.MfaCd1Name" Multiline="False" Name="textBox131">
+              <Style BackgroundColor="255, 192, 0" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+              <Bindings>
+                <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkFaCd1.Value=0,false,true)" />
+              </Bindings>
+            </TextBox>
+            <TextBox Width="38.27mm" Height="6.28mm" Left="208.35mm" Top="0mm" Value="= Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(CStr( Fields.MfaCd1), &quot;0&quot;, &quot;٠&quot;), &quot;1&quot;, &quot;١&quot;), &quot;2&quot;, &quot;٢&quot;), &quot;3&quot;, &quot;٣&quot;), &quot;4&quot;, &quot;٤&quot;), &quot;5&quot;, &quot;٥&quot;), &quot;6&quot;, &quot;٦&quot;), &quot;7&quot;, &quot;٧&quot;), &quot;8&quot;, &quot;٨&quot;), &quot;9&quot;, &quot;٩&quot;)" Multiline="False" Name="textBox59">
+              <Style BackgroundColor="Yellow" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.238cm" Height="6.72mm" Left="18.535cm" Top="0mm" Value="= sum(Fields.FaVl)" Format="{0:N2}" Name="textBox89">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.238cm" Height="6.72mm" Left="16.296cm" Top="0mm" Value="=sum( Fields.BgQty)" Format="{0:N2}" Name="textBox88">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.25cm" Height="6.72mm" Left="14.046cm" Top="0mm" Value="=sum( Fields.Totadd)" Format="{0:N2}" Name="textBox87">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.204cm" Height="6.72mm" Left="11.842cm" Top="0mm" Value="= sum(Fields.TotaddQty)" Format="{0:N2}" Name="textBox86">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.694cm" Height="6.72mm" Left="9.148cm" Top="0mm" Value="=sum( Fields.Totdsp)" Format="{0:N2}" Name="textBox85">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.648cm" Height="6.72mm" Left="6.5cm" Top="0mm" Value="= sum(Fields.TotdspQty)" Format="{0:N2}" Name="textBox84">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.257cm" Height="6.72mm" Left="3.243cm" Top="0mm" Value="= sum(Fields.AFaVl)" Format="{0:N2}" Name="textBox83">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.243cm" Height="6.72mm" Left="0cm" Top="0mm" Value="= sum(Fields.FaQty)" Format="{0:N2}" Name="textBox82">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+          </Items>
+          <Bindings>
+            <Binding Path="Visible" Expression="= IIf(Parameters.ChkFaCd1.Value=0,false,true)" />
+          </Bindings>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="=IIf(Parameters.ChkFaCd1.Value=1,Fields.MfaCd1,1)" />
+      </Groupings>
+    </Group>
+    <Group Name="group1">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.291in" Name="groupHeaderSection1">
+          <Style Visible="False" />
+          <Items>
+            <TextBox Width="38.28mm" Height="7.38mm" Left="208.35mm" Top="0mm" Value="= Fields.MfaCd2" Multiline="False" Name="textBox78">
+              <Style BackgroundColor="Yellow" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="68.35mm" Height="7.38mm" Left="140mm" Top="0mm" Value="= Fields.MfaCd2Name" Multiline="False" Name="textBox80">
+              <Style BackgroundColor="Yellow" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="50.01mm" Height="7.38mm" Left="24.663cm" Top="0cm" Value="مجموعة 2" Multiline="False" Name="textBox52">
+              <Style BackgroundColor="255, 192, 0" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.295in" Name="groupFooterSection1">
+          <Style Visible="True" />
+          <Items>
+            <TextBox Width="50mm" Height="7.38mm" Left="24.663cm" Top="0cm" Value="= Fields.MfaCd2Name" Multiline="False" Name="textBox77">
+              <Style BackgroundColor="255, 192, 0" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="38.27mm" Height="7.26mm" Left="208.35mm" Top="0.12mm" Value="= Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(CStr( Fields.MfaCd2), &quot;0&quot;, &quot;٠&quot;), &quot;1&quot;, &quot;١&quot;), &quot;2&quot;, &quot;٢&quot;), &quot;3&quot;, &quot;٣&quot;), &quot;4&quot;, &quot;٤&quot;), &quot;5&quot;, &quot;٥&quot;), &quot;6&quot;, &quot;٦&quot;), &quot;7&quot;, &quot;٧&quot;), &quot;8&quot;, &quot;٨&quot;), &quot;9&quot;, &quot;٩&quot;)" Multiline="False" Name="textBox58">
+              <Style BackgroundColor="Yellow" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.238cm" Height="6.72mm" Left="18.535cm" Top="0mm" Value="= sum(Fields.FaVl)" Format="{0:N2}" Name="textBox81">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.238cm" Height="6.72mm" Left="16.296cm" Top="0mm" Value="=sum( Fields.BgQty)" Format="{0:N2}" Name="textBox79">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.25cm" Height="6.72mm" Left="14.046cm" Top="0mm" Value="=sum( Fields.Totadd)" Format="{0:N2}" Name="textBox76">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.204cm" Height="6.72mm" Left="11.842cm" Top="0mm" Value="= sum(Fields.TotaddQty)" Format="{0:N2}" Name="textBox74">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.694cm" Height="6.72mm" Left="9.148cm" Top="0mm" Value="=sum( Fields.Totdsp)" Format="{0:N2}" Name="textBox73">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.648cm" Height="6.72mm" Left="6.5cm" Top="0mm" Value="= sum(Fields.TotdspQty)" Format="{0:N2}" Name="textBox71">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.257cm" Height="6.72mm" Left="3.243cm" Top="0mm" Value="= sum(Fields.AFaVl)" Format="{0:N2}" Name="textBox70">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.243cm" Height="6.72mm" Left="0cm" Top="0mm" Value="= sum(Fields.FaQty)" Format="{0:N2}" Name="textBox69">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+          </Items>
+          <Bindings>
+            <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkFaCd2.Value=0 ,false,true)" />
+          </Bindings>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="=IIf(Parameters.ChkFaCd2.Value=1,Fields.MfaCd2,1)" />
+      </Groupings>
+    </Group>
+    <Group Name="group3">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.247in" Name="groupHeaderSection3">
+          <Style Visible="False" />
+          <Items>
+            <TextBox Width="38.28mm" Height="0.628cm" Left="208.35mm" Top="0mm" Value="= Fields.MfaCd3" Multiline="False" Name="textBox102">
+              <Style BackgroundColor="Yellow" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="68.35mm" Height="0.628cm" Left="140mm" Top="0mm" Value="= Fields.MfaCd3Name" Multiline="False" Name="textBox105">
+              <Style BackgroundColor="Yellow" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="50.01mm" Height="0.628cm" Left="24.664cm" Top="0cm" Value="مجموعة 3" Multiline="False" Name="textBox53">
+              <Style BackgroundColor="255, 192, 0" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.295in" Name="groupFooterSection3">
+          <Style Visible="True" />
+          <Items>
+            <TextBox Width="50.01mm" Height="7.62mm" Left="24.663cm" Top="-0.012cm" Value="= Fields.MfaCd3Name" Multiline="False" Name="textBox134">
+              <Style BackgroundColor="255, 192, 0" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="38.27mm" Height="7.38mm" Left="208.35mm" Top="0mm" Value="= Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(CStr( Fields.MfaCd3), &quot;0&quot;, &quot;٠&quot;), &quot;1&quot;, &quot;١&quot;), &quot;2&quot;, &quot;٢&quot;), &quot;3&quot;, &quot;٣&quot;), &quot;4&quot;, &quot;٤&quot;), &quot;5&quot;, &quot;٥&quot;), &quot;6&quot;, &quot;٦&quot;), &quot;7&quot;, &quot;٧&quot;), &quot;8&quot;, &quot;٨&quot;), &quot;9&quot;, &quot;٩&quot;)" Multiline="False" Name="textBox57">
+              <Style BackgroundColor="Yellow" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.238cm" Height="6.72mm" Left="18.535cm" Top="0mm" Value="= sum(Fields.FaVl)" Format="{0:N2}" Name="textBox68">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.238cm" Height="6.72mm" Left="16.296cm" Top="0mm" Value="=sum( Fields.BgQty)" Format="{0:N2}" Name="textBox67">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.25cm" Height="6.72mm" Left="14.046cm" Top="0mm" Value="=sum( Fields.Totadd)" Format="{0:N2}" Name="textBox66">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.204cm" Height="6.72mm" Left="11.842cm" Top="0mm" Value="= sum(Fields.TotaddQty)" Format="{0:N2}" Name="textBox65">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.694cm" Height="6.72mm" Left="9.148cm" Top="0mm" Value="=sum( Fields.Totdsp)" Format="{0:N2}" Name="textBox64">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.648cm" Height="6.72mm" Left="6.5cm" Top="0mm" Value="= sum(Fields.TotdspQty)" Format="{0:N2}" Name="textBox63">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.257cm" Height="6.72mm" Left="3.243cm" Top="0mm" Value="= sum(Fields.AFaVl)" Format="{0:N2}" Name="textBox61">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.243cm" Height="6.72mm" Left="0cm" Top="0mm" Value="= sum(Fields.FaQty)" Format="{0:N2}" Name="textBox60">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+          </Items>
+          <Bindings>
+            <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkFaCd3.Value=0,false,true)" />
+          </Bindings>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="=IIf(Parameters.ChkFaCd3.Value=1,Fields.MfaCd3,1)" />
+      </Groupings>
+    </Group>
+    <Group Name="group4">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.291in" Name="groupHeaderSection4">
+          <Style Visible="False" />
+          <Items>
+            <TextBox Width="68.35mm" Height="0.738cm" Left="140mm" Top="0mm" Value="= Fields.MfaCd4Name" Multiline="False" Name="textBox122">
+              <Style BackgroundColor="Yellow" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="38.28mm" Height="0.738cm" Left="208.35mm" Top="0mm" Value="= Fields.MfaCd4" Multiline="False" Name="textBox113">
+              <Style BackgroundColor="Yellow" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="50.01mm" Height="0.738cm" Left="24.663cm" Top="0cm" Value="مجموعه 4" Multiline="False" Name="textBox54">
+              <Style BackgroundColor="255, 192, 0" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.303in" Name="groupFooterSection4">
+          <Style Visible="True" />
+          <Items>
+            <TextBox Width="50.01mm" Height="0.738cm" Left="24.663cm" Top="0.031cm" Value="= Fields.MfaCd4Name" Multiline="False" Name="textBox106">
+              <Style BackgroundColor="255, 192, 0" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="38.27mm" Height="7.38mm" Left="208.35mm" Top="0mm" Value="= Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(CStr( Fields.MfaCd4), &quot;0&quot;, &quot;٠&quot;), &quot;1&quot;, &quot;١&quot;), &quot;2&quot;, &quot;٢&quot;), &quot;3&quot;, &quot;٣&quot;), &quot;4&quot;, &quot;٤&quot;), &quot;5&quot;, &quot;٥&quot;), &quot;6&quot;, &quot;٦&quot;), &quot;7&quot;, &quot;٧&quot;), &quot;8&quot;, &quot;٨&quot;), &quot;9&quot;, &quot;٩&quot;)" Multiline="False" Name="textBox47">
+              <Style BackgroundColor="Yellow" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.238cm" Height="6.72mm" Left="18.535cm" Top="0mm" Value="= sum(Fields.FaVl)" Format="{0:N2}" Name="textBox44">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.238cm" Height="6.72mm" Left="16.296cm" Top="0mm" Value="=sum( Fields.BgQty)" Format="{0:N2}" Name="textBox43">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.25cm" Height="6.72mm" Left="14.046cm" Top="0mm" Value="=sum( Fields.Totadd)" Format="{0:N2}" Name="textBox42">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.204cm" Height="6.72mm" Left="11.842cm" Top="0mm" Value="= sum(Fields.TotaddQty)" Format="{0:N2}" Name="textBox41">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.694cm" Height="6.72mm" Left="9.148cm" Top="0mm" Value="=sum( Fields.Totdsp)" Format="{0:N2}" Name="textBox40">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.648cm" Height="6.72mm" Left="6.5cm" Top="0mm" Value="= sum(Fields.TotdspQty)" Format="{0:N2}" Name="textBox39">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.257cm" Height="6.72mm" Left="3.243cm" Top="0mm" Value="= sum(Fields.AFaVl)" Format="{0:N2}" Name="textBox38">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.243cm" Height="6.72mm" Left="0cm" Top="0mm" Value="= sum(Fields.FaQty)" Format="{0:N2}" Name="textBox37">
+              <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+          </Items>
+          <Bindings>
+            <Binding Path="Visible" Expression="= IIf(Parameters.ChkFaCd4.Value=0,false,true)" />
+          </Bindings>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="=IIf(Parameters.ChkFaCd4.Value=1,Fields.MfaCd4,1)" />
+      </Groupings>
+    </Group>
+    <Group Name="group5">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.265in" Name="groupHeaderSection5">
+          <Items>
+            <TextBox Width="50mm" Height="6.72mm" Left="24.664cm" Top="0cm" Value="المركز الرئيسي" Multiline="False" Name="textBox50">
+              <Style BackgroundColor="White" Color="Red" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="12pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+              <Bindings>
+                <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkcstCd.Value=0,false,true)" />
+              </Bindings>
+            </TextBox>
+            <TextBox Width="38.28mm" Height="6.72mm" Left="208.35mm" Top="0mm" Value="= Fields.McstCd" Multiline="False" Name="textBox48">
+              <Style BackgroundColor="White" Color="Red" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="12pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+              <Bindings>
+                <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkcstCd.Value=0,false,true)" />
+              </Bindings>
+            </TextBox>
+            <TextBox Width="88.97mm" Height="6.72mm" Left="119.38mm" Top="0mm" Value="= Fields.McstCdName" Multiline="False" Name="textBox49">
+              <Style BackgroundColor="White" Color="Red" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="12pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+              <Bindings>
+                <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkcstCd.Value=0,false,true)" />
+              </Bindings>
+            </TextBox>
+          </Items>
+          <Bindings>
+            <Binding Path="Style.Visible" Expression="= IIf(Parameters.Mcst1.Value=0,false,true)" />
+          </Bindings>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.265in" Name="groupFooterSection5">
+          <Style Visible="True" />
+          <Items>
+            <TextBox Width="23.31mm" Height="6.72mm" Left="27.334cm" Top="0cm" Value="إجمالي" Multiline="False" Name="textBox139">
+              <Style BackgroundColor="PaleTurquoise" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+              <Bindings>
+                <Binding Path="Style.Visible" Expression="null" />
+              </Bindings>
+            </TextBox>
+            <TextBox Width="14.97mm" Height="6.72mm" Left="258.36mm" Top="0mm" Value="= Fields.McstCd" Multiline="False" Name="textBox138">
+              <Style BackgroundColor="PaleTurquoise" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+              <Bindings>
+                <Binding Path="Style.Visible" Expression="null" />
+              </Bindings>
+            </TextBox>
+            <TextBox Width="50mm" Height="6.72mm" Left="208.36mm" Top="0mm" Value="= Fields.McstCdName" Multiline="False" Name="textBox116">
+              <Style BackgroundColor="PaleTurquoise" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+              <Bindings>
+                <Binding Path="Style.Visible" Expression="null" />
+              </Bindings>
+            </TextBox>
+            <TextBox Width="2.234cm" Height="6.72mm" Left="18.535cm" Top="0mm" Value="= IsNull( sum(Fields.FaVl),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox36">
+              <Style BackgroundColor="PaleTurquoise" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.238cm" Height="6.72mm" Left="16.296cm" Top="0mm" Value="= IsNull( sum(Fields.BgQty),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox35">
+              <Style BackgroundColor="PaleTurquoise" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.25cm" Height="6.72mm" Left="14.046cm" Top="0mm" Value="= IsNull( sum(Fields.Totadd),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox34">
+              <Style BackgroundColor="PaleTurquoise" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.204cm" Height="6.72mm" Left="11.842cm" Top="0mm" Value="= IsNull( sum(Fields.TotaddQty),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox30">
+              <Style BackgroundColor="PaleTurquoise" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.694cm" Height="6.72mm" Left="9.148cm" Top="0mm" Value="= IsNull( sum(Fields.Totdsp),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox29">
+              <Style BackgroundColor="PaleTurquoise" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.648cm" Height="6.72mm" Left="6.5cm" Top="0mm" Value="= IsNull( sum(Fields.TotdspQty),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox28">
+              <Style BackgroundColor="PaleTurquoise" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.257cm" Height="6.72mm" Left="3.243cm" Top="0mm" Value="= IsNull( sum(Fields.AFaVl),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox27">
+              <Style BackgroundColor="PaleTurquoise" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.243cm" Height="6.72mm" Left="0cm" Top="0mm" Value="= IsNull( sum(Fields.FaQty),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox26">
+              <Style BackgroundColor="PaleTurquoise" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+          </Items>
+          <Bindings>
+            <Binding Path="Style.Visible" Expression="= IIf(Parameters.Mcst1.Value=0,false,true)" />
+          </Bindings>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="=IIf(Parameters.Mcst1.Value=1,Fields.McstCd,1)" />
+      </Groupings>
+    </Group>
+    <Group Name="group6">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.672cm" Name="groupHeaderSection6">
+          <Style Visible="False" />
+          <Items>
+            <TextBox Width="38.28mm" Height="6.72mm" Left="208.35mm" Top="0mm" Value="= Fields.cstcd" Multiline="False" Name="textBox100">
+              <Style BackgroundColor="White" Color="Red" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="12pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+              <Bindings>
+                <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkcstCd.Value=0,false,true)" />
+              </Bindings>
+            </TextBox>
+            <TextBox Width="88.97mm" Height="6.72mm" Left="119.38mm" Top="0mm" Value="= Fields.CstName" Multiline="False" Name="textBox99">
+              <Style BackgroundColor="White" Color="Red" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="12pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+              <Bindings>
+                <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkcstCd.Value=0,false,true)" />
+              </Bindings>
+            </TextBox>
+            <TextBox Width="50mm" Height="6.72mm" Left="24.664cm" Top="0cm" Value="مركز التكلفة" Multiline="False" Name="textBox101">
+              <Style BackgroundColor="White" Color="Red" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="12pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+              <Bindings>
+                <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkcstCd.Value=0,false,true)" />
+              </Bindings>
+            </TextBox>
+          </Items>
+          <Bindings>
+            <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkcstCd.Value=0,false,true)" />
+          </Bindings>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.728cm" Name="groupFooterSection6">
+          <Style Visible="False" />
+          <Items>
+            <TextBox Width="3.257cm" Height="6.72mm" Left="3.243cm" Top="0mm" Value="= IsNull( sum(Fields.AFaVl),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox104">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.243cm" Height="6.72mm" Left="0cm" Top="0mm" Value="= IsNull( sum(Fields.FaQty),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox103">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.648cm" Height="6.72mm" Left="6.5cm" Top="0mm" Value="= IsNull( sum(Fields.TotdspQty),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox107">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.694cm" Height="6.72mm" Left="9.148cm" Top="0mm" Value="= IsNull( sum(Fields.Totdsp),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox108">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.204cm" Height="6.72mm" Left="11.842cm" Top="0mm" Value="= IsNull( sum(Fields.TotaddQty),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox109">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.25cm" Height="6.72mm" Left="14.046cm" Top="0mm" Value="= IsNull( sum(Fields.Totadd),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox110">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.238cm" Height="6.72mm" Left="16.296cm" Top="0mm" Value="= IsNull( sum(Fields.BgQty),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox111">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="2.234cm" Height="6.72mm" Left="18.535cm" Top="0mm" Value="= IsNull( sum(Fields.FaVl),0)&#xD;&#xA;" Format="{0:N2}" Name="textBox112">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="7pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+            </TextBox>
+            <TextBox Width="50mm" Height="6.72mm" Left="208.36mm" Top="0mm" Value="= Fields.CstName" Multiline="False" Name="textBox114">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+              <Bindings>
+                <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkcstCd.Value=0,false,true)" />
+              </Bindings>
+            </TextBox>
+            <TextBox Width="14.97mm" Height="6.72mm" Left="258.36mm" Top="0mm" Value="= Fields.cstcd" Multiline="False" Name="textBox115">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="9pt" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+              <Bindings>
+                <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkcstCd.Value=0,false,true)" />
+              </Bindings>
+            </TextBox>
+            <TextBox Width="23.31mm" Height="6.72mm" Left="27.334cm" Top="0cm" Value="اجمالي م.تكلفة" Multiline="False" Name="textBox117">
+              <Style BackgroundColor="198, 217, 241" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="10pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                <Padding Top="0in" Bottom="0in" />
+              </Style>
+              <Bindings>
+                <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkcstCd.Value=0,false,true)" />
+              </Bindings>
+            </TextBox>
+          </Items>
+          <Bindings>
+            <Binding Path="Style.Visible" Expression="= IIf(Parameters.ChkcstCd.Value=0,false,true)" />
+          </Bindings>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="=IIf(Parameters.ChkcstCd.Value=1,Fields.cstcd,1)" />
+      </Groupings>
+    </Group>
+  </Groups>
+  <ReportParameters>
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="Url" Text="Url" />
+    <ReportParameter Name="CompanyName">
+      <Value>
+        <String></String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="Logo" />
+    <ReportParameter Name="CompanyAddress" />
+    <ReportParameter Name="FaCds" AllowNull="True" />
+    <ReportParameter Name="FaCdFrom" AllowNull="True" />
+    <ReportParameter Name="FaCdTo" AllowNull="True" />
+    <ReportParameter Name="Resp" AllowNull="True" />
+    <ReportParameter Name="FacdDescrpation" AllowNull="True" />
+    <ReportParameter Name="Place" AllowNull="True" />
+    <ReportParameter Name="FundSrc" AllowNull="True" />
+    <ReportParameter Name="FaKind" AllowNull="True" />
+    <ReportParameter Name="FaDsp" AllowNull="True" />
+    <ReportParameter Name="CstCd" AllowNull="True" />
+    <ReportParameter Name="FromCstCd" AllowNull="True" />
+    <ReportParameter Name="ToCstCd" AllowNull="True" />
+    <ReportParameter Name="ComId" AllowNull="True" />
+    <ReportParameter Name="Reason" AllowNull="True" />
+    <ReportParameter Name="PrdType" AllowNull="True" />
+    <ReportParameter Name="PrdFrom" AllowNull="True" />
+    <ReportParameter Name="PrdTo" />
+    <ReportParameter Name="FundSumCds" AllowNull="True" />
+    <ReportParameter Name="FundSumCdFrom" AllowNull="True" />
+    <ReportParameter Name="FundSumCdTo" AllowNull="True" />
+    <ReportParameter Name="Stat" AllowNull="True" />
+    <ReportParameter Name="FromDate" AllowNull="True" />
+    <ReportParameter Name="ToDate" AllowNull="True" />
+    <ReportParameter Name="Model" AllowNull="True" />
+    <ReportParameter Name="Mcst1" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="ChkcstCd" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="ChkFaCd1" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="ChkFaCd2" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="ChkFaCd3" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="ChkFaCd4" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="ChkMcstCd" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="ReportLine" AllowNull="True" />
+    <ReportParameter Name="Xreport" AllowNull="True" />
+    <ReportParameter Name="Report1" AllowNull="True" />
+    <ReportParameter Name="ColGrop" AllowNull="True" />
+    <ReportParameter Name="GropLine1" AllowNull="True" />
+    <ReportParameter Name="GropLine2" AllowNull="True" />
+    <ReportParameter Name="GropLine3" AllowNull="True" />
+    <ReportParameter Name="Strt1" AllowNull="True" />
+    <ReportParameter Name="Strt2" AllowNull="True" />
+    <ReportParameter Name="Strt3" AllowNull="True" />
+    <ReportParameter Name="SumCd" AllowNull="True" />
+    <ReportParameter Name="ChkOCst" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="DocType" AllowNull="True" />
+    <ReportParameter Name="MFaCd1" AllowNull="True" />
+    <ReportParameter Name="MFaCd2" AllowNull="True" />
+    <ReportParameter Name="MFaCd3" AllowNull="True" />
+    <ReportParameter Name="MFaCd4" AllowNull="True" />
+    <ReportParameter Name="FaCods" AllowNull="True" />
+    <ReportParameter Name="ReportTitle" AllowNull="True" />
+    <ReportParameter Name="ParmsFromOtherConds" AllowNull="True" />
+  </ReportParameters>
+</Report>

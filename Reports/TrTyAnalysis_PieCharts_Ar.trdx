@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="webServiceDataSource1" Width="10.118in" UnitOfMeasure="Mm" Name="TrTyAnalysis_PieCharts_Ar" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style TextAlign="Center" VerticalAlign="Middle" />
+  <DataSources>
+    <WebServiceDataSource ParameterValues="{&quot;@Url&quot;:,&quot;.AspNetCore.Identity.Application&quot;:,&quot;Group1&quot;:,&quot;Group2&quot;:,&quot;Group3&quot;:,&quot;Group4&quot;:,&quot;Group5&quot;:,&quot;AddBeginBalance&quot;:,&quot;CashAndJrnl&quot;:,&quot;FromDate&quot;:,&quot;ToDate&quot;:,&quot;MAccNo&quot;:,&quot;FromAccNo&quot;:,&quot;ToAccNo&quot;:,&quot;FromCstCd&quot;:,&quot;ToCstCd&quot;:,&quot;FromSCstCd&quot;:,&quot;ToSCstCd&quot;:,&quot;FromSumCd&quot;:,&quot;ToSumCd&quot;:,&quot;FromSSumCd&quot;:,&quot;ToSSumCd&quot;:,&quot;ComId&quot;:,&quot;SGrp1&quot;:,&quot;SGrp2&quot;:,&quot;SGrp3&quot;:,&quot;Strt1&quot;:,&quot;Strt2&quot;:,&quot;Strt3&quot;:,&quot;Strt4&quot;:,&quot;Strt5&quot;:,&quot;Ln1&quot;:,&quot;Ln2&quot;:,&quot;Ln3&quot;:,&quot;Ln4&quot;:,&quot;Ln5&quot;:,&quot;PRD&quot;:,&quot;Vcurcd&quot;:,&quot;Vrepcd&quot;:,&quot;JrnCod&quot;:,&quot;chkOCST&quot;:,&quot;Appnd_TRDS&quot;:,&quot;chkDtl&quot;:,&quot;RptFltr&quot;:,&quot;Null1&quot;:,&quot;Null2&quot;:,&quot;Null3&quot;:,&quot;Null4&quot;:,&quot;Null5&quot;:,&quot;ChkNoZero&quot;:,&quot;ChkNoClos&quot;:,&quot;OpAccount&quot;:,&quot;XFact&quot;:,&quot;Ssum&quot;:,&quot;OpoAccNo&quot;:,&quot;suntCd&quot;:,&quot;HasAcc1&quot;:,&quot;HasAcc2&quot;:,&quot;FromDb&quot;:,&quot;FromCr&quot;:,&quot;ToCr&quot;:,&quot;ToDb&quot;:,&quot;IsChart&quot;:,&quot;glsysndxPrd&quot;:,&quot;chkBTR&quot;:}" AuthParameterValues="null" ServiceUrl="@Url" Name="webServiceDataSource1">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "gl/ReportTrTyAnalysis/GetDataTrtyAnalysis"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Group1">
+          <Value>
+            <String>= Parameters.Group1.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Group2">
+          <Value>
+            <String>= Parameters.Group2.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Group3">
+          <Value>
+            <String>= Parameters.Group3.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Group4">
+          <Value>
+            <String>= Parameters.Group4.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Group5">
+          <Value>
+            <String>= Parameters.Group5.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="AddBeginBalance">
+          <Value>
+            <String>= Parameters.AddBeginBalance.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="CashAndJrnl">
+          <Value>
+            <String>= Parameters.CashAndJrnl.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromDate">
+          <Value>
+            <String>= Parameters.FromDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToDate">
+          <Value>
+            <String>= Parameters.ToDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="MAccNo">
+          <Value>
+            <String>= Parameters.MAccNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromAccNo">
+          <Value>
+            <String>= Parameters.FromAccNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToAccNo">
+          <Value>
+            <String>= Parameters.ToAccNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromCstCd">
+          <Value>
+            <String>= Parameters.FromCstCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToCstCd">
+          <Value>
+            <String>= Parameters.ToCstCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSCstCd">
+          <Value>
+            <String>= Parameters.FromSCstCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSCstCd">
+          <Value>
+            <String>= Parameters.ToSCstCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSumCd">
+          <Value>
+            <String>= Parameters.FromSumCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSumCd">
+          <Value>
+            <String>= Parameters.ToSumCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromSSumCd">
+          <Value>
+            <String>= Parameters.FromSSumCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToSSumCd">
+          <Value>
+            <String>= Parameters.ToSSumCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ComId">
+          <Value>
+            <String>= Parameters.ComId.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="SGrp1">
+          <Value>
+            <String>= Parameters.SGrp1.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="SGrp2">
+          <Value>
+            <String>= Parameters.SGrp2.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="SGrp3">
+          <Value>
+            <String>= Parameters.SGrp3.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Strt1">
+          <Value>
+            <String>= Parameters.Strt1.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Strt2">
+          <Value>
+            <String>= Parameters.Strt2.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Strt3">
+          <Value>
+            <String>= Parameters.Strt3.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Strt4">
+          <Value>
+            <String>= Parameters.Strt4.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Strt5">
+          <Value>
+            <String>= Parameters.Strt5.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Ln1">
+          <Value>
+            <String>= Parameters.Ln1.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Ln2">
+          <Value>
+            <String>= Parameters.Ln2.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Ln3">
+          <Value>
+            <String>= Parameters.Ln3.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Ln4">
+          <Value>
+            <String>= Parameters.Ln4.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Ln5">
+          <Value>
+            <String>= Parameters.Ln5.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="PRD">
+          <Value>
+            <String>= Parameters.PRD.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Vcurcd">
+          <Value>
+            <String>= Parameters.Vcurcd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Vrepcd">
+          <Value>
+            <String>= Parameters.Vrepcd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="JrnCod">
+          <Value>
+            <String>= Parameters.JrnCod.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="chkOCST">
+          <Value>
+            <String>= Parameters.chkOCST.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Appnd_TRDS">
+          <Value>
+            <String>= Parameters.Appnd_TRDS.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="chkDtl">
+          <Value>
+            <String>= Parameters.chkDtl.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="RptFltr">
+          <Value>
+            <String>= Parameters.RptFltr.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Null1">
+          <Value>
+            <String>= Parameters.Null1.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Null2">
+          <Value>
+            <String>= Parameters.Null2.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Null3">
+          <Value>
+            <String>= Parameters.Null3.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Null4">
+          <Value>
+            <String>= Parameters.Null4.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Null5">
+          <Value>
+            <String>= Parameters.Null5.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkNoZero">
+          <Value>
+            <String>= Parameters.ChkNoZero.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChkNoClos">
+          <Value>
+            <String>= Parameters.ChkNoClos.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="OpAccount">
+          <Value>
+            <String>= Parameters.OpAccount.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="XFact">
+          <Value>
+            <String>= Parameters.XFact.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Ssum">
+          <Value>
+            <String>= Parameters.Ssum.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="OpoAccNo">
+          <Value>
+            <String>= Parameters.OpoAccNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="suntCd">
+          <Value>
+            <String>= Parameters.suntCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="HasAcc1">
+          <Value>
+            <String>= Parameters.HasAcc1.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="HasAcc2">
+          <Value>
+            <String>= Parameters.HasAcc2.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromDb">
+          <Value>
+            <String>= Parameters.FromDb.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromCr">
+          <Value>
+            <String>= Parameters.FromCr.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToCr">
+          <Value>
+            <String>= Parameters.ToCr.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToDb">
+          <Value>
+            <String>= Parameters.ToDb.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="IsChart">
+          <Value>
+            <String>= Parameters.IsChart.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="glsysndxPrd">
+          <Value>
+            <String>= Parameters.glsysndxPrd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="chkBTR">
+          <Value>
+            <String>= Parameters.chkBTR.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="3cm" Name="pageHeaderSection1">
+      <Style>
+        <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="11.8cm" Height="1.5cm" Left="6.9cm" Top="0.3cm" Value="التقرير التحليلي للحركة بيانى دائري" Name="textBox21">
+          <Style Color="Red" TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Urdu Typesetting" Size="24pt" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="0.132cm" Name="detailSection1">
+      <Style Visible="False" />
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Groups>
+    <Group Name="group">
+      <GroupHeader>
+        <GroupHeaderSection Height="12.404cm" Name="groupHeaderSection">
+          <Items>
+            <Graph DataSourceName="webServiceDataSource1" Width="250mm" Height="124.04mm" Left="3mm" Top="0mm" Name="graph1">
+              <PlotAreaStyle LineWidth="0cm" LineColor="LightGray" />
+              <Axes>
+                <GraphAxis Name="graphAxis3">
+                  <Style Visible="False" />
+                  <MajorGridLineStyle Visible="False" LineWidth="1px" LineColor="LightGray" />
+                  <MinorGridLineStyle Visible="False" LineWidth="1px" LineColor="LightGray" />
+                  <Scale>
+                    <NumericalScale />
+                  </Scale>
+                </GraphAxis>
+                <GraphAxis Name="graphAxis4">
+                  <Style Visible="False" />
+                  <MajorGridLineStyle Visible="False" LineWidth="1px" LineColor="LightGray" />
+                  <MinorGridLineStyle Visible="False" LineWidth="1px" LineColor="LightGray" />
+                  <Scale>
+                    <CategoryScale PositionMode="OnTicks" SpacingSlotCount="0" />
+                  </Scale>
+                </GraphAxis>
+              </Axes>
+              <CoordinateSystems>
+                <PolarCoordinateSystem RadialAxis="graphAxis4" AngularAxis="graphAxis3" Name="polarCoordinateSystem2" />
+              </CoordinateSystems>
+              <Legend Position="RightCenter" IsInsidePlotArea="False">
+                <Style LineWidth="0cm" LineColor="LightGray" />
+              </Legend>
+              <Style>
+                <Padding Left="10px" Right="10px" Top="10px" Bottom="10px" />
+              </Style>
+              <SeriesGroups>
+                <GraphGroup Name="group1_DSCRGroup">
+                  <ChildGroups>
+                    <GraphGroup Name="tOTDBGroup">
+                      <Groupings>
+                        <Grouping Expression="= Fields.TOTDB" />
+                      </Groupings>
+                      <Sortings>
+                        <Sorting Expression="= Fields.TOTDB" Direction="Asc" />
+                      </Sortings>
+                    </GraphGroup>
+                  </ChildGroups>
+                  <Groupings>
+                    <Grouping Expression="= Fields.Group1_DSCR" />
+                  </Groupings>
+                  <Sortings>
+                    <Sorting Expression="= Fields.Group1_DSCR" Direction="Asc" />
+                  </Sortings>
+                </GraphGroup>
+                <GraphGroup Name="group1_DSCRGroup1">
+                  <Groupings>
+                    <Grouping Expression="= Fields.Group1_DSCR" />
+                  </Groupings>
+                  <Sortings>
+                    <Sorting Expression="= Fields.Group1_DSCR" Direction="Asc" />
+                  </Sortings>
+                </GraphGroup>
+              </SeriesGroups>
+              <CategoryGroups>
+                <GraphGroup Name="group1Group">
+                  <Groupings>
+                    <Grouping Expression="= Fields.Group1" />
+                  </Groupings>
+                  <Sortings>
+                    <Sorting Expression="= Fields.Group1" Direction="Asc" />
+                  </Sortings>
+                </GraphGroup>
+                <GraphGroup Name="categoryGroup" />
+              </CategoryGroups>
+              <Series>
+                <BarSeries CoordinateSystem="polarCoordinateSystem2" CategoryGroup="categoryGroup" SeriesGroup="group1_DSCRGroup1" DataPointLabelOffset="1mm" X="= Sum(Fields.SBAL_DB)" ArrangeMode="Stacked100" DataPointLabel="= Sum(Fields.SBAL_DB) / CDbl(Exec('graph1', Sum(Fields.SBAL_DB)))" DataPointLabelFormat="{0:P}" Name="barSeries2">
+                  <DataPointStyle Visible="True" LineWidth="0cm" />
+                  <DataPointLabelStyle Visible="True" />
+                  <LegendItem Value="= Fields.Group1_DSCR" />
+                  <DataPointLabelConnectorStyle Visible="False">
+                    <Padding Top="2pt" Bottom="2pt" />
+                  </DataPointLabelConnectorStyle>
+                  <MergedDataPoints />
+                  <ToolTip Title="= Fields.Group1_DSCR" Text="= Format('{0:P}', Sum(Fields.SBAL_DB) / CDbl(Exec('graph1', Sum(Fields.SBAL_DB))))" />
+                </BarSeries>
+              </Series>
+              <Titles>
+                <GraphTitle Text="graph1" Position="TopCenter">
+                  <Style Visible="False" LineWidth="0cm" LineColor="LightGray" />
+                </GraphTitle>
+              </Titles>
+            </Graph>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.132cm" Name="groupFooterSection" />
+      </GroupFooter>
+    </Group>
+  </Groups>
+  <ReportParameters>
+    <ReportParameter Name="FromDate" Text="2010-01-01" AllowNull="True">
+      <Value>
+        <String></String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="ToDate" Text="2010-01-01" AllowNull="True">
+      <Value>
+        <String></String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="Group1" Text="Group1" AllowNull="True" />
+    <ReportParameter Name="Group2" Text="Group2" AllowNull="True" />
+    <ReportParameter Name="Group3" Text="Group3" AllowNull="True" />
+    <ReportParameter Name="Group4" Text="Group4" AllowNull="True" />
+    <ReportParameter Name="Group5" Text="Group5" AllowNull="True" />
+    <ReportParameter Name="AddBeginBalance" Type="Boolean" Text="AddBeginBalance" AllowNull="True" />
+    <ReportParameter Name="CashAndJrnl" Type="Boolean" Text="CashAndJrnl" AllowNull="True" />
+    <ReportParameter Name="MAccNo" Text="MAccNo" AllowNull="True" />
+    <ReportParameter Name="FromAccNo" Text="FromAccNo" AllowNull="True" />
+    <ReportParameter Name="ToAccNo" Text="ToAccNo" AllowNull="True" />
+    <ReportParameter Name="FromCstCd" Text="FromCstCd" AllowNull="True" />
+    <ReportParameter Name="ToCstCd" Text="ToCstCd" AllowNull="True" />
+    <ReportParameter Name="FromSCstCd" Text="FromSCstCd" AllowNull="True" />
+    <ReportParameter Name="ToSCstCd" Text="ToSCstCd" AllowNull="True" />
+    <ReportParameter Name="FromSumCd" Text="FromSumCd" AllowNull="True" />
+    <ReportParameter Name="ToSumCd" Text="ToSumCd" AllowNull="True" />
+    <ReportParameter Name="FromSSumCd" Text="FromSSumCd" AllowNull="True" />
+    <ReportParameter Name="ToSSumCd" Text="ToSSumCd" AllowNull="True" />
+    <ReportParameter Name="ComId" Text="ComId" AllowNull="True" />
+    <ReportParameter Name="SGrp1" Text="SGrp1" AllowNull="True" />
+    <ReportParameter Name="SGrp2" Text="SGrp2" AllowNull="True" />
+    <ReportParameter Name="SGrp3" Text="SGrp3" AllowNull="True" />
+    <ReportParameter Name="Strt1" Text="Strt1" AllowNull="True" />
+    <ReportParameter Name="Strt2" Text="Strt2" AllowNull="True" />
+    <ReportParameter Name="Strt3" Text="Strt3" AllowNull="True" />
+    <ReportParameter Name="Strt4" Text="Strt4" AllowNull="True" />
+    <ReportParameter Name="Strt5" Text="Strt5" AllowNull="True" />
+    <ReportParameter Name="Ln1" Text="Ln1" AllowNull="True" />
+    <ReportParameter Name="Ln2" Text="Ln2" AllowNull="True" />
+    <ReportParameter Name="Ln3" Text="Ln3" AllowNull="True" />
+    <ReportParameter Name="Ln4" Text="Ln4" AllowNull="True" />
+    <ReportParameter Name="Ln5" Text="Ln5" AllowNull="True" />
+    <ReportParameter Name="login" Text="login" />
+    <ReportParameter Name="Url" Text="Url">
+      <Value>
+        <String></String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="CompanyName" />
+    <ReportParameter Name="CompanyAddress" />
+    <ReportParameter Name="Logo" />
+    <ReportParameter Name="PRD" AllowNull="True" />
+    <ReportParameter Name="Vcurcd" AllowNull="True" />
+    <ReportParameter Name="Vrepcd" AllowNull="True" />
+    <ReportParameter Name="JrnCod" AllowNull="True" />
+    <ReportParameter Name="chkOCST" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="Appnd_TRDS" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="chkDtl" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="RptFltr" AllowNull="True" />
+    <ReportParameter Name="Null1" Type="Boolean" Text="Null1" AllowNull="True" />
+    <ReportParameter Name="Null2" Type="Boolean" Text="Null2" AllowNull="True" />
+    <ReportParameter Name="Null3" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="Null4" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="Null5" AllowNull="True" />
+    <ReportParameter Name="ChkNoZero" Type="Boolean" Text="ChkNoZero" AllowNull="True" />
+    <ReportParameter Name="ChkNoClos" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="OpAccount" AllowNull="True" />
+    <ReportParameter Name="XFact" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="Ssum" AllowNull="True">
+      <Value>
+        <String>=null</String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="OpoAccNo" AllowNull="True" />
+    <ReportParameter Name="suntCd" AllowNull="True" />
+    <ReportParameter Name="HasAcc1" AllowNull="True" />
+    <ReportParameter Name="HasAcc2" AllowNull="True" />
+    <ReportParameter Name="ToCr" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="FromCr" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="ToDb" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="FromDb" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="IsChart" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="glsysndxPrd" />
+    <ReportParameter Name="chkBTR" Type="Boolean" />
+  </ReportParameters>
+</Report>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="20.471cm" Culture="(Default)" UnitOfMeasure="Cm" Name="OprtionNosReport_B" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <Style Visible="True" TextAlign="Justify">
+    <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+    <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+    <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+  </Style>
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glxaboghaly2" SelectCommand=" select top 1 ACC_NO as ee from EXPENSE_FORMS&#xD;&#xA;" Name="sqlDataSource1" />
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glxaboghaly2" SelectCommand="SELECT OPERATION_NO, LN_NO,Page_Mode,m.manacc macc1,(select Acc_NM_AR from glmf where acc_no = m.manacc) as MainAcc_AR_1, d.ACC_NO AS AccNo1,(select Acc_NM_AR from glmf where acc_no = d.ACC_NO) as Acc_NM_AR_1, AMT AS Db,&#xD;&#xA;     ROW_NUMBER() OVER(PARTITION BY OPERATION_NO ORDER BY TR_DT) AS RowNum&#xD;&#xA;     FROM glmf m inner join EXPENSE_FORMS d on d.acc_no = m.ACC_NO WHERE LN_TY = 1  and d.Page_Mode = @Page_Mode and  d.OPERATION_NO = @OPERATION_NO" Name="sqlDataSource2">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@Page_Mode">
+          <Value>
+            <String>= Parameters.PageMode.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@OPERATION_NO">
+          <Value>
+            <String>= Parameters.OperationNo.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glxaboghaly2" SelectCommand="SELECT OPERATION_NO, LN_NO,Page_Mode, m.manacc macc2, (select Acc_NM_AR from glmf where acc_no = m.manacc) as MainAcc_AR_2 , d.ACC_NO AS AccNo2,(select Acc_NM_AR from glmf where acc_no = d.ACC_NO) as Acc_NM_AR_2 , AMT AS CR, ROW_NUMBER() OVER (PARTITION BY OPERATION_NO ORDER BY TR_DT) AS RowNum FROM glmf m inner join EXPENSE_FORMS d on d.ACC_NO = m.ACC_NO WHERE LN_TY = -1 and d.Page_Mode = @Page_Mode and  d.OPERATION_NO = @OperationNo" Name="sqlDataSource3">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@Page_Mode">
+          <Value>
+            <String>= Parameters.PageMode.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@OperationNo">
+          <Value>
+            <String>= Parameters.OperationNo.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <DetailSection Height="2.528cm" Name="detailSection1">
+      <Style>
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <SubReport DataSourceName="sqlDataSource2" Width="9.906cm" Height="1.392cm" Left="10.414cm" Top="0cm" Name="subReport5">
+          <Style Visible="True" />
+          <ReportSource>
+            <UriReportSource Uri="Reports\OptionNosReportDebit.trdx">
+              <Parameters>
+                <Parameter Name="OperationNo">
+                  <Value>
+                    <String>= Parameters.OperationNo.Value</String>
+                  </Value>
+                </Parameter>
+                <Parameter Name="PageMode">
+                  <Value>
+                    <String>=1</String>
+                  </Value>
+                </Parameter>
+              </Parameters>
+            </UriReportSource>
+          </ReportSource>
+        </SubReport>
+        <SubReport DataSourceName="sqlDataSource3" Width="9.906cm" Height="1.392cm" Left="0.15cm" Top="0cm" Name="subReport1">
+          <Style Visible="True" />
+          <ReportSource>
+            <UriReportSource Uri="Reports\OptionNosReportCreditt.trdx">
+              <Parameters>
+                <Parameter Name="OperationNo">
+                  <Value>
+                    <String>= Parameters.OperationNo.Value</String>
+                  </Value>
+                </Parameter>
+                <Parameter Name="PageMode">
+                  <Value>
+                    <String>= 1</String>
+                  </Value>
+                </Parameter>
+              </Parameters>
+            </UriReportSource>
+          </ReportSource>
+        </SubReport>
+      </Items>
+    </DetailSection>
+    <PageHeaderSection Height="0.508cm" Name="pageHeaderSection1">
+      <Style Visible="False" BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+        <BorderStyle Top="Solid" Bottom="None" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+    </PageHeaderSection>
+    <ReportFooterSection PrintAtBottom="False" PageBreak="Before" KeepTogether="True" Height="0.052in" Name="reportFooterSection1">
+      <Style Visible="False">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+    </ReportFooterSection>
+    <PageFooterSection Height="2.836cm" Name="pageFooterSection1">
+      <Style Visible="True" TextAlign="Center" />
+      <Items>
+        <TextBox Width="5.3cm" Height="0.6cm" Left="0.7cm" Top="1.436cm" Value="رئيس القسم" Name="textBox10">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.4cm" Height="0.6cm" Left="0.15cm" Top="2.036cm" Value="..........................................." Name="textBox27">
+          <Style BackgroundColor="White" Color="166, 166, 166" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.3cm" Height="0.6cm" Left="14.549cm" Top="1.436cm" Value="المراجع" Name="textBox28">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.4cm" Height="0.6cm" Left="13.92cm" Top="2.036cm" Value="..........................................." Name="textBox30">
+          <Style BackgroundColor="White" Color="166, 166, 166" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="True">
+    <Margins>
+      <MarginsU Left="10px" Right="10px" Top="10px" Bottom="10px" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="Url" AllowNull="True" />
+    <ReportParameter Name="Logo" />
+    <ReportParameter Name="CompanyAddress" />
+    <ReportParameter Name="CompanyName" />
+    <ReportParameter Name="ReportTitle" AllowNull="True" />
+    <ReportParameter Name="ChkRptCond" />
+    <ReportParameter Name="OperationNo" />
+  </ReportParameters>
+</Report>

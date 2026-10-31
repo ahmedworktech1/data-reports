@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="298mm" UnitOfMeasure="Mm" Name="Budget_attachments" ShowDimensions="False" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style Visible="True">
+    <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+    <BorderColor Top="37, 64, 97" Bottom="37, 64, 97" Left="37, 64, 97" Right="37, 64, 97" />
+    <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+  </Style>
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glx2023tarheel" SelectCommand="select FA_CD,Fa_nm&#xD;&#xA;,sum(DPrcVl) as DPrcVl,SUM(CFaVl) as CFaVl,sum(CFaVl) as CFaVl,sum(Cadd) as Cadd&#xD;&#xA;,sum(Cdsp) as Cdsp,sum(AFaVl) as AFaVl,sum(BgDPrc) as BgDPrc,sum(CaddAcc) as CaddAcc&#xD;&#xA;,sum(CdspAcc) as CdspAcc,sum(Dprexp1) as Dprexp1,sum(DSP_DPREXP) as DSP_DPREXP&#xD;&#xA;,sum(QPYrdPrc) as QPYrdPrc&#xD;&#xA;from (&#xD;&#xA;SELECT &#xD;&#xA;substring(famf.FA_CD,1,3) as FA_CD, 'أراضي' as Fa_nm,&#xD;&#xA;Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4)) as DPrcVl , &#xD;&#xA;ISNULL(FADPRC_Q.FA_VL,0) as CFaVl ,&#xD;&#xA;Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) as Cadd  ,&#xD;&#xA;Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4)) as Cdsp  ,&#xD;&#xA;(ISNULL(FADPRC_Q.FA_VL,0) + Round(Cast(( + ISNULL(FADPRC_Q.TOTADD,0) - &#xD;&#xA;ISNULL(FADPRC_Q.TOTDSP,0))as decimal(18,4)),2)) AS AFaVl  ,&#xD;&#xA;Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) AS BgDPrc  ,&#xD;&#xA;Cast(ISNULL((select sum(FADPRC_Q.TOTADDACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)) as CaddAcc ,&#xD;&#xA;Round(Cast(ISNULL((select sum(FADPRC_Q.TOTDSPACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)),2) as CdspAcc , &#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) AS Dprexp1 ,&#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DSP_DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) AS DSP_DPREXP,&#xD;&#xA;Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) as QPYrdPrc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD) LEFT JOIN  GLCST &#xD;&#xA;ON FAMF.CST_CD=GLCST.CST_CD &#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '111%')&#xD;&#xA;and FADPRC_Q.PRD='-99991'&#xD;&#xA;) as t&#xD;&#xA;group by t.FA_CD,t.Fa_nm&#xD;&#xA;union all&#xD;&#xA;select FA_CD,Fa_nm&#xD;&#xA;,sum(DPrcVl) as DPrcVl,SUM(CFaVl) as CFaVl,sum(CFaVl) as CFaVl,sum(Cadd) as Cadd&#xD;&#xA;,sum(Cdsp) as Cdsp,sum(AFaVl) as AFaVl,sum(BgDPrc) as BgDPrc,sum(CaddAcc) as CaddAcc&#xD;&#xA;,sum(CdspAcc) as CdspAcc,sum(Dprexp1) as Dprexp1,sum(DSP_DPREXP) as DSP_DPREXP&#xD;&#xA;,sum(QPYrdPrc) as QPYrdPrc&#xD;&#xA;from (&#xD;&#xA;SELECT &#xD;&#xA;substring(famf.FA_CD,1,3) as FA_CD, 'مباني' as Fa_nm,&#xD;&#xA;Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4)) as DPrcVl , &#xD;&#xA;ISNULL(FADPRC_Q.FA_VL,0) as CFaVl ,&#xD;&#xA;Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) as Cadd  ,&#xD;&#xA;Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4)) as Cdsp  ,&#xD;&#xA;(ISNULL(FADPRC_Q.FA_VL,0) + Round(Cast(( + ISNULL(FADPRC_Q.TOTADD,0) - &#xD;&#xA;ISNULL(FADPRC_Q.TOTDSP,0))as decimal(18,4)),2)) AS AFaVl  ,&#xD;&#xA;Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) AS BgDPrc  ,&#xD;&#xA;Cast(ISNULL((select sum(FADPRC_Q.TOTADDACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)) as CaddAcc ,&#xD;&#xA;Round(Cast(ISNULL((select sum(FADPRC_Q.TOTDSPACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)),2) as CdspAcc , &#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) AS Dprexp1 ,&#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DSP_DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) AS DSP_DPREXP,&#xD;&#xA;Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) as QPYrdPrc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD) LEFT JOIN  GLCST &#xD;&#xA;ON FAMF.CST_CD=GLCST.CST_CD &#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '112%')&#xD;&#xA;and FADPRC_Q.PRD='-99991'&#xD;&#xA;) as t&#xD;&#xA;group by t.FA_CD,t.Fa_nm&#xD;&#xA;union all&#xD;&#xA;select FA_CD,Fa_nm&#xD;&#xA;,sum(DPrcVl) as DPrcVl,SUM(CFaVl) as CFaVl,sum(CFaVl) as CFaVl,sum(Cadd) as Cadd&#xD;&#xA;,sum(Cdsp) as Cdsp,sum(AFaVl) as AFaVl,sum(BgDPrc) as BgDPrc,sum(CaddAcc) as CaddAcc&#xD;&#xA;,sum(CdspAcc) as CdspAcc,sum(Dprexp1) as Dprexp1,sum(DSP_DPREXP) as DSP_DPREXP&#xD;&#xA;,sum(QPYrdPrc) as QPYrdPrc&#xD;&#xA;from (&#xD;&#xA;SELECT &#xD;&#xA;substring(famf.FA_CD,1,3) as FA_CD, 'الات' as Fa_nm,&#xD;&#xA;Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4)) as DPrcVl , &#xD;&#xA;ISNULL(FADPRC_Q.FA_VL,0) as CFaVl ,&#xD;&#xA;Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) as Cadd  ,&#xD;&#xA;Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4)) as Cdsp  ,&#xD;&#xA;(ISNULL(FADPRC_Q.FA_VL,0) + Round(Cast(( + ISNULL(FADPRC_Q.TOTADD,0) - &#xD;&#xA;ISNULL(FADPRC_Q.TOTDSP,0))as decimal(18,4)),2)) AS AFaVl  ,&#xD;&#xA;Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) AS BgDPrc  ,&#xD;&#xA;Cast(ISNULL((select sum(FADPRC_Q.TOTADDACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)) as CaddAcc ,&#xD;&#xA;Round(Cast(ISNULL((select sum(FADPRC_Q.TOTDSPACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)),2) as CdspAcc , &#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) AS Dprexp1 ,&#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DSP_DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) AS DSP_DPREXP,&#xD;&#xA;Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) as QPYrdPrc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD) LEFT JOIN  GLCST &#xD;&#xA;ON FAMF.CST_CD=GLCST.CST_CD &#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '113%')&#xD;&#xA;and FADPRC_Q.PRD='-99991'&#xD;&#xA;) as t&#xD;&#xA;group by t.FA_CD,t.Fa_nm&#xD;&#xA;union all&#xD;&#xA;select FA_CD,Fa_nm&#xD;&#xA;,sum(DPrcVl) as DPrcVl,SUM(CFaVl) as CFaVl,sum(CFaVl) as CFaVl,sum(Cadd) as Cadd&#xD;&#xA;,sum(Cdsp) as Cdsp,sum(AFaVl) as AFaVl,sum(BgDPrc) as BgDPrc,sum(CaddAcc) as CaddAcc&#xD;&#xA;,sum(CdspAcc) as CdspAcc,sum(Dprexp1) as Dprexp1,sum(DSP_DPREXP) as DSP_DPREXP&#xD;&#xA;,sum(QPYrdPrc) as QPYrdPrc&#xD;&#xA;from (&#xD;&#xA;SELECT &#xD;&#xA;substring(famf.FA_CD,1,3) as FA_CD, 'وسائل نقل' as Fa_nm,&#xD;&#xA;Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4)) as DPrcVl , &#xD;&#xA;ISNULL(FADPRC_Q.FA_VL,0) as CFaVl ,&#xD;&#xA;Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) as Cadd  ,&#xD;&#xA;Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4)) as Cdsp  ,&#xD;&#xA;(ISNULL(FADPRC_Q.FA_VL,0) + Round(Cast(( + ISNULL(FADPRC_Q.TOTADD,0) - &#xD;&#xA;ISNULL(FADPRC_Q.TOTDSP,0))as decimal(18,4)),2)) AS AFaVl  ,&#xD;&#xA;Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) AS BgDPrc  ,&#xD;&#xA;Cast(ISNULL((select sum(FADPRC_Q.TOTADDACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)) as CaddAcc ,&#xD;&#xA;Round(Cast(ISNULL((select sum(FADPRC_Q.TOTDSPACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)),2) as CdspAcc , &#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) AS Dprexp1 ,&#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DSP_DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) AS DSP_DPREXP,&#xD;&#xA;Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) as QPYrdPrc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD) LEFT JOIN  GLCST &#xD;&#xA;ON FAMF.CST_CD=GLCST.CST_CD &#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '114%')&#xD;&#xA;and FADPRC_Q.PRD='-99991'&#xD;&#xA;) as t&#xD;&#xA;group by t.FA_CD,t.Fa_nm&#xD;&#xA;union all&#xD;&#xA;select FA_CD,Fa_nm&#xD;&#xA;,sum(DPrcVl) as DPrcVl,SUM(CFaVl) as CFaVl,sum(CFaVl) as CFaVl,sum(Cadd) as Cadd&#xD;&#xA;,sum(Cdsp) as Cdsp,sum(AFaVl) as AFaVl,sum(BgDPrc) as BgDPrc,sum(CaddAcc) as CaddAcc&#xD;&#xA;,sum(CdspAcc) as CdspAcc,sum(Dprexp1) as Dprexp1,sum(DSP_DPREXP) as DSP_DPREXP&#xD;&#xA;,sum(QPYrdPrc) as QPYrdPrc&#xD;&#xA;from (&#xD;&#xA;SELECT &#xD;&#xA;substring(famf.FA_CD,1,3) as FA_CD, 'عدد وأدوات' as Fa_nm,&#xD;&#xA;Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4)) as DPrcVl , &#xD;&#xA;ISNULL(FADPRC_Q.FA_VL,0) as CFaVl ,&#xD;&#xA;Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) as Cadd  ,&#xD;&#xA;Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4)) as Cdsp  ,&#xD;&#xA;(ISNULL(FADPRC_Q.FA_VL,0) + Round(Cast(( + ISNULL(FADPRC_Q.TOTADD,0) - &#xD;&#xA;ISNULL(FADPRC_Q.TOTDSP,0))as decimal(18,4)),2)) AS AFaVl  ,&#xD;&#xA;Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) AS BgDPrc  ,&#xD;&#xA;Cast(ISNULL((select sum(FADPRC_Q.TOTADDACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)) as CaddAcc ,&#xD;&#xA;Round(Cast(ISNULL((select sum(FADPRC_Q.TOTDSPACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)),2) as CdspAcc , &#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) AS Dprexp1 ,&#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DSP_DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) AS DSP_DPREXP,&#xD;&#xA;Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) as QPYrdPrc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD) LEFT JOIN  GLCST &#xD;&#xA;ON FAMF.CST_CD=GLCST.CST_CD &#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '115%')&#xD;&#xA;and FADPRC_Q.PRD='-99991'&#xD;&#xA;) as t&#xD;&#xA;group by t.FA_CD,t.Fa_nm&#xD;&#xA;union all&#xD;&#xA;select FA_CD,Fa_nm&#xD;&#xA;,sum(DPrcVl) as DPrcVl,SUM(CFaVl) as CFaVl,sum(CFaVl) as CFaVl,sum(Cadd) as Cadd&#xD;&#xA;,sum(Cdsp) as Cdsp,sum(AFaVl) as AFaVl,sum(BgDPrc) as BgDPrc,sum(CaddAcc) as CaddAcc&#xD;&#xA;,sum(CdspAcc) as CdspAcc,sum(Dprexp1) as Dprexp1,sum(DSP_DPREXP) as DSP_DPREXP&#xD;&#xA;,sum(QPYrdPrc) as QPYrdPrc&#xD;&#xA;from (&#xD;&#xA;SELECT &#xD;&#xA;substring(famf.FA_CD,1,3) as FA_CD, 'أثاث ومعدات مكتبية' as Fa_nm,&#xD;&#xA;Cast(ISNULL(FAMF.DPRC_VL,0) as decimal(18,4)) as DPrcVl , &#xD;&#xA;ISNULL(FADPRC_Q.FA_VL,0) as CFaVl ,&#xD;&#xA;Cast( ISNULL(FADPRC_Q.TOTADD,0)as decimal(18,4)) as Cadd  ,&#xD;&#xA;Cast(ISNULL(FADPRC_Q.TOTDSP,0)as decimal(18,4)) as Cdsp  ,&#xD;&#xA;(ISNULL(FADPRC_Q.FA_VL,0) + Round(Cast(( + ISNULL(FADPRC_Q.TOTADD,0) - &#xD;&#xA;ISNULL(FADPRC_Q.TOTDSP,0))as decimal(18,4)),2)) AS AFaVl  ,&#xD;&#xA;Cast(ISNULL(FAMF.DPRC,0)as decimal(18,4)) AS BgDPrc  ,&#xD;&#xA;Cast(ISNULL((select sum(FADPRC_Q.TOTADDACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)) as CaddAcc ,&#xD;&#xA;Round(Cast(ISNULL((select sum(FADPRC_Q.TOTDSPACC)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD='-99991') ,0)as decimal(18,4)),2) as CdspAcc , &#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) AS Dprexp1 ,&#xD;&#xA;Round(Cast((ISNULL((select sum(FADPRC_Q.DSP_DPREXP)from FADPRC_Q  &#xD;&#xA;where FAMF.FA_CD= FADPRC_Q.FA_CD and FADPRC_Q.PRD &lt;='-99991') ,0) )as decimal(18,4)),2) AS DSP_DPREXP,&#xD;&#xA;Cast(ISNULL(FAMF.PYRDPRC,0)as decimal(18,4)) as QPYrdPrc &#xD;&#xA;FROM (FAMF  LEFT JOIN FADPRC_Q ON FADPRC_Q.FA_CD=FAMF.FA_CD) LEFT JOIN  GLCST &#xD;&#xA;ON FAMF.CST_CD=GLCST.CST_CD &#xD;&#xA;WHERE (FAMF.FA_TY&lt;&gt;1) and  (FAMF.FA_TY&lt;&gt;5) and (FAMF.FA_CD like '116%')&#xD;&#xA;and FADPRC_Q.PRD='-99991'&#xD;&#xA;) as t&#xD;&#xA;group by t.FA_CD,t.Fa_nm&#xD;&#xA;&#xD;&#xA;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="4.3cm" Name="pageHeaderSection1">
+      <Style Visible="True">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="2.405cm" Height="0.8cm" Left="23.195cm" Top="3.5cm" Value="التكلفة الدفترية أول المدة" Name="textBox1">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="22.59mm" Height="0.8cm" Left="20.936cm" Top="3.5cm" Value="اضافات" Name="textBox2">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.442cm" Height="0.8cm" Left="18.493cm" Top="3.5cm" Value="استبعادات" Name="textBox4">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.537cm" Height="0.8cm" Left="15.956cm" Top="3.5cm" Value="تكلفة اخر مدة" Name="textBox3">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.456cm" Height="0.8cm" Left="8.244cm" Top="3.5cm" Value="مجمع اهلاك  اول المدة" Name="textBox6">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.847cm" Height="0.8cm" Left="6.397cm" Top="3.5cm" Value="اضافات" Name="textBox5">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.395cm" Height="0.537cm" Left="10.718cm" Top="1.3cm" Value="= Parameters.DefaultReportTitle.Value" Name="textBox31">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.656cm" Height="0.8cm" Left="13.3cm" Top="3.5cm" Value="قسط اهلاك عن فترة" Name="textBox8">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.865cm" Height="0.8cm" Left="4.531cm" Top="3.5cm" Value="استبعادات " Name="textBox9">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.6cm" Height="0.8cm" Left="10.7cm" Top="3.5cm" Value="اهلاك سنوات سابقه" Name="textBox11">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.871cm" Height="0.8cm" Left="2.66cm" Top="3.5cm" Value="مجمع اهلاك اخر المدة" Name="textBox12">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.66cm" Height="0.8cm" Left="0cm" Top="3.5cm" Value="صافي القيمة الدفترية" Name="textBox13">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4cm" Height="0.8cm" Left="25.6cm" Top="3.5cm" Value="البيان" Name="textBox15">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.6cm" Height="0.6cm" Left="22.8cm" Top="0.3cm" Value="شركة مصر الوسطى لتوزيع الكهرباء" Name="textBox93">
+          <Style TextAlign="Center">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.6cm" Height="0.6cm" Left="22.8cm" Top="0.9cm" Value="القطاع المالي والاداري" Name="textBox92">
+          <Style TextAlign="Center">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.6cm" Height="0.6cm" Left="22.8cm" Top="1.5cm" Value="الحسابات الاليه" Name="textBox89">
+          <Style TextAlign="Center">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="0.9cm" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White">
+        <BorderStyle Top="Groove" Bottom="Groove" Left="Groove" Right="Groove" />
+        <BorderColor Top="White" Bottom="White" Left="White" Right="White" />
+        <BorderWidth Top="1.5pt" Bottom="1.5pt" Left="1.5pt" Right="1.5pt" />
+      </Style>
+      <Items>
+        <TextBox Width="2.6cm" Height="9mm" Left="107mm" Top="0mm" Value="= Fields.QPYrdPrc" Format="{0:N2}" Multiline="False" Name="textBox142">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.387cm" Height="9mm" Left="231.95mm" Top="0mm" Value="= Fields.CFaVl" Format="{0:N2}" Multiline="False" Name="textBox140">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.424cm" Height="9mm" Left="184.93mm" Top="0mm" Value="= Fields.Cdsp" Format="{0:N2}" Multiline="False" Name="textBox137">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.519cm" Height="9mm" Left="159.74mm" Top="0mm" Value="= Fields.AFaVl" Format="{0:N2}" Multiline="False" Name="textBox136">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.438cm" Height="9mm" Left="82.62mm" Top="0mm" Value="= Fields.BgDPrc" Format="{0:N2}" Multiline="False" Name="textBox135">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.865cm" Height="9mm" Left="63.97mm" Top="0mm" Value="= Fields.CaddAcc" Format="{0:N2}" Multiline="False" Name="textBox133">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.865cm" Height="9mm" Left="45.31mm" Top="0mm" Value="= Fields.CdspAcc+Fields.DSP_DPREXP" Format="{0:N2}" Multiline="False" Name="textBox132">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.656cm" Height="9mm" Left="133mm" Top="0mm" Value="= Fields.Dprexp1" Format="{0:N2}" Multiline="False" Name="textBox130">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.871cm" Height="9mm" Left="26.6mm" Top="0mm" Value="= IsNull( Fields.BgDPrc,0)+IsNull( Fields.CaddAcc,0)-IsNull( Fields.CdspAcc,0)+IsNull( Fields.DSP_DPREXP,0)+IsNull( Fields.Dprexp1,0)+IsNull( Fields.QPYrdPrc,0)" Format="{0:N2}" Multiline="False" Name="textBox129">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="22.41mm" Height="9mm" Left="209.36mm" Top="0mm" Value="= Fields.Cadd" Format="{0:N2}" Multiline="False" Name="textBox91">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.642cm" Height="9mm" Left="0.18mm" Top="0mm" Value="= IsNull( Fields.AFaVl,0) - (IsNull( Fields.BgDPrc,0)+IsNull( Fields.CaddAcc,0)-IsNull( Fields.DSP_DPREXP,0)+IsNull( Fields.CdspAcc,0)+IsNull( Fields.Dprexp1,0)+IsNull( Fields.QPYrdPrc,0))" Format="{0:N2}" Multiline="False" Name="textBox90">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="40mm" Height="9mm" Left="256mm" Top="0mm" Value="= Fields.Fa_nm" Multiline="False" Name="textBox143">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="64, 64, 64" Bottom="64, 64, 64" Left="64, 64, 64" Right="64, 64, 64" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportFooterSection Height="0.852cm" Name="reportFooterSection1">
+      <Items>
+        <TextBox Width="4cm" Height="0.852cm" Left="25.6cm" Top="0cm" Value=" الاجمالي العام " Multiline="False" Name="textBox33">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="18pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="24.05mm" Height="0.852cm" Left="231.95mm" Top="0mm" Value="= sum(Fields.CFaVl)&#xD;&#xA;" Format="{0:N2}" Multiline="False" Name="textBox34">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.865cm" Height="0.852cm" Left="63.97mm" Top="0mm" Value="=sum(Fields.CaddAcc)" Format="{0:N2}" Multiline="False" Name="textBox40">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.871cm" Height="0.852cm" Left="26.6mm" Top="0mm" Value="= IsNull( sum(Fields.BgDPrc),0)+IsNull( sum(Fields.CaddAcc),0)-IsNull( sum(Fields.CdspAcc),0)+sum(IsNull( Fields.DSP_DPREXP,0))+IsNull( sum(Fields.Dprexp1),0)+IsNull( sum(Fields.QPYrdPrc),0)&#xD;&#xA;" Format="{0:N2}" Multiline="False" Name="textBox36">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.656cm" Height="0.852cm" Left="133mm" Top="0mm" Value="= Round(sum(Fields.Dprexp1),2)" Format="{0:N2}" Multiline="False" Name="textBox38">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.847cm" Height="0.852cm" Left="45.31mm" Top="0mm" Value="= sum(Fields.CdspAcc)+sum(Fields.DSP_DPREXP)" Format="{0:N2}" Multiline="False" Name="textBox39">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.642cm" Height="0.852cm" Left="0.18mm" Top="0mm" Value="= IsNull( sum(Fields.AFaVl),0) - (IsNull( sum(Fields.BgDPrc),0)+IsNull( sum(Fields.CaddAcc),0)-sum(IsNull( Fields.DSP_DPREXP,0))+IsNull( sum(Fields.CdspAcc),0)+IsNull( sum(Fields.Dprexp1),0)+IsNull( sum(Fields.QPYrdPrc),0))" Format="{0:N2}" Multiline="False" Name="textBox35">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.456cm" Height="0.852cm" Left="82.62mm" Top="0mm" Value="=sum(Fields.BgDPrc)" Format="{0:N2}" Multiline="False" Name="textBox41">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.537cm" Height="0.852cm" Left="159.56mm" Top="0mm" Value="=sum( Fields.AFaVl)" Format="{0:N2}" Multiline="False" Name="textBox42">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="5pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.442cm" Height="0.852cm" Left="184.93mm" Top="0mm" Value="= sum(Fields.Cdsp)" Format="{0:N2}" Multiline="False" Name="textBox43">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="22.41mm" Height="0.852cm" Left="209.36mm" Top="0mm" Value="=sum(fields.Cadd)" Format="{0:N2}" Multiline="False" Name="textBox44">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.582cm" Height="0.852cm" Left="107.18mm" Top="0mm" Value="=sum(Fields.QPYrdPrc)" Format="{0:N2}" Multiline="False" Name="textBox37">
+          <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Gray" Bottom="Gray" Left="Gray" Right="Gray" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+            <Padding Top="0in" Bottom="0in" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="DefaultReportTitle" />
+  </ReportParameters>
+</Report>

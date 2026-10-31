@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="29.9cm" Name="QueryGlJrnl1" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style>
+    <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+    <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+    <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+  </Style>
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glx2023hassan" SelectCommand="select  'مشتريات بغرض البيع' as s,&#xD;&#xA;sum( case when (acc_no like '4[6-8]3%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '02%') then db_vl-cr_vl else 0 end ) /1000 as s1, &#xD;&#xA;sum( case when (acc_no like '4[6-8]3%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '03%')   then db_vl-cr_vl else 0 end)/1000 as s2,&#xD;&#xA;sum( case when  (acc_no like '4[6-8]3%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '04%') then db_vl-cr_vl else 0 end)/1000 as s3,&#xD;&#xA;sum( case when (acc_no like '4[6-8]3%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '05%')  then db_vl-cr_vl else 0 end)/1000 as s4,&#xD;&#xA;sum( case when (acc_no like '4[6-8]3%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '07%')  then db_vl-cr_vl else 0 end)/1000 as s5,&#xD;&#xA;sum( case when (acc_no like '4[6-8]3%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '09%')  then db_vl-cr_vl else 0 end)/1000 as s6,&#xD;&#xA;sum( case when (acc_no like '4[6-8]3%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '06%')  then db_vl-cr_vl else 0 end)/1000 as s7,&#xD;&#xA;sum( case when  (acc_no like '4[6-8]3%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%')  then db_vl-cr_vl else 0 end)/1000 as tot&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE  (acc_no like '4[6-8]3%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%') &#xD;&#xA;and (1=1)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;select  'مواد وخامات ووقود' as s,&#xD;&#xA;sum( case when (acc_no like '4[6-8]11%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '02%') then db_vl-cr_vl else 0 end ) /1000 as s1, &#xD;&#xA;sum( case when (acc_no like '4[6-8]11%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '03%')   then db_vl-cr_vl else 0 end)/1000 as s2,&#xD;&#xA;sum( case when  (acc_no like '4[6-8]11%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '04%') then db_vl-cr_vl else 0 end)/1000 as s3,&#xD;&#xA;sum( case when (acc_no like '4[6-8]11%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '05%')  then db_vl-cr_vl else 0 end)/1000 as s4,&#xD;&#xA;sum( case when (acc_no like '4[6-8]11%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '07%')  then db_vl-cr_vl else 0 end)/1000 as s5,&#xD;&#xA;sum( case when (acc_no like '4[6-8]11%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '09%')  then db_vl-cr_vl else 0 end)/1000 as s6,&#xD;&#xA;sum( case when (acc_no like '4[6-8]11%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '06%')  then db_vl-cr_vl else 0 end)/1000 as s7,&#xD;&#xA;sum( case when  (acc_no like '4[6-8]11%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%')  then db_vl-cr_vl else 0 end)/1000 as tot&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE  (acc_no like '4[6-8]11%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%') &#xD;&#xA;and (1=1)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;select  'الأجور' as s,&#xD;&#xA;sum( case when (acc_no like '4[6-8]12%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '02%') then db_vl-cr_vl else 0 end ) /1000 as s1, &#xD;&#xA;sum( case when (acc_no like '4[6-8]12%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '03%')   then db_vl-cr_vl else 0 end)/1000 as s2,&#xD;&#xA;sum( case when  (acc_no like '4[6-8]12%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '04%') then db_vl-cr_vl else 0 end)/1000 as s3,&#xD;&#xA;sum( case when (acc_no like '4[6-8]12%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '05%')  then db_vl-cr_vl else 0 end)/1000 as s4,&#xD;&#xA;sum( case when (acc_no like '4[6-8]12%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '07%')  then db_vl-cr_vl else 0 end)/1000 as s5,&#xD;&#xA;sum( case when (acc_no like '4[6-8]12%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '09%')  then db_vl-cr_vl else 0 end)/1000 as s6,&#xD;&#xA;sum( case when (acc_no like '4[6-8]12%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '06%')  then db_vl-cr_vl else 0 end)/1000 as s7,&#xD;&#xA;sum( case when  (acc_no like '4[6-8]12%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%')  then db_vl-cr_vl else 0 end)/1000 as tot&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE  (acc_no like '4[6-8]12%' and substring(cst_Cd,6,7) in ('62','72','82') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%') &#xD;&#xA;and (1=1)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;select  'المصروفات' as s,&#xD;&#xA;sum( case when (acc_no like '4[6-8]2%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '02%') then db_vl-cr_vl else 0 end ) /1000 as s1, &#xD;&#xA;sum( case when (acc_no like '4[6-8]2%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '03%')   then db_vl-cr_vl else 0 end)/1000 as s2,&#xD;&#xA;sum( case when  (acc_no like '4[6-8]2%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '04%') then db_vl-cr_vl else 0 end)/1000 as s3,&#xD;&#xA;sum( case when (acc_no like '4[6-8]2%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '05%')  then db_vl-cr_vl else 0 end)/1000 as s4,&#xD;&#xA;sum( case when (acc_no like '4[6-8]2%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '07%')  then db_vl-cr_vl else 0 end)/1000 as s5,&#xD;&#xA;sum( case when (acc_no like '4[6-8]2%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '09%')  then db_vl-cr_vl else 0 end)/1000 as s6,&#xD;&#xA;sum( case when (acc_no like '4[6-8]2%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '06%')  then db_vl-cr_vl else 0 end)/1000 as s7,&#xD;&#xA;sum( case when  (acc_no like '4[6-8]2%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%')  then db_vl-cr_vl else 0 end)/1000 as tot&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE  (acc_no like '4[6-8]2%' and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%') &#xD;&#xA;and (1=1)&#xD;&#xA;&#xD;&#xA;union all&#xD;&#xA;select  'التكلفة الكلية' as s,&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '02%') then db_vl-cr_vl else 0 end ) /1000 as s1, &#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '03%')   then db_vl-cr_vl else 0 end)/1000 as s2,&#xD;&#xA;sum( case when  ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '04%') then db_vl-cr_vl else 0 end)/1000 as s3,&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '05%')  then db_vl-cr_vl else 0 end)/1000 as s4,&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '07%')  then db_vl-cr_vl else 0 end)/1000 as s5,&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '09%')  then db_vl-cr_vl else 0 end)/1000 as s6,&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '06%')  then db_vl-cr_vl else 0 end)/1000 as s7,&#xD;&#xA;sum( case when  ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%')  then db_vl-cr_vl else 0 end)/1000 as tot&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE  ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%') &#xD;&#xA;and (1=1)&#xD;&#xA;&#xD;&#xA; union all&#xD;&#xA;select  'الإيرادات' as s,&#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '02%') then db_vl-cr_vl else 0 end ) *-1 )/1000 as s1, &#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '03%')   then db_vl-cr_vl else 0 end) *-1)/1000 as s2,&#xD;&#xA;(sum( case when  ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '04%') then db_vl-cr_vl else 0 end) *-1)/1000 as s3,&#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '05%')  then db_vl-cr_vl else 0 end) *-1)/1000 as s4,&#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '07%')  then db_vl-cr_vl else 0 end) *-1)/1000 as s5,&#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '09%')  then db_vl-cr_vl else 0 end) *-1)/1000 as s6,&#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '06%')  then db_vl-cr_vl else 0 end) *-1)/1000 as s7,&#xD;&#xA;(sum( case when  ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%')  then db_vl-cr_vl else 0 end) *-1)/1000 as tot&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE  ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%') &#xD;&#xA;and (1=1)&#xD;&#xA;&#xD;&#xA; union all&#xD;&#xA;select  'فائض/عجز' as s,&#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '02%') then (db_vl-cr_vl)*-1 else 0 end ) &#xD;&#xA;-&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '02%') then db_vl-cr_vl else 0 end ) )/1000 as s1, &#xD;&#xA;&#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '03%')   then (db_vl-cr_vl)*-1  else 0 end) &#xD;&#xA;-&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '03%')   then db_vl-cr_vl else 0 end))&#xD;&#xA;/1000 as s2,&#xD;&#xA;&#xD;&#xA;(sum( case when  ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '04%') then (db_vl-cr_vl)*-1 else 0 end)&#xD;&#xA;-&#xD;&#xA;sum( case when  ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '04%') then db_vl-cr_vl else 0 end))&#xD;&#xA;&#xD;&#xA;/1000 as s3,&#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '05%')  then (db_vl-cr_vl)*-1 else 0 end) &#xD;&#xA;-&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '05%')  then db_vl-cr_vl else 0 end))&#xD;&#xA;/1000 as s4,&#xD;&#xA;&#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '07%')  then (db_vl-cr_vl)*-1 else 0 end) &#xD;&#xA;-&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '07%')  then db_vl-cr_vl else 0 end))&#xD;&#xA;&#xD;&#xA;/1000 as s5,&#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '09%')  then (db_vl-cr_vl)*-1 else 0 end) &#xD;&#xA;-&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '09%')  then db_vl-cr_vl else 0 end))&#xD;&#xA;/1000 as s6,&#xD;&#xA;&#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '06%')  then (db_vl-cr_vl)*-1 else 0 end) &#xD;&#xA;-&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '06%')  then db_vl-cr_vl else 0 end))&#xD;&#xA;/1000 as s7,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;(sum( case when  ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%')  then (db_vl-cr_vl)*-1 else 0 end)&#xD;&#xA;-&#xD;&#xA;sum( case when  ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%')  then db_vl-cr_vl else 0 end))&#xD;&#xA;/1000 as tot&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE  ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%' or acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%') &#xD;&#xA;and (1=1)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA; union all&#xD;&#xA;select  'نسبة الفائض' as s,&#xD;&#xA;((sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '02%') then (db_vl-cr_vl)*-1 else 0 end ) &#xD;&#xA;-&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '02%') then db_vl-cr_vl else 0 end ) )&#xD;&#xA;/&#xD;&#xA;(sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '02%') then db_vl-cr_vl else 0 end ))&#xD;&#xA;)*100 as s1, &#xD;&#xA;&#xD;&#xA;((sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '03%')   then (db_vl-cr_vl)*-1  else 0 end) &#xD;&#xA;-&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '03%')   then db_vl-cr_vl else 0 end))&#xD;&#xA;/&#xD;&#xA;(sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '03%')   then db_vl-cr_vl else 0 end)) ) *100 as s2,&#xD;&#xA;&#xD;&#xA;((sum( case when  ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '04%') then (db_vl-cr_vl)*-1 else 0 end)&#xD;&#xA;-&#xD;&#xA;sum( case when  ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '04%') then db_vl-cr_vl else 0 end))&#xD;&#xA;/&#xD;&#xA;(sum( case when  ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '04%') then db_vl-cr_vl else 0 end)))*100 as s3,&#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '05%')  then (db_vl-cr_vl)*-1 else 0 end) &#xD;&#xA;-&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '05%')  then db_vl-cr_vl else 0 end))&#xD;&#xA;/&#xD;&#xA;(sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '05%')  then db_vl-cr_vl else 0 end))&#xD;&#xA;*100 as s4,&#xD;&#xA;&#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '07%')  then (db_vl-cr_vl)*-1 else 0 end) &#xD;&#xA;-&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '07%')  then db_vl-cr_vl else 0 end))&#xD;&#xA;/&#xD;&#xA;(sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '07%')  then db_vl-cr_vl else 0 end))*100  as s5,&#xD;&#xA;&#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '09%')  then (db_vl-cr_vl)*-1 else 0 end) &#xD;&#xA;-&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '09%')  then db_vl-cr_vl else 0 end))&#xD;&#xA;/&#xD;&#xA;(sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '09%')  then db_vl-cr_vl else 0 end)) *100 as s6,&#xD;&#xA;&#xD;&#xA;(sum( case when ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '06%')  then (db_vl-cr_vl)*-1 else 0 end) &#xD;&#xA;-&#xD;&#xA;sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '06%')  then db_vl-cr_vl else 0 end))&#xD;&#xA;/&#xD;&#xA;(sum( case when ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '06%')  then db_vl-cr_vl else 0 end)) *100 as s7,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;(sum( case when  ((acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%')  then (db_vl-cr_vl)*-1 else 0 end)&#xD;&#xA;-&#xD;&#xA;sum( case when  ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%')  then db_vl-cr_vl else 0 end))&#xD;&#xA;/&#xD;&#xA;(sum( case when  ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%')  then db_vl-cr_vl else 0 end)) *100 as tot&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE  ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]3%' or acc_no like '5[6-8]11%' or acc_no like '5[6-8]12%' or acc_no like '5[6-8]121%' or acc_no like '5[6-8]122%') and substring(cst_Cd,6,7) in ('62','72','82') and gljrnld.cst_Cd like '[01-09]%') &#xD;&#xA;and (1=1)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="4.2cm" Name="pageHeaderSection1">
+      <Style BackgroundColor="" />
+      <Items>
+        <TextBox Width="5.8cm" Height="1cm" Left="23.5cm" Top="3.2cm" Value="البيـــــــــــــــــــــــــــــــــــــــــــــــــان" Name="textBox2">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="1cm" Left="20.7cm" Top="3.2cm" Value="قطاع المنيا شمال" Name="textBox6">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.2cm" Height="0.6cm" Left="14cm" Top="2.4cm" Value="= Parameters.filter_TR_DT.Value" Format="{0:d}" Name="textBox3">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.1cm" Height="0.6cm" Left="6.5cm" Top="2.4cm" Value="= Parameters.filter_TO_TR_DT.Value" Format="{0:d}" Name="textBox23">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.2cm" Height="0.6cm" Left="19.2cm" Top="2.4cm" Value="عن الفترة من" Name="textBox30">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.4cm" Height="0.6cm" Left="12.6cm" Top="2.388cm" Value="حتى" Name="textBox31">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.112in" Left="10.346in" Top="0.075in" Value="وزارة الكهرباء والطاقة المتجددة" Name="textBox26">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.128in" Left="10.352in" Top="0.197in" Value="الشركة القابضة لكهرباء مصر" Name="textBox25">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.503in" Height="0.131in" Left="10in" Top="0.325in" Value="شركة مصر الوسطى لتوزيع الكهرباء" Name="textBox63">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.128in" Left="10.347in" Top="0.459in" Value="قطاعات الشئون المالية" Name="textBox64">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.145in" Height="0.128in" Left="10.345in" Top="0.591in" Value="الحسابات الآلية" Name="textBox65">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="1cm" Left="17.9cm" Top="3.2cm" Value="قطاع المنيا جنوب" Name="textBox5">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="1cm" Left="15.1cm" Top="3.2cm" Value="قطاع أسيوط شمال" Name="textBox8">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="1cm" Left="12.3cm" Top="3.2cm" Value="قطاع أسيوط جنوب" Name="textBox9">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="1cm" Left="9.5cm" Top="3.2cm" Value="قطاع بني سويف" Name="textBox10">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="1cm" Left="6.7cm" Top="3.2cm" Value="قطاع الفيوم" Name="textBox11">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.8cm" Height="1cm" Left="0.1cm" Top="3.2cm" Value="الإجمالي" Name="textBox12">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14.1cm" Height="1cm" Left="6.5cm" Top="1.133cm" Value="بيان التكاليف والإيرادات للقطاعات - لنشاط المقايسات" Name="textBox15">
+          <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.2cm" Height="0.6cm" Left="0.1cm" Top="2.388cm" Value="(القيمة بالألف جنيه)" Name="textBox20">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="1cm" Left="3.9cm" Top="3.2cm" Value="قطاع الوادي الجديد" Name="textBox7">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="1.4cm" Name="detailSection1">
+      <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle" />
+      <Items>
+        <TextBox Width="2.8cm" Height="1.3cm" Left="12.3cm" Top="0cm" Value="=IIf(Fields.s =&quot;نسبة الفائض&quot;,Round(Fields.s4,0)+&quot; % &quot;,Round(Fields.s4,0))" Format="{0:N0}" Name="textBox18">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.8cm" Height="1.3cm" Left="23.5cm" Top="0cm" Value="= Fields.s" Format="{0}" Name="textBox1">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="1.3cm" Left="20.7cm" Top="0cm" Value="=IIf(Fields.s =&quot;نسبة الفائض&quot;,Round(Fields.s1,0)+&quot; % &quot;,Round(Fields.s1,0))" Format="{0:N0}" Name="textBox4">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="1.3cm" Left="17.9cm" Top="0cm" Value="=IIf(Fields.s =&quot;نسبة الفائض&quot;,Round(Fields.s2,0)+&quot; % &quot;,Round(Fields.s2,0))" Format="{0:N0}" Name="textBox16">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="1.3cm" Left="15.1cm" Top="0cm" Value="=IIf(Fields.s =&quot;نسبة الفائض&quot;,Round(Fields.s3,0)+&quot; % &quot;,Round(Fields.s3,0))" Format="{0:N0}" Name="textBox17">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="1.3cm" Left="9.5cm" Top="0cm" Value="=IIf(Fields.s =&quot;نسبة الفائض&quot;,Round(Fields.s5,0)+&quot; % &quot;,Round(Fields.s5,0))" Format="{0:N0}" Name="textBox19">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="1.3cm" Left="6.7cm" Top="0cm" Value="=IIf(Fields.s =&quot;نسبة الفائض&quot;,Round(Fields.s6,0)+&quot; % &quot;,Round(Fields.s6,0))" Format="{0:N0}" Name="textBox34">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.8cm" Height="1.3cm" Left="0.1cm" Top="0cm" Value="=IIf(Fields.s =&quot;نسبة الفائض&quot;,Round(Fields.tot,0)+&quot; % &quot;,Round(Fields.tot,0))" Format="{0:N0}" Name="textBox14">
+          <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8cm" Height="1.3cm" Left="3.9cm" Top="0cm" Value="=IIf(Fields.s =&quot;نسبة الفائض&quot;,Round(Fields.s7,0)+&quot; % &quot;,Round(Fields.s7,0))" Format="{0:N0}" Name="textBox13">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="10pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportFooterSection Height="0.132cm" Name="reportFooterSection1">
+      <Style BackgroundColor="White" />
+    </ReportFooterSection>
+    <PageFooterSection Height="0.132cm" Name="pageFooterSection1" />
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0mm" Right="0mm" Top="0mm" Bottom="0mm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="Url" Text="Url" />
+    <ReportParameter Name="login" Text="login" />
+    <ReportParameter Name="filter" AllowNull="True" />
+    <ReportParameter Name="filter_TR_DT" />
+    <ReportParameter Name="filter_TO_TR_DT" />
+    <ReportParameter Name="DefaultReportTitle" />
+  </ReportParameters>
+</Report>

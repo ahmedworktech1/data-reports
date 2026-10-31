@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="20.3cm" Name="QueryGlJrnl1" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style>
+    <Font Size="9pt" />
+    <BorderColor Bottom="Black" />
+  </Style>
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glx2024" SelectCommand="select 'مشتريات الطاقة' as s,&#xD;&#xA;CAST(ROUND(sum( case when ( acc_no like '4[6-8]31%'  ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s1,&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN acc_no LIKE '4[6-8]31%' THEN db_vl - cr_vl ELSE 0 END) &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;    3)&#xD;&#xA; as s2,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA; (ROUND(sum( case when ( acc_no like '4[6-8]31%'  ) then db_vl-cr_vl else 0 end ), 3)&#xD;&#xA; /&#xD;&#xA; ROUND(sum( case when ( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or  acc_no like '4[6-8]31%' ) and sum_cd = '11' then db_vl-cr_vl else 0 end ), 3)) *100&#xD;&#xA;&#xD;&#xA; &#xD;&#xA; as s3,&#xD;&#xA; CAST(ROUND(sum( case when (acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') and sum_cd = '11' then val1 else 0 end ), 0) AS BIGINT) as s4,&#xD;&#xA;  CAST(ROUND(sum( case when ( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' ) and sum_cd ='11'&#xD;&#xA; then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s5,&#xD;&#xA;    CAST(ROUND(sum( case when ( acc_no like '5[6-8]11111%' )  and sum_cd ='11' then db_vl-cr_vl else 0 end ), 0) AS BIGINT)*-1 as s6&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE (( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' or acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%'  ) ) &#xD;&#xA;&#xD;&#xA;and (1=1)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;select 'خامات ومواد ووقود وقطع غيار' as s,&#xD;&#xA;CAST(ROUND(sum( case when  acc_no like '4[6-8]11%'   and sum_cd = '11' then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s1,&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN acc_no LIKE '4[6-8]11%' and sum_cd = '11' THEN db_vl - cr_vl ELSE 0 END) &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;    3)&#xD;&#xA; as s2,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA; (ROUND(sum( case when ( acc_no like '4[6-8]11%'  )and sum_cd = '11' then db_vl-cr_vl else 0 end ), 3)&#xD;&#xA; /&#xD;&#xA; ROUND(sum( case when ( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or  acc_no like '4[6-8]31%' )and sum_cd = '11' then db_vl-cr_vl else 0 end ), 3)) *100&#xD;&#xA;&#xD;&#xA; &#xD;&#xA; as s3,&#xD;&#xA; CAST(ROUND(sum( case when ( acc_no LIKE '0%') then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s4,&#xD;&#xA;  CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s5,&#xD;&#xA;    CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s6&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE (( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' or acc_no LIKE '5[6-8]1111101%' OR acc_no LIKE '5[6-8]1111102%'  ))and sum_cd = '11' and (1=1)&#xD;&#xA;&#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;select 'الأجور' as s,&#xD;&#xA;CAST(ROUND(sum( case when ( acc_no like '4[6-8]12%'  ) and sum_cd = '11' then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s1,&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN acc_no LIKE '4[6-8]12%' and sum_cd = '11' THEN db_vl - cr_vl ELSE 0 END) &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;    3)&#xD;&#xA; as s2,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA; (ROUND(sum( case when ( acc_no like '4[6-8]12%'  ) and sum_cd = '11' then db_vl-cr_vl else 0 end ), 3)&#xD;&#xA; /&#xD;&#xA; ROUND(sum( case when ( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or  acc_no like '4[6-8]31%' ) and sum_cd = '11' then db_vl-cr_vl else 0 end ), 3)) *100&#xD;&#xA;&#xD;&#xA; &#xD;&#xA; as s3,&#xD;&#xA; CAST(ROUND(sum( case when ( acc_no LIKE '0%') then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s4,&#xD;&#xA;  CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s5,&#xD;&#xA;    CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s6&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE (( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' or acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%'  ) ) and (1=1)&#xD;&#xA;&#xD;&#xA;UNION ALL&#xD;&#xA;select 'المصروفات' as s,&#xD;&#xA;CAST(ROUND(sum( case when ( acc_no like '4[6-8]2%'  ) and sum_cd = '11' then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s1,&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN acc_no LIKE '4[6-8]2%' and sum_cd = '11' THEN db_vl - cr_vl ELSE 0 END) &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;    3)&#xD;&#xA; as s2,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA; (ROUND(sum( case when ( acc_no like '4[6-8]2%'  ) and sum_cd = '11' then db_vl-cr_vl else 0 end ), 3)&#xD;&#xA; /&#xD;&#xA; ROUND(sum( case when ( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or  acc_no like '4[6-8]31%' ) and sum_cd = '11' then db_vl-cr_vl else 0 end ), 3)) *100&#xD;&#xA;&#xD;&#xA; &#xD;&#xA; as s3,&#xD;&#xA; CAST(ROUND(sum( case when ( acc_no LIKE '0%') then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s4,&#xD;&#xA;  CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s5,&#xD;&#xA;    CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s6&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE (( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' or acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%'  ) ) &#xD;&#xA;&#xD;&#xA;and (1=1)&#xD;&#xA;&#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;select 'التكلفة الكلية' as s,&#xD;&#xA;CAST(ROUND(sum( case when ( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' ) and sum_cd ='11'&#xD;&#xA; then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s1,&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN (acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' ) and sum_cd ='11' THEN db_vl - cr_vl ELSE 0 END) &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;    3)&#xD;&#xA; as s2,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA; (ROUND(sum( case when (acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' )and sum_cd ='11' then db_vl-cr_vl else 0 end ), 3)&#xD;&#xA; /&#xD;&#xA; ROUND(sum( case when ( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or  acc_no like '4[6-8]31%' ) and sum_cd ='11' then db_vl-cr_vl else 0 end ), 3)) *100&#xD;&#xA;&#xD;&#xA; &#xD;&#xA; as s3,&#xD;&#xA; CAST(ROUND(sum( case when ( acc_no LIKE '0%') then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s4,&#xD;&#xA;  CAST(ROUND(sum( case when (  acc_no LIKE '0%') then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s5,&#xD;&#xA;    CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s6&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE (( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' or acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%'  ) )and sum_cd ='11' &#xD;&#xA;&#xD;&#xA;and (1=1)&#xD;&#xA;&#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;select 'ايرادات النشاط الجاري' as s,&#xD;&#xA;CAST(ROUND(sum( case when (acc_no like '5[6-8]11111%' ) and sum_cd ='11' then db_vl-cr_vl else 0 end ), 0) AS BIGINT)*-1 as s1,&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN acc_no like '5[6-8]11111%' and sum_cd ='11' THEN db_vl - cr_vl ELSE 0 END)*-1 &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') and sum_cd ='11' THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;    3)&#xD;&#xA; as s2,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN acc_no like '0%' THEN db_vl - cr_vl ELSE 0 END) &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '0%' OR acc_no LIKE '0%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;   0)&#xD;&#xA; &#xD;&#xA; as s3 ,&#xD;&#xA; CAST(ROUND(sum( case when ( acc_no LIKE '0%') then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s4,&#xD;&#xA;  CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s5,&#xD;&#xA;    CAST(ROUND(sum( case when ( acc_no like '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s6&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE (( acc_no like '5[6-8]11111%' or acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%'  ) ) &#xD;&#xA;and (1=1)&#xD;&#xA;&#xD;&#xA;union all &#xD;&#xA;&#xD;&#xA;select 'النتيجة' as s,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;(CAST(ROUND(sum( case when (acc_no like '5[6-8]11111%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT)*-1&#xD;&#xA;-&#xD;&#xA;CAST(ROUND(sum( case when ( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' ) and sum_cd ='11' then db_vl-cr_vl else 0 end ), 0) AS BIGINT))&#xD;&#xA; as s1,&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            (SUM(CASE WHEN acc_no like '5[6-8]11111%' THEN db_vl - cr_vl ELSE 0 END)*-1&#xD;&#xA;&#x9;&#x9;&#x9;-&#xD;&#xA;&#x9;&#x9;&#x9;(SUM(CASE WHEN ( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' ) and sum_cd ='11' THEN db_vl - cr_vl ELSE 0 END))) &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;    3)&#xD;&#xA; as s2,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN acc_no like '0%' THEN db_vl - cr_vl ELSE 0 END) &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '0%' OR acc_no LIKE '0%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;   0)&#xD;&#xA; &#xD;&#xA; as s3,&#xD;&#xA; CAST(ROUND(sum( case when ( acc_no LIKE '0%') then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s4,&#xD;&#xA;  CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s5,&#xD;&#xA;    CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s6&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' or acc_no like '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%'  ) ) and sum_cd ='11' &#xD;&#xA;&#xD;&#xA;and (1=1)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;select 'دعم مستحق من طرف وزارة المالية' as s,&#xD;&#xA;CAST(ROUND(sum( case when (acc_no like '512501%' or acc_no like '512503%' or acc_no like '512504%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT)*-1 as s1,&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN (acc_no like '512501%' or acc_no like '512503%' or acc_no like '512504%' ) THEN db_vl - cr_vl ELSE 0 END)*-1 &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;    3)&#xD;&#xA; as s2,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN acc_no like '0%' THEN db_vl - cr_vl ELSE 0 END) &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '0%' OR acc_no LIKE '0%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;   0)&#xD;&#xA; &#xD;&#xA; as s3,&#xD;&#xA; CAST(ROUND(sum( case when ( acc_no LIKE '0%') then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s4,&#xD;&#xA;  CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s5,&#xD;&#xA;    CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s6&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE (( acc_no like '512501%' or acc_no like '512503%' or acc_no like '512504%'  or acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') ) &#xD;&#xA;and jrn_cd &lt;&gt; '0147' and (1=1)&#xD;&#xA;union all &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;select 'النتيجة بعد الدعم' as s,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;(CAST(ROUND(sum( case when (acc_no like '5[6-8]11111%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT)*-1&#xD;&#xA;-&#xD;&#xA;CAST(ROUND(sum( case when ( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' ) and sum_cd ='11' then db_vl-cr_vl else 0 end ), 0) AS BIGINT)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;)&#xD;&#xA;-&#xD;&#xA;CAST(ROUND(sum( case when (acc_no like '512501%' or acc_no like '512503%' or acc_no like '512504%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT)&#xD;&#xA; as s1,&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            (SUM(CASE WHEN acc_no like '5[6-8]11111%' THEN db_vl - cr_vl ELSE 0 END)*-1&#xD;&#xA;&#x9;&#x9;&#x9;-&#xD;&#xA;&#x9;&#x9;&#x9;(SUM(CASE WHEN ( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' ) and sum_cd ='11' THEN db_vl - cr_vl ELSE 0 END))&#xD;&#xA;&#x9;&#x9;&#x9;-&#xD;&#xA;&#x9;&#x9;&#x9;CAST(ROUND(sum( case when (acc_no like '512501%' or acc_no like '512503%' or acc_no like '512504%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT)&#xD;&#xA;&#x9;&#x9;&#x9;) &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;    3)&#xD;&#xA; as s2,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN acc_no like '0%' THEN db_vl - cr_vl ELSE 0 END) &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '0%' OR acc_no LIKE '0%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;   0)&#xD;&#xA; &#xD;&#xA; as s3,&#xD;&#xA; CAST(ROUND(sum( case when ( acc_no LIKE '0%') then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s4,&#xD;&#xA;  CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s5,&#xD;&#xA;    CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s6&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' or acc_no like '5[6-8]11111%' or acc_no LIKE '5[6-8]1111101%' OR acc_no LIKE '5[6-8]1111102%' or acc_no like '512501%' or acc_no like '512503%' or acc_no like '512504%'  ) ) &#xD;&#xA;&#xD;&#xA;and jrn_cd &lt;&gt; '0147' and (1=1)&#xD;&#xA;&#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;select 'خدمات مباعة تيار' as s,&#xD;&#xA;CAST(ROUND(sum( case when (acc_no like '5[6-8]1122101%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT)*-1 as s1,&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN acc_no like '5[6-8]1122101%' THEN db_vl - cr_vl ELSE 0 END)*-1 &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;    3)&#xD;&#xA; as s2,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN acc_no like '0%' THEN db_vl - cr_vl ELSE 0 END) &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '0%' OR acc_no LIKE '0%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;   0)&#xD;&#xA; &#xD;&#xA; as s3,&#xD;&#xA; CAST(ROUND(sum( case when ( acc_no LIKE '0%') then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s4,&#xD;&#xA;  CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s5,&#xD;&#xA;    CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s6&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE (( acc_no like '5[6-8]1122101%' or acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') ) &#xD;&#xA;and (1=1)&#xD;&#xA;&#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;select 'خدمة عملاء' as s,&#xD;&#xA;CAST(ROUND(sum( case when (acc_no like '5[6-8]1122103%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT)*-1 as s1,&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN acc_no like '5[6-8]1122103%' THEN db_vl - cr_vl ELSE 0 END)*-1 &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;    3)&#xD;&#xA; as s2,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN acc_no like '0%' THEN db_vl - cr_vl ELSE 0 END) &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '0%' OR acc_no LIKE '0%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;   0)&#xD;&#xA; &#xD;&#xA; as s3,&#xD;&#xA; CAST(ROUND(sum( case when ( acc_no LIKE '0%') then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s4,&#xD;&#xA;  CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s5,&#xD;&#xA;    CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s6&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE (( acc_no like '5[6-8]1122103%' or acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') ) &#xD;&#xA;and (1=1) &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;union all &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;select 'النتيجة بعد الخدمات المباعة' as s,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;(CAST(ROUND(sum( case when (acc_no like '5[6-8]11111%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT)*-1&#xD;&#xA;-&#xD;&#xA;CAST(ROUND(sum( case when ( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' ) and sum_cd ='11' then db_vl-cr_vl else 0 end ), 0) AS BIGINT)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;)&#xD;&#xA;-&#xD;&#xA;(CAST(ROUND(sum( case when (acc_no like '512501%' or acc_no like '512503%' or acc_no like '512504%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT))&#xD;&#xA;-&#xD;&#xA;(CAST(ROUND(sum( case when (acc_no like '5[6-8]1122101%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT))&#xD;&#xA;-&#xD;&#xA;(CAST(ROUND(sum( case when (acc_no like '5[6-8]1122103%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT))&#xD;&#xA; as s1,&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            (SUM(CASE WHEN acc_no like '5[6-8]11111%' THEN db_vl - cr_vl ELSE 0 END)*-1&#xD;&#xA;&#x9;&#x9;&#x9;-&#xD;&#xA;&#x9;&#x9;&#x9;(SUM(CASE WHEN ( acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' ) and sum_cd ='11' THEN db_vl - cr_vl ELSE 0 END))&#xD;&#xA;&#x9;&#x9;&#x9;-&#xD;&#xA;&#x9;&#x9;&#x9;CAST(ROUND(sum( case when (acc_no like '512501%' or acc_no like '512503%' or acc_no like '512504%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT)&#xD;&#xA;&#x9;&#x9;&#x9;-&#xD;&#xA;&#x9;&#x9;&#x9;(CAST(ROUND(sum( case when (acc_no like '5[6-8]1122101%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT))&#xD;&#xA;&#x9;&#x9;&#x9;-&#xD;&#xA;&#x9;&#x9;&#x9;(CAST(ROUND(sum( case when (acc_no like '5[6-8]1122103%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT))&#xD;&#xA;&#x9;&#x9;&#x9;) &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;    3)&#xD;&#xA; as s2,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;    ROUND(&#xD;&#xA;        CAST(&#xD;&#xA;            SUM(CASE WHEN acc_no like '0%' THEN db_vl - cr_vl ELSE 0 END) &#xD;&#xA;            AS NUMERIC&#xD;&#xA;        ) &#xD;&#xA;        / &#xD;&#xA;        NULLIF(&#xD;&#xA;            SUM(CASE WHEN (acc_no LIKE '0%' OR acc_no LIKE '0%') THEN VAL1 ELSE 0 END), &#xD;&#xA;            0&#xD;&#xA;        ) &#xD;&#xA;        * 100, &#xD;&#xA;   0)&#xD;&#xA; &#xD;&#xA; as s3,&#xD;&#xA; CAST(ROUND(sum( case when ( acc_no LIKE '0%') then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s4,&#xD;&#xA;  CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s5,&#xD;&#xA;    CAST(ROUND(sum( case when ( acc_no LIKE '0%' ) then db_vl-cr_vl else 0 end ), 0) AS BIGINT) as s6&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;from gljrnld  WHERE ((acc_no like '4[6-8]11%' or acc_no like '4[6-8]12%' or acc_no like '4[6-8]2%' or acc_no like '4[6-8]31%' or acc_no like '5[6-8]1111101%' or acc_no LIKE '5[6-8]11111%' OR acc_no LIKE '5[6-8]1111102%' or acc_no like '512501%' or acc_no like '512503%' or acc_no like '512504%' or acc_no like '5[6-8]1122101%' or acc_no like '5[6-8]1122103%'   ) ) &#xD;&#xA;and jrn_Cd &lt;&gt; '0147'&#xD;&#xA;and (1=1)&#xD;&#xA;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="4.5cm" Name="pageHeaderSection1">
+      <Style BackgroundColor="" TextAlign="Right" />
+      <Items>
+        <TextBox Width="1.362in" Height="0.122in" Left="6.496in" Top="0.023in" Value="وزارة الكهرباء والطاقة المتجددة" Name="textBox26">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.362in" Height="0.128in" Left="6.502in" Top="0.145in" Value="الشركة القابضة لكهرباء مصر" Name="textBox25">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.444in" Height="0.128in" Left="6.426in" Top="0.276in" Value="شركة مصر الوسطى لتوزيع الكهرباء" Name="textBox63">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.362in" Height="0.128in" Left="6.497in" Top="0.407in" Value="قطاعات الشئون المالية" Name="textBox64">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.362in" Height="0.128in" Left="6.495in" Top="0.539in" Value="الحسابات الآلية" Name="textBox65">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.208in" Height="0.236in" Left="6.666in" Top="0.787in" Value="تكلفة الطاقة المباعة:-" Name="textBox13">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.811in" Height="0.118in" Left="6.063in" Top="1.26in" Value="كمية الطاقة المباعة ك.و.س خلال الفترة من" Name="textBox3">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.056in" Height="0.118in" Left="1.063in" Top="1.024in" Value="= Parameters.filter_TR_DT.Value" Format="{0:d}" Name="textBox16">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.208in" Height="0.118in" Left="6.666in" Top="1.024in" Value="بلغت تكلفة الطاقة المباعة مبلغ" Name="textBox17">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.09in" Height="0.118in" Left="5.575in" Top="1.024in" Value="=Fields.s5&#xD;&#xA;" Format="{0}" Name="textBox20">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.802in" Height="0.118in" Left="3.773in" Top="1.024in" Value="جنيه , بينما بلغت الإيرادات من بيع التيار  مبلغ" Name="textBox21">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.938in" Height="0.118in" Left="2.835in" Top="1.024in" Value="=Fields.s6&#xD;&#xA;" Format="" Name="textBox19">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.715in" Height="0.118in" Left="2.12in" Top="1.024in" Value="للفترة الحالية" Name="textBox22">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.118in" Height="0.118in" Left="0.945in" Top="1.024in" Value="/" Name="textBox23">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.843in" Height="0.118in" Left="0.102in" Top="1.024in" Value="= Parameters.filter_TO_TR_DT.Value" Format="{0:yyyy}" Name="textBox24">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.208in" Height="0.118in" Left="6.662in" Top="1.142in" Value="بلغت تكلفة الطاقة المباعة مبلغ" Name="textBox33">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.802in" Height="0.118in" Left="3.773in" Top="1.142in" Value="جنيه , بينما بلغت الإيرادات من بيع التيار  مبلغ" Name="textBox31">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.715in" Height="0.118in" Left="2.12in" Top="1.142in" Value="للفترة المقارنة" Name="textBox29">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.118in" Height="0.118in" Left="0.945in" Top="1.142in" Value="/" Name="textBox28">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.338in" Height="0.118in" Left="4.725in" Top="1.26in" Value="= Parameters.filter_TR_DT.Value" Format="{0:d}" Name="textBox27">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.276in" Height="0.118in" Left="4.449in" Top="1.26in" Value="حتى" Name="textBox30">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.339in" Height="0.118in" Left="3.11in" Top="1.26in" Value="= Parameters.filter_TO_TR_DT.Value" Name="textBox32">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.09in" Height="0.118in" Left="2.02in" Top="1.26in" Value="=Fields.s4" Name="textBox34">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.807in" Height="0.157in" Left="6.063in" Top="1.378in" Value="كمية الطاقة المباعة ك.و.س خلال الفترة من" Name="textBox37">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.276in" Height="0.157in" Left="4.448in" Top="1.378in" Value="حتى" Name="textBox35">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.811in" Height="0.127in" Left="6.063in" Top="1.536in" Value="وبلغت نسبة تطور كمية الطاقة المباعة" Name="textBox15">
+          <Style TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="1.016cm" Name="detailSection1">
+      <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle" />
+      <Items>
+        <TextBox Width="56.57mm" Height="10.16mm" Left="90.56mm" Top="0mm" Value="= Fields.s" Format="{0}" Multiline="False" Name="textBox7">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="20.97mm" Height="10.16mm" Left="180.03mm" Top="0mm" Value="=Fields.s1&#xD;&#xA;&#xD;&#xA;" Format="{0:#.}" Multiline="False" Name="textBox1">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="17.6mm" Height="10.16mm" Left="147.13mm" Top="0mm" Value="=Fields.s3&#xD;&#xA;" Format="{0:#.000}" Multiline="False" Name="textBox12">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.3mm" Height="10.16mm" Left="164.74mm" Top="0mm" Value="=Fields.s2&#xD;&#xA;" Format="{0}" Multiline="False" Name="textBox14">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="25.09mm" Height="10.16mm" Left="65.47mm" Top="0mm" Value=" =Fields.total_cost&#xD;&#xA;" Format="{0:##;(##);}" Multiline="False" Name="textBox11">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.87mm" Height="10.16mm" Left="49.6mm" Top="0mm" Value=" " Format="{0:##;(##);}" Multiline="False" Name="textBox10">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14.6mm" Height="10.16mm" Left="35mm" Top="0mm" Value=" " Format="{0:##;(##);}" Multiline="False" Name="textBox40">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="15.28mm" Height="10.16mm" Left="19.58mm" Top="0mm" Value=" " Format="{0:##;(##);}" Multiline="False" Name="textBox43">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="14.58mm" Height="10.16mm" Left="5mm" Top="0mm" Value=" " Format="{0:##;(##);}" Multiline="False" Name="textBox44">
+          <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportFooterSection Height="2.184cm" Name="reportFooterSection1">
+      <Style BackgroundColor="White">
+        <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="1.208in" Height="0.236in" Left="5.575in" Top="0.072in" Value="مدير عام التكاليف" Name="textBox8">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.669in" Height="0.236in" Left="6.502in" Top="0.309in" Value="محاسب /" Name="textBox45">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.208in" Height="0.236in" Left="5.575in" Top="0.545in" Value="(محمد حسين زكي)" Name="textBox46">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.208in" Height="0.236in" Left="0.911in" Top="0.546in" Value="(محسن صلاح محمود)" Name="textBox47">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.669in" Height="0.236in" Left="1.838in" Top="0.31in" Value="محاسب /" Name="textBox48">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.208in" Height="0.236in" Left="0.911in" Top="0.073in" Value="رئيس قطاع التكاليف" Name="textBox49">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportFooterSection>
+    <PageFooterSection Height="0.132cm" Name="pageFooterSection1" />
+    <ReportHeaderSection Height="1.4cm" Name="reportHeaderSection1">
+      <Items>
+        <TextBox Width="1.458cm" Height="1.4cm" Left="0.5cm" Top="0cm" Value="نسبة التطور تكلفة ك و س&#xD;&#xA;قرش" Name="textBox42">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.758cm" Height="1cm" Left="14.713cm" Top="0.4cm" Value="النسبة المئوية&#xD;&#xA; للتكلفة الكلية" Name="textBox6">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.097cm" Height="1cm" Left="18.003cm" Top="0.4cm" Value="القيمة&#xD;&#xA;جنيه" Name="textBox5">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.657cm" Height="1cm" Left="9.056cm" Top="0.4cm" Value="البيـــــــــــان" Name="textBox9">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="11.042cm" Height="0.4cm" Left="9.058cm" Top="0cm" Value="الفترة الحالية" Name="textBox18">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.558cm" Height="0.4cm" Left="3.5cm" Top="0cm" Value="الفترة المقارنة" Name="textBox4">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.512cm" Height="1cm" Left="6.544cm" Top="0.4cm" Value="القيمة&#xD;&#xA;جنيه" Name="textBox36">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.458cm" Height="1cm" Left="3.5cm" Top="0.4cm" Value="النسبة المئوية&#xD;&#xA; للتكلفة الكلية" Name="textBox38">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.586cm" Height="1cm" Left="4.958cm" Top="0.4cm" Value="تكلفة &#xD;&#xA;ك و س&#xD;&#xA;قرش" Name="textBox39">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.542cm" Height="1.4cm" Left="1.958cm" Top="0cm" Value="نسبة التطور للتكلفة الكلية&#xD;&#xA;قيمة" Name="textBox41">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.531cm" Height="1cm" Left="16.472cm" Top="0.4cm" Value="تكلفة &#xD;&#xA;ك و س&#xD;&#xA;قرش" Name="textBox2">
+          <Style BackgroundColor="Silver" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="8pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportHeaderSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0mm" Right="0mm" Top="0mm" Bottom="0mm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="Url" Text="Url" />
+    <ReportParameter Name="login" Text="login" />
+    <ReportParameter Name="filter" AllowNull="True" />
+    <ReportParameter Name="filter_TR_DT" />
+    <ReportParameter Name="filter_TO_TR_DT" />
+    <ReportParameter Name="DefaultReportTitle" />
+    <ReportParameter Name="Parameter1" Text="'التكلفة الكلية'" />
+  </ReportParameters>
+</Report>

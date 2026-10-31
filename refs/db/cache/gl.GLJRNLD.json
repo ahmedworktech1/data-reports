@@ -1,0 +1,1552 @@
+[
+  {
+    "ord": 1,
+    "col": "JRN_CD",
+    "type": "nvarchar",
+    "len": 10,
+    "nullable": false,
+    "ident": false,
+    "pk": 1,
+    "ar": "طريقة الطرح"
+  },
+  {
+    "ord": 2,
+    "col": "TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": false,
+    "ident": false,
+    "pk": 1,
+    "ar": "رقم العملية"
+  },
+  {
+    "ord": 3,
+    "col": "LN_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": false,
+    "ident": false,
+    "pk": 1,
+    "ar": ""
+  },
+  {
+    "ord": 4,
+    "col": "ACC_NO",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم الحساب"
+  },
+  {
+    "ord": 5,
+    "col": "TR_DS",
+    "type": "nvarchar",
+    "len": 4000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "نوع الحركة"
+  },
+  {
+    "ord": 6,
+    "col": "LN_TY",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 7,
+    "col": "DB_VL",
+    "type": "decimal",
+    "len": 17,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 8,
+    "col": "CR_VL",
+    "type": "decimal",
+    "len": 17,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 9,
+    "col": "CUR_CD",
+    "type": "nvarchar",
+    "len": 16,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "العملة"
+  },
+  {
+    "ord": 10,
+    "col": "CUR_VL",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "المبلغ بالعملة"
+  },
+  {
+    "ord": 11,
+    "col": "RATE",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "تعديل سعر التحويل"
+  },
+  {
+    "ord": 12,
+    "col": "SUM_CD",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "بند إحصائي"
+  },
+  {
+    "ord": 13,
+    "col": "CST_CD",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "مركز التكلفة"
+  },
+  {
+    "ord": 14,
+    "col": "DOC_TY",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 15,
+    "col": "DOC_NO",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم المستند"
+  },
+  {
+    "ord": 16,
+    "col": "Posted",
+    "type": "nvarchar",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "الترحيل"
+  },
+  {
+    "ord": 17,
+    "col": "USR",
+    "type": "nvarchar",
+    "len": 10,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "المجموعات المسموحة"
+  },
+  {
+    "ord": 18,
+    "col": "Crtd",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 19,
+    "col": "Mdfied",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 20,
+    "col": "TMP_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 21,
+    "col": "IRMRK",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 22,
+    "col": "REFS",
+    "type": "nvarchar",
+    "len": -1,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم العملية"
+  },
+  {
+    "ord": 23,
+    "col": "TR_DS_EN",
+    "type": "nvarchar",
+    "len": 4000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 24,
+    "col": "VAL1",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 25,
+    "col": "VAL2",
+    "type": "decimal",
+    "len": 17,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 26,
+    "col": "VAL3",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 27,
+    "col": "TR_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "التاريخ"
+  },
+  {
+    "ord": 28,
+    "col": "PRD",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "الفترة"
+  },
+  {
+    "ord": 29,
+    "col": "EnteredBy",
+    "type": "nvarchar",
+    "len": 24,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 30,
+    "col": "UpdatedBy",
+    "type": "nvarchar",
+    "len": 24,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 31,
+    "col": "EntryDate",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 32,
+    "col": "UpdateDate",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 33,
+    "col": "GL_JRN_CD",
+    "type": "nvarchar",
+    "len": 10,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "يومية مقارن"
+  },
+  {
+    "ord": 34,
+    "col": "GL_TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "قيد مقارن"
+  },
+  {
+    "ord": 35,
+    "col": "GL_LN_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 36,
+    "col": "intDOC_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 37,
+    "col": "POSTED1",
+    "type": "nvarchar",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 38,
+    "col": "POSTED1_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 39,
+    "col": "POSTED1_BY",
+    "type": "nvarchar",
+    "len": 24,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 40,
+    "col": "POSTED1_F1",
+    "type": "nvarchar",
+    "len": 1000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "مسمي 5"
+  },
+  {
+    "ord": 41,
+    "col": "POSTED1_F2",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "الجهة"
+  },
+  {
+    "ord": 42,
+    "col": "POSTED1_F3",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "مسمي 7"
+  },
+  {
+    "ord": 43,
+    "col": "POSTED1_F4",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "مسمي 8"
+  },
+  {
+    "ord": 44,
+    "col": "POSTED1_F5",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "مسمي 9"
+  },
+  {
+    "ord": 45,
+    "col": "POSTED1_F6",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "مسمي 10"
+  },
+  {
+    "ord": 46,
+    "col": "POSTED1_F7",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 47,
+    "col": "SSUM_CD",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": " بند إحصائي فرعي"
+  },
+  {
+    "ord": 48,
+    "col": "DOC_LN_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم السطر في القيد"
+  },
+  {
+    "ord": 49,
+    "col": "DIST_DON",
+    "type": "nvarchar",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 50,
+    "col": "DIST_By",
+    "type": "nvarchar",
+    "len": 400,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 51,
+    "col": "DIST_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 52,
+    "col": "DIST_JRN_CD",
+    "type": "nvarchar",
+    "len": 6,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 53,
+    "col": "DIST_TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 54,
+    "col": "DIST_LN_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 55,
+    "col": "NUM_WRD",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 56,
+    "col": "NEW_REFS",
+    "type": "nvarchar",
+    "len": -1,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 57,
+    "col": "PAID_VL",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 58,
+    "col": "CHK_NO",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم الشيك"
+  },
+  {
+    "ord": 59,
+    "col": "Itm_CD",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم الصنف ..."
+  },
+  {
+    "ord": 60,
+    "col": "TMP_JRN_CD",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 61,
+    "col": "POSTED_C",
+    "type": "nvarchar",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 62,
+    "col": "TMP_GL_JRN_CD",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 63,
+    "col": "TMP_GL_TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 64,
+    "col": "KY_TY",
+    "type": "nvarchar",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 65,
+    "col": "COM_ID",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "الوحدة المحاسبية"
+  },
+  {
+    "ord": 66,
+    "col": "BNK_ID",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "اسم البنك"
+  },
+  {
+    "ord": 67,
+    "col": "BNK_BRNCH",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 68,
+    "col": "REFS_X",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 69,
+    "col": "A1_REF",
+    "type": "nvarchar",
+    "len": 60,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 70,
+    "col": "REFS_AZ",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 71,
+    "col": "VAL4",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 72,
+    "col": "VAL5",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 73,
+    "col": "doc_dt",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "تاريخ المستند"
+  },
+  {
+    "ord": 74,
+    "col": "scst_cd",
+    "type": "nvarchar",
+    "len": 50,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "مركز التكلفة فرعي"
+  },
+  {
+    "ord": 75,
+    "col": "REP_CD",
+    "type": "nvarchar",
+    "len": 60,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 76,
+    "col": "HJ_Crtd",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 77,
+    "col": "HJ_Mdfied",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 78,
+    "col": "HJ_TR_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 79,
+    "col": "HJ_POSTED1_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 80,
+    "col": "HJ_DIST_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 81,
+    "col": "HJ_doc_dt",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 82,
+    "col": "AZ_ACC_NO",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 83,
+    "col": "LC_TYP",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "نوع الإعتماد"
+  },
+  {
+    "ord": 84,
+    "col": "Sp_ty",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 85,
+    "col": "POSTED1_F8",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 86,
+    "col": "POSTED1_F9",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 87,
+    "col": "CNTRY_ID",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "الدولة"
+  },
+  {
+    "ord": 88,
+    "col": "ROLL_No",
+    "type": "nvarchar",
+    "len": 40,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم الحافظة"
+  },
+  {
+    "ord": 89,
+    "col": "ROLL_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 90,
+    "col": "HM_SRC",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 91,
+    "col": "HM_REF",
+    "type": "nvarchar",
+    "len": -1,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 92,
+    "col": "HM_RULES",
+    "type": "nvarchar",
+    "len": -1,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 93,
+    "col": "HM_RULE_LNS",
+    "type": "nvarchar",
+    "len": -1,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 94,
+    "col": "Due_Dt",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "تاريخ فتح المظاريف"
+  },
+  {
+    "ord": 95,
+    "col": "Hj_Due_Dt",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 96,
+    "col": "BDG_SIGN",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 97,
+    "col": "BDG_SIGN_BY",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 98,
+    "col": "BDG_SIGN_DT",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 99,
+    "col": "BDG_SIGN_NO",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 100,
+    "col": "NM5",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 101,
+    "col": "NM6",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 102,
+    "col": "NM7",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 103,
+    "col": "NM8",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 104,
+    "col": "NM9",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 105,
+    "col": "NM10",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 106,
+    "col": "CNTRY",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "الدولة"
+  },
+  {
+    "ord": 107,
+    "col": "REF_NO",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "مرجع صيغه العقد"
+  },
+  {
+    "ord": 108,
+    "col": "WF_TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 109,
+    "col": "WF_LN_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 110,
+    "col": "HJ_ROLL_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 111,
+    "col": "BK_TR_NO",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 112,
+    "col": "PKID",
+    "type": "nvarchar",
+    "len": 6,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم الوحدة"
+  },
+  {
+    "ord": 113,
+    "col": "FUND_SUM_CD",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "مصادر تمويل الجهات"
+  },
+  {
+    "ord": 114,
+    "col": "SP_NO",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "التخصيص"
+  },
+  {
+    "ord": 115,
+    "col": "SP_ID",
+    "type": "nvarchar",
+    "len": 60,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "المانح"
+  },
+  {
+    "ord": 116,
+    "col": "SPD_ID",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "المشروع"
+  },
+  {
+    "ord": 117,
+    "col": "DedTYP",
+    "type": "nvarchar",
+    "len": 40,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 118,
+    "col": "Fpon",
+    "type": "nvarchar",
+    "len": 50,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 119,
+    "col": "Tpon",
+    "type": "nvarchar",
+    "len": 50,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 120,
+    "col": "pon_dt",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 121,
+    "col": "To_Com_Id",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "إلى وحدة محاسبية"
+  },
+  {
+    "ord": 122,
+    "col": "TO_ACC_NO",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "الرقم المقابل"
+  },
+  {
+    "ord": 123,
+    "col": "TotFaJrnlVal",
+    "type": "decimal",
+    "len": 13,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 124,
+    "col": "CURRENT_MILEAGE",
+    "type": "decimal",
+    "len": 13,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 125,
+    "col": "previous_mileage",
+    "type": "decimal",
+    "len": 13,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 126,
+    "col": "CostIndicator",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 127,
+    "col": "SEG1_CD",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 128,
+    "col": "SEG2_CD",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 129,
+    "col": "SEG3_CD",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 130,
+    "col": "SEG4_CD",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 131,
+    "col": "SEG5_CD",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 132,
+    "col": "SEG6_CD",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 133,
+    "col": "SEG7_CD",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 134,
+    "col": "SEG8_CD",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 135,
+    "col": "SEG9_CD",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 136,
+    "col": "SEG10_CD",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 137,
+    "col": "SEG11_CD",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 138,
+    "col": "SEG12_CD",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 139,
+    "col": "SEG13_CD",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 140,
+    "col": "SEG14_CD",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 141,
+    "col": "SEG15_CD",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 142,
+    "col": "NEW_TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 143,
+    "col": "MAINACC_NO",
+    "type": "nvarchar",
+    "len": 40,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 144,
+    "col": "C_Jrn_Cd",
+    "type": "nvarchar",
+    "len": 10,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 145,
+    "col": "c_Tr_No",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "العملية"
+  },
+  {
+    "ord": 146,
+    "col": "is_Reversed_Copy",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 147,
+    "col": "Linq_Id",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "مسلسل"
+  },
+  {
+    "ord": 148,
+    "col": "MainAccNo",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 149,
+    "col": "Tr_Type",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "نوع الحركة"
+  },
+  {
+    "ord": 151,
+    "col": "AZ_OPRTN_NO",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم العملية"
+  },
+  {
+    "ord": 310,
+    "col": "TRNSFR_TO_ENTITY",
+    "type": "nvarchar",
+    "len": 400,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "الجهة المحول إليها"
+  },
+  {
+    "ord": 311,
+    "col": "TRNSFR_BNK",
+    "type": "nvarchar",
+    "len": 400,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "البنك"
+  },
+  {
+    "ord": 312,
+    "col": "TRNSFR_BNK_BRNCH",
+    "type": "nvarchar",
+    "len": 400,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "فرع البنك"
+  },
+  {
+    "ord": 313,
+    "col": "TRNSFR_BNK_ACC_NO",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم حساب البنك"
+  },
+  {
+    "ord": 314,
+    "col": "TRNSFR_OLD_BNK_ACC_NO",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": "رقم حساب البنك القديم"
+  }
+]

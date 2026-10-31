@@ -1,0 +1,5092 @@
+[
+  {
+    "ord": 1,
+    "col": "LOC",
+    "type": "nvarchar",
+    "len": 16,
+    "nullable": false,
+    "ident": false,
+    "pk": 1,
+    "ar": ""
+  },
+  {
+    "ord": 2,
+    "col": "TR_TY",
+    "type": "smallint",
+    "len": 2,
+    "nullable": false,
+    "ident": false,
+    "pk": 1,
+    "ar": ""
+  },
+  {
+    "ord": 3,
+    "col": "TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": false,
+    "ident": false,
+    "pk": 1,
+    "ar": ""
+  },
+  {
+    "ord": 4,
+    "col": "TR_DS",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 5,
+    "col": "GRP",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 6,
+    "col": "TR_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 7,
+    "col": "RANK",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 8,
+    "col": "Region",
+    "type": "nvarchar",
+    "len": 16,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 9,
+    "col": "Rep_CD",
+    "type": "nvarchar",
+    "len": 24,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 10,
+    "col": "Rep_CD1",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 11,
+    "col": "DUE_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 12,
+    "col": "PTR_TY",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 13,
+    "col": "PLoc",
+    "type": "nvarchar",
+    "len": 16,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 14,
+    "col": "PTR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 15,
+    "col": "Acc_No",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 16,
+    "col": "Acc_Nm",
+    "type": "nvarchar",
+    "len": 600,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 17,
+    "col": "RMRK",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 18,
+    "col": "CSH_CD",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 19,
+    "col": "CST_CD",
+    "type": "nvarchar",
+    "len": 60,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 20,
+    "col": "SUM_CD",
+    "type": "nvarchar",
+    "len": 50,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 21,
+    "col": "ShpChrg",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 22,
+    "col": "ShpAcc",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 23,
+    "col": "Rout",
+    "type": "nvarchar",
+    "len": 140,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 24,
+    "col": "ShpAddr",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 25,
+    "col": "ShpInvNo",
+    "type": "nvarchar",
+    "len": 50,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 26,
+    "col": "DrvName",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 27,
+    "col": "SHPCAR_NO",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 28,
+    "col": "CAROWNER",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 29,
+    "col": "InTim",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 30,
+    "col": "OutTim",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 31,
+    "col": "HDisc",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 32,
+    "col": "HDISC1",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 33,
+    "col": "HDISC2",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 34,
+    "col": "HDISC3",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 35,
+    "col": "HDISC4",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 36,
+    "col": "HTAX1",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 37,
+    "col": "HTAX2",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 38,
+    "col": "HTAX3",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 39,
+    "col": "HTAX4",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 40,
+    "col": "HTAX",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 41,
+    "col": "LDisc",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 42,
+    "col": "LTAX",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 43,
+    "col": "LTOT",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 44,
+    "col": "LTOTCST",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 45,
+    "col": "TOTQTY",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 46,
+    "col": "Printed",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 47,
+    "col": "HDDN",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 48,
+    "col": "INV_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 49,
+    "col": "INV_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 50,
+    "col": "ORD_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 51,
+    "col": "ORD_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 52,
+    "col": "INSP_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 53,
+    "col": "INSP_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 54,
+    "col": "IDDRV",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 55,
+    "col": "LICESNO",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 56,
+    "col": "MLOC",
+    "type": "nvarchar",
+    "len": 16,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 57,
+    "col": "OPR_NO",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 58,
+    "col": "PRTY_NO",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 59,
+    "col": "PLC_NO",
+    "type": "nvarchar",
+    "len": 16,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 60,
+    "col": "EMP_NO",
+    "type": "nvarchar",
+    "len": 40,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 61,
+    "col": "OPR_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 62,
+    "col": "INPLC",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 63,
+    "col": "INTR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 64,
+    "col": "INTR_TY",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 65,
+    "col": "PKGTYPE",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 66,
+    "col": "CHRGNO",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 67,
+    "col": "PAYTR_NO",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 68,
+    "col": "PAYTR_TY",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 69,
+    "col": "PAY_TY",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 70,
+    "col": "EnteredBy",
+    "type": "nvarchar",
+    "len": 60,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 71,
+    "col": "UpdatedBy",
+    "type": "nvarchar",
+    "len": 60,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 72,
+    "col": "EntryDate",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 73,
+    "col": "UpdateDate",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 74,
+    "col": "DELV_RANGE",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 75,
+    "col": "DELV_RANGE1",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 76,
+    "col": "DELV_RANGE2",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 77,
+    "col": "DELV_RANGE3",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 78,
+    "col": "DELV_RANGE4",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 79,
+    "col": "TAXVAL1",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 80,
+    "col": "TAXVAL2",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 81,
+    "col": "SPYDISC2",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 82,
+    "col": "SPYDISC4",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 83,
+    "col": "SPYDISC5",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 84,
+    "col": "PYPRD1",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 85,
+    "col": "PYPRD2",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 86,
+    "col": "PYPRD3",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 87,
+    "col": "PYPRD4",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 88,
+    "col": "PYPRD5",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 89,
+    "col": "SPYDISC1",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 90,
+    "col": "SPYDISC3",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 91,
+    "col": "CAR_LIN",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 92,
+    "col": "SPRDDISC1",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 93,
+    "col": "SPRDDISC2",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 94,
+    "col": "SPRDDISC3",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 95,
+    "col": "SPRDDISC4",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 96,
+    "col": "SPRDDISC5",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 97,
+    "col": "DLV_STAT",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 98,
+    "col": "DELVLN_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 99,
+    "col": "SING",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 100,
+    "col": "PAY_AMT",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 101,
+    "col": "RET_AMT",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 102,
+    "col": "PRNT_CNT",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 103,
+    "col": "DISC_AMT",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 104,
+    "col": "TOT_NUM_WRD",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 105,
+    "col": "TOT_NUM_WRD_EN",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 106,
+    "col": "CA_GRP",
+    "type": "nvarchar",
+    "len": 12,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 107,
+    "col": "DOC_TY",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 108,
+    "col": "SEC_CD",
+    "type": "nvarchar",
+    "len": 24,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 109,
+    "col": "VST_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 110,
+    "col": "VST_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 111,
+    "col": "EXPRT_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 112,
+    "col": "EXPRAMT",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 113,
+    "col": "BLTOT",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 114,
+    "col": "BLDISC",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 115,
+    "col": "BLTAX",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 116,
+    "col": "BPAY_AMT",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 117,
+    "col": "BDISC_AMT",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 118,
+    "col": "BRET_AMT",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 119,
+    "col": "PAY_ID",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 120,
+    "col": "PEMP_NO",
+    "type": "nvarchar",
+    "len": 40,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 121,
+    "col": "INV_FTR",
+    "type": "nvarchar",
+    "len": 8000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 122,
+    "col": "PAYED",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 123,
+    "col": "PICK_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 124,
+    "col": "PICK_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 125,
+    "col": "purchas_NO",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 126,
+    "col": "MOV",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 127,
+    "col": "REVISD",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 128,
+    "col": "CRETD",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 129,
+    "col": "SHP_AMT",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 130,
+    "col": "RMRK1",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 131,
+    "col": "MRMRK1",
+    "type": "nvarchar",
+    "len": 8000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 132,
+    "col": "RMRK2",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 133,
+    "col": "MRMRK2",
+    "type": "nvarchar",
+    "len": 8000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 134,
+    "col": "RMRK3",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 135,
+    "col": "MRMRK3",
+    "type": "nvarchar",
+    "len": 8000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 136,
+    "col": "DONE",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 137,
+    "col": "END_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 138,
+    "col": "END_WY",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 139,
+    "col": "TMP_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 140,
+    "col": "batchid",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 141,
+    "col": "ROUTEID",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 142,
+    "col": "tr_state",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 143,
+    "col": "tr_state_by",
+    "type": "nvarchar",
+    "len": 60,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 144,
+    "col": "PRD_CD",
+    "type": "nvarchar",
+    "len": 50,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 145,
+    "col": "BTCH_ID",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 146,
+    "col": "PRD_QTY",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 147,
+    "col": "PRD_PKID",
+    "type": "nvarchar",
+    "len": 6,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 148,
+    "col": "CRDTPRD_END",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 149,
+    "col": "TAX_ACC1",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 150,
+    "col": "TAX_ACC2",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 151,
+    "col": "TAX_ACC3",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 152,
+    "col": "MERIT_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 153,
+    "col": "SSUM_CD",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 154,
+    "col": "PRD_PK",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 155,
+    "col": "FM_JOB",
+    "type": "nvarchar",
+    "len": 50,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 156,
+    "col": "PTRTYS",
+    "type": "nvarchar",
+    "len": 8000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 157,
+    "col": "Invoic_no",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 158,
+    "col": "Snd_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 159,
+    "col": "Due_rep_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 160,
+    "col": "purchase_ord",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 161,
+    "col": "Rec_no",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 162,
+    "col": "Rec_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 163,
+    "col": "Tax_prcnt",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 164,
+    "col": "paid_amt",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 165,
+    "col": "rest_amt",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 166,
+    "col": "frst_amt",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 167,
+    "col": "frst_dt",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 168,
+    "col": "chk1_no",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 169,
+    "col": "scnd_amt",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 170,
+    "col": "scnd_dt",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 171,
+    "col": "chk2_no",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 172,
+    "col": "thrd_amt",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 173,
+    "col": "thrd_dt",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 174,
+    "col": "chk3_no",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 175,
+    "col": "TMP_TR_TY",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 176,
+    "col": "TMP_LOC",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 177,
+    "col": "frstptch",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 178,
+    "col": "portn",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 179,
+    "col": "CNT_PORTN",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 180,
+    "col": "SHP_REST",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 181,
+    "col": "SHP_PAID",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 182,
+    "col": "SHP_NO",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 183,
+    "col": "INV_TYP",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 184,
+    "col": "PAYED_AMT",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 185,
+    "col": "ACC_TEL",
+    "type": "nvarchar",
+    "len": 60,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 186,
+    "col": "GIVT_TY",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 187,
+    "col": "PAY_RMRK",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 188,
+    "col": "CUR_CD",
+    "type": "nvarchar",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 189,
+    "col": "CUR_VL",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 190,
+    "col": "RATE",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 191,
+    "col": "PLOC1",
+    "type": "nvarchar",
+    "len": 16,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 192,
+    "col": "PTR_TY1",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 193,
+    "col": "PTR_NO1",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 194,
+    "col": "PLOC2",
+    "type": "nvarchar",
+    "len": 16,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 195,
+    "col": "PTR_TY2",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 196,
+    "col": "PTR_NO2",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 197,
+    "col": "DELIVERY_DON",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 198,
+    "col": "DELIVERY_DAT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 199,
+    "col": "ACC_ADRS",
+    "type": "nvarchar",
+    "len": 1000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 200,
+    "col": "LDisc_C",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 201,
+    "col": "LTAX_C",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 202,
+    "col": "LTOT_C",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 203,
+    "col": "LTOTCST_C",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 204,
+    "col": "Irate",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 205,
+    "col": "AccRate",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 206,
+    "col": "IAccRate",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 207,
+    "col": "Prntd1",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 208,
+    "col": "Prntd2",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 209,
+    "col": "Prntd3",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 210,
+    "col": "HPRINT_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 211,
+    "col": "pos_tr_no",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 212,
+    "col": "sourc",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 213,
+    "col": "ELEV_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 214,
+    "col": "USE_TYP",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 215,
+    "col": "PERS_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 216,
+    "col": "ELEV_WEGH",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 217,
+    "col": "STOP_NO",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 218,
+    "col": "ENTER_NO",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 219,
+    "col": "MACH_NO",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 220,
+    "col": "CAPIN_SIZ",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 221,
+    "col": "WELL_LEVEL",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 222,
+    "col": "WELL_SIZ",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 223,
+    "col": "DOOR_SIZ",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 224,
+    "col": "DOOR_TYP",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 225,
+    "col": "CAPIN_FINISH",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 226,
+    "col": "DOORS_FINISH",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 227,
+    "col": "INSTALL_TIM",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 228,
+    "col": "FIRST_BATCH",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 229,
+    "col": "SECOND_BATCH",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 230,
+    "col": "THIRD_BATCH",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 231,
+    "col": "FOUR_BATCH",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 232,
+    "col": "FIVE_BATCH",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 233,
+    "col": "SIX_BATCH",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 234,
+    "col": "CUR_HTAX1",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 235,
+    "col": "CUR_HTAX2",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 236,
+    "col": "CUR_HTAX3",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 237,
+    "col": "CUR_HDISC1",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 238,
+    "col": "CUR_HDISC2",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 239,
+    "col": "CUR_HDISC3",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 240,
+    "col": "refs1",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 241,
+    "col": "LCUR_TOT",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 242,
+    "col": "LCUR_DISC",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 243,
+    "col": "LCUR_TAX",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 244,
+    "col": "pos_csh_cd",
+    "type": "nvarchar",
+    "len": 40,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 245,
+    "col": "HCUR_DISC1",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 246,
+    "col": "HCUR_SDISC1",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 247,
+    "col": "HCRDTLMT",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 248,
+    "col": "CUR_HDISC4",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 249,
+    "col": "CUR_HTAX4",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 250,
+    "col": "TOT_MIN_Hdisc",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 251,
+    "col": "TR_LANG",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 252,
+    "col": "modl_id",
+    "type": "nvarchar",
+    "len": 40,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 253,
+    "col": "CUR_HDISC",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 254,
+    "col": "CUR_HTAX",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 255,
+    "col": "REP_CD2",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 256,
+    "col": "HSTAX1",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 257,
+    "col": "OLTOT",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 258,
+    "col": "REF_TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 259,
+    "col": "PAID",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 260,
+    "col": "sLtax",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 261,
+    "col": "phone",
+    "type": "nvarchar",
+    "len": 60,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 262,
+    "col": "com_id",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 263,
+    "col": "ARRIV_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 264,
+    "col": "ARRIV_TIM",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 265,
+    "col": "DOWN_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 266,
+    "col": "DOWN_TIM",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 267,
+    "col": "VAC_DAYS",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 268,
+    "col": "VAC_HRS",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 269,
+    "col": "VAC_VAL",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 270,
+    "col": "DRIVR_TREP_VAL",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 271,
+    "col": "AFFCT_DRIV_ACC",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 272,
+    "col": "ORDER_NO",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 273,
+    "col": "Ticket_NO",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 274,
+    "col": "Fuel_no",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 275,
+    "col": "CUST_NET",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 276,
+    "col": "HSTAX2",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 277,
+    "col": "inv_no2",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 278,
+    "col": "hsdisc1",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 279,
+    "col": "INV_NO3",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 280,
+    "col": "INV_NO4",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 281,
+    "col": "TR_PRD_CD",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 282,
+    "col": "RMRK4",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 283,
+    "col": "RMRK5",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 284,
+    "col": "approved",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 285,
+    "col": "HBONE_CD",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 286,
+    "col": "ACC_NO2",
+    "type": "nvarchar",
+    "len": 4000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 287,
+    "col": "scst_cd",
+    "type": "nvarchar",
+    "len": 50,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 288,
+    "col": "HJ_TR_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 289,
+    "col": "HJ_DUE_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 290,
+    "col": "HJ_InTim",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 291,
+    "col": "HJ_OutTim",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 292,
+    "col": "HJ_INV_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 293,
+    "col": "HJ_ORD_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 294,
+    "col": "HJ_INSP_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 295,
+    "col": "HJ_OPR_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 296,
+    "col": "HJ_VST_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 297,
+    "col": "HJ_PICK_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 298,
+    "col": "HJ_END_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 299,
+    "col": "HJ_MERIT_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 300,
+    "col": "HJ_Snd_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 301,
+    "col": "HJ_Due_rep_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 302,
+    "col": "HJ_Rec_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 303,
+    "col": "HJ_frst_dt",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 304,
+    "col": "HJ_scnd_dt",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 305,
+    "col": "HJ_thrd_dt",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 306,
+    "col": "HJ_DELIVERY_DAT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 307,
+    "col": "HJ_HPRINT_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 308,
+    "col": "HJ_ARRIV_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 309,
+    "col": "HJ_ARRIV_TIM",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 310,
+    "col": "HJ_DOWN_DT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 311,
+    "col": "HJ_DOWN_TIM",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 312,
+    "col": "CAPIN_SIZ2",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 313,
+    "col": "QUOT_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 314,
+    "col": "GOV_ID",
+    "type": "nvarchar",
+    "len": 16,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 315,
+    "col": "QTYPRCNT",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 316,
+    "col": "RMRK_EXTRA",
+    "type": "nvarchar",
+    "len": 4000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 317,
+    "col": "ltoc_c",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 318,
+    "col": "Close_Time",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 319,
+    "col": "kitchen_State",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 320,
+    "col": "MCID",
+    "type": "nvarchar",
+    "len": 300,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 321,
+    "col": "HJ_Close_Time",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 322,
+    "col": "TRP",
+    "type": "nvarchar",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 323,
+    "col": "LoadType",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 324,
+    "col": "SHTAX",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 325,
+    "col": "CMPNINS",
+    "type": "nvarchar",
+    "len": 300,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 326,
+    "col": "INDT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 327,
+    "col": "OUTDT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 328,
+    "col": "HJ_INDT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 329,
+    "col": "HJ_OUTDT",
+    "type": "nvarchar",
+    "len": 20,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 330,
+    "col": "SRMRK1",
+    "type": "nvarchar",
+    "len": 400,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 331,
+    "col": "SRMRK2",
+    "type": "nvarchar",
+    "len": 400,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 332,
+    "col": "VInTim",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 333,
+    "col": "VSTD_NM",
+    "type": "nvarchar",
+    "len": 400,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 334,
+    "col": "VSTD_NAT",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 335,
+    "col": "STAY_PRD",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 336,
+    "col": "RMRK6",
+    "type": "nvarchar",
+    "len": 2000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 337,
+    "col": "RMRK7",
+    "type": "nvarchar",
+    "len": 2000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 338,
+    "col": "RMRK8",
+    "type": "nvarchar",
+    "len": 2000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 339,
+    "col": "RMRK9",
+    "type": "nvarchar",
+    "len": 2000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 340,
+    "col": "DT_MT1",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 341,
+    "col": "DT_MT2",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 342,
+    "col": "DT_MT3",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 343,
+    "col": "DT_MT4",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 344,
+    "col": "DT_MT_FNL",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 345,
+    "col": "DT_TCHNCL_RPT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 346,
+    "col": "DT_FNCL_RPT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 347,
+    "col": "OPN_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 348,
+    "col": "TCHNCL_NTFCTN_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 349,
+    "col": "NTFCTN_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 350,
+    "col": "FNL_INSRNC_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 351,
+    "col": "PRMRY_INSRNC_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 352,
+    "col": "EXT_INSRNC_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 353,
+    "col": "LTRL_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 354,
+    "col": "PRCS_CLSFCTN",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 355,
+    "col": "WF_TR_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 356,
+    "col": "WF_LN_NO",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 357,
+    "col": "TEC_EVA_OP",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 358,
+    "col": "NTC_END_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 359,
+    "col": "VEH_NO",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 360,
+    "col": "PRDC_TYP",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 361,
+    "col": "FOLLOW_SUPPLY_ORDER",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 362,
+    "col": "CAR_REP_CD",
+    "type": "nvarchar",
+    "len": 30,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 363,
+    "col": "TEC_EVA_VAL",
+    "type": "float",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 364,
+    "col": "ETA_SING",
+    "type": "nvarchar",
+    "len": 8000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 365,
+    "col": "BUSNS_CST_INSRNC",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 366,
+    "col": "FNL_INSRNC_CST",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 367,
+    "col": "DWN_PYMNT_CST",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 368,
+    "col": "ETA_JSON",
+    "type": "nvarchar",
+    "len": 8000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 369,
+    "col": "SAL_BUSNS_GRNT_INSRNC",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 370,
+    "col": "FNL_SAL_CST",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 371,
+    "col": "ETA_USR",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 372,
+    "col": "ETA_SIGN",
+    "type": "nvarchar",
+    "len": 8000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 373,
+    "col": "ETA_ERROR",
+    "type": "nvarchar",
+    "len": 8000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 374,
+    "col": "DWN_PYMNT_SAL",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 375,
+    "col": "ETA_ACPTJSON",
+    "type": "nvarchar",
+    "len": 8000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 376,
+    "col": "NET_SAL",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 377,
+    "col": "ACC_CTG",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 378,
+    "col": "ETA_ATTCHNO",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 379,
+    "col": "ETA_PublicUrl",
+    "type": "nvarchar",
+    "len": 1024,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 380,
+    "col": "ETA_ValidationJson",
+    "type": "nvarchar",
+    "len": 8000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 381,
+    "col": "NET_CST",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 382,
+    "col": "ETA_ERJSON",
+    "type": "nvarchar",
+    "len": 8000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 383,
+    "col": "TR_YEAR",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 384,
+    "col": "ETA_POSTED",
+    "type": "nvarchar",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 385,
+    "col": "ETA_SubmissionID",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 386,
+    "col": "ETA_Uuid",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 387,
+    "col": "ETA_longId",
+    "type": "nvarchar",
+    "len": 200,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 388,
+    "col": "SIGNPIC",
+    "type": "image",
+    "len": 16,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 389,
+    "col": "CRDNTLS",
+    "type": "nvarchar",
+    "len": 2000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 390,
+    "col": "JOB_ORDER_NO",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 391,
+    "col": "MAINT_DEPRT",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 392,
+    "col": "FromMobile",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 393,
+    "col": "BDGT_APPRVL",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 394,
+    "col": "PRCHS_OPRTN_TYP",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 395,
+    "col": "CMMTTE_CHRMN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 396,
+    "col": "CMMTTE_INTRNL_MMBRS",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 397,
+    "col": "CMMTTE_EXTRNL_MMBRS",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 398,
+    "col": "TR_PRPS",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 399,
+    "col": "PYMNT_MTHD",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 400,
+    "col": "DLVR_LOC",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 401,
+    "col": "TR_TAX_TYP",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 402,
+    "col": "MITM_CD",
+    "type": "nvarchar",
+    "len": 50,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 404,
+    "col": "MMBR_TYP",
+    "type": "nvarchar",
+    "len": 16,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 405,
+    "col": "MMBR_TYP_OPN",
+    "type": "nvarchar",
+    "len": 16,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 406,
+    "col": "MMBR_TYP_DCSN",
+    "type": "nvarchar",
+    "len": 16,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 407,
+    "col": "MMBR_TYP_INSPCTN",
+    "type": "nvarchar",
+    "len": 16,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 408,
+    "col": "CMMTTE_CHRMN_OPN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 409,
+    "col": "CMMTTE_CHRMN_DCSN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 410,
+    "col": "CMMTTE_CHRMN_INSPCTN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 411,
+    "col": "CMMTTE_INTRNL_MMBRS_OPN",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 412,
+    "col": "CMMTTE_INTRNL_MMBRS_DCSN",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 413,
+    "col": "CMMTTE_INTRNL_MMBRS_INSPCTN",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 414,
+    "col": "CMMTTE_EXTRNL_MMBRS_OPN",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 415,
+    "col": "CMMTTE_EXTRNL_MMBRS_DCSN",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 416,
+    "col": "CMMTTE_EXTRNL_MMBRS_INSPCTN",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 417,
+    "col": "MTNG_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 418,
+    "col": "TCHNCL_OPN_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 419,
+    "col": "FNCL_OPN_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 420,
+    "col": "TCHNCL_DCSN_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 421,
+    "col": "FNCL_DCSN_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 422,
+    "col": "INSPCTN_ACCPTNC_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 423,
+    "col": "CMMTTE_INTRNL_SCRTY",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 424,
+    "col": "CMMTTE_INTRNL_SCRTY_OPN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 425,
+    "col": "CMMTTE_INTRNL_SCRTY_DCSN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 426,
+    "col": "CMMTTE_INTRNL_SCRTY_INSPCTN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 427,
+    "col": "CMMTTE_EXTRNL_SCRTY",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 428,
+    "col": "CMMTTE_EXTRNL_SCRTY_OPN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 429,
+    "col": "CMMTTE_EXTRNL_SCRTY_DCSN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 430,
+    "col": "CMMTTE_EXTRNL_SCRTY_INSPCTN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 431,
+    "col": "TNDRNG_SYS",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 432,
+    "col": "ADVRTSRS",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 433,
+    "col": "CurrentState",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 434,
+    "col": "CurrentStateStr",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 435,
+    "col": "RequestId",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 436,
+    "col": "CurrentStateDate",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 437,
+    "col": "CurrentStateBy",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 438,
+    "col": "CurrentStateReason",
+    "type": "nvarchar",
+    "len": -1,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 439,
+    "col": "CMMTTE_EXTRNL_JOB",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 440,
+    "col": "CMMTTE_EXTRNL_JOB_OPN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 441,
+    "col": "CMMTTE_EXTRNL_JOB_DCSN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 442,
+    "col": "CMMTTE_EXTRNL_JOB_INSPCTN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 443,
+    "col": "NT_EXTRNL_MMBR",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 444,
+    "col": "NT_EXTRNL_MMBR_OPN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 445,
+    "col": "NT_EXTRNL_MMBR_DCSN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 446,
+    "col": "NT_EXTRNL_MMBR_INSPCTN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 447,
+    "col": "NT_EXTRNL_MMBR_TYP",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 448,
+    "col": "NT_EXTRNL_MMBR_TYP_OPN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 449,
+    "col": "NT_EXTRNL_MMBR_TYP_DCSN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 450,
+    "col": "NT_EXTRNL_MMBR_TYP_INSPCTN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 451,
+    "col": "NT_EXTRNL_MMBR_JOB",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 452,
+    "col": "NT_EXTRNL_MMBR_JOB_OPN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 453,
+    "col": "NT_EXTRNL_MMBR_JOB_DCSN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 454,
+    "col": "NT_EXTRNL_MMBR_JOB_INSPCTN",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 455,
+    "col": "CMMTTE_END_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 456,
+    "col": "CMMTTE_END_DT_OPN",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 457,
+    "col": "CMMTTE_END_DT_DCSN",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 458,
+    "col": "CMMTTE_END_DT_INSPCTN",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 459,
+    "col": "CMMTTE_DSCN_NO",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 460,
+    "col": "CMMTTE_DSCN_NO_OPN",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 461,
+    "col": "CMMTTE_DSCN_NO_DCSN",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 462,
+    "col": "CMMTTE_DSCN_NO_INSPCTN",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 463,
+    "col": "CMMTTE_DSCN_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 464,
+    "col": "CMMTTE_DSCN_DT_OPN",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 465,
+    "col": "CMMTTE_DSCN_DT_DCSN",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 466,
+    "col": "CMMTTE_DSCN_DT_INSPCTN",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 467,
+    "col": "CMMTTE_RMRK_DCSN",
+    "type": "nvarchar",
+    "len": 2000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 468,
+    "col": "ITMS_INCRS",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 469,
+    "col": "FNNCL_AUTH",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 470,
+    "col": "LGL_GRNDS",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 471,
+    "col": "CMMTTE_CHRMN_PRCHS",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 472,
+    "col": "MTNG_DT_PRCHS",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 473,
+    "col": "CMMTTE_END_DT_PRCHS",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 474,
+    "col": "CMMTTE_DSCN_NO_PRCHS",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 475,
+    "col": "CMMTTE_DSCN_DT_PRCHS",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 476,
+    "col": "CMMTTE_INTRNL_MMBRS_PRCHS",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 477,
+    "col": "CMMTTE_EXTRNL_MMBRS_PRCHS",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 478,
+    "col": "CMMTTE_INTRNL_SCRTY_PRCHS",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 479,
+    "col": "CMMTTE_EXTRNL_SCRTY_PRCHS",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 480,
+    "col": "MMBR_TYP_PRCHS",
+    "type": "nvarchar",
+    "len": 16,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 481,
+    "col": "CMMTTE_EXTRNL_JOB_PRCHS",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 482,
+    "col": "NT_EXTRNL_MMBR_PRCHS",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 483,
+    "col": "NT_EXTRNL_MMBR_TYP_PRCHS",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 484,
+    "col": "NT_EXTRNL_MMBR_JOB_PRCHS",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 485,
+    "col": "ADVNC_NM",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 486,
+    "col": "RPLCMNT_AMNT",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 487,
+    "col": "ADVNC_OFFCR",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 488,
+    "col": "RPLCMNT_CNT",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 489,
+    "col": "TTL_RPLCMNTS_FSC_YR",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 490,
+    "col": "SUBTRACTION_TYPE",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 491,
+    "col": "OPERATION_NO",
+    "type": "nvarchar",
+    "len": 100,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 492,
+    "col": "TEC_STAT",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 493,
+    "col": "LOAN_AMT",
+    "type": "decimal",
+    "len": 9,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 494,
+    "col": "OPRTN_BTCH_ID",
+    "type": "nvarchar",
+    "len": 8000,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 495,
+    "col": "ETA_SND_DT",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 496,
+    "col": "INTL_INSRNC_STTMNT",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 497,
+    "col": "FNL_INSRNC_STTMNT",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 498,
+    "col": "FNL_STTMNT_TYP",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 499,
+    "col": "RCVD_DCMNTS_CNT",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 500,
+    "col": "IS_OPRTN_CNCLLD",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 501,
+    "col": "FNCL_TR_NO",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 523,
+    "col": "ORDR_TYP",
+    "type": "int",
+    "len": 4,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 524,
+    "col": "CMMTTE_NEW_EXTRNL_MMBR",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 525,
+    "col": "New_EXTRNL_MMBR_JOB",
+    "type": "nvarchar",
+    "len": 800,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 527,
+    "col": "TCHNCL_OPN_END_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 528,
+    "col": "FNCL_OPN_END_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 529,
+    "col": "TCHNCL_DCSN_END_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 530,
+    "col": "FNCL_DCSN_END_DT",
+    "type": "datetime",
+    "len": 8,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 531,
+    "col": "OFFERS_COMPARE_RESOLVER_TYPE",
+    "type": "nvarchar",
+    "len": 510,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  },
+  {
+    "ord": 533,
+    "col": "ALTRNT_TR_DS",
+    "type": "smallint",
+    "len": 2,
+    "nullable": true,
+    "ident": false,
+    "pk": 0,
+    "ar": ""
+  }
+]

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="17cm" Name="Gehat_visits" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="archlocal" SelectCommand="SELECT &#xD;&#xA;    ORG_NM_AR as org_nm,&#xD;&#xA;    FORMAT(VISITDATE, 'yyyy-MM') AS visit_dt,&#xD;&#xA;    COUNT(*) AS no_visits&#xD;&#xA;FROM &#xD;&#xA;    visits  &#xD;&#xA;JOIN &#xD;&#xA;    Organization ON visits.OrganizationID = Organization.ORG_NO&#xD;&#xA;WHERE 1=1&#xD;&#xA;    --VISITDATE BETWEEN @StartDate AND @EndDate&#xD;&#xA;GROUP BY  &#xD;&#xA;    ORG_NM_AR, FORMAT(VISITDATE, 'yyyy-MM')&#xD;&#xA;ORDER BY ORG_NM_AR, visit_dt;&#xD;&#xA;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <DetailSection Height="1.3cm" Name="detailSection1">
+      <Items>
+        <TextBox Width="6cm" Height="1.3cm" Left="2.5cm" Top="0cm" Value="= Fields.no_visits" Name="textBox9">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.5cm" Height="1.3cm" Left="8.5cm" Top="0cm" Value="= Fields.org_nm" Name="textBox4">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <ReportFooterSection Height="0.132cm" Name="reportFooterSection1" />
+    <ReportHeaderSection Height="4.8cm" Name="reportHeaderSection1">
+      <Style TextAlign="Center" VerticalAlign="Middle" />
+      <Items>
+        <TextBox Width="8cm" Height="0.8cm" Left="4.5cm" Top="0.9cm" Value="عدد الزيارات التي تمت عالجهات" Name="textBox1">
+          <Style BackgroundColor="LightGoldenrodYellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="16pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="195, 214, 155" Bottom="195, 214, 155" Left="195, 214, 155" Right="195, 214, 155" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.5cm" Height="1.2cm" Left="8.5cm" Top="3.6cm" Value="اسم الجهة" Name="textBox2">
+          <Style BackgroundColor="LightGoldenrodYellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="16pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6cm" Height="1.2cm" Left="2.5cm" Top="3.6cm" Value="عدد الزيارات" Name="textBox3">
+          <Style BackgroundColor="LightGoldenrodYellow" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="16pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.9cm" Height="0.6cm" Left="14.1cm" Top="2.4cm" Value="من:" Name="textBox6">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.9cm" Height="0.6cm" Left="9.2cm" Top="2.4cm" Value="= Parameters.FromStrtDt.Value" Name="textBox7">
+          <Style BackgroundColor="LightGoldenrodYellow" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.9cm" Height="0.6cm" Left="7.5cm" Top="2.4cm" Value="الي:" Name="textBox8">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.9cm" Height="0.6cm" Left="2.6cm" Top="2.4cm" Value="= Parameters.To.Value" Name="textBox5">
+          <Style BackgroundColor="LightGoldenrodYellow" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportHeaderSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="From" AllowNull="True" />
+    <ReportParameter Name="To" AllowNull="True" />
+    <ReportParameter Name="FromStrtDt" />
+  </ReportParameters>
+</Report>

@@ -1,0 +1,983 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="webServiceDataSource1" Width="11.705in" Name="ReportPyInOutAtndAndDprt" xmlns="http://schemas.telerik.com/reporting/2021/1.0">
+  <Style BackgroundColor="198, 217, 241" />
+  <DataSources>
+    <WebServiceDataSource ParameterValues="{&quot;.AspNetCore.Identity.Application&quot;:&quot;CfDJ8FXyCoqZVAdPofjdBJRzWSVw-eqL3zA_XC7znEGpVJcW6SbYzAG6BAA_GlKriSH2IUnNwkFShQzsEpBaeplYPsdFKT-0ipdlwUcjR24N8gR8RDt4q2AF0lZYZmy4T-OOf63Xd1M4U1s7BablSzphuaFUjnqB1FeiXS7oAKeLzuReO3m-INHAP8HyLHCSmbulI38-DnLXQaJzmxtKVpLFlv9Ir9dPZ6Wtv-Jq0XwkRl5W_UZiPrfTXlmkxmAT7UqZs21jtO0t77UdqedSl5fs3OhP7eMjsVjV7w7WNdfyzHfGoEY9WjEpgjRw3JrRlUFiGEhszGpeu4H54FttQlnxloMp73OdptM9PD6yx6sEYai5ML5Pls1RLbTCOyQJlGoIZgxOzPfv3aP-3cG3YLvANk4nxw8O_C_zcscMoJvrQ71eMQi5s2RX3VfwaIm7plG8SlgCPt6bYKdpiK6oXYU40V-gPh7EB4wZkMRdG_VKsH1XSfpxAqE_0ZdOG1QsC-7yhBmtdMqoNxS4Jr2Rcn4AjznHUB87tEELbr__P7NBwi2L7_7Q9QLVv6RtUGwJ_CkQJjd1AHp26S753p2GgSHhVmP5hcsTTVZVZYuME0zGhpCMeL9DO8e5PxA_m8Ligy_jP_LFpbYgAlfs69fidnTjQwXOZheV4Ek7APWEzQADZNiJYujkhE8yvK_ILRhXr5RhT3dtAWLIpSWIpx23A0GECqlUwST4vsNXpjupdOnMb5NPjMDGiV0a2SfmQSI251qxBF0e6hVYI1OY5oOqqc_ZdQ8pdNDvmJYKzXMfurGhTEuCqDp26ngNaoYGmElrpUcl-g&quot;,&quot;@Url&quot;:&quot;https://localhost:5001/py/ReportPyInOut/GetReportAtndAndDprt&quot;,&quot;AbsenceTr&quot;:&quot; &quot;,&quot;AdvacSys&quot;:&quot; &quot;,&quot;AutoAdjust&quot;:&quot; &quot;,&quot;EmpSrch&quot;:&quot; &quot;,&quot;FromDate&quot;:&quot; &quot;,&quot;FromEmp&quot;:&quot; &quot;,&quot;PrintState&quot;:&quot; &quot;,&quot;Model&quot;:&quot; &quot;,&quot;Shft&quot;:&quot; &quot;,&quot;ToEmp&quot;:&quot; &quot;,&quot;withoutLimit&quot;:&quot; &quot;,&quot;ToDate&quot;:&quot; &quot;}" AuthParameterValues="null" ServiceUrl="@Url" Name="webServiceDataSource1">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "py/ReportPyInOut/GetReportAtndAndDprt"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="AbsenceTr">
+          <Value>
+            <String>= Parameters.AbsenceTr.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="AdvacSys">
+          <Value>
+            <String>= Parameters.AdvacSys.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="AutoAdjust">
+          <Value>
+            <String>= Parameters.AutoAdjust.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="EmpSrch">
+          <Value>
+            <String>= Parameters.EmpSrch.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromDate">
+          <Value>
+            <String>= Parameters.FromDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromEmp">
+          <Value>
+            <String>= Parameters.FromEmp.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="PrintState">
+          <Value>
+            <String>= Parameters.PrintState.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Model">
+          <Value>
+            <String>= Parameters.Model.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Shft">
+          <Value>
+            <String>= Parameters.Shft.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToEmp">
+          <Value>
+            <String>= Parameters.ToEmp.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="withoutLimit">
+          <Value>
+            <String>= Parameters.withoutLimit.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToDate">
+          <Value>
+            <String>= Parameters.ToDate.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="1.142in" Name="pageHeaderSection1">
+      <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+        <Font Size="8pt" />
+        <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="1.014in" Height="0.174in" Left="6.153in" Top="0.608in" Value="= CDate(Parameters.FromDate.Value)" Format="{0:d}" Name="textBox35">
+          <Style>
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.207in" Height="0.174in" Left="4.37in" Top="0.608in" Value="= CDate(Parameters.ToDate.Value)" Format="{0:d}" Name="textBox36">
+          <Style>
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.546in" Height="0.174in" Left="7.167in" Top="0.608in" Value="من تاريخ" Name="textBox37">
+          <Style>
+            <Font Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.546in" Height="0.174in" Left="5.607in" Top="0.608in" Value="الي تاريخ" Name="textBox38">
+          <Style>
+            <Font Size="10pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.492cm" Height="0.9cm" Left="11.1cm" Top="0.4cm" Value="= Parameters.ReportTitle.Value" Name="textBox2">
+          <Style BackgroundColor="242, 242, 242" Color="23, 54, 93" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.441in" Height="0.226in" Left="9.094in" Top="0.226in" Value="= Parameters.CompanyName.Value" Name="textBox25">
+          <Style>
+            <Font Size="14pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.438in" Height="0.226in" Left="9.094in" Top="0.481in" Value="= Parameters.CompanyAddress.Value" Name="textBox24">
+          <Style>
+            <Font Size="14pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <PictureBox Value="= Parameters.Logo.Value" Width="1.468in" Height="0.827in" Left="0.197in" Top="0.157in" Sizing="Stretch" MimeType="" Name="pictureBox1">
+          <Style>
+            <BackgroundImage ImageData="null" Repeat="NoRepeat" />
+          </Style>
+        </PictureBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="0.457in" Name="detailSection1">
+      <Style Visible="True" BackgroundColor="White">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Red" Bottom="Black" Left="Red" Right="Red" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="1.382in" Height="0.202in" Left="10.323in" Top="0in" Value="= fields.EmpName" Format="{0:d}" Multiline="False" Name="textBox28">
+          <Style BackgroundColor="217, 238, 193" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.382in" Height="0.202in" Left="10.323in" Top="0.202in" Value="= Fields.EmpNo" Format="{0:d}" Multiline="False" Name="textBox29">
+          <Style Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="9.99in" Top="0in" Value="= fields.tin1" Format="{0:d}" Multiline="False" Name="textBox44">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="9.99in" Top="0.202in" Value="= fields.tout1" Format="{0:d}" Multiline="False" Name="textBox45">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="3.33in" Top="0in" Value="= fields.tin21" Format="{0:d}" Multiline="False" Name="textBox30">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="3.663in" Top="0in" Value="= fields.tin20" Format="{0:d}" Multiline="False" Name="textBox31">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="3.996in" Top="0in" Value="= fields.tin19" Format="{0:d}" Multiline="False" Name="textBox46">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="4.329in" Top="0in" Value="= fields.tin18" Format="{0:d}" Multiline="False" Name="textBox47">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="4.662in" Top="0in" Value="= fields.tin17" Format="{0:d}" Multiline="False" Name="textBox48">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="4.995in" Top="0in" Value="= fields.tin16" Format="{0:d}" Multiline="False" Name="textBox49">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="0in" Top="0in" Value="= fields.tin31" Format="{0:d}" Multiline="False" Name="textBox50">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="0.666in" Top="0in" Value="= fields.tin29" Format="{0:d}" Multiline="False" Name="textBox51">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="1.332in" Top="0in" Value="= fields.tin27" Format="{0:d}" Multiline="False" Name="textBox52">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="1.998in" Top="0in" Value="= fields.tin25" Format="{0:d}" Multiline="False" Name="textBox53">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="2.664in" Top="0in" Value="= fields.tin23" Format="{0:d}" Multiline="False" Name="textBox54">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="2.997in" Top="0in" Value="= fields.tin22" Format="{0:d}" Multiline="False" Name="textBox55">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="0.333in" Top="0in" Value="= fields.tin30" Format="{0:d}" Multiline="False" Name="textBox56">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="0.999in" Top="0in" Value="= fields.tin28" Format="{0:d}" Multiline="False" Name="textBox57">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="1.665in" Top="0in" Value="= fields.tin26" Format="{0:d}" Multiline="False" Name="textBox58">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="2.331in" Top="0in" Value="= fields.tin24" Format="{0:d}" Multiline="False" Name="textBox59">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="7.992in" Top="0in" Value="= fields.tin7" Format="{0:d}" Multiline="False" Name="textBox70">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="8.325in" Top="0in" Value="= fields.tin6" Format="{0:d}" Multiline="False" Name="textBox69">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="8.658in" Top="0in" Value="= fields.tin5" Format="{0:d}" Multiline="False" Name="textBox68">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="8.991in" Top="0in" Value="= fields.tin4" Format="{0:d}" Multiline="False" Name="textBox67">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="9.324in" Top="0in" Value="= fields.tin3" Format="{0:d}" Multiline="False" Name="textBox66">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="9.657in" Top="0in" Value="= fields.tin2" Format="{0:d}" Multiline="False" Name="textBox65">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="6.66in" Top="0in" Value="= fields.tin11" Format="{0:d}" Multiline="False" Name="textBox64">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="7.326in" Top="0in" Value="= fields.tin9" Format="{0:d}" Multiline="False" Name="textBox63">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="7.659in" Top="0in" Value="= fields.tin8" Format="{0:d}" Multiline="False" Name="textBox62">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="6.327in" Top="0in" Value="= fields.tin12" Format="{0:d}" Multiline="False" Name="textBox61">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="6.993in" Top="0in" Value="= fields.tin10" Format="{0:d}" Multiline="False" Name="textBox60">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="5.328in" Top="0in" Value="= fields.tin15" Format="{0:d}" Multiline="False" Name="textBox71">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="5.661in" Top="0in" Value="= fields.tin14" Format="{0:d}" Multiline="False" Name="textBox72">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="5.994in" Top="0in" Value="= fields.tin13" Format="{0:d}" Multiline="False" Name="textBox73">
+          <Style Color="Black" TextAlign="Right" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="8.325in" Top="0.202in" Value="= fields.tout6" Format="{0:d}" Multiline="False" Name="textBox86">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="5.661in" Top="0.202in" Value="= fields.tout14" Format="{0:d}" Multiline="False" Name="textBox75">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="5.328in" Top="0.202in" Value="= fields.tout15" Format="{0:d}" Multiline="False" Name="textBox76">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="6.993in" Top="0.202in" Value="= fields.tout10" Format="{0:d}" Multiline="False" Name="textBox77">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="6.327in" Top="0.202in" Value="= fields.tout12" Format="{0:d}" Multiline="False" Name="textBox78">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="7.659in" Top="0.202in" Value="= fields.tout8" Format="{0:d}" Multiline="False" Name="textBox79">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="7.326in" Top="0.202in" Value="= fields.tout9" Format="{0:d}" Multiline="False" Name="textBox80">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="6.66in" Top="0.202in" Value="= fields.tout11" Format="{0:d}" Multiline="False" Name="textBox81">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="9.657in" Top="0.202in" Value="= fields.tout2" Format="{0:d}" Multiline="False" Name="textBox82">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="9.324in" Top="0.202in" Value="= fields.tout3" Format="{0:d}" Multiline="False" Name="textBox83">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="8.991in" Top="0.202in" Value="= fields.tout4" Format="{0:d}" Multiline="False" Name="textBox84">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="8.658in" Top="0.202in" Value="= fields.tout5" Format="{0:d}" Multiline="False" Name="textBox85">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="5.994in" Top="0.202in" Value="= fields.tout13" Format="{0:d}" Multiline="False" Name="textBox74">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="7.992in" Top="0.202in" Value="= fields.tout7" Format="{0:d}" Multiline="False" Name="textBox87">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="2.331in" Top="0.202in" Value="= fields.tout24" Format="{0:d}" Multiline="False" Name="textBox88">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="1.665in" Top="0.202in" Value="= fields.tout26" Format="{0:d}" Multiline="False" Name="textBox89">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="0.999in" Top="0.202in" Value="= fields.tout28" Format="{0:d}" Multiline="False" Name="textBox90">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="0.333in" Top="0.202in" Value="= fields.tout30" Format="{0:d}" Multiline="False" Name="textBox91">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="2.997in" Top="0.202in" Value="= fields.tout22" Format="{0:d}" Multiline="False" Name="textBox92">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="2.664in" Top="0.202in" Value="= fields.tout23" Format="{0:d}" Multiline="False" Name="textBox93">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="1.998in" Top="0.202in" Value="= fields.tout25" Format="{0:d}" Multiline="False" Name="textBox94">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="1.332in" Top="0.202in" Value="= fields.tout27" Format="{0:d}" Multiline="False" Name="textBox95">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="0.666in" Top="0.202in" Value="= fields.tout29" Format="{0:d}" Multiline="False" Name="textBox96">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="0in" Top="0.202in" Value="= fields.tout31" Format="{0:d}" Multiline="False" Name="textBox97">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="4.995in" Top="0.202in" Value="= fields.tout16" Format="{0:d}" Multiline="False" Name="textBox98">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="4.662in" Top="0.202in" Value="= fields.tout17" Format="{0:d}" Multiline="False" Name="textBox99">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="4.329in" Top="0.202in" Value="= fields.tout18" Format="{0:d}" Multiline="False" Name="textBox100">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="3.996in" Top="0.202in" Value="= fields.tout19" Format="{0:d}" Multiline="False" Name="textBox101">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="3.663in" Top="0.202in" Value="= fields.tout20" Format="{0:d}" Multiline="False" Name="textBox102">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.333in" Height="0.202in" Left="3.33in" Top="0.202in" Value="= fields.tout21" Format="{0:d}" Multiline="False" Name="textBox103">
+          <Style Color="Black" TextAlign="Left" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="0.052in" Name="pageFooterSection1">
+      <Style Visible="False" BackgroundColor="White">
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+    </PageFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ColumnCount="1" ColumnSpacing="0in" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0in" Right="0in" Top="0in" Bottom="0in" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Groups>
+    <Group Name="group">
+      <GroupHeader>
+        <GroupHeaderSection PrintOnEveryPage="True" PageBreak="Before" KeepTogether="False" Height="0.689cm" Name="groupHeaderSection">
+          <Style Visible="True" BackgroundColor="White">
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <Items>
+            <TextBox Width="1.382in" Height="0.271in" Left="10.323in" Top="0in" Value="اسم الموظف" Name="textBox9">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="6.993in" Top="0in" Value="10" Name="textBox17">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="1.998in" Top="0in" Value="25" Name="textBox3">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="2.664in" Top="0in" Value="23" Name="textBox4">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="3.996in" Top="0in" Value="19" Name="textBox5">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="4.329in" Top="0in" Value="18" Name="textBox6">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="5.994in" Top="0in" Value="13" Name="textBox7">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="0.666in" Top="0in" Value="29" Name="textBox11">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="1.665in" Top="0in" Value="26" Name="textBox12">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="2.331in" Top="0in" Value="24" Name="textBox13">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="3.663in" Top="0in" Value="20" Name="textBox14">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="4.995in" Top="0in" Value="16" Name="textBox15">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="5.661in" Top="0in" Value="14" Name="textBox16">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="0.999in" Top="0in" Value="28" Name="textBox1">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="0.333in" Top="0in" Value="30" Name="textBox18">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="1.332in" Top="0in" Value="27" Name="textBox19">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="2.997in" Top="0in" Value="22" Name="textBox20">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="3.33in" Top="0in" Value="21" Name="textBox21">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="4.662in" Top="0in" Value="17" Name="textBox22">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="5.328in" Top="0in" Value="15" Name="textBox23">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="6.327in" Top="0in" Value="12" Name="textBox26">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="9.99in" Top="0in" Value="1" Name="textBox43">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="7.326in" Top="0in" Value="9" Name="textBox42">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="8.991in" Top="0in" Value="4" Name="textBox41">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="9.657in" Top="0in" Value="2" Name="textBox40">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="7.992in" Top="0in" Value="7" Name="textBox39">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="8.658in" Top="0in" Value="5" Name="textBox34">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="7.659in" Top="0in" Value="8" Name="textBox33">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="8.325in" Top="0in" Value="6" Name="textBox32">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="9.324in" Top="0in" Value="3" Name="textBox27">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="0in" Top="0in" Value="31" Name="textBox8">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+            <TextBox Width="0.333in" Height="0.271in" Left="6.66in" Top="0in" Value="11" Format="{0:N2}" Culture="aa" Name="textBox10">
+              <Style BackgroundColor="236, 231, 119" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+          </Items>
+          <Bindings>
+            <Binding Path="Visible" Expression="= IIf(Parameters.PrintState.Value=1,false,true)" />
+          </Bindings>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.508cm" Name="groupFooterSection">
+          <Style Visible="False" BackgroundColor="White">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <Bindings>
+            <Binding Path="Visible" Expression="= IIf(Parameters.PrintState.Value=1,false,true)" />
+          </Bindings>
+        </GroupFooterSection>
+      </GroupFooter>
+    </Group>
+  </Groups>
+  <ReportParameters>
+    <ReportParameter Name="Url" AllowNull="True" />
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="EmpSrchs" AllowNull="True" />
+    <ReportParameter Name="EmpSrch" AllowNull="True" />
+    <ReportParameter Name="FromEmp" AllowNull="True" />
+    <ReportParameter Name="ToEmp" AllowNull="True" />
+    <ReportParameter Name="FromDate" AllowNull="True" />
+    <ReportParameter Name="ToDate" AllowNull="True" />
+    <ReportParameter Name="Shft" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="PrintState" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="Model" Type="Integer" AllowNull="True" />
+    <ReportParameter Name="AbsenceTr" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="AutoAdjust" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="AdvacSys" Type="Boolean" AllowNull="True" />
+    <ReportParameter Name="withoutLimit" AllowNull="True" />
+    <ReportParameter Name="ReportTitle" AllowNull="True" />
+    <ReportParameter Name="CompanyAddress" AllowNull="True" />
+    <ReportParameter Name="CompanyName" AllowNull="True" />
+    <ReportParameter Name="Logo" AllowNull="True" />
+  </ReportParameters>
+</Report>

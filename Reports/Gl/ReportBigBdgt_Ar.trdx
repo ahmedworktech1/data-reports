@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="webServiceDataSource1" Width="25.7cm" Name="ReportBigBdgt_Ar" xmlns="http://schemas.telerik.com/reporting/2019/2.0">
+  <DataSources>
+    <WebServiceDataSource ServiceUrl="@Url" Name="webServiceDataSource1" ParameterValues="{&quot;.AspNetCore.Identity.Application&quot;:&quot;CfDJ8PW22MCMvqFMsLOOkgAbIq2J5noW548YsG-rmddx9nG1JJUEQlhGqaPLXwGjSZGe8bURcD6gU2LN-8Riw46ImedIgzsE3Sp_uoDBIv-PEoJv4q1f1bEB8b7MaeMcPlDRRyYm3rKpdIvMGRhS52rBqB4trI75F8u42-EA_JUZqZM_cdDlg8xzXZABKQjk8f-UM_RI-fnKkMPCE5rqTR71TLLYspL6SU6EKjxR7iWtCZHI7e9REH_ze4kdvluRzmpSZZChW9o3LD7w4Emo4kiiKQXOHO_4oZkpQ_B6VHTCBjncziaVzpPcET0r-DvDM3JLaVJVuxFuZWWYZHx5RdwdpV6xryS8CdTKw0dUZWczlhhwZEmiPAZZypyd6EXpIh_NVMdho-WP4cLL1brihS8txnklELAjCQvQxVCHw-T9hyX5uL23xl842-RoTyVAk0crLDW991Tf8EJCKFQ36G2I-Nyf71dfBvpQxh-DCFV9gX9UsEXjMVwhf4DnFv9p6iWfaypF2UnNCP3MD9QyV8S-j2ptVkH7_gLD78cVYK4qzOKqQK2Ydpl8jEWYdnJ3hf0JRKa_xO6Wkt4Jacdnw4Q3PBmqNWe9L9QLqEogkkdaWj7jUfn_GFk2Qc2kDrVfAk_lAXML7p06o3LzQSqEywSjgfKiM_Vwu6L2wmf0uBK1PwTWa3bdN00ps0KuDaN92nfbcBNIooz1ThhV1XA4F0pGC6fSKQSNOdTT6xIK5oN_Sv0cPGZHnZUbChTXoU-XUlaFBrrvw3Fiux_pZJmIHtJCwhE_1i2QJRRMGhCoEfTFpLRhSpKgup56YeQ2-ircfNZCEA&quot;,&quot;@Url&quot;:&quot;https://localhost:44395/gl/ReportBigBdgt/GetDataReport&quot;,&quot;ChpNo&quot;:&quot;1&quot;,&quot;ChpNos&quot;:&quot;1&quot;,&quot;FromChpNo&quot;:&quot;1&quot;,&quot;FromGrop&quot;:&quot;1&quot;,&quot;FromItmNo&quot;:&quot;1&quot;,&quot;FromUntCd&quot;:&quot;1&quot;,&quot;Grop&quot;:&quot;1&quot;,&quot;Grops&quot;:&quot;1&quot;,&quot;MitmNo&quot;:&quot;1&quot;,&quot;MitmNos&quot;:&quot;1&quot;,&quot;ToChpNo&quot;:&quot;1&quot;,&quot;ToGrop&quot;:&quot;1&quot;,&quot;ToItmNo&quot;:&quot;1&quot;,&quot;ToUntCd&quot;:&quot;1&quot;,&quot;UntCd&quot;:&quot;1&quot;,&quot;UntCds&quot;:&quot;1&quot;}">
+      <Parameters>
+        <WebServiceParameter WebServiceParameterType="Cookie" Name=".AspNetCore.Identity.Application">
+          <Value>
+            <String>= Parameters.login.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Inline" Name="@Url">
+          <Value>
+            <String>= Parameters.Url.Value + "gl/ReportBigBdgt/GetDataReport"</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChpNo">
+          <Value>
+            <String>= Parameters.ChpNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ChpNos">
+          <Value>
+            <String>= Parameters.ChpNos.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromChpNo">
+          <Value>
+            <String>= Parameters.FromChpNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromGrop">
+          <Value>
+            <String>= Parameters.FromGrop.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromItmNo">
+          <Value>
+            <String>= Parameters.FromItmNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="FromUntCd">
+          <Value>
+            <String>= Parameters.FromUntCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Grop">
+          <Value>
+            <String>= Parameters.Grop.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="Grops">
+          <Value>
+            <String>= Parameters.Grops.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="MitmNo">
+          <Value>
+            <String>= Parameters.MitmNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="MitmNos">
+          <Value>
+            <String>= Parameters.MitmNos.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToChpNo">
+          <Value>
+            <String>= Parameters.ToChpNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToGrop">
+          <Value>
+            <String>= Parameters.ToGrop.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToItmNo">
+          <Value>
+            <String>= Parameters.ToItmNo.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="ToUntCd">
+          <Value>
+            <String>= Parameters.ToUntCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="UntCd">
+          <Value>
+            <String>= Parameters.UntCd.Value</String>
+          </Value>
+        </WebServiceParameter>
+        <WebServiceParameter WebServiceParameterType="Query" Name="UntCds">
+          <Value>
+            <String>= Parameters.UntCds.Value</String>
+          </Value>
+        </WebServiceParameter>
+      </Parameters>
+    </WebServiceDataSource>
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="3.216cm" Name="pageHeaderSection1">
+      <Style>
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="5.305in" Height="0.5in" Left="2.395in" Top="0.1in" Value="تقرير الموازنة الجارية" Name="textBox2">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arabic Typesetting" Size="24pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.618in" Height="0.266in" Left="9.5in" Top="1in" Value="باب الموازنة" Name="textBox9">
+          <Style BackgroundColor="255, 255, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.618in" Height="0.266in" Left="8.882in" Top="1in" Value="المجموعة" Name="textBox1">
+          <Style BackgroundColor="255, 255, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.618in" Height="0.266in" Left="8.264in" Top="1in" Value="بند الموازنة" Name="textBox3">
+          <Style BackgroundColor="255, 255, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.946in" Height="0.266in" Left="7.318in" Top="1in" Value="الموازنه المقترحة" Name="textBox4">
+          <Style BackgroundColor="255, 255, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.818in" Height="0.266in" Left="6.5in" Top="1in" Value="الموازنة الفعليه" Name="textBox5">
+          <Style BackgroundColor="255, 255, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.8in" Height="0.266in" Left="5.7in" Top="1in" Value="التعديل المضاف" Name="textBox6">
+          <Style BackgroundColor="255, 255, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.8in" Height="0.266in" Left="4.9in" Top="1in" Value="التعديل المخصوم" Name="textBox7">
+          <Style BackgroundColor="255, 255, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7in" Height="0.266in" Left="4.2in" Top="1in" Value="المحول اليه" Name="textBox8">
+          <Style BackgroundColor="255, 255, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.6in" Height="0.266in" Left="3.6in" Top="1in" Value="المحول منه" Name="textBox10">
+          <Style BackgroundColor="255, 255, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.8in" Height="0.266in" Left="2.8in" Top="1in" Value="الارتباط الكلى" Name="textBox11">
+          <Style BackgroundColor="255, 255, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.9in" Height="0.266in" Left="1.9in" Top="1in" Value="الارتباط المضاف" Name="textBox12">
+          <Style BackgroundColor="255, 255, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.9in" Height="0.266in" Left="1in" Top="1in" Value="الارتباط المخصوم" Name="textBox13">
+          <Style BackgroundColor="255, 255, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1in" Height="0.266in" Left="0in" Top="1in" Value="المبلغ المصروف" Name="textBox14">
+          <Style BackgroundColor="255, 255, 0" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="9pt" Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection PageBreak="None" Height="0.508cm" Name="detailSection1">
+      <Style>
+        <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+        <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+        <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+      </Style>
+      <Items>
+        <TextBox Width="0.618in" Height="0.2in" Left="9.5in" Top="0in" Value="= Fields.ChpNo" Name="textBox15">
+          <Style TextAlign="Center">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.618in" Height="0.2in" Left="8.882in" Top="0in" Value="= Fields.GrpNo" Name="textBox16">
+          <Style TextAlign="Center">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.618in" Height="0.2in" Left="8.264in" Top="0in" Value="= Fields.ItmNo" Name="textBox17">
+          <Style TextAlign="Center">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.946in" Height="0.2in" Left="7.318in" Top="0in" Value="= Fields.Bgpamt" Name="textBox18">
+          <Style TextAlign="Center">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.818in" Height="0.2in" Left="6.5in" Top="0in" Value="= Fields.Bgaamt" Name="textBox19">
+          <Style TextAlign="Center">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.8in" Height="0.2in" Left="5.7in" Top="0in" Value="= Fields.BgmodAdd" Name="textBox20">
+          <Style TextAlign="Center">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.8in" Height="0.2in" Left="4.9in" Top="0in" Value="= Fields.BgmodDed" Name="textBox21">
+          <Style TextAlign="Center">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.7in" Height="0.2in" Left="4.2in" Top="0in" Value="= Fields.BgtranIn" Name="textBox22">
+          <Style TextAlign="Center">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.6in" Height="0.2in" Left="3.6in" Top="0in" Value="= Fields.BgtranOut" Name="textBox23">
+          <Style TextAlign="Center">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.8in" Height="0.2in" Left="2.8in" Top="0in" Value="= Fields.BgcommTot" Name="textBox24">
+          <Style TextAlign="Center">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.9in" Height="0.2in" Left="1.9in" Top="0in" Value="= Fields.ComdisbTot" Name="textBox25">
+          <Style TextAlign="Center">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.9in" Height="0.2in" Left="1in" Top="0in" Value="= Fields.BgcommDed" Name="textBox26">
+          <Style TextAlign="Center">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1in" Height="0.2in" Left="0in" Top="0in" Value="= Fields.BgcommAdd" Name="textBox27">
+          <Style TextAlign="Center">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="Url" AllowNull="True" />
+    <ReportParameter Name="login" AllowNull="True" />
+    <ReportParameter Name="UntCds" AllowNull="True" />
+    <ReportParameter Name="UntCd" AllowNull="True" />
+    <ReportParameter Name="FromUntCd" AllowNull="True" />
+    <ReportParameter Name="ToUntCd" AllowNull="True" />
+    <ReportParameter Name="Grops" AllowNull="True" />
+    <ReportParameter Name="Grop" AllowNull="True" />
+    <ReportParameter Name="FromGrop" AllowNull="True" />
+    <ReportParameter Name="ToGrop" AllowNull="True" />
+    <ReportParameter Name="ChpNos" AllowNull="True" />
+    <ReportParameter Name="ChpNo" AllowNull="True" />
+    <ReportParameter Name="FromChpNo" AllowNull="True" />
+    <ReportParameter Name="ToChpNo" AllowNull="True" />
+    <ReportParameter Name="MitmNos" AllowNull="True" />
+    <ReportParameter Name="MitmNo" AllowNull="True" />
+    <ReportParameter Name="FromItmNo" AllowNull="True" />
+    <ReportParameter Name="ToItmNo" AllowNull="True" />
+  </ReportParameters>
+</Report>
