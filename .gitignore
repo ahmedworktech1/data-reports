@@ -1,31 +1,6 @@
-node_modules/
-test-results/
-playwright-report/
-playwright/.cache/
-.env
-auth.json
-*.png
-!test-results/.gitkeep
-
-# --- published/build artifacts (excluded: GitHub 100MB limit & regenerable) ---
-bin/
-obj/
-*.dll
-*.pdb
-*.exe
-*.rar
-runtimes/
-logs/
-Attachments/
-graphify-out/
-wwwroot/_content/
-wwwroot/AppData/
-Reports/Temp/
-Myreports/SQL_Backups.rar
-.opencode/node_modules/
-App_Data/
-*.deps.json
-*.runtimeconfig.json
-*.staticwebassets*.json
-*.mdf
-*.ldf
+# Track only the Reports folder in this repo
+*
+!.gitignore
+!README.md
+!Reports/
+!Reports/**
