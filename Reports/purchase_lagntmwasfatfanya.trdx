@@ -4,9 +4,9 @@
     <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="WITH AllMembers AS (&#xD;&#xA;    /* رئيس اللجنة */&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        AZTRH.TR_NO, AZTRH.PURCHAS_NO, AZTRH.LOC, AZTRH.TR_TY,&#xD;&#xA;        AZTRH.FNCL_TR_NO, AZTRH.TR_DT, AZTRH.Mtng_Dt, AZTRH.Cmmtte_End_Dt,&#xD;&#xA;        CH.EMP_NAME AS Cmmtte_Chrmn,&#xD;&#xA;        CH.EMP_NAME AS MemberName,&#xD;&#xA;        NULL AS JobTitle,&#xD;&#xA;        1 AS SORT_ORDER,&#xD;&#xA;        'رئيس اللجنة' AS MEMBER_TYPE,&#xD;&#xA;        (SELECT Emp_Name FROM PYEMPMF_H WHERE PYEMPMF_H.emp_no = AZTRH.ENTEREDBY) AS nm&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    LEFT JOIN PYEMPMF_H CH ON CH.EMP_NO = TRY_CAST(&#xD;&#xA;        REPLACE(REPLACE(REPLACE(AZTRH.Cmmtte_Chrmn,'''',''),'&quot;',''),' ','') AS INT)&#xD;&#xA;    WHERE (1=1) AND CH.EMP_NO IS NOT NULL&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;&#xD;&#xA;    /* الأعضاء الداخليين */&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        AZTRH.TR_NO, AZTRH.PURCHAS_NO, AZTRH.LOC, AZTRH.TR_TY,&#xD;&#xA;        AZTRH.FNCL_TR_NO, AZTRH.TR_DT, AZTRH.Mtng_Dt, AZTRH.Cmmtte_End_Dt,&#xD;&#xA;        CH.EMP_NAME,&#xD;&#xA;        PYEMPMF_H.EMP_NAME,&#xD;&#xA;        NULL,&#xD;&#xA;        2,&#xD;&#xA;        'عضو داخلي',&#xD;&#xA;        (SELECT Emp_Name FROM PYEMPMF_H WHERE PYEMPMF_H.emp_no = AZTRH.ENTEREDBY)&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    LEFT JOIN PYEMPMF_H CH ON CH.EMP_NO = TRY_CAST(&#xD;&#xA;        REPLACE(REPLACE(REPLACE(AZTRH.Cmmtte_Chrmn,'''',''),'&quot;',''),' ','') AS INT)&#xD;&#xA;    OUTER APPLY (&#xD;&#xA;        SELECT DISTINCT TRY_CAST(value AS INT) AS EMP_NO&#xD;&#xA;        FROM STRING_SPLIT(&#xD;&#xA;            REPLACE(REPLACE(REPLACE(COALESCE(AZTRH.Cmmtte_Intrnl_Mmbrs,''),';',','),'''',''),'&quot;',''), ',')&#xD;&#xA;        WHERE TRY_CAST(value AS INT) IS NOT NULL&#xD;&#xA;    ) S&#xD;&#xA;    INNER JOIN PYEMPMF_H ON PYEMPMF_H.EMP_NO = S.EMP_NO&#xD;&#xA;    WHERE (1=1)&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;&#xD;&#xA;    /* الأعضاء الخارجيين (الجدد) */&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        AZTRH.TR_NO, AZTRH.PURCHAS_NO, AZTRH.LOC, AZTRH.TR_TY,&#xD;&#xA;        AZTRH.FNCL_TR_NO, AZTRH.TR_DT, AZTRH.Mtng_Dt, AZTRH.Cmmtte_End_Dt,&#xD;&#xA;        CH.EMP_NAME,&#xD;&#xA;        AZTRH.Cmmtte_New_Extrnl_Mmbr,&#xD;&#xA;        AZTRH.New_Extrnl_Mmbr_Job,&#xD;&#xA;        3,&#xD;&#xA;        'عضو خارجي',&#xD;&#xA;        (SELECT Emp_Name FROM PYEMPMF_H WHERE PYEMPMF_H.emp_no = AZTRH.ENTEREDBY)&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    LEFT JOIN PYEMPMF_H CH ON CH.EMP_NO = TRY_CAST(&#xD;&#xA;        REPLACE(REPLACE(REPLACE(AZTRH.Cmmtte_Chrmn,'''',''),'&quot;',''),' ','') AS INT)&#xD;&#xA;    WHERE (1=1) AND ISNULL(AZTRH.Cmmtte_New_Extrnl_Mmbr,'') &lt;&gt; ''&#xD;&#xA;&#xD;&#xA;    UNION ALL&#xD;&#xA;&#xD;&#xA;    /* عضو أمن داخلي */&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        AZTRH.TR_NO, AZTRH.PURCHAS_NO, AZTRH.LOC, AZTRH.TR_TY,&#xD;&#xA;        AZTRH.FNCL_TR_NO, AZTRH.TR_DT, AZTRH.Mtng_Dt, AZTRH.Cmmtte_End_Dt,&#xD;&#xA;        CH.EMP_NAME,&#xD;&#xA;        PYEMPMF_H.EMP_NAME,&#xD;&#xA;        NULL,&#xD;&#xA;        4,&#xD;&#xA;        'عضو أمن داخلي',&#xD;&#xA;        (SELECT Emp_Name FROM PYEMPMF_H WHERE PYEMPMF_H.emp_no = AZTRH.ENTEREDBY)&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    LEFT JOIN PYEMPMF_H CH ON CH.EMP_NO = TRY_CAST(&#xD;&#xA;        REPLACE(REPLACE(REPLACE(AZTRH.Cmmtte_Chrmn,'''',''),'&quot;',''),' ','') AS INT)&#xD;&#xA;    INNER JOIN PYEMPMF_H ON PYEMPMF_H.EMP_NO = TRY_CAST(&#xD;&#xA;        REPLACE(REPLACE(REPLACE(COALESCE(AZTRH.Cmmtte_Intrnl_Scrty,''),'''',''),'&quot;',''),' ','') AS INT)&#xD;&#xA;    WHERE (1=1)&#xD;&#xA;),&#xD;&#xA;&#xD;&#xA;Numbered AS (&#xD;&#xA;    SELECT *,&#xD;&#xA;        ROW_NUMBER() OVER (&#xD;&#xA;            PARTITION BY TR_NO&#xD;&#xA;            ORDER BY SORT_ORDER, MemberName&#xD;&#xA;        ) AS Serial_No&#xD;&#xA;    FROM AllMembers&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;SELECT&#xD;&#xA;    TR_NO, PURCHAS_NO, FNCL_TR_NO, TR_DT, Mtng_Dt, Cmmtte_End_Dt, TR_TY, LOC,&#xD;&#xA;    CASE&#xD;&#xA;        WHEN MONTH(TR_DT) &gt;= 7&#xD;&#xA;        THEN CAST(YEAR(TR_DT)+1 AS VARCHAR) + '/' + CAST(YEAR(TR_DT) AS VARCHAR)&#xD;&#xA;        ELSE CAST(YEAR(TR_DT) AS VARCHAR) + '/' + CAST(YEAR(TR_DT)-1 AS VARCHAR)&#xD;&#xA;    END AS Fiscal_Year,&#xD;&#xA;    MEMBER_TYPE,&#xD;&#xA;    MemberName,&#xD;&#xA;    JobTitle,   -- 👈 ده الجديد&#xD;&#xA;    Serial_No,&#xD;&#xA;    nm&#xD;&#xA;FROM Numbered&#xD;&#xA;ORDER BY TR_NO, Serial_No;" Name="sqlDataSource1" />
   </DataSources>
   <Items>
-    <PageHeaderSection Height="5.588cm" Name="pageHeaderSection1">
+    <PageHeaderSection Height="6.096cm" Name="pageHeaderSection1">
       <Items>
-        <TextBox Width="6.8cm" Height="0.5cm" Left="4.264cm" Top="3.048cm" Value="قرار تشكيل لجنة إعداد المواصفات الفنية" Name="textBox6">
+        <TextBox Width="6.8cm" Height="0.5cm" Left="4.264cm" Top="3.556cm" Value="قرار تشكيل لجنة إعداد المواصفات الفنية" Name="textBox6">
           <Style Color="Red" TextAlign="Center" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" Underline="True" />
           </Style>
@@ -26,17 +26,17 @@
             <Font Bold="True" Underline="True" />
           </Style>
         </TextBox>
-        <TextBox Width="6.35cm" Height="0.5cm" Left="10.45cm" Top="5.088cm" Value="بالإشارة إلــــــى مطالـــــــب إدارة العقود و المشتريات" Name="textBox7">
+        <TextBox Width="6.35cm" Height="0.5cm" Left="10.45cm" Top="5.596cm" Value="بالإشارة إلــــــى مطالـــــــب إدارة العقود و المشتريات" Name="textBox7">
           <Style TextAlign="Left" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="1.9cm" Height="0.5cm" Left="8.55cm" Top="5.088cm" Value="عن العام المالى" Name="textBox8">
+        <TextBox Width="1.9cm" Height="0.5cm" Left="8.55cm" Top="5.596cm" Value="عن العام المالى" Name="textBox8">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="1.5cm" Height="0.5cm" Left="5.222cm" Top="5.088cm" Value="تقرر تشكيل" Name="textBox10">
+        <TextBox Width="1.5cm" Height="0.5cm" Left="5.222cm" Top="5.596cm" Value="تقرر تشكيل" Name="textBox10">
           <Style TextAlign="Left" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
@@ -56,62 +56,37 @@
             <Font Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="0.6cm" Height="0.5cm" Left="13.5cm" Top="2.514cm" Value="= Fields.TR_DT" Format="{0:dd}" Culture="ar-EG" Name="textBox43">
+        <TextBox Width="0.7in" Height="0.2in" Left="2.666in" Top="2.2in" Value="= Fields.Fiscal_Year" Name="textBox5">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Bold="True" />
           </Style>
         </TextBox>
-        <TextBox Width="0.6cm" Height="0.5cm" Left="12.6cm" Top="2.514cm" Value="= Fields.TR_DT" Format="{0:MM}" Culture="ar-EG" Name="textBox41">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.1cm" Height="0.5cm" Left="11.2cm" Top="2.514cm" Value="= Fields.TR_DT" Format="{0:yyyy}" Culture="ar-EG" Name="textBox34">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.3cm" Height="0.5cm" Left="13.2cm" Top="2.514cm" Value="/" Format="{0:dd}" Culture="ar-EG" Name="textBox30">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.3cm" Height="0.5cm" Left="12.3cm" Top="2.514cm" Value="/" Format="{0:dd}" Culture="ar-EG" Name="textBox29">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.7in" Height="0.2in" Left="2.666in" Top="2in" Value="= Fields.Fiscal_Year" Name="textBox5">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.749in" Height="0.2in" Left="1.72in" Top="1.497in" Value="= Fields.PURCHAS_NO" Name="textBox70">
+        <TextBox Width="1.749in" Height="0.2in" Left="1.72in" Top="1.697in" Value="= Fields.PURCHAS_NO" Name="textBox70">
           <Style VerticalAlign="Middle">
             <Font Bold="True" />
           </Style>
         </TextBox>
-        <TextBox Width="1.56cm" Height="0.5cm" Left="9.144cm" Top="3.802cm" Value="إسم العمليه " Name="textBox73">
+        <TextBox Width="1.56cm" Height="0.5cm" Left="9.144cm" Top="4.31cm" Value="إسم العمليه " Name="textBox73">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="1.56cm" Height="0.5cm" Left="9.144cm" Top="4.302cm" Value="رقم العمليه " Name="textBox74">
+        <TextBox Width="1.56cm" Height="0.5cm" Left="9.144cm" Top="4.81cm" Value="رقم العمليه " Name="textBox74">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="1.749in" Height="0.2in" Left="1.72in" Top="1.697in" Value="= Fields.FNCL_TR_NO" Name="textBox75">
+        <TextBox Width="1.749in" Height="0.2in" Left="1.72in" Top="1.897in" Value="= Fields.FNCL_TR_NO" Name="textBox75">
           <Style TextAlign="Left" VerticalAlign="Middle">
             <Font Bold="True" />
           </Style>
         </TextBox>
-        <TextBox Width="0.299cm" Height="0.5cm" Left="8.811cm" Top="3.802cm" Value=":" Name="textBox19">
+        <TextBox Width="0.299cm" Height="0.5cm" Left="8.811cm" Top="4.31cm" Value=":" Name="textBox19">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="0.299cm" Height="0.5cm" Left="8.811cm" Top="4.318cm" Value=":" Name="textBox20">
+        <TextBox Width="0.299cm" Height="0.5cm" Left="8.811cm" Top="4.826cm" Value=":" Name="textBox20">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
