@@ -100,7 +100,7 @@
             <Font Bold="True" />
           </Style>
         </TextBox>
-        <TextBox Width="1.904in" Height="0.2in" Left="1.949in" Top="0.077in" Value="= Fields.MemberName" Name="textBox16">
+        <TextBox Width="2.271in" Height="0.2in" Left="1.949in" Top="0.077in" Value="= Fields.MemberName" Name="textBox16">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Bold="True" />
           </Style>
@@ -113,16 +113,6 @@
         <TextBox Width="0.146in" Height="0.2in" Left="4.287in" Top="0.077in" Value="-" Name="textBox14">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.326in" Height="0.2in" Left="3.961in" Top="0.077in" Value="الاسم " Name="textBox13">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.273cm" Height="0.508cm" Left="9.787cm" Top="0.196cm" Value=":" Name="textBox29">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
           </Style>
         </TextBox>
       </Items>
@@ -199,34 +189,14 @@
       <GroupFooter>
         <GroupFooterSection Height="1in" Name="groupFooterSection">
           <Items>
-            <TextBox Width="1.289cm" Height="0.508cm" Left="10.035cm" Top="0.254cm" Value="= Format(&quot;{0:dddd}&quot;, CDate(Fields.Inspctn_Accptnc_Dt ))&#xD;&#xA;" Format="{0:yyyy/MM/dd}" Culture="ar-EG" Name="textBox31">
-              <Style TextAlign="Right" VerticalAlign="Middle">
-                <Font Bold="True" />
-              </Style>
-            </TextBox>
-            <TextBox Width="1.099cm" Height="0.508cm" Left="8.936cm" Top="0.254cm" Value="الموافق" Name="textBox23">
+            <TextBox Width="16cm" Height="0.55cm" Left="0.3cm" Top="0.15cm" Value="=&quot;على ان يتم تشكيل اللجنة يوم &quot; + Format(&quot;{0:dddd}&quot;, CDate(Fields.Inspctn_Accptnc_Dt)) + &quot; الموافق &quot; + Format(&quot;{0:dd/MM/yyyy}&quot;, Fields.Inspctn_Accptnc_Dt)" Culture="ar-EG" Name="textBox25">
               <Style TextAlign="Right" VerticalAlign="Middle">
                 <Font Bold="True" Underline="False" />
               </Style>
             </TextBox>
-            <TextBox Width="3.662cm" Height="0.508cm" Left="11.324cm" Top="0.254cm" Value="على ان يتم تشكيل اللجنة يوم" Name="textBox25">
-              <Style TextAlign="Right" VerticalAlign="Middle">
-                <Font Bold="True" Underline="False" />
-              </Style>
-            </TextBox>
-            <TextBox Width="5.206cm" Height="0.508cm" Left="0.508cm" Top="2.012cm" Value="المــــــــديــــــر التنفيــــــــذى للصنــــــــدوق" Name="textBox27">
+            <TextBox Width="5.206cm" Height="0.508cm" Left="0.508cm" Top="1.512cm" Value="المــــــــديــــــر التنفيــــــــذى للصنــــــــدوق" Name="textBox27">
               <Style TextAlign="Center" VerticalAlign="Middle">
                 <Font Bold="True" Underline="False" />
-              </Style>
-            </TextBox>
-            <TextBox Width="2.098in" Height="0.2in" Left="1.4in" Top="0.1in" Value="= Fields.Inspctn_Accptnc_Dt" Format="{0:dd/MM/yyyy} " Name="textBox18">
-              <Style TextAlign="Justify" VerticalAlign="Middle">
-                <Font Bold="True" />
-              </Style>
-            </TextBox>
-            <TextBox Width="1.45cm" Height="0.5cm" Left="4.264cm" Top="1.512cm" Value=" الاسم  :" Name="textBox71">
-              <Style TextAlign="Center" VerticalAlign="Middle">
-                <Font Size="11pt" Bold="True" Underline="False" />
               </Style>
             </TextBox>
             <TextBox Width="3.806cm" Height="0.496cm" Left="0.544cm" Top="1.016cm" Value=" (                              ) " Name="textBox72">

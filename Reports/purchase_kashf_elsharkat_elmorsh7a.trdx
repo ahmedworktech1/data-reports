@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Report DataSourceName="sqlDataSource1" Width="17cm" Name="purchase_kashf_elsharkat_elmorsh7a" Zoom="1.5" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+<Report DataSourceName="sqlDataSource1" Width="17cm" Name="purchase_kashf_elsharkat_elmorsh7a" Zoom="6" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
   <DataSources>
     <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="&#xD;&#xA;SELECT DISTINCT&#xD;&#xA;    azaccmf.acc_no,&#xD;&#xA;    azaccmf.acc_nm_ar,&#xD;&#xA;    azaccmf.Phone,&#xD;&#xA;    azaccmf.Strt,&#xD;&#xA;    aztrh.FNCL_TR_NO,&#xD;&#xA;    aztrh.TR_DT,&#xD;&#xA;    aztrh.PURCHAS_NO,&#xD;&#xA;    aztrh.tr_no&#xD;&#xA;    &#xD;&#xA;FROM aztrd&#xD;&#xA;INNER JOIN aztrh&#xD;&#xA;    ON aztrh.tr_no = aztrd.tr_no&#xD;&#xA;    AND aztrh.tr_ty = aztrd.tr_ty&#xD;&#xA;    AND aztrh.loc   = aztrd.loc&#xD;&#xA;&#xD;&#xA;INNER JOIN azaccmf&#xD;&#xA;ON&#xD;&#xA;(&#xD;&#xA;    -- إذا كان ACC_NO2 يحتوي على أرقام الموردين&#xD;&#xA;    (&#xD;&#xA;        ',' + ISNULL(aztrh.acc_no2, '') + ','&#xD;&#xA;        LIKE '%,' + '''' + azaccmf.acc_no + '''' + ',%'&#xD;&#xA;    )&#xD;&#xA;&#xD;&#xA;    OR&#xD;&#xA;&#xD;&#xA;    -- إذا كان ACC_NO2 فارغاً استخدم RMRK_EXTRA و Acc_Actv&#xD;&#xA;    (&#xD;&#xA;        ISNULL(aztrh.acc_no2, '') = ''&#xD;&#xA;&#xD;&#xA;        AND EXISTS&#xD;&#xA;        (&#xD;&#xA;            SELECT 1&#xD;&#xA;            FROM STRING_SPLIT(&#xD;&#xA;                    REPLACE(REPLACE(ISNULL(aztrh.RMRK_EXTRA,''),'''',''),' ',''),&#xD;&#xA;                    ','&#xD;&#xA;                 ) A&#xD;&#xA;&#xD;&#xA;            INNER JOIN STRING_SPLIT(&#xD;&#xA;                    REPLACE(REPLACE(ISNULL(azaccmf.Acc_Actv,''),'''',''),' ',''),&#xD;&#xA;                    ','&#xD;&#xA;                 ) B&#xD;&#xA;&#xD;&#xA;                ON A.value = B.value&#xD;&#xA;        )&#xD;&#xA;    )&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;WHERE&#xD;&#xA;    aztrd.loc = '50'&#xD;&#xA;    AND aztrd.tr_ty = '101'&#xD;&#xA;    AND azaccmf.stpd = '1'&#xD;&#xA;&#xD;&#xA;ORDER BY&#xD;&#xA;    azaccmf.acc_no;" Name="sqlDataSource1" />
   </DataSources>
@@ -46,7 +46,7 @@
             <Font Bold="True" />
           </Style>
         </TextBox>
-        <TextBox Width="1.56cm" Height="0.5cm" Left="9.146cm" Top="5.13cm" Value="إسم العمليه " Name="textBox108">
+        <TextBox Width="1.56cm" Height="0.5cm" Left="9.218cm" Top="5.13cm" Value="إسم العمليه " Name="textBox108">
           <Style TextAlign="Left" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
@@ -56,7 +56,7 @@
             <Font Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="0.3cm" Height="0.5cm" Left="8.802cm" Top="5.1cm" Value=":" Name="textBox106">
+        <TextBox Width="0.3cm" Height="0.5cm" Left="8.918cm" Top="5.13cm" Value=":" Name="textBox106">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
@@ -179,7 +179,7 @@
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="3.3cm" Height="0.9cm" Left="5.3cm" Top="0cm" Value="رقم الشركه" Name="textBox9">
+            <TextBox Width="3.3cm" Height="0.9cm" Left="5.3cm" Top="0cm" Value="رقم الهاتف" Name="textBox9">
               <Style BackgroundColor="147, 205, 221" TextAlign="Center" VerticalAlign="Middle">
                 <Font Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSource1" Width="19cm" Name="purchase_subreport_tawki3_lagnt_elbat_elfany" Zoom="1.5" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="azxsandoaa" SelectCommand="WITH H AS (&#xA;    SELECT TOP 1 *&#xA;    FROM AZTRH&#xA;    WHERE TR_TY = 116&#xA;      AND (@LocParam IS NULL OR LOC = @LocParam)&#xA;      AND FNCL_TR_NO = @FNCLTRNO&#xA;    ORDER BY TR_NO&#xA;),&#xA;AllMembers AS (&#xA;    /* رئيس اللجنة */&#xA;    SELECT 1 AS SORT_ORDER, N'رئيس اللجنة' AS MEMBER_TYPE, CH.EMP_NAME AS MemberName&#xA;    FROM H&#xA;    INNER JOIN PYEMPMF_H CH ON CH.EMP_NO = TRY_CAST(REPLACE(REPLACE(REPLACE(H.CMMTTE_CHRMN_DCSN, '''', ''), '&quot;', ''), ' ', '') AS INT)&#xA;&#xA;    UNION ALL&#xA;    /* الأعضاء الداخليين */&#xA;    SELECT 2, N'عضو داخلي', E.EMP_NAME&#xA;    FROM H&#xA;    CROSS APPLY (SELECT DISTINCT TRY_CAST(value AS INT) AS EMP_NO&#xA;                 FROM STRING_SPLIT(REPLACE(REPLACE(REPLACE(COALESCE(H.CMMTTE_INTRNL_MMBRS_DCSN, ''), ';', ','), '''', ''), '&quot;', ''), ',')&#xA;                 WHERE TRY_CAST(value AS INT) IS NOT NULL) S&#xA;    INNER JOIN PYEMPMF_H E ON E.EMP_NO = S.EMP_NO&#xA;&#xA;    UNION ALL&#xA;    /* الأعضاء الخارجيين */&#xA;    SELECT 3, N'عضو خارجي', L.DSCR_AR&#xA;    FROM H&#xA;    CROSS APPLY (SELECT DISTINCT TRY_CAST(value AS INT) AS CODE&#xA;                 FROM STRING_SPLIT(REPLACE(REPLACE(REPLACE(COALESCE(H.CMMTTE_EXTRNL_MMBRS_DCSN, ''), ';', ','), '''', ''), '&quot;', ''), ',')&#xA;                 WHERE TRY_CAST(value AS INT) IS NOT NULL) X&#xA;    INNER JOIN AZLISTS L ON L.CODE = X.CODE AND L.REC_TYPE = 61&#xA;&#xA;    UNION ALL&#xA;    /* عضو أمن داخلي */&#xA;    SELECT 4, N'عضو أمن داخلي', E.EMP_NAME&#xA;    FROM H&#xA;    INNER JOIN PYEMPMF_H E ON E.EMP_NO = TRY_CAST(REPLACE(REPLACE(REPLACE(COALESCE(H.CMMTTE_INTRNL_SCRTY_DCSN, ''), '''', ''), '&quot;', ''), ' ', '') AS INT)&#xA;&#xA;    UNION ALL&#xA;    /* عضو أمن خارجي */&#xA;    SELECT 4, N'عضو أمن خارجي', L.DSCR_AR&#xA;    FROM H&#xA;    INNER JOIN AZLISTS L ON L.REC_TYPE = 61 AND L.CODE = TRY_CAST(REPLACE(REPLACE(REPLACE(COALESCE(H.CMMTTE_EXTRNL_SCRTY_DCSN, ''), '''', ''), '&quot;', ''), ' ', '') AS INT)&#xA;&#xA;    UNION ALL&#xA;    /* عضو مجلس دولة */&#xA;    SELECT 5, N'عضو مجلس دولة', L.DSCR_AR&#xA;    FROM H&#xA;    INNER JOIN AZLISTS L ON L.REC_TYPE = 61 AND L.CODE = TRY_CAST(REPLACE(REPLACE(REPLACE(COALESCE(H.NT_EXTRNL_MMBR_DCSN, ''), '''', ''), '&quot;', ''), ' ', '') AS INT)&#xA;)&#xA;SELECT ROW_NUMBER() OVER (ORDER BY SORT_ORDER, MemberName) AS Serial_No, MEMBER_TYPE, MemberName&#xA;FROM AllMembers&#xA;WHERE ISNULL(@OnlyChairman, 0) = 0 OR SORT_ORDER = 1&#xA;ORDER BY Serial_No" Name="sqlDataSource1"><Parameters><SqlDataSourceParameter DbType="String" Name="@LocParam"><Value><String>= Parameters.Locparam.Value</String></Value></SqlDataSourceParameter><SqlDataSourceParameter DbType="String" Name="@FNCLTRNO"><Value><String>= Parameters.FNCLTRNOparam.Value</String></Value></SqlDataSourceParameter><SqlDataSourceParameter DbType="String" Name="@OnlyChairman"><Value><String>= IIf(Parameters.OnlyChairman.Value, 1, 0)</String></Value></SqlDataSourceParameter></Parameters></SqlDataSource>
+  </DataSources>
+  <Items>
+    <DetailSection Height="0.8cm" Name="detailSection1">
+      <Style TextAlign="Center" VerticalAlign="Middle">
+        <Font Bold="True" />
+      </Style>
+      <Items><TextBox xmlns="http://schemas.telerik.com/reporting/2023/1.0" Width="0.8cm" Height="0.8cm" Left="18.2cm" Top="0cm" Value="= CStr(Fields.Serial_No) + &quot; -&quot;" Name="sigNo"><Style TextAlign="Right" VerticalAlign="Middle"><Font Size="10pt" Bold="True" /></Style></TextBox><TextBox xmlns="http://schemas.telerik.com/reporting/2023/1.0" Width="3.6cm" Height="0.8cm" Left="14.6cm" Top="0cm" Value="= Fields.MEMBER_TYPE" Name="sigType"><Style TextAlign="Right" VerticalAlign="Middle"><Font Size="10pt" Bold="True" /></Style></TextBox><TextBox xmlns="http://schemas.telerik.com/reporting/2023/1.0" Width="6cm" Height="0.8cm" Left="8.6cm" Top="0cm" Value="= Fields.MemberName" Name="sigName"><Style TextAlign="Right" VerticalAlign="Middle"><Font Size="10pt" Bold="True" /></Style></TextBox><TextBox xmlns="http://schemas.telerik.com/reporting/2023/1.0" Width="1.8cm" Height="0.8cm" Left="6.8cm" Top="0cm" Value="التوقيع :" Name="sigLbl"><Style TextAlign="Right" VerticalAlign="Middle"><Font Size="10pt" Bold="True" /></Style></TextBox><TextBox xmlns="http://schemas.telerik.com/reporting/2023/1.0" Width="5.8cm" Height="0.8cm" Left="1cm" Top="0cm" Value="......................................." Name="sigLine"><Style TextAlign="Right" VerticalAlign="Middle"><Font Size="10pt" Bold="True" /></Style></TextBox></Items>
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0.5cm" Right="0.5cm" Top="0.5cm" Bottom="0.5cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  
+  
+<ReportParameters xmlns="http://schemas.telerik.com/reporting/2023/1.0"><ReportParameter Name="Locparam" AllowNull="True" /><ReportParameter Name="FNCLTRNOparam" AllowNull="True" /><ReportParameter Name="OnlyChairman" Type="Boolean"><Value><String>False</String></Value></ReportParameter></ReportParameters></Report>

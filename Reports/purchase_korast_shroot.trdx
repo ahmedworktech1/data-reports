@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Report DataSourceName="sqlDataSource1" Width="20cm" Name="نموذج الشروط العامة" Zoom="2" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+<Report DataSourceName="sqlDataSource1" Width="20cm" Name="نموذج الشروط العامة" Zoom="1.5" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
   <DataSources>
-    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="&#xD;&#xA;SELECT &#xD;&#xA;&#xD;&#xA;    AZTRH.itms_incrs, &#xD;&#xA;&#x9;AZTRH.PRCHS_OPRTN_TYP,&#xD;&#xA;&#x9;(SELECT DSCR_AR FROM AZTRTY WHERE AZTRTY.TR_TY= AZTRH.PRCHS_OPRTN_TYP ) AS OPTRN_NM,&#xD;&#xA;&#xD;&#xA;    AZTRH.fnncl_auth,&#xD;&#xA;&#xD;&#xA;    AZTRH.Purchas_No,&#xD;&#xA;&#xD;&#xA;    AZTRH.lgl_grnds, &#xD;&#xA;&#xD;&#xA;    AZTRH.TR_NO,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;    AZTRH.FNCL_TR_NO,&#xD;&#xA;&#xD;&#xA;    AZTRH.tr_dt,&#xD;&#xA;&#xD;&#xA;    AZTRD.ENTEREDBY,&#xD;&#xA;&#xD;&#xA;    (SELECT Emp_Name &#xD;&#xA;&#xD;&#xA;     FROM PYEMPMF_H &#xD;&#xA;&#xD;&#xA;     WHERE PYEMPMF_H.emp_no = AZTRd.ENTEREDBY) AS nm,&#xD;&#xA;&#xD;&#xA;    AZTRH.TCHNCL_OPN_DT, &#xD;&#xA;&#xD;&#xA;    AZTRH.VST_NO, &#xD;&#xA;&#xD;&#xA;    AZTRTY.OprTypeName,&#xD;&#xA;&#xD;&#xA;    STRING_AGG(CAST(AZTRD.PRCHS_DISC_PRCNT AS NVARCHAR(50)), N' - ') AS PRCHS_DISC_PRCNT,&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;dbo.Num_To_Str(aztrh.VST_NO) AS tfqet&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;FROM AZTRH&#xD;&#xA;&#xD;&#xA;LEFT JOIN AZTRD &#xD;&#xA;&#xD;&#xA;    ON AZTRH.LOC = AZTRD.LOC &#xD;&#xA;&#xD;&#xA;    AND AZTRH.TR_TY = AZTRD.TR_TY &#xD;&#xA;&#xD;&#xA;    AND AZTRH.TR_NO = AZTRD.TR_NO&#xD;&#xA;&#xD;&#xA;LEFT JOIN (&#xD;&#xA;&#xD;&#xA;    SELECT &#xD;&#xA;&#xD;&#xA;        T.TR_TY,&#xD;&#xA;&#xD;&#xA;        T.DSCR_AR AS OprTypeName&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;    FROM AZTRTY T&#xD;&#xA;&#xD;&#xA;    WHERE T.TR_TY IS NOT NULL&#xD;&#xA;&#xD;&#xA;) AZTRTY&#xD;&#xA;&#xD;&#xA;    ON AZTRH.TR_TY = AZTRTY.TR_TY&#xD;&#xA;&#xD;&#xA;WHERE (1=1)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;GROUP BY &#xD;&#xA;&#xD;&#xA;    AZTRH.itms_incrs, &#xD;&#xA;&#xD;&#xA;    AZTRH.fnncl_auth, &#xD;&#xA;&#xD;&#xA;    AZTRH.lgl_grnds, &#xD;&#xA;&#xD;&#xA;    AZTRH.Purchas_No,&#xD;&#xA;&#xD;&#xA;    AZTRD.ENTEREDBY,&#xD;&#xA;&#xD;&#xA;    AZTRH.FNCL_TR_NO, &#xD;&#xA;&#xD;&#xA;    AZTRH.tr_dt, &#xD;&#xA;    &#xD;&#xA;    AZTRH.TR_NO,&#xD;&#xA;&#xD;&#xA;    AZTRH.TCHNCL_OPN_DT, &#xD;&#xA;&#xD;&#xA;    AZTRH.VST_NO,&#xD;&#xA;&#x9;AZTRH.PRCHS_OPRTN_TYP,&#xD;&#xA;&#xD;&#xA;    AZTRTY.OprTypeName;&#xD;&#xA;&#xD;&#xA;" Name="sqlDataSource1" />
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="LocalSqlServer" SelectCommand="&#xD;&#xA;SELECT b.*, c.ClauseLine&#xD;&#xA;FROM (&#xD;&#xA;SELECT&#xD;&#xA;    AZTRH.itms_incrs,&#xD;&#xA;    AZTRH.PRCHS_OPRTN_TYP,&#xD;&#xA;    (SELECT DSCR_AR FROM AZTRTY WHERE AZTRTY.TR_TY = AZTRH.PRCHS_OPRTN_TYP) AS OPTRN_NM,&#xD;&#xA;    AZTRH.fnncl_auth,&#xD;&#xA;    AZTRH.Purchas_No,&#xD;&#xA;    AZTRH.lgl_grnds,&#xD;&#xA;    AZTRH.TR_NO,&#xD;&#xA;    AZTRH.TR_TY,&#xD;&#xA;    AZTRH.FNCL_TR_NO,&#xD;&#xA;    AZTRH.tr_dt,&#xD;&#xA;    AZTRD.ENTEREDBY,&#xD;&#xA;    (SELECT Emp_Name FROM PYEMPMF_H WHERE PYEMPMF_H.emp_no = AZTRD.ENTEREDBY) AS nm,&#xD;&#xA;    AZTRH.TCHNCL_OPN_DT,&#xD;&#xA;    AZTRH.VST_NO,&#xD;&#xA;    AZTRTY.OprTypeName,&#xD;&#xA;    STRING_AGG(CAST(AZTRD.PRCHS_DISC_PRCNT AS NVARCHAR(50)), N' - ') AS PRCHS_DISC_PRCNT,&#xD;&#xA;    dbo.Num_To_Str(AZTRH.VST_NO) AS tfqet,&#xD;&#xA;    CASE&#xD;&#xA;        WHEN ISNULL((&#xD;&#xA;            SELECT TOP 1 JF.SHW522&#xD;&#xA;            FROM AZTRTY TY&#xD;&#xA;            INNER JOIN JrnlForms JF ON JF.FrmId = TY.frmid&#xD;&#xA;            WHERE TY.TR_TY = AZTRH.TR_TY&#xD;&#xA;        ), 0) = 1&#xD;&#xA;        AND MAX(CASE WHEN AZTRD.CHNG_OIL IS NOT NULL THEN 1 ELSE 0 END) = 1&#xD;&#xA;        THEN 1 ELSE 0&#xD;&#xA;    END AS ShowChngOil&#xD;&#xA;FROM AZTRH&#xD;&#xA;LEFT JOIN AZTRD&#xD;&#xA;    ON AZTRH.LOC = AZTRD.LOC&#xD;&#xA;    AND AZTRH.TR_TY = AZTRD.TR_TY&#xD;&#xA;    AND AZTRH.TR_NO = AZTRD.TR_NO&#xD;&#xA;LEFT JOIN (&#xD;&#xA;    SELECT T.TR_TY, T.DSCR_AR AS OprTypeName&#xD;&#xA;    FROM AZTRTY T&#xD;&#xA;    WHERE T.TR_TY IS NOT NULL&#xD;&#xA;) AZTRTY&#xD;&#xA;    ON AZTRH.TR_TY = AZTRTY.TR_TY&#xD;&#xA;WHERE (1=1)&#xD;&#xA;GROUP BY&#xD;&#xA;    AZTRH.itms_incrs,&#xD;&#xA;    AZTRH.fnncl_auth,&#xD;&#xA;    AZTRH.lgl_grnds,&#xD;&#xA;    AZTRH.Purchas_No,&#xD;&#xA;    AZTRD.ENTEREDBY,&#xD;&#xA;    AZTRH.FNCL_TR_NO,&#xD;&#xA;    AZTRH.tr_dt,&#xD;&#xA;    AZTRH.TR_NO,&#xD;&#xA;    AZTRH.TR_TY,&#xD;&#xA;    AZTRH.TCHNCL_OPN_DT,&#xD;&#xA;    AZTRH.VST_NO,&#xD;&#xA;    AZTRH.PRCHS_OPRTN_TYP,&#xD;&#xA;    AZTRTY.OprTypeName&#xD;&#xA;) b&#xD;&#xA;CROSS APPLY (&#xD;&#xA;    SELECT&#xD;&#xA;        CASE z.Rn&#xD;&#xA;            WHEN 1 THEN N'١'&#xD;&#xA;            WHEN 2 THEN N'٢'&#xD;&#xA;            WHEN 3 THEN N'٣'&#xD;&#xA;            WHEN 4 THEN N'٤'&#xD;&#xA;            WHEN 5 THEN N'٥'&#xD;&#xA;            WHEN 6 THEN N'٦'&#xD;&#xA;            WHEN 7 THEN N'٧'&#xD;&#xA;            WHEN 8 THEN N'٨'&#xD;&#xA;            WHEN 9 THEN N'٩'&#xD;&#xA;            WHEN 10 THEN N'١٠'&#xD;&#xA;            WHEN 11 THEN N'١١'&#xD;&#xA;            WHEN 12 THEN N'١٢'&#xD;&#xA;            WHEN 13 THEN N'١٣'&#xD;&#xA;            WHEN 14 THEN N'١٤'&#xD;&#xA;            WHEN 15 THEN N'١٥'&#xD;&#xA;            WHEN 16 THEN N'١٦'&#xD;&#xA;            WHEN 17 THEN N'١٧'&#xD;&#xA;            WHEN 18 THEN N'١٨'&#xD;&#xA;            WHEN 19 THEN N'١٩'&#xD;&#xA;            WHEN 20 THEN N'٢٠'&#xD;&#xA;            WHEN 21 THEN N'٢١'&#xD;&#xA;            WHEN 22 THEN N'٢٢'&#xD;&#xA;        END + N'- ' + z.Txt AS ClauseLine,&#xD;&#xA;        z.Rn&#xD;&#xA;    FROM (&#xD;&#xA;        SELECT&#xD;&#xA;            ROW_NUMBER() OVER (ORDER BY v.SortNo) AS Rn,&#xD;&#xA;            CASE v.SortNo&#xD;&#xA;                WHEN 1 THEN CONCAT(N'تقبل العطـــاءات بمقر / صندوق تكريم شهداء و ضحايا و مفقودي ومصابي العمليات الحربية و الإرهـابـية والأمـنية وأسـرهم بجهة القــاهـرة في مـوعد أقصـاه الســـاعة ١٢ ظهراً يوم ', ISNULL(FORMAT(b.TCHNCL_OPN_DT, 'dddd', 'ar-EG'), N''), N' الموافق ', NCHAR(8206)+REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(CASE WHEN b.TCHNCL_OPN_DT IS NULL THEN '' ELSE RIGHT('0000'+CAST(YEAR(b.TCHNCL_OPN_DT) AS varchar(4)),4)+'/'+RIGHT('00'+CAST(MONTH(b.TCHNCL_OPN_DT) AS varchar(2)),2)+'/'+RIGHT('00'+CAST(DAY(b.TCHNCL_OPN_DT) AS varchar(2)),2) END, '0', N'٠'), '1', N'١'), '2', N'٢'), '3', N'٣'), '4', N'٤'), '5', N'٥'), '6', N'٦'), '7', N'٧'), '8', N'٨'), '9', N'٩')+NCHAR(8206))&#xD;&#xA;                WHEN 2 THEN CONCAT(N'يرفق مع العطاء تأمين ابتدائي قدره (', REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ISNULL(CONVERT(varchar(40), b.VST_NO), ''), '0', N'٠'), '1', N'١'), '2', N'٢'), '3', N'٣'), '4', N'٤'), '5', N'٥'), '6', N'٦'), '7', N'٧'), '8', N'٨'), '9', N'٩'), N' جنيه فقط ', ISNULL(b.tfqet, N''), N') يسدد نقدا بموجب إيصال أو بموجب خطاب ضمان بنكي غير مشروط أو بشيك مصرفي أو معتمد من البنك الصادر منه ولن يلتفت للعطاء الذي يرد بدون كامل التأمين الابتدائي')&#xD;&#xA;                WHEN 3 THEN N'تقدم العطاءات داخل مظاريف مغلقة (مظروف فني / مظروف مالي) باسم السيد مدير إدارة / العقود و المشتريات'&#xD;&#xA;                WHEN 4 THEN N'تقدم العينات للأصناف المطلوبة قبل ميعاد فتح المظاريف بأسبوع في حالة حاجة الأصناف إلى ذلك'&#xD;&#xA;                WHEN 5 THEN N'طريقة الدفع بشيك أو تحويل بنكي بعد الفحص والإستلام وتقديم الفواتير (أو تحدد بمعرفة الصندوق)'&#xD;&#xA;                WHEN 6 THEN N'على المورد اتباع كافة تعليمات الأمن التي يصدرها الصندوق في هذا الشأن'&#xD;&#xA;                WHEN 7 THEN N'التعاقد والتوريد طبقاً لأحكام القانون رقم ١٨٢ لسنة ٢٠١٨ ولائحته التنفيذية والقرارات والقوانين المعدلة أو المكملة له'&#xD;&#xA;                WHEN 8 THEN CONCAT(N'تحدد موعد فتح المظاريف الفنية الساعة ١٢ ظهراً يوم ', ISNULL(FORMAT(b.TCHNCL_OPN_DT, 'dddd', 'ar-EG'), N''), N' الموافق ', NCHAR(8206)+REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(CASE WHEN b.TCHNCL_OPN_DT IS NULL THEN '' ELSE RIGHT('0000'+CAST(YEAR(b.TCHNCL_OPN_DT) AS varchar(4)),4)+'/'+RIGHT('00'+CAST(MONTH(b.TCHNCL_OPN_DT) AS varchar(2)),2)+'/'+RIGHT('00'+CAST(DAY(b.TCHNCL_OPN_DT) AS varchar(2)),2) END, '0', N'٠'), '1', N'١'), '2', N'٢'), '3', N'٣'), '4', N'٤'), '5', N'٥'), '6', N'٦'), '7', N'٧'), '8', N'٨'), '9', N'٩')+NCHAR(8206))&#xD;&#xA;                WHEN 9 THEN N'لن يلتفت للعطاءات التي ترد بعد هذا الموعد'&#xD;&#xA;                WHEN 10 THEN N'الإرتباط بالأسعار الواردة بالعطاءات سارية لمدة ٣ شهور من تاريخ فتح المظاريف الفنية'&#xD;&#xA;                WHEN 11 THEN CONCAT(N'للصندوق الحق في تخفيض أو زيادة كميات بنسبة ٢٥% وبنفس الشروط والمواصفات والأسعار التي ',&#xD;&#xA;                    CASE WHEN ISNULL(NULLIF(b.PRCHS_OPRTN_TYP, 0), b.TR_TY) = 112 THEN N'ينتهي' ELSE N'تنتهي' END,&#xD;&#xA;                    N' إليها ',&#xD;&#xA;                    CASE&#xD;&#xA;                        WHEN ISNULL(NULLIF(b.PRCHS_OPRTN_TYP, 0), b.TR_TY) BETWEEN 102 AND 104 THEN N'المناقصة'&#xD;&#xA;                        WHEN ISNULL(NULLIF(b.PRCHS_OPRTN_TYP, 0), b.TR_TY) BETWEEN 105 AND 107 THEN N'الممارسة'&#xD;&#xA;                        WHEN ISNULL(NULLIF(b.PRCHS_OPRTN_TYP, 0), b.TR_TY) BETWEEN 108 AND 110 THEN N'المزايدة'&#xD;&#xA;                        WHEN ISNULL(NULLIF(b.PRCHS_OPRTN_TYP, 0), b.TR_TY) = 111 THEN N'السلفة المؤقتة'&#xD;&#xA;                        WHEN ISNULL(NULLIF(b.PRCHS_OPRTN_TYP, 0), b.TR_TY) = 112 THEN N'الأمر المباشر'&#xD;&#xA;                        ELSE N'المناقصة'&#xD;&#xA;                    END)&#xD;&#xA;                WHEN 12 THEN N'تقدم الكتالوجات والمواصفات الفنية للأصناف وقبل ميعاد فتح المظاريف الفنية'&#xD;&#xA;                WHEN 13 THEN N'التسليم بمخازن الصندوق (أو أي جهة يحددها الصندوق)'&#xD;&#xA;                WHEN 14 THEN N'يتم تحديد ماركة وجهة الصنع للأصناف كل صنف على حدة'&#xD;&#xA;                WHEN 15 THEN N'يتم التوريد للأصنـاف المطلوبة خالــصة مـن جميـع المصـاريف إلـى مخـازن الصنـدوق  (أو الجهة التي يحددها الصندوق)'&#xD;&#xA;                &#xD;&#xA;                WHEN 16 THEN CONCAT(N'العينات التي تقدم يجب أن ترفق بكل عينة بطاقة تثبت وتشمع بالشمع الأحمر ويحدد فيها اسم مقدم العطاء واسم الصنف ', REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ISNULL(b.OPTRN_NM, N''), '0', N'٠'), '1', N'١'), '2', N'٢'), '3', N'٣'), '4', N'٤'), '5', N'٥'), '6', N'٦'), '7', N'٧'), '8', N'٨'), '9', N'٩'))&#xD;&#xA;                WHEN 17 THEN N'للصندوق الحق في استبعاد أي عطاء يتضمن اشتراط عدم التجزئة للكميات المتقدم بها'&#xD;&#xA;                WHEN 18 THEN N'لن يلتفت للعطــاءات التي تـتضمن اشتـراطات خاصة بالاستـيراد أو النـقد الأجنبي أو أي مساعدة في هذا القبيل بل يجب أن تورد الأصناف داخل مخازن الصندوق  ' + CHAR(13) + CHAR(10) + '  (أو الجهة التي يحددها الصندوق) على أساس العملة المصرية بدون أي قيود'&#xD;&#xA;                WHEN 19 THEN N'لا يلتزم الصندوق بالأخذ بأي تعديل على الشروط المدونة بأوراق العطاء وعلى مقدم العطاء إبداء ملاحظاته أو تعديلاته في خطاب منفصل يرفق بالعطاء'&#xD;&#xA;                WHEN 20 THEN N'للصندوق الحق في تحليل الأصناف التي يرى تحليلها في أي معامل معتمدة'&#xD;&#xA;                WHEN 21 THEN N'و يشترط إظهار أسعار كل بنود الأصناف والخدمات المطلوبة منفصلة عن الضريبة على القيمة المضافة وتقدم الأسعار غير شاملة اي ضرائب او رسوم اخري '&#xD;&#xA;            END AS Txt&#xD;&#xA;        FROM (VALUES&#xD;&#xA;                (1, 0),&#xD;&#xA;                (2, 0),&#xD;&#xA;                (3, 0),&#xD;&#xA;                (4, 1),&#xD;&#xA;                (5, 0),&#xD;&#xA;                (6, 0),&#xD;&#xA;                (7, 0),&#xD;&#xA;                (8, 0),&#xD;&#xA;                (9, 0),&#xD;&#xA;                (10, 0),&#xD;&#xA;                (11, 0),&#xD;&#xA;                (12, 0),&#xD;&#xA;                (13, 0),&#xD;&#xA;                (14, 0),&#xD;&#xA;                (15, 0),&#xD;&#xA;                (16, 1),&#xD;&#xA;                (17, 0),&#xD;&#xA;                (18, 0),&#xD;&#xA;                (19, 0),&#xD;&#xA;                (20, 0),&#xD;&#xA;                (21, 0),&#xD;&#xA;                (22, 0)&#xD;&#xA;        ) v(SortNo, OilOnly)&#xD;&#xA;        WHERE v.OilOnly = 0 OR b.ShowChngOil = 1&#xD;&#xA;    ) z&#xD;&#xA;) c&#xD;&#xA;ORDER BY b.TR_NO, c.Rn" Name="sqlDataSource1" />
   </DataSources>
   <Items>
-    <PageHeaderSection Height="7.112cm" Name="pageHeaderSection1">
+    <PageHeaderSection Height="5cm" Name="pageHeaderSection1">
       <Items>
         <TextBox Width="5.45cm" Height="0.5cm" Left="14.5cm" Top="0.1cm" Value="مجلــــــــــــــــــــــــــس الــــــــــــــــــــــوزراء" Name="textBox1">
           <Style TextAlign="Center" VerticalAlign="Middle">
@@ -16,7 +16,7 @@
             <Font Bold="True" Underline="True" />
           </Style>
         </TextBox>
-        <TextBox Width="5.8cm" Height="0.4cm" Left="14.15cm" Top="1.1cm" Value="العمليات الحربيه و الارهابيه  والامنيه و اسرهم" Name="textBox3">
+        <TextBox Width="5.8cm" Height="0.4cm" Left="14.15cm" Top="1.1cm" Value="العمليات الحربية و الإرهابية  والأمنية وأسرهم" Name="textBox3">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Bold="True" Underline="True" />
           </Style>
@@ -36,7 +36,7 @@
             <Font Bold="True" Underline="True" />
           </Style>
         </TextBox>
-        <TextBox Width="2.961cm" Height="0.5cm" Left="8.212cm" Top="2.661cm" Value="كراسه الشروط" Name="textBox6">
+        <TextBox Width="2.961cm" Height="0.5cm" Left="8.339cm" Top="2.54cm" Value="كراسه الشروط" Name="textBox6">
           <Style Color="Red" TextAlign="Center" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" Underline="True" />
           </Style>
@@ -46,97 +46,17 @@
             <Font Size="14pt" Bold="True" Underline="True" />
           </Style>
         </TextBox>
-        <TextBox Width="0.65cm" Height="0.5cm" Left="19.35cm" Top="5.112cm" Value="1-" Name="textBox16">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="15.35cm" Height="0.5cm" Left="4cm" Top="5.112cm" Value="تقبل العطاءات بمقر إدارة / فرع صندوق تكريم شهداء و ضحايا و مفقودي ومصابي العمليات الحربيه و الارهابيه  والامنيه و اسرهم" Name="textBox7">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="2.15cm" Height="0.5cm" Left="1.85cm" Top="5.112cm" Value=" بجهــــة القاهرة" Name="textBox15">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="4.1cm" Height="0.5cm" Left="15.25cm" Top="5.612cm" Value="في موعد أقصاه الساعة 12 ظهراً" Name="textBox8">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.7cm" Height="0.5cm" Left="14.549cm" Top="5.612cm" Value="يوم" Name="textBox9">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.1cm" Height="0.5cm" Left="12cm" Top="5.612cm" Value="الموافق" Name="textBox10">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.65cm" Height="0.5cm" Left="19.3cm" Top="6.112cm" Value="2-" Name="textBox11">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="4.3cm" Height="0.5cm" Left="15cm" Top="6.112cm" Value=" يرفق مع العطاء تأمين إبتدائي قدره" Name="textBox12">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="3.014cm" Height="0.5cm" Left="3.277cm" Top="6.112cm" Value=" يسدد نقدا بموجب إيصال" Name="textBox14">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="12.788cm" Height="0.5cm" Left="6.512cm" Top="6.612cm" Value="أو بموجب خطاب ضمان بنكي غير مشروط أو بشيك مصرفي أو معتمد من البنك الصادر منه ولن يلتفت للعطاء&#xD;&#xA;" Name="textBox17">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="4.48cm" Height="0.5cm" Left="2.032cm" Top="6.612cm" Value=" الذي يرد بدون كامل التأمين الإبتدائي " Name="textBox18">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.849cm" Height="0.5cm" Left="12.877cm" Top="6.112cm" Value="= Fields.VST_NO" Name="textBox79">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.437cm" Height="0.5cm" Left="13.112cm" Top="5.612cm" Value="= Format(&quot;{0:dddd}&quot;, CDate(Fields.TCHNCL_OPN_DT ))&#xD;&#xA;" Format="{0:yyyy/MM/dd}" Culture="ar-EG" Name="textBox78">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.273cm" Height="0.5cm" Left="14.727cm" Top="6.112cm" Value="(" Name="textBox89">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.273cm" Height="0.5cm" Left="6.291cm" Top="6.112cm" Value=")" Name="textBox90">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="3.35cm" Height="0.5cm" Left="8.612cm" Top="5.612cm" Value="= Fields.TCHNCL_OPN_DT" Format="{0:yyyy/MM/dd}" Culture="en" Name="textBox75">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="2.861in" Height="0.2in" Left="1.22in" Top="1.5in" Value="= Fields.PURCHAS_NO" Name="textBox110">
+        <TextBox Width="2.861in" Height="0.2in" Left="1.22in" Top="1.5in" Value="=Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(IIf(Fields.PURCHAS_NO Is Null, &quot;&quot;, CStr(Fields.PURCHAS_NO)), &quot;0&quot;, &quot;٠&quot;), &quot;1&quot;, &quot;١&quot;), &quot;2&quot;, &quot;٢&quot;), &quot;3&quot;, &quot;٣&quot;), &quot;4&quot;, &quot;٤&quot;), &quot;5&quot;, &quot;٥&quot;), &quot;6&quot;, &quot;٦&quot;), &quot;7&quot;, &quot;٧&quot;), &quot;8&quot;, &quot;٨&quot;), &quot;9&quot;, &quot;٩&quot;)" Culture="ar-EG" Name="textBox110">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Bold="True" Italic="False" />
           </Style>
         </TextBox>
-        <TextBox Width="1.749in" Height="0.2in" Left="2.411in" Top="1.7in" Value="= Fields.FNCL_TR_NO" Name="textBox109">
+        <TextBox Width="1.749in" Height="0.2in" Left="2.411in" Top="1.7in" Value="=Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(IIf(Fields.FNCL_TR_NO Is Null, &quot;&quot;, CStr(Fields.FNCL_TR_NO)), &quot;0&quot;, &quot;٠&quot;), &quot;1&quot;, &quot;١&quot;), &quot;2&quot;, &quot;٢&quot;), &quot;3&quot;, &quot;٣&quot;), &quot;4&quot;, &quot;٤&quot;), &quot;5&quot;, &quot;٥&quot;), &quot;6&quot;, &quot;٦&quot;), &quot;7&quot;, &quot;٧&quot;), &quot;8&quot;, &quot;٨&quot;), &quot;9&quot;, &quot;٩&quot;)" Culture="ar-EG" Name="textBox109">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Bold="True" Italic="False" />
           </Style>
         </TextBox>
-        <TextBox Width="1.56cm" Height="0.5cm" Left="10.95cm" Top="3.818cm" Value="إسم العمليه " Name="textBox108">
+        <TextBox Width="1.56cm" Height="0.5cm" Left="10.95cm" Top="3.818cm" Value="اسم العمليه " Name="textBox108">
           <Style TextAlign="Left" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
@@ -156,370 +76,15 @@
             <Font Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="1.188cm" Height="0.5cm" Left="11.688cm" Top="6.112cm" Value="جنية فقط" Name="textBox111">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="5.124cm" Height="0.5cm" Left="6.564cm" Top="6.112cm" Value="= Fields.tfqet" CanShrink="True" Name="textBox112">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
       </Items>
     </PageHeaderSection>
-    <DetailSection Height="18.034cm" Name="detailSection1">
+    <DetailSection Height="0.7cm" Name="detailSection1">
       <Items>
-        <TextBox Width="0.65cm" Height="0.5cm" Left="19.3cm" Top="0.095cm" Value="3-" Name="textBox19">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="13.3cm" Height="0.5cm" Left="6cm" Top="0.095cm" Value="تقــــدم العطاءات داخــل مظـــــــاريف مغلقـــــــة ( مظــــــــروف فنـــــــي / مظــــــروف مالـــــــــــــي ) باســـــــــــــم" Name="textBox20">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.65cm" Height="0.5cm" Left="19.3cm" Top="1.094cm" Value="4-" Name="textBox22">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="11.3cm" Height="0.5cm" Left="8cm" Top="1.094cm" Value=" تقدم العينات للأصناف المطلوبه قبل ميعاد فتح المظاريف بإسبوع في حاله حاجه الاصناف الي ذلك" Name="textBox23">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.65cm" Height="0.5cm" Left="19.3cm" Top="1.595cm" Value="5-" Name="textBox24">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="8.35cm" Height="0.5cm" Left="10.95cm" Top="1.595cm" Value="طريقة الدفع بشيك او تحويل بنكي بعد الفحص والإستلام وتقديم الفواتير  " Name="textBox25">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.65cm" Height="0.5cm" Left="19.3cm" Top="2.095cm" Value="6-" Name="textBox26">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="8.6cm" Height="0.5cm" Left="10.7cm" Top="2.095cm" Value="على المورد اتباع كافة تعليمات الأمن التي يصدرها الصندوق في هذا الشأن" Name="textBox27">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.65cm" Height="0.5cm" Left="19.3cm" Top="2.595cm" Value="7-" Name="textBox28">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="13.15cm" Height="0.5cm" Left="6.15cm" Top="2.595cm" Value="التعاقــــد والتوريــــد طبقــــاً لأحكــــــام القـــــانون رقــــــم 182 لســــــــنة 2018 ولائحتــــــــه التنفيذيـــــــــــــــة " Name="textBox29">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="6.1cm" Height="0.499cm" Left="13.2cm" Top="3.095cm" Value="والقــــــرارات واقوانين المعدلة او المكمــــلة لـــــــه" Name="textBox30">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.65cm" Height="0.5cm" Left="19.3cm" Top="3.594cm" Value="8-" Name="textBox31">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="5.8cm" Height="0.5cm" Left="13.5cm" Top="3.595cm" Value="تحدد موعد فتح المظاريف الساعة 12 ظهرا يوم" Name="textBox32">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.05cm" Height="0.5cm" Left="10.65cm" Top="3.594cm" Value="الموافق" Name="textBox33">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.65cm" Height="0.5cm" Left="19.3cm" Top="4.094cm" Value="9-" Name="textBox34">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="5.088cm" Height="0.5cm" Left="14.212cm" Top="4.096cm" Value="لن يلتفت للعطاءات التى ترد بعد هذا الموعد " Name="textBox35">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.038cm" Height="0.5cm" Left="18.912cm" Top="4.596cm" Value="10 -" Name="textBox36">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="10.3cm" Height="0.5cm" Left="8.612cm" Top="4.596cm" Value="الإرتباط بالأسعار الواردة بالعطاءات سارية لمدة 3 شهور من تاريخ فتح المظاريف الفنية" Name="textBox37">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.038cm" Height="0.5cm" Left="18.912cm" Top="5.096cm" Value="11 -" Name="textBox38">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="5.8cm" Height="0.5cm" Left="13.112cm" Top="5.096cm" Value="للصندوق الحق فى تخفيض أو زيادة كميات بنسبة " Name="textBox39">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="4.5cm" Height="0.5cm" Left="7.662cm" Top="5.096cm" Value="وبنفس الشروط والمواصفات والأسعار" Name="textBox40">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="4.7cm" Height="0.5cm" Left="14.212cm" Top="5.596cm" Value=" التي تنتهـــــي إليهــــــــا المناقصـــــة" Name="textBox41">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.038cm" Height="0.5cm" Left="18.912cm" Top="6.096cm" Value="12 -" Name="textBox42">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="9.012cm" Height="0.5cm" Left="9.9cm" Top="6.096cm" Value="تقدم الكتالوجات والمواصفات الفنية للأصناف وقبل ميعاد فتح المظاريف الفنية" Name="textBox43">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.038cm" Height="0.5cm" Left="18.912cm" Top="6.597cm" Value="13 -" Name="textBox44">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="3.1cm" Height="0.5cm" Left="15.812cm" Top="6.597cm" Value="التسليم بمخازن الصندوق " Name="textBox45">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.038cm" Height="0.5cm" Left="18.912cm" Top="7.097cm" Value="14 -" Name="textBox46">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="6.951cm" Height="0.5cm" Left="11.961cm" Top="7.097cm" Value="يتم تحديد ماركة وجهة الصنع للأصناف كل صنف على حدة" Name="textBox47">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.038cm" Height="0.5cm" Left="18.912cm" Top="7.597cm" Value="15 -" Name="textBox48">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="12.712cm" Height="0.5cm" Left="6.2cm" Top="7.597cm" Value="يتــــم التوريــــــد للأصــــــناف المطلوبـــــه خالصـــــة من جميـــــع المصـــــاريف إلى مخـــــازن الصـــــندوق" Name="textBox49">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="5.8cm" Height="0.5cm" Left="13.112cm" Top="8.097cm" Value="(أو الجهـــــة التــــــــــى يحددهــــــــــا الصندوق)" Name="textBox50">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.038cm" Height="0.5cm" Left="18.912cm" Top="8.594cm" Value="16 -" Name="textBox51">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="10.3cm" Height="0.5cm" Left="8.612cm" Top="8.597cm" Value="العينات التي تقدم يجب أن ترفق بكل عينه بطاقة تثبت وتشمع بالشمع الأحمر ويحدد فيها" Name="textBox52">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="3.663cm" Height="0.5cm" Left="15.249cm" Top="9.098cm" Value="إسم مقدم العطاء وإسم الصنف " Name="textBox53">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.038cm" Height="0.5cm" Left="18.912cm" Top="9.598cm" Value="17 -" Name="textBox54">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="9.9cm" Height="0.5cm" Left="9.012cm" Top="9.598cm" Value="للصندوق الحق فى إستبعاد أى عطاء يتضمن إشتراط عدم التجزئة للكميات المتقدم بها" Name="textBox55">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.038cm" Height="0.5cm" Left="18.912cm" Top="10.098cm" Value="18 -" Name="textBox56">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="10.7cm" Height="0.5cm" Left="8.212cm" Top="10.098cm" Value=" لن يلتفت للعطاءات التى تتضمن إشتراطات خاصة بالإستيراد أو النقد الأجبني أو أى مساعدة" Name="textBox57">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="7.3cm" Height="0.5cm" Left="11.612cm" Top="10.598cm" Value="في هذا القبيل بل يجب أن تورد الأصناف داخل مخازن الصندوق " Name="textBox59">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="5.012cm" Height="0.5cm" Left="13.9cm" Top="11.098cm" Value="على اساس العمله المصرية بدون أي قيود" Name="textBox58">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.85cm" Height="0.5cm" Left="19.1cm" Top="11.599cm" Value="19 -" Name="textBox60">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="12.3cm" Height="0.5cm" Left="6.8cm" Top="11.599cm" Value="لا يلتزم الصندوق بالأخذ بأي تعديل على الشروط المدونه بأوراق العطاء وعلى مقدم العطاء إبداء ملاحظاته " Name="textBox61">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="5.1cm" Height="0.495cm" Left="13.812cm" Top="12.104cm" Value="أو تعديلاته فى خطاب منفصل يرفق بالعطاء" Name="textBox62">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.038cm" Height="0.5cm" Left="18.912cm" Top="12.594cm" Value="20 -" Name="textBox63">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="8.6cm" Height="0.5cm" Left="10.312cm" Top="12.599cm" Value="للصندوق الحق فى تحليل الأصناف التى يرى تحليلها في أي معامل معتمدة" Name="textBox64">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.038cm" Height="0.5cm" Left="18.912cm" Top="13.094cm" Value="21 -" Name="textBox65">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="12.112cm" Height="0.5cm" Left="6.8cm" Top="13.099cm" Value="يشترط إظهار أسعار كل بند من بنود الاصناف والخدمات المطلوبه منفصله عن أسعار الضريبة على القيمة" Name="textBox66">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="10.3cm" Height="0.5cm" Left="8.612cm" Top="13.599cm" Value=" المضافة منفصله غير شامله الضريبه علي القيمه المضافه او اي ضرائب ورسوم اخري " Name="textBox67">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.038cm" Height="0.5cm" Left="18.912cm" Top="14.1cm" Value="22 -" Name="textBox68">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="12.712cm" Height="0.5cm" Left="6.2cm" Top="14.1cm" Value="جميع إجراءات التعاقد تتم طبقاً لأحكام القانون رقم 182 لسة 2018 بشأن تنظيم التعاقدات التي تبرمها الجهات " Name="textBox69">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="2.9cm" Height="0.5cm" Left="16.012cm" Top="14.6cm" Value="العامة ولائحته التنفيذيه" Name="textBox70">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="5.45cm" Height="0.499cm" Left="13.85cm" Top="0.595cm" Value="السيد مدير ادارة / فرع العقود و المشتريات " Name="textBox21">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.6cm" Height="0.5cm" Left="12.512cm" Top="5.096cm" Value="25" Format="{0:0}" Culture="ar-EG" Name="textBox81">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.8cm" Height="0.5cm" Left="11.7cm" Top="3.594cm" Value="= Format(&quot;{0:dddd}&quot;, CDate(Fields.TCHNCL_OPN_DT ))&#xD;&#xA;" Format="{0:yyyy/MM/dd}" Culture="ar-EG" Name="textBox88">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="3cm" Height="0.499cm" Left="7.6cm" Top="1.594cm" Value="أو تحدد بمعرفه الصندوق " Name="textBox91">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.35cm" Height="0.5cm" Left="10.6cm" Top="1.593cm" Value="(" Name="textBox92">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.273cm" Height="0.5cm" Left="7.327cm" Top="1.595cm" Value=")" Name="textBox93">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.35cm" Height="0.5cm" Left="12.162cm" Top="5.096cm" Value="%" Name="textBox94">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="3.5cm" Height="0.5cm" Left="11.961cm" Top="6.597cm" Value="أو أي جهه يحددها الصندوق" Name="textBox95">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.35cm" Height="0.5cm" Left="15.461cm" Top="6.597cm" Value="(" Name="textBox96">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.273cm" Height="0.5cm" Left="11.688cm" Top="6.596cm" Value=")" Name="textBox97">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.311cm" Height="0.5cm" Left="11.3cm" Top="10.598cm" Value="(" Name="textBox98">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="5.6cm" Height="0.5cm" Left="5.7cm" Top="10.598cm" Value="أو الجهـــــة التــــــــــى يحددهــــــــــا الصندوق" Name="textBox99">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.273cm" Height="0.5cm" Left="5.427cm" Top="10.598cm" Value=")" Name="textBox100">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="3.35cm" Height="0.5cm" Left="7.3cm" Top="3.594cm" Value="= Fields.TCHNCL_OPN_DT" Format="{0:yyyy/MM/dd}" Culture="en" Name="textBox77">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="3cm" Height="0.4cm" Left="12.2cm" Top="9.145cm" Value="= Fields.OPTRN_NM" Name="textBox101">
-          <Style TextAlign="Right">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="5.85cm" Height="0.5cm" Left="0.662cm" Top="17.034cm" Value="مدير عام الإدارة العـــــــــــــامة" Name="textBox73">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Name="Arial" Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="5.85cm" Height="0.5cm" Left="0.662cm" Top="17.534cm" Value="للتعاقدات و المشتريـــات" Name="textBox74">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Name="Arial" Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="5.85cm" Height="0.488cm" Left="0.662cm" Top="15.926cm" Value=" التوقيع(                                        )  " Name="textBox72">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Size="11pt" Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.45cm" Height="0.5cm" Left="5.062cm" Top="16.534cm" Value="الاسم : " Name="textBox71">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Size="11pt" Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
+        <HtmlTextBox Width="19cm" Height="0.62cm" Left="0.45cm" Top="0cm" Value="=&quot;&lt;div style='width:100%;margin:0;padding:0 0 3px 0;direction:rtl;text-align:right;font-family:Arial;font-size:10pt;font-weight:bold;line-height:1.35;white-space:normal;'&gt;&quot; + Fields.ClauseLine + &quot;&lt;/div&gt;&quot;" CanGrow="True" CanShrink="False" Culture="ar-EG" Name="textBoxClause">
+          <Style VerticalAlign="Top">
+            <Font Name="Arial" Size="10pt" Bold="True" />
+          </Style>
+        </HtmlTextBox>
       </Items>
     </DetailSection>
     <PageFooterSection Height="1.592cm" Name="pageFooterSection1">
@@ -529,7 +94,7 @@
             <Font Name="Arial" Size="8pt" Bold="True" />
           </Style>
         </TextBox>
-        <TextBox Width="14mm" Height="6mm" Left="69.88mm" Top="9.92mm" Value="= PageNumber" CanGrow="False" Culture="ar-EG" Name="textBox86">
+        <TextBox Width="14mm" Height="6mm" Left="69.88mm" Top="9.92mm" Value="=Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(CStr(PageNumber), &quot;0&quot;, &quot;٠&quot;), &quot;1&quot;, &quot;١&quot;), &quot;2&quot;, &quot;٢&quot;), &quot;3&quot;, &quot;٣&quot;), &quot;4&quot;, &quot;٤&quot;), &quot;5&quot;, &quot;٥&quot;), &quot;6&quot;, &quot;٦&quot;), &quot;7&quot;, &quot;٧&quot;), &quot;8&quot;, &quot;٨&quot;), &quot;9&quot;, &quot;٩&quot;)" CanGrow="False" Culture="ar-EG" Name="textBox86">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Name="Arial" Size="8pt" Bold="True" />
           </Style>
@@ -539,7 +104,7 @@
             <Font Name="Arial" Size="8pt" Bold="True" />
           </Style>
         </TextBox>
-        <TextBox Width="14mm" Height="6mm" Left="49.88mm" Top="9.92mm" Value="= PageCount" CanGrow="False" Culture="ar-EG" Name="textBox84">
+        <TextBox Width="14mm" Height="6mm" Left="49.88mm" Top="9.92mm" Value="=Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(CStr(PageCount), &quot;0&quot;, &quot;٠&quot;), &quot;1&quot;, &quot;١&quot;), &quot;2&quot;, &quot;٢&quot;), &quot;3&quot;, &quot;٣&quot;), &quot;4&quot;, &quot;٤&quot;), &quot;5&quot;, &quot;٥&quot;), &quot;6&quot;, &quot;٦&quot;), &quot;7&quot;, &quot;٧&quot;), &quot;8&quot;, &quot;٨&quot;), &quot;9&quot;, &quot;٩&quot;)" CanGrow="False" Culture="ar-EG" Name="textBox84">
           <Style TextAlign="Left" VerticalAlign="Middle">
             <Font Name="Arial" Size="8pt" Bold="True" />
           </Style>
@@ -573,4 +138,42 @@
       </Selectors>
     </StyleRule>
   </StyleSheet>
+  <Groups>
+    <Group Name="group">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.01cm" Name="groupHeaderSection">
+          <Style Visible="False" />
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="1.698cm" Name="groupFooterSection">
+          <Items>
+            <TextBox Width="1.422cm" Height="0.55cm" Left="4.954cm" Top="0.048cm" Value="التوقيع" Name="textBoxSigLabel">
+              <Style TextAlign="Left" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="3.9cm" Height="0.55cm" Left="1.054cm" Top="0.048cm" Value="(                              )" Name="textBoxSigParen">
+              <Style TextAlign="Right" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="5.6cm" Height="0.55cm" Left="0.788cm" Top="0.598cm" Value="مدير عام الإدارة العامة" Name="textBoxSigTitle1">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+              </Style>
+            </TextBox>
+            <TextBox Width="5.6cm" Height="0.55cm" Left="0.788cm" Top="1.148cm" Value="للتعاقدات و المشتريات" Name="textBoxSigTitle2">
+              <Style TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupFooterSection>
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.TR_NO" />
+      </Groupings>
+    </Group>
+  </Groups>
 </Report>

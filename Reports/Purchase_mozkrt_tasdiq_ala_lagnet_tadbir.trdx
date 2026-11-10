@@ -4,20 +4,20 @@
     <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand=";WITH H AS (&#xD;&#xA;&#xD;&#xA;    SELECT &#xD;&#xA;        TR_DT,&#xD;&#xA;        LOC,&#xD;&#xA;        TR_TY,&#xD;&#xA;        Rmrk7,&#xD;&#xA;        TR_NO,&#xD;&#xA;        VST_NO,&#xD;&#xA;        FNNCL_AUTH,&#xD;&#xA;        LGL_GRNDS,&#xD;&#xA;        FNCL_TR_NO,&#xD;&#xA;        PRCHS_OPRTN_TYP,&#xD;&#xA;        HBONE_CD,&#xD;&#xA;        PURCHAS_NO,  &#xD;&#xA;        SUM(LTOT) AS TotalLTOT&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    GROUP BY &#xD;&#xA;        TR_DT, LOC, TR_TY, Rmrk7, TR_NO,&#xD;&#xA;        VST_NO, FNNCL_AUTH, LGL_GRNDS,&#xD;&#xA;        FNCL_TR_NO, PRCHS_OPRTN_TYP,&#xD;&#xA;        HBONE_CD, PURCHAS_NO&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;SELECT DISTINCT &#xD;&#xA;&#xD;&#xA;    H.TR_DT,&#xD;&#xA;&#xD;&#xA;    CASE&#xD;&#xA;        WHEN MONTH(H.TR_DT) &gt;= 7&#xD;&#xA;        THEN CAST(YEAR(H.TR_DT)+1 AS VARCHAR) + '/' + CAST(YEAR(H.TR_DT) AS VARCHAR)&#xD;&#xA;        ELSE CAST(YEAR(H.TR_DT) AS VARCHAR) + '/' + CAST(YEAR(H.TR_DT)-1 AS VARCHAR)&#xD;&#xA;    END AS Fiscal_Year,&#xD;&#xA;&#xD;&#xA;    H.VST_NO,&#xD;&#xA;    H.FNNCL_AUTH,&#xD;&#xA;    H.LGL_GRNDS,&#xD;&#xA;    H.Rmrk7,&#xD;&#xA;    H.TR_NO,&#xD;&#xA;    H.FNCL_TR_NO,&#xD;&#xA;    H.PRCHS_OPRTN_TYP,&#xD;&#xA;    T.Dscr_AR AS PRCHS_OPRTN_TYP_NAME,&#xD;&#xA;    H.TotalLTOT AS LTOT,&#xD;&#xA;    H.HBONE_CD,&#xD;&#xA;    H.PURCHAS_NO,&#xD;&#xA;&#xD;&#xA;    dbo.Num_To_Str(H.TotalLTOT) AS tfqet,&#xD;&#xA;&#x9;dbo.Num_To_STr(H.VST_NO) as tfqet_vst,&#xD;&#xA;&#x9;dbo.Num_To_Str(H.HBONE_CD) as tfqet_hbone,&#xD;&#xA;&#xD;&#xA;    -- 👇 الجزء الجديد&#xD;&#xA;    azitms.GLBDG_SNO AS sno,&#xD;&#xA;    GLBDG.acc_no,&#xD;&#xA;    glmf.acc_nm_ar&#xD;&#xA;&#xD;&#xA;FROM H&#xD;&#xA;&#xD;&#xA;LEFT JOIN AZTRD AZTRd&#xD;&#xA;    ON AZTRd.LOC = H.LOC &#xD;&#xA;    AND AZTRd.TR_TY = H.TR_TY &#xD;&#xA;    AND AZTRd.TR_NO = H.TR_NO&#xD;&#xA;&#xD;&#xA;LEFT JOIN AZTRH &#xD;&#xA;    ON AZTRd.LOC = AZTRH.LOC &#xD;&#xA;    AND AZTRd.TR_TY = AZTRH.TR_TY &#xD;&#xA;    AND AZTRd.TR_NO = AZTRH.TR_NO&#xD;&#xA;&#xD;&#xA;LEFT JOIN AZTRTY T&#xD;&#xA;    ON H.PRCHS_OPRTN_TYP = T.Tr_Ty&#xD;&#xA;&#xD;&#xA;-- 👇 بدل الـ Subqueries&#xD;&#xA;LEFT JOIN azitms &#xD;&#xA;    ON azitms.itm_cd = AZTRd.ITM_CD&#xD;&#xA;&#xD;&#xA;LEFT JOIN GLBDG &#xD;&#xA;    ON GLBDG.sno = azitms.GLBDG_SNO&#xD;&#xA;&#xD;&#xA;LEFT JOIN glmf &#xD;&#xA;    ON glmf.acc_no = GLBDG.acc_no&#xD;&#xA;&#xD;&#xA;WHERE 1=1;" Name="sqlDataSource1" />
   </DataSources>
   <Items>
-    <PageHeaderSection Height="5.346cm" Name="pageHeaderSection1">
+    <PageHeaderSection Height="6.604cm" Name="pageHeaderSection1">
       <Items>
         <TextBox Width="5.25cm" Height="0.5cm" Left="14.7cm" Top="0cm" Value="مجلــــــــــــــــــــــــــس الــــــــــــــــــــــوزراء" Name="textBox1">
-          <Style TextAlign="Left" VerticalAlign="Middle">
+          <Style TextAlign="Justify" VerticalAlign="Middle">
             <Font Bold="True" Underline="True" />
           </Style>
         </TextBox>
         <TextBox Width="5.974cm" Height="0.5cm" Left="13.976cm" Top="0.5cm" Value="صندوق تكريم شهداء و ضحايا و مفقودي ومصابي " Name="textBox2">
-          <Style TextAlign="Left" VerticalAlign="Middle">
+          <Style TextAlign="Justify" VerticalAlign="Middle">
             <Font Bold="True" Underline="True" />
           </Style>
         </TextBox>
         <TextBox Width="5.65cm" Height="0.4cm" Left="14.3cm" Top="1cm" Value="العمليات الحربيه و الارهابيه  والامنيه و اسرهم" Name="textBox3">
-          <Style TextAlign="Left" VerticalAlign="Middle">
+          <Style TextAlign="Justify" VerticalAlign="Middle">
             <Font Bold="True" Underline="True" />
           </Style>
         </TextBox>
@@ -31,42 +31,27 @@
             <Font Bold="True" Underline="True" />
           </Style>
         </TextBox>
-        <TextBox Width="5.5cm" Height="0.5cm" Left="6.7cm" Top="2.794cm" Value="   مذكرة تصديق علي لجنه تدبير " Name="textBox6">
+        <TextBox Width="5.5cm" Height="0.5cm" Left="6.7cm" Top="4.064cm" Value="   مذكرة تصديق علي لجنه تدبير " Name="textBox6">
           <Style Color="Black" TextAlign="Center" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" Underline="True" />
           </Style>
         </TextBox>
-        <TextBox Width="5.5cm" Height="0.5cm" Left="6.7cm" Top="3.294cm" Value="مرفوعة للسيد رئيس مجلس الإدارة" Name="textBox13">
+        <TextBox Width="5.5cm" Height="0.5cm" Left="6.7cm" Top="4.564cm" Value="مرفوعة للسيد رئيس مجلس الإدارة" Name="textBox13">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" Underline="True" />
           </Style>
         </TextBox>
-        <TextBox Width="1.444in" Height="0.214in" Left="2.638in" Top="1.6in" Value="= Fields.PURCHAS_NO" Name="textBox110">
+        <TextBox Width="1.444in" Height="0.214in" Left="2.638in" Top="2.1in" Value="= Fields.PURCHAS_NO" Name="textBox110">
           <Style TextAlign="Justify" VerticalAlign="Middle">
             <Font Bold="True" />
           </Style>
         </TextBox>
-        <TextBox Width="1.749in" Height="0.2in" Left="2.333in" Top="1.826in" Value="= Fields.FNCL_TR_NO" Name="textBox109">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.56cm" Height="0.5cm" Left="10.702cm" Top="4.123cm" Value="إسم العمليه " Name="textBox108">
+        <TextBox Width="1.56cm" Height="0.5cm" Left="10.702cm" Top="5.393cm" Value="إسم العمليه " Name="textBox108">
           <Style TextAlign="Left" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="1.56cm" Height="0.5cm" Left="10.702cm" Top="4.638cm" Value=" رقم العمليه  " Name="textBox107">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.3cm" Height="0.5cm" Left="10.402cm" Top="4.099cm" Value=":" Name="textBox106">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.3cm" Height="0.5cm" Left="10.368cm" Top="4.639cm" Value=":" Name="textBox80">
+        <TextBox Width="0.3cm" Height="0.5cm" Left="10.402cm" Top="5.369cm" Value=":" Name="textBox106">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
@@ -76,7 +61,7 @@
         </PictureBox>
       </Items>
     </PageHeaderSection>
-    <DetailSection Height="18.428cm" Name="detailSection1">
+    <DetailSection Height="18.288cm" Name="detailSection1">
       <Items>
         <TextBox Width="5.9cm" Height="0.5cm" Left="13.35cm" Top="0cm" Value=" الإدارة الطالبــــــــــة  : إدارة العقود و المشتريات" Name="textBox7">
           <Style TextAlign="Justify" VerticalAlign="Middle">
@@ -168,7 +153,7 @@
             <Font Name="Arial" Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="5.85cm" Height="0.5cm" Left="1.804cm" Top="12.293cm" Value="وإدارة امـــــــوال الصنــــــــــــــدوق" Name="textBox35">
+        <TextBox Width="5.85cm" Height="0.5cm" Left="1.554cm" Top="12.281cm" Value="وإدارة امـــــــوال الصنــــــــــــــدوق" Name="textBox35">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Name="Arial" Bold="True" Underline="False" />
           </Style>
@@ -188,12 +173,12 @@
             <Font Bold="True" Underline="True" />
           </Style>
         </TextBox>
-        <TextBox Width="6.51cm" Height="0.5cm" Left="1.4cm" Top="15.218cm" Value="المـــــــديـــر التنفيـــــــــذى للصنـــــــــــــدوق" Name="textBox40">
+        <TextBox Width="6.51cm" Height="0.5cm" Left="1.4cm" Top="14.986cm" Value="المـــديـر التنفيــذى للصنـــــــدوق" Name="textBox40">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Name="Arial" Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="14.3cm" Height="0.3cm" Left="1.45cm" Top="15.924cm" Value="ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ" Name="textBox42">
+        <TextBox Width="14.3cm" Height="0.3cm" Left="1.45cm" Top="15.748cm" Value="ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ" Name="textBox42">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
@@ -203,9 +188,9 @@
             <Font Bold="True" Underline="True" />
           </Style>
         </TextBox>
-        <TextBox Width="5.85cm" Height="0.5cm" Left="1.423cm" Top="17.928cm" Value="رئــــيـــــس مجلــــس الإدارة" Name="textBox44">
+        <TextBox Width="5.85cm" Height="0.5cm" Left="1.4cm" Top="17.526cm" Value="رئـيـــــــــــس مجلــــس الإدارة" Name="textBox44">
           <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Name="Arial" Bold="True" Underline="False" />
+            <Font Name="Arial" Size="11pt" Bold="True" Underline="False" />
           </Style>
         </TextBox>
         <TextBox Width="10.9cm" Height="0.5cm" Left="5.15cm" Top="9.901cm" Value="= Fields.LGL_GRNDS" Name="textBox54">
@@ -223,29 +208,19 @@
             <Font Size="11pt" Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="4.65cm" Height="0.488cm" Left="2.154cm" Top="11.293cm" Value=" التوقيع(                              )  " Name="textBox33">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Size="11pt" Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="4.7cm" Height="0.488cm" Left="1.7cm" Top="14.23cm" Value=" التوقيع(                              )  " Name="textBox36">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Size="11pt" Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="4.7cm" Height="0.488cm" Left="2.233cm" Top="16.94cm" Value=" التوقيع(                              )  " Name="textBox39">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Size="11pt" Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.45cm" Height="0.5cm" Left="5.483cm" Top="17.428cm" Value="الاسم : " Name="textBox71">
+        <TextBox Width="5.026cm" Height="0.488cm" Left="1.778cm" Top="11.293cm" Value=" التوقيع(                              )  " Name="textBox33">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Size="11pt" Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="1.45cm" Height="0.5cm" Left="4.95cm" Top="14.718cm" Value="الاسم : " Name="textBox41">
+        <TextBox Width="4.954cm" Height="0.488cm" Left="1.778cm" Top="14.224cm" Value=" التوقيع(                              )  " Name="textBox36">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Size="11pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.954cm" Height="0.664cm" Left="1.45cm" Top="16.764cm" Value=" التوقيع(                                  )  " Name="textBox39">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" Underline="False" />
           </Style>
         </TextBox>
         <TextBox Width="0.3cm" Height="0.5cm" Left="17.6cm" Top="8.881cm" Value=":" Name="textBox46">
@@ -283,8 +258,8 @@
             <Font Bold="True" />
           </Style>
         </TextBox>
-        <TextBox Width="17.85cm" Height="1.857cm" Left="1.4cm" Top="6.513cm" Value="= Fields.Rmrk7" Name="textBox24">
-          <Style TextAlign="Right">
+        <TextBox Width="17.596cm" Height="1.857cm" Left="1.4cm" Top="6.513cm" Value="= Fields.Rmrk7" Name="textBox24">
+          <Style TextAlign="Justify">
             <Font Bold="True" />
           </Style>
         </TextBox>

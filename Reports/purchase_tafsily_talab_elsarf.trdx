@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Report DataSourceName="sqlDataSource1" Width="17cm" Name="purchase_tafsily_talab_elsarf" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+<Report DataSourceName="sqlDataSource1" Width="17cm" Name="purchase_tafsily_talab_elsarf" Zoom="1.5" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
   <DataSources>
     <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="WITH DocLines AS (&#xD;&#xA;    SELECT LOC, TR_TY, TR_NO, LN_NO, ITM_CD, CAROWNER, TR_DT,&#xD;&#xA;           MIN(PKID) AS PKID, SUM(ISNULL(QTY, 0)) AS QTY,&#xD;&#xA;           (SELECT ITM_NM_AR FROM dbo.AZITMS  WHERE AZITMS.ITM_CD = aztrd.ITM_CD) ITM_NM_AR,&#xD;&#xA;           (SELECT DSCR_AR FROM dbo.AZLISTS  WHERE REC_TYPE = 2 AND CODE = aztrd.CAROWNER) CAROWNER_NM_AR,&#xD;&#xA;           (SELECT PK_NM_AR FROM dbo.AZPKGDEF WHERE PKID = aztrd.PKID) PK_NM_AR&#xD;&#xA;    FROM aztrd&#xD;&#xA;    WHERE tr_ty IN ('300') AND (1=1)&#xD;&#xA;    GROUP BY ITM_CD, PKID, LOC, TR_TY, TR_NO, LN_NO, CAROWNER, TR_DT&#xD;&#xA;)&#xD;&#xA;SELECT&#xD;&#xA;    l.LN_NO,&#xD;&#xA;    l.TR_NO,&#xD;&#xA;    l.LOC,&#xD;&#xA;    l.TR_TY,&#xD;&#xA;    l.TR_DT,&#xD;&#xA;    l.ITM_CD,&#xD;&#xA;    l.PKID,&#xD;&#xA;    l.ITM_NM_AR,&#xD;&#xA;    l.PK_NM_AR,&#xD;&#xA;    l.QTY,&#xD;&#xA;    ISNULL(c.P_QTY, 0)     AS P_QTY,&#xD;&#xA;    ISNULL(c.TOT_P_QTY, 0) AS TOT_P_QTY,&#xD;&#xA;    c.P_TR_DT,&#xD;&#xA;    l.QTY - ISNULL(c.TOT_P_QTY, 0) AS REM_QTY,&#xD;&#xA;    c.P_TR_NO,&#xD;&#xA;    l.CAROWNER,&#xD;&#xA;    l.CAROWNER_NM_AR,&#xD;&#xA;    s.NameArabic AS REQUEST_STATUS   -- &lt;&lt; عدّل اسم العمود لو مختلف&#xD;&#xA;FROM DocLines l&#xD;&#xA;OUTER APPLY (&#xD;&#xA;    SELECT&#xD;&#xA;        p.P_TR_NO,&#xD;&#xA;        p.P_TR_DT,&#xD;&#xA;        p.CHILD_QTY AS P_QTY,&#xD;&#xA;        SUM(p.CHILD_QTY) OVER (&#xD;&#xA;            ORDER BY p.P_TR_DT, p.P_TR_NO&#xD;&#xA;            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW&#xD;&#xA;        ) AS TOT_P_QTY&#xD;&#xA;    FROM (&#xD;&#xA;        SELECT&#xD;&#xA;            d2.TR_NO AS P_TR_NO,&#xD;&#xA;            d2.TR_DT AS P_TR_DT,&#xD;&#xA;            SUM(ISNULL(d2.QTY, 0)) AS CHILD_QTY&#xD;&#xA;        FROM aztrd d2&#xD;&#xA;        WHERE d2.PLOC     = l.LOC&#xD;&#xA;          AND d2.PTR_TY   = l.TR_TY&#xD;&#xA;          AND d2.PTR_NO   = l.TR_NO&#xD;&#xA;          AND d2.CAROWNER = l.CAROWNER&#xD;&#xA;          AND d2.ITM_CD   = l.ITM_CD&#xD;&#xA;        GROUP BY d2.LOC, d2.TR_TY, d2.TR_NO, d2.TR_DT&#xD;&#xA;    ) p&#xD;&#xA;) c&#xD;&#xA;LEFT JOIN erpx_sandoaa_br.Workflow.RequestInstances ri&#xD;&#xA;    ON ri.EntityId COLLATE DATABASE_DEFAULT&#xD;&#xA;       = (CAST(l.LOC AS varchar(20)) + '|' + CAST(l.TR_TY AS varchar(20)) + '|' + CAST(l.TR_NO AS varchar(20))) COLLATE DATABASE_DEFAULT&#xD;&#xA;    AND ri.RequestTemplateId = 18&#xD;&#xA;LEFT JOIN erpx_sandoaa_br.Workflow.States s&#xD;&#xA;    ON s.Id = ri.CurrentStateId          -- &lt;&lt; عدّل اسم عمود الحالة الحالية لو مختلف&#xD;&#xA;    AND s.RequestTemplateId = 18&#xD;&#xA;ORDER BY l.LOC, l.TR_TY, l.TR_NO, l.LN_NO, c.P_TR_DT, c.P_TR_NO;" Name="sqlDataSource1" />
   </DataSources>
@@ -147,24 +147,19 @@
         </TextBox>
       </Items>
     </PageFooterSection>
-    <ReportFooterSection Height="2.892cm" Name="reportFooterSection1">
+    <ReportFooterSection Height="2.216cm" Name="reportFooterSection1">
       <Items>
         <TextBox Width="4.9cm" Height="0.488cm" Left="0.6cm" Top="0.5cm" Value=" التوقيع (                              )  " Name="textBox72">
           <Style TextAlign="Left" VerticalAlign="Middle">
             <Font Size="11pt" Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="1.45cm" Height="0.5cm" Left="3.731cm" Top="0.988cm" Value="الاسم : " Name="textBox71">
+        <TextBox Width="4.2cm" Height="0.5cm" Left="0.831cm" Top="1.216cm" Value="مدير عام الإدارة العـــــــــــــامة" Name="textBox73">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Size="11pt" Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="4.2cm" Height="0.5cm" Left="0.831cm" Top="1.488cm" Value="مدير عام الإدارة العـــــــــــــامة" Name="textBox73">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Size="11pt" Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="4.2cm" Height="0.5cm" Left="0.831cm" Top="1.988cm" Value="للتعاقدات و المشتريـــات" Name="textBox74">
+        <TextBox Width="4.2cm" Height="0.5cm" Left="0.831cm" Top="1.716cm" Value="للتعاقدات و المشتريـــات" Name="textBox74">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Size="11pt" Bold="True" Underline="False" />
           </Style>
@@ -191,9 +186,9 @@
   <Groups>
     <Group Name="group">
       <GroupHeader>
-        <GroupHeaderSection Height="3.389cm" Name="groupHeaderSection">
+        <GroupHeaderSection Height="2.521cm" Name="groupHeaderSection">
           <Items>
-            <TextBox Width="3cm" Height="0.8cm" Left="8.4cm" Top="0.1cm" Value="= Fields.TR_NO" Name="textBox6">
+            <TextBox Width="1.092cm" Height="0.789cm" Left="13.208cm" Top="0.405cm" Value="= Fields.TR_NO" Name="textBox6">
               <Style TextAlign="Center" VerticalAlign="Middle">
                 <Font Bold="True" />
                 <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -201,31 +196,31 @@
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="2.55cm" Height="0.8cm" Left="5.461cm" Top="0.1cm" Value=" التاريخ:" Name="textBox5">
-              <Style TextAlign="Center" VerticalAlign="Middle">
+            <TextBox Width="2.878cm" Height="0.788cm" Left="10.33cm" Top="0.405cm" Value=" التاريخ:" Name="textBox5">
+              <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
                 <Font Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                 <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="2.1cm" Height="0.8cm" Left="3.361cm" Top="0.1cm" Value="= Fields.TR_DT" Format="{0:yyyy/MM/dd}" Culture="en" Name="textBox16">
-              <Style TextAlign="Right" VerticalAlign="Middle">
+            <TextBox Width="2.609cm" Height="0.788cm" Left="7.721cm" Top="0.405cm" Value="= Fields.TR_DT" Format="{0:yyyy/MM/dd}" Culture="en" Name="textBox16">
+              <Style TextAlign="Center" VerticalAlign="Middle">
                 <Font Bold="True" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                 <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="2.488cm" Height="0.8cm" Left="11.4cm" Top="0.1cm" Value="رقم الـطـلب :" Name="textBox4">
-              <Style TextAlign="Center" VerticalAlign="Middle">
+            <TextBox Width="2.488cm" Height="0.789cm" Left="14.3cm" Top="0.405cm" Value="رقم الـطـلب :" Name="textBox4">
+              <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="14pt" Bold="True" Underline="False" />
                 <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                 <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="4.8cm" Height="1cm" Left="9.4cm" Top="1.1cm" Value="الجهة الطالبة" Name="textBox8">
+            <TextBox Width="3.175cm" Height="0.788cm" Left="4.546cm" Top="0.405cm" Value="الجهة الطالبة" Name="textBox8">
               <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="14pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -233,15 +228,7 @@
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="0.837cm" Height="0.8cm" Left="8.439cm" Top="1.189cm" Value=":" Name="textBox21">
-              <Style TextAlign="Center" VerticalAlign="Middle">
-                <Font Size="14pt" Bold="True" Underline="False" />
-                <BorderStyle Default="Solid" Top="None" Bottom="None" Left="None" Right="None" />
-                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
-                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
-              </Style>
-            </TextBox>
-            <TextBox Width="6.1cm" Height="0.789cm" Left="2.1cm" Top="1.2cm" Value="= Fields.CAROWNER_NM_AR" Name="textBox12">
+            <TextBox Width="4.521cm" Height="0.789cm" Left="0cm" Top="0.405cm" Value="= Fields.CAROWNER_NM_AR" Name="textBox12">
               <Style TextAlign="Center" VerticalAlign="Middle">
                 <Font Bold="True" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -249,80 +236,80 @@
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="3.556cm" Height="1.1cm" Left="11.43cm" Top="2.289cm" Value="إســــم الصنف " Name="textBox15">
-              <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <TextBox Width="3.556cm" Height="1.1cm" Left="11.43cm" Top="1.421cm" Value="إســــم الصنف " Name="textBox15">
+              <Style BackgroundColor="141, 179, 227" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="9pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                 <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="1.409cm" Height="1.1cm" Left="8.921cm" Top="2.289cm" Value="الكمية&#xD;&#xA;المطلوبة" Name="textBox18">
-              <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <TextBox Width="1.409cm" Height="1.1cm" Left="8.921cm" Top="1.421cm" Value="الكمية&#xD;&#xA;المطلوبة" Name="textBox18">
+              <Style BackgroundColor="141, 179, 227" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="9pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                 <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="1.1cm" Height="1.1cm" Left="10.33cm" Top="2.289cm" Value="الوحدة " Name="textBox17">
-              <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <TextBox Width="1.1cm" Height="1.1cm" Left="10.33cm" Top="1.421cm" Value="الوحدة " Name="textBox17">
+              <Style BackgroundColor="141, 179, 227" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="9pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                 <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="1.275cm" Height="1.1cm" Left="4.546cm" Top="2.289cm" Value="ما تم&#xD;&#xA;صرفه" Name="textBox19">
-              <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <TextBox Width="1.275cm" Height="1.1cm" Left="4.546cm" Top="1.421cm" Value="ما تم&#xD;&#xA;صرفه" Name="textBox19">
+              <Style BackgroundColor="141, 179, 227" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="9pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                 <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="1.27cm" Height="1.1cm" Left="14.986cm" Top="2.289cm" Value="كود&#xD;&#xA;الصنف" Name="textBox14">
-              <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <TextBox Width="1.27cm" Height="1.1cm" Left="14.986cm" Top="1.421cm" Value="كود&#xD;&#xA;الصنف" Name="textBox14">
+              <Style BackgroundColor="141, 179, 227" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="9pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                 <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="0.532cm" Height="1.1cm" Left="16.256cm" Top="2.289cm" Value="م" Name="textBox13">
-              <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <TextBox Width="0.532cm" Height="1.1cm" Left="16.256cm" Top="1.421cm" Value="م" Name="textBox13">
+              <Style BackgroundColor="141, 179, 227" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="9pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                 <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="1.244cm" Height="1.1cm" Left="3.277cm" Top="2.289cm" Value="الكمية&#xD;&#xA;المتبقية" Name="textBox20">
-              <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <TextBox Width="1.244cm" Height="1.1cm" Left="3.277cm" Top="1.421cm" Value="الكمية&#xD;&#xA;المتبقية" Name="textBox20">
+              <Style BackgroundColor="141, 179, 227" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="9pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                 <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="1.2cm" Height="1.1cm" Left="7.721cm" Top="2.289cm" Value="رقم اذن&#xD;&#xA;الصرف" Name="textBox23">
-              <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <TextBox Width="1.2cm" Height="1.1cm" Left="7.721cm" Top="1.421cm" Value="رقم اذن&#xD;&#xA;الصرف" Name="textBox23">
+              <Style BackgroundColor="141, 179, 227" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="9pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                 <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="1.875cm" Height="1.1cm" Left="5.846cm" Top="2.289cm" Value="تاريخ اذن&#xD;&#xA;الصرف" Name="textBox24">
-              <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <TextBox Width="1.875cm" Height="1.1cm" Left="5.846cm" Top="1.421cm" Value="تاريخ اذن&#xD;&#xA;الصرف" Name="textBox24">
+              <Style BackgroundColor="141, 179, 227" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="9pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                 <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="3.276cm" Height="1.1cm" Left="0cm" Top="2.289cm" Value="حالة&#xD;&#xA; طلب الصرف" Name="textBox31">
-              <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+            <TextBox Width="3.276cm" Height="1.1cm" Left="0cm" Top="1.421cm" Value="حالة&#xD;&#xA; طلب الصرف" Name="textBox31">
+              <Style BackgroundColor="141, 179, 227" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="9pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                 <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
