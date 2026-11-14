@@ -1,7 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report DataSourceName="sqlDataSource1" Width="6.5in" Name="Purchase_Ekhtar_BL_natiga_El_fania" Zoom="2" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
   <DataSources>
-    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="SELECT&#xD;&#xA;    aztrh.ACC_NO,&#xD;&#xA;    ac.Acc_Nm_AR   AS Supplier_Name,&#xD;&#xA;    ac.ADDRS       AS Supplier_Address,&#xD;&#xA;    ac.Phone       AS Supplier_Phone,&#xD;&#xA;&#x9;ac.Acc_Nm_AR   AS acc_nm_ar,&#xD;&#xA;    aztrh.TEC_STAT,&#xD;&#xA;    aztrh.Rmrk9       AS Rejection_Reason,&#xD;&#xA;    aztrh.TR_NO,&#xD;&#xA;    aztrh.TR_TY,&#xD;&#xA;    aztrh.LOC,&#xD;&#xA;    aztrh.purchas_NO,&#xD;&#xA;    aztrh.FNCL_TR_NO,&#xD;&#xA;&#x9;aztrh.rmrk9,&#xD;&#xA;    CASE &#xD;&#xA;        WHEN CHARINDEX('-', aztrh.FNCL_TR_NO, CHARINDEX('-', aztrh.FNCL_TR_NO) + 1) &gt; 0&#xD;&#xA;        THEN SUBSTRING(&#xD;&#xA;                aztrh.FNCL_TR_NO,&#xD;&#xA;                CHARINDEX('-', aztrh.FNCL_TR_NO) + 1,&#xD;&#xA;                CHARINDEX('-', aztrh.FNCL_TR_NO, CHARINDEX('-', aztrh.FNCL_TR_NO) + 1) &#xD;&#xA;                    - CHARINDEX('-', aztrh.FNCL_TR_NO) - 1&#xD;&#xA;             )&#xD;&#xA;        ELSE aztrh.FNCL_TR_NO&#xD;&#xA;    END AS Practice_Type,&#xD;&#xA;    tr.dscr_ar,&#xD;&#xA;    aztrh.PRCHS_OPRTN_TYP,&#xD;&#xA;    aztrh.FNCL_DCSN_DT,&#xD;&#xA;    agg.Accepted_Count,&#xD;&#xA;    agg.Rejected_Count,&#xD;&#xA;    agg.Excused_Count,&#xD;&#xA;    agg.Has_Reasons,&#xD;&#xA;    agg.Accepted_Items,&#xD;&#xA;    agg.Rejected_Items,&#xD;&#xA;    agg.Excused_Items,&#xD;&#xA;    agg.Rejection_Reasons&#xD;&#xA;FROM AZTRH aztrh&#xD;&#xA;LEFT JOIN azx_sandoaa.dbo.AZTRTY tr&#xD;&#xA;   ON aztrh.tr_ty = tr.tr_ty&#xD;&#xA;LEFT JOIN AZACCMF ac&#xD;&#xA;    ON ac.Acc_NO = aztrh.ACC_NO&#xD;&#xA;OUTER APPLY (&#xD;&#xA;    SELECT&#xD;&#xA;        COUNT(CASE WHEN ISNULL(d.TEC_CNCL, 0) = 0 THEN 1 END) AS Accepted_Count,&#xD;&#xA;        COUNT(CASE WHEN d.TEC_CNCL = 1 THEN 1 END)           AS Rejected_Count,&#xD;&#xA;        COUNT(CASE WHEN d.TEC_CNCL = 2 THEN 1 END)           AS Excused_Count,&#xD;&#xA;        CASE WHEN COUNT(CASE WHEN d.TEC_CNCL = 1&#xD;&#xA;                              AND NULLIF(LTRIM(RTRIM(d.RMRK1)), '') IS NOT NULL&#xD;&#xA;                         THEN 1 END) &gt; 0 THEN 1 ELSE 0 END AS Has_Reasons,&#xD;&#xA;        STRING_AGG(CASE WHEN ISNULL(d.TEC_CNCL, 0) = 0&#xD;&#xA;                        THEN d.ITM_CD + N' - ' + ISNULL(itm.ITM_NM_AR, N'') END,&#xD;&#xA;                   CHAR(13) + CHAR(10)) AS Accepted_Items,&#xD;&#xA;        STRING_AGG(CASE WHEN d.TEC_CNCL = 1&#xD;&#xA;                        THEN d.ITM_CD + N' - ' + ISNULL(itm.ITM_NM_AR, N'') END,&#xD;&#xA;                   CHAR(13) + CHAR(10)) AS Rejected_Items,&#xD;&#xA;        STRING_AGG(CASE WHEN d.TEC_CNCL = 2&#xD;&#xA;                        THEN d.ITM_CD + N' - ' + ISNULL(itm.ITM_NM_AR, N'') END,&#xD;&#xA;                   CHAR(13) + CHAR(10)) AS Excused_Items,&#xD;&#xA;        STRING_AGG(CASE WHEN d.TEC_CNCL = 1&#xD;&#xA;                        THEN NULLIF(LTRIM(RTRIM(d.RMRK1)), '') END,&#xD;&#xA;                   CHAR(13) + CHAR(10)) AS Rejection_Reasons&#xD;&#xA;    FROM AZTRD d&#xD;&#xA;    LEFT JOIN AZITMS itm ON itm.ITM_CD = d.ITM_CD&#xD;&#xA;    WHERE d.LOC = aztrh.LOC&#xD;&#xA;      AND d.TR_TY = aztrh.TR_TY&#xD;&#xA;      AND d.TR_NO = aztrh.TR_NO&#xD;&#xA;) agg&#xD;&#xA;WHERE aztrh.tr_ty = 116" Name="sqlDataSource1" />
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="SELECT
+    h.ACC_NO,
+    ac.Acc_Nm_AR   AS Supplier_Name,
+    ac.ADDRS       AS Supplier_Address,
+    ac.Phone       AS Supplier_Phone,
+    ac.Acc_Nm_AR   AS acc_nm_ar,
+    h.TEC_STAT,
+    h.Rmrk9        AS Rejection_Reason,
+    h.TR_NO,
+    h.TR_TY,
+    h.LOC,
+    h.purchas_NO,
+    h.FNCL_TR_NO,
+    h.rmrk9,
+    CASE
+        WHEN CHARINDEX('-', h.FNCL_TR_NO, CHARINDEX('-', h.FNCL_TR_NO) + 1) &gt; 0
+        THEN SUBSTRING(h.FNCL_TR_NO,
+                       CHARINDEX('-', h.FNCL_TR_NO) + 1,
+                       CHARINDEX('-', h.FNCL_TR_NO, CHARINDEX('-', h.FNCL_TR_NO) + 1) - CHARINDEX('-', h.FNCL_TR_NO) - 1)
+        ELSE h.FNCL_TR_NO
+    END AS Practice_Type,
+    tr.dscr_ar,
+    h.PRCHS_OPRTN_TYP,
+    h.FNCL_DCSN_DT,
+    agg.Accepted_Count,
+    agg.Rejected_Count,
+    agg.Excused_Count,
+    agg.Has_Reasons,
+    agg.Accepted_Items,
+    agg.Rejected_Items,
+    agg.Excused_Items,
+    agg.Rejection_Reasons,
+    DENSE_RANK() OVER (PARTITION BY h.purchas_NO, h.FNCL_TR_NO, h.ACC_NO ORDER BY h.TR_NO) AS BID_SEQ,
+    COUNT(*)     OVER (PARTITION BY h.purchas_NO, h.FNCL_TR_NO, h.ACC_NO)               AS BID_CNT,
+    CASE WHEN DENSE_RANK() OVER (PARTITION BY h.purchas_NO, h.FNCL_TR_NO, h.ACC_NO ORDER BY h.TR_NO) &gt; 1
+         THEN N'عرض مرادف' ELSE N'عرض أساسي' END AS OFFER_KIND
+FROM AZTRH h
+LEFT JOIN azx_sandoaa.dbo.AZTRTY tr
+   ON h.tr_ty = tr.tr_ty
+LEFT JOIN AZACCMF ac
+    ON ac.Acc_NO = h.ACC_NO
+OUTER APPLY (
+    SELECT
+        COUNT(CASE WHEN ISNULL(d.TEC_CNCL, 0) = 0 THEN 1 END) AS Accepted_Count,
+        COUNT(CASE WHEN d.TEC_CNCL = 1 THEN 1 END)           AS Rejected_Count,
+        COUNT(CASE WHEN d.TEC_CNCL = 2 THEN 1 END)           AS Excused_Count,
+        CASE WHEN COUNT(CASE WHEN d.TEC_CNCL = 1
+                              AND NULLIF(LTRIM(RTRIM(d.RMRK1)), '') IS NOT NULL
+                         THEN 1 END) &gt; 0 THEN 1 ELSE 0 END AS Has_Reasons,
+        STRING_AGG(CASE WHEN ISNULL(d.TEC_CNCL, 0) = 0
+                        THEN d.ITM_CD + N' - ' + ISNULL(itm.ITM_NM_AR, N'') END,
+                   CHAR(13) + CHAR(10)) AS Accepted_Items,
+        STRING_AGG(CASE WHEN d.TEC_CNCL = 1
+                        THEN d.ITM_CD + N' - ' + ISNULL(itm.ITM_NM_AR, N'') END,
+                   CHAR(13) + CHAR(10)) AS Rejected_Items,
+        STRING_AGG(CASE WHEN d.TEC_CNCL = 2
+                        THEN d.ITM_CD + N' - ' + ISNULL(itm.ITM_NM_AR, N'') END,
+                   CHAR(13) + CHAR(10)) AS Excused_Items,
+        STRING_AGG(CASE WHEN d.TEC_CNCL = 1
+                        THEN NULLIF(LTRIM(RTRIM(d.RMRK1)), '') END,
+                   CHAR(13) + CHAR(10)) AS Rejection_Reasons
+    FROM AZTRD d
+    LEFT JOIN AZITMS itm ON itm.ITM_CD = d.ITM_CD
+    WHERE d.LOC = h.LOC
+      AND d.TR_TY = h.TR_TY
+      AND d.TR_NO = h.TR_NO
+) agg
+JOIN (SELECT DISTINCT purchas_NO, FNCL_TR_NO FROM AZTRH WHERE (1=1)) cur
+  ON cur.purchas_NO = h.purchas_NO
+ AND cur.FNCL_TR_NO = h.FNCL_TR_NO
+WHERE h.tr_ty IN (116, 216)
+ORDER BY ISNULL(ac.Acc_Nm_AR, h.ACC_NO), h.ACC_NO, h.TR_NO" Name="sqlDataSource1" />
   </DataSources>
   <Items>
     <PageHeaderSection Height="1.5in" Name="pageHeaderSection1">
@@ -36,8 +107,13 @@
         </PictureBox>
       </Items>
     </PageHeaderSection>
-    <DetailSection Height="7.176in" Name="detailSection1">
+    <DetailSection PageBreak="After" Height="7.176in" Name="detailSection1">
       <Items>
+        <TextBox Width="9cm" Height="0.6cm" Left="0.3cm" Top="0.15in" Value="=Fields.OFFER_KIND + ' ' + IIf(Fields.BID_CNT &gt; 1, '(' + CStr(Fields.BID_SEQ) + ' من ' + CStr(Fields.BID_CNT) + ')', '')" Name="textBoxOfferKind">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
         <TextBox Width="1.2in" Height="0.2in" Left="4.061in" Top="0.316in" Value="= Fields.Supplier_Address" Name="textBox20">
           <Style TextAlign="Right">
             <Font Bold="True" />
@@ -146,7 +222,7 @@
             </FormattingRule>
           </ConditionalFormatting>
         </TextBox>
-        <TextBox Width="0.761in" Height="0.197in" Left="2.963in" Top="5.588cm" Value="= Fields.FNCL_DCSN_DT" Format="{0:dd/MM/yyyy} " Name="textBox19">
+        <TextBox Width="0.761in" Height="0.197in" Left="2.963in" Top="5.588cm" Value="=IIf(Fields.FNCL_DCSN_DT Is Nothing, '-', Fields.FNCL_DCSN_DT)" Format="{0:dd/MM/yyyy}" CanGrow="True" Name="textBox19">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Bold="True" />
           </Style>
@@ -159,7 +235,7 @@
             </FormattingRule>
           </ConditionalFormatting>
         </TextBox>
-        <TextBox Width="0.5in" Height="0.197in" Left="4.024in" Top="5.588cm" Value="= Format(&quot;{0:dddd}&quot;, CDate(Fields.FNCL_DCSN_DT ))&#xD;&#xA;" Format="{0:dd/MM/yyyy} " Name="textBox15">
+        <TextBox Width="0.5in" Height="0.197in" Left="4.024in" Top="5.588cm" Value="=IIf(Fields.FNCL_DCSN_DT Is Nothing, '-', Format(&quot;{0:dddd}&quot;, Fields.FNCL_DCSN_DT))" CanGrow="True" Name="textBox15">
           <Style TextAlign="Justify" VerticalAlign="Middle">
             <Font Bold="True" />
           </Style>
