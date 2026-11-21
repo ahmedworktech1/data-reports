@@ -28,9 +28,9 @@
         <Font Bold="True" />
       </Style>
       <Items>
-        <TextBox Width="16.4cm" Height="0.7cm" Left="0.5cm" Top="0.05cm" CanGrow="True" Value="= Fields.LINE_TEXT" Name="textBoxLine">
+        <TextBox Width="16.4cm" Height="0.7cm" Left="0.5cm" Top="0.05cm" Value="= Fields.LINE_TEXT" CanGrow="True" Name="textBoxLine">
           <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Size="11pt" />
+            <Font Size="11pt" Bold="True" />
           </Style>
         </TextBox>
       </Items>
@@ -41,39 +41,15 @@
         <Font Bold="True" />
       </Style>
       <Items>
-        <TextBox Width="5cm" Height="0.7cm" Left="12.0cm" Top="0.25cm" Value="توصى اللجنة بالآتي :" Name="textBox80">
+        <TextBox Width="5cm" Height="0.7cm" Left="12cm" Top="0.25cm" Value="توصى اللجنة بالآتي :" Name="textBox80">
           <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" Underline="True" Size="11pt" />
+            <Font Size="11pt" Bold="True" Underline="True" />
           </Style>
         </TextBox>
       </Items>
     </ReportHeaderSection>
     <ReportFooterSection Height="0.132cm" Name="reportFooterSection1" />
   </Items>
-  <Groups>
-    <Group Name="sectionGroup">
-      <GroupHeader>
-        <GroupHeaderSection Height="0.95cm" Name="groupHeaderSection">
-          <Style>
-            <Font Bold="True" />
-          </Style>
-          <Items>
-            <TextBox Width="16.9cm" Height="0.7cm" Left="0cm" Top="0.15cm" CanGrow="True" Value="= Fields.SECTION_TITLE" Name="textBoxTitle">
-              <Style TextAlign="Right" VerticalAlign="Middle">
-                <Font Bold="True" Size="11pt" />
-              </Style>
-            </TextBox>
-          </Items>
-        </GroupHeaderSection>
-      </GroupHeader>
-      <GroupFooter>
-        <GroupFooterSection Height="0.3cm" Name="groupFooterSection" />
-      </GroupFooter>
-      <Groupings>
-        <Grouping Expression="= Fields.SECTION_KEY" />
-      </Groupings>
-    </Group>
-  </Groups>
   <PageSettings PaperKind="A4" Landscape="False">
     <Margins>
       <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
@@ -90,6 +66,30 @@
       </Selectors>
     </StyleRule>
   </StyleSheet>
+  <Groups>
+    <Group Name="sectionGroup">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.95cm" Name="groupHeaderSection">
+          <Style>
+            <Font Bold="True" />
+          </Style>
+          <Items>
+            <TextBox Width="16.9cm" Height="0.7cm" Left="0cm" Top="0.15cm" Value="= Fields.SECTION_TITLE" CanGrow="True" Name="textBoxTitle">
+              <Style TextAlign="Right" VerticalAlign="Middle">
+                <Font Size="11pt" Bold="True" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.3cm" Name="groupFooterSection" />
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.SECTION_KEY" />
+      </Groupings>
+    </Group>
+  </Groups>
   <ReportParameters>
     <ReportParameter Name="Loc" AllowNull="True" />
     <ReportParameter Name="TrTy" Type="Integer" AllowNull="True" />

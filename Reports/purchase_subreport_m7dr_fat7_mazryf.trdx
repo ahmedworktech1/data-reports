@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Report xmlns="http://schemas.telerik.com/reporting/2023/1.0" DataSourceName="sqlDataSource1" Width="15.748cm" Name="purchase_subreport_m7dr_fat7_mazryf" Zoom="1.5">
+<Report DataSourceName="sqlDataSource1" Width="17cm" Name="purchase_subreport_m7dr_fat7_mazryf" Zoom="1.5" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
   <DataSources>
-    <SqlDataSource QueryDesignerState="null" ParameterValues="{&quot;@LocParam&quot;:&quot;50&quot;,&quot;@TrTyParam&quot;:&quot;115&quot;,&quot;@FNCLTRNO&quot;:&quot;2-مناقصه عامة-2026/2025&quot;}" ConnectionString="azxsandoaa" SelectCommand="SELECT&#13;&#10;    t.vst_no,&#13;&#10;    dbo.num_to_str(t.vst_no) AS tfqet,&#13;&#10;    t.tr_dt,&#13;&#10;    t.Rmrk7,&#13;&#10;    t.PYMNT_MTHD,&#13;&#10;    PM.DSCR_AR AS PYMNT_MTHD_Name,&#13;&#10;    t.acc_no,&#13;&#10;    t.acc_nm&#13;&#10;FROM (&#13;&#10;    SELECT *,&#13;&#10;        ROW_NUMBER() OVER (&#13;&#10;            PARTITION BY FNCL_TR_NO, acc_no&#13;&#10;            ORDER BY CASE WHEN PYMNT_MTHD IS NULL THEN 1 ELSE 0 END, TR_NO DESC&#13;&#10;        ) AS rn&#13;&#10;    FROM aztrh&#13;&#10;    WHERE AZTRH.loc = @LocParam&#13;&#10;      AND AZTRH.tr_ty = @TrTyParam&#13;&#10;      AND AZTRH.FNCL_TR_NO = @FNCLTRNO&#13;&#10;) t&#13;&#10;LEFT JOIN AppCodes PM&#13;&#10;    ON PM.ID = '11031'&#13;&#10;    AND PM.SEQ = t.PYMNT_MTHD&#13;&#10;WHERE t.rn = 1" Name="sqlDataSource1">
+    <SqlDataSource QueryDesignerState="null" ParameterValues="{&quot;@LocParam&quot;:&quot;50&quot;,&quot;@TrTyParam&quot;:&quot;115&quot;,&quot;@FNCLTRNO&quot;:&quot;2-مناقصه عامة-2026/2025&quot;}" ConnectionString="azxsandoaa" SelectCommand="SELECT&#xD;&#xA;    t.vst_no,&#xD;&#xA;    dbo.num_to_str(t.vst_no) AS tfqet,&#xD;&#xA;    t.tr_dt,&#xD;&#xA;    t.Rmrk7,&#xD;&#xA;    t.PYMNT_MTHD,&#xD;&#xA;    PM.DSCR_AR AS PYMNT_MTHD_Name,&#xD;&#xA;    t.acc_no,&#xD;&#xA;    t.acc_nm&#xD;&#xA;FROM (&#xD;&#xA;    SELECT *,&#xD;&#xA;        ROW_NUMBER() OVER (&#xD;&#xA;            PARTITION BY FNCL_TR_NO, acc_no&#xD;&#xA;            ORDER BY CASE WHEN PYMNT_MTHD IS NULL THEN 1 ELSE 0 END, TR_NO DESC&#xD;&#xA;        ) AS rn&#xD;&#xA;    FROM aztrh&#xD;&#xA;    WHERE AZTRH.loc = @LocParam&#xD;&#xA;      AND AZTRH.tr_ty = @TrTyParam&#xD;&#xA;      AND AZTRH.FNCL_TR_NO = @FNCLTRNO&#xD;&#xA;) t&#xD;&#xA;LEFT JOIN AppCodes PM&#xD;&#xA;    ON PM.ID = '11031'&#xD;&#xA;    AND PM.SEQ = t.PYMNT_MTHD&#xD;&#xA;WHERE t.rn = 1" Name="sqlDataSource1">
       <Parameters>
         <SqlDataSourceParameter DbType="String" Name="@LocParam">
           <Value>
@@ -22,71 +22,71 @@
     </SqlDataSource>
   </DataSources>
   <Items>
-    <DetailSection Height="0.84cm" Name="detailSection1">
+    <DetailSection Height="0.4cm" Name="detailSection1">
       <Items>
-        <TextBox Width="2.2cm" Height="0.4cm" Left="1.548cm" Top="0cm" Value="=IIf(Fields.TR_DT Is Nothing, '-', Fields.TR_DT)" Format="{0:dd/MM/yyyy}" Culture="en" Name="textBox123" CanGrow="True">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Size="9pt" Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.1cm" Height="0.4cm" Left="3.748cm" Top="0cm" Value="بتاريخ " Name="textBox53">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Size="9pt" Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="2.2cm" Height="0.4cm" Left="4.848cm" Top="0cm" Value="= Fields.PYMNT_MTHD_Name" CanShrink="True" Name="textBox90">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Size="9pt" Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="1.3cm" Height="0.4cm" Left="7.048cm" Top="0cm" Value="بموجـــب" Name="textBox52">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Size="9pt" Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="3cm" Height="0.4cm" Left="8.348cm" Top="0cm" Value="= Fields.acc_nm" Name="textBox1">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Size="9pt" Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="3.6cm" Height="0.4cm" Left="11.348cm" Top="0cm" Value="تــــــــأمين مؤقت مقــــــدم مــــن " Name="textBox51">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Size="9pt" Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.3cm" Height="0.4cm" Left="14.948cm" Top="0cm" Value="-" Name="textBox2">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Size="9pt" Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="0.5cm" Height="0.4cm" Left="15.248cm" Top="0cm" Value="= RowNumber()" Name="textBox56">
-          <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Size="9pt" Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="11.048cm" Height="0.4cm" Left="0cm" Top="0.42cm" Value="= Fields.tfqet" CanGrow="True" Name="textBox3">
+        <TextBox Width="4.07cm" Height="0.4cm" Left="0.0cm" Top="0cm" Value="= Fields.tfqet" CanGrow="True" CanShrink="True" Name="textBox3">
           <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Size="9pt" Bold="True" />
+            <Font Size="7pt" Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="0.9cm" Height="0.4cm" Left="11.048cm" Top="0.42cm" Value="فقط" Name="textBox4">
+        <TextBox Width="0.41cm" Height="0.4cm" Left="4.07cm" Top="0cm" Value="فقط" Name="textBox4">
           <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Size="9pt" Bold="True" Underline="False" />
+            <Font Size="7pt" Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="0.9cm" Height="0.4cm" Left="11.948cm" Top="0.42cm" Value="جنيه " Name="textBox55">
+        <TextBox Width="0.54cm" Height="0.4cm" Left="4.48cm" Top="0cm" Value="جنيه " Name="textBox55">
           <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Size="9pt" Bold="True" Underline="False" />
+            <Font Size="7pt" Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="1.8cm" Height="0.4cm" Left="12.848cm" Top="0.42cm" Value="= Fields.VST_NO" Culture="ar-EG" Name="textBox99">
+        <TextBox Width="0.66cm" Height="0.4cm" Left="5.02cm" Top="0cm" Value="= Fields.VST_NO" Culture="ar-EG" Name="textBox99">
           <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Size="9pt" Bold="True" />
+            <Font Size="7pt" Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="1.1cm" Height="0.4cm" Left="14.648cm" Top="0.42cm" Value="بمبلغ" Name="textBox54">
+        <TextBox Width="0.49cm" Height="0.4cm" Left="5.68cm" Top="0cm" Value="بمبلغ" Name="textBox54">
           <Style TextAlign="Center" VerticalAlign="Middle">
-            <Font Size="9pt" Bold="True" Underline="False" />
+            <Font Size="7pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.43cm" Height="0.4cm" Left="6.17cm" Top="0cm" Value="=IIf(Fields.TR_DT Is Nothing, '-', Fields.TR_DT)" Format="{0:dd/MM/yyyy}" CanGrow="True" Culture="en" Name="textBox123">
+          <Style TextAlign="Justify" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.66cm" Height="0.4cm" Left="7.6cm" Top="0cm" Value="بتاريخ " Name="textBox53">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.23cm" Height="0.4cm" Left="8.26cm" Top="0cm" Value="= Fields.PYMNT_MTHD_Name" CanShrink="True" CanGrow="True" Name="textBox90">
+          <Style TextAlign="Justify" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.87cm" Height="0.4cm" Left="9.49cm" Top="0cm" Value="بموجـــب" Name="textBox52">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.7cm" Height="0.4cm" Left="10.36cm" Top="0cm" Value="= Fields.acc_nm" CanGrow="True" CanShrink="True" Name="textBox1">
+          <Style TextAlign="Justify" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.09cm" Height="0.4cm" Left="12.06cm" Top="0cm" Value="تــــــــأمين مؤقت مقــــــدم مــــن " Name="textBox51">
+          <Style TextAlign="Justify" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.2cm" Height="0.4cm" Left="15.15cm" Top="0cm" Value="-" Name="textBox2">
+          <Style TextAlign="Justify" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="0.25cm" Height="0.4cm" Left="15.35cm" Top="0cm" Value="= RowNumber()" Name="textBox56">
+          <Style TextAlign="Justify" VerticalAlign="Middle">
+            <Font Size="7pt" Bold="True" Underline="False" />
           </Style>
         </TextBox>
       </Items>
@@ -100,7 +100,7 @@
   <StyleSheet>
     <StyleRule>
       <Style>
-        <Padding Left="2pt" Right="2pt" />
+        <Padding Left="1pt" Right="1pt" />
       </Style>
       <Selectors>
         <TypeSelector Type="TextItemBase" />

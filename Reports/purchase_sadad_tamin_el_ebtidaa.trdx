@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Report DataSourceName="sqlDataSource1" Width="17cm" Name="purchase_maharah" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+<Report DataSourceName="sqlDataSource1" Width="17cm" Name="purchase_maharah" Zoom="1.5" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
   <DataSources>
-    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="glxsandoaa" SelectCommand=";WITH Aztrh_Dedup AS (&#xD;&#xA;    SELECT &#xD;&#xA;        FNCL_TR_NO,&#xD;&#xA;        Purchas_No,&#xD;&#xA;        ROW_NUMBER() OVER (PARTITION BY FNCL_TR_NO, Purchas_No ORDER BY (SELECT NULL)) AS rn&#xD;&#xA;    FROM azx_sandoaa.dbo.aztrh&#xD;&#xA;    where loc=@loc and tr_ty=@tr_ty and tr_no=@tr_no&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;SELECT &#xD;&#xA;    N'نقدي' AS Source_Type,&#xD;&#xA;    T.Az_Oprtn_Nm     AS AzOprtnNm,&#xD;&#xA;    T.Az_Oprtn_No     AS AzOprtnNo,&#xD;&#xA;    CAST(ABS(T.tr_no) AS NVARCHAR(50))   AS Doc_No,&#xD;&#xA;    --CAST(T.tot_amt AS NVARCHAR(50))      AS Amount,&#xD;&#xA;    T.tot_amt AS Amount,&#xD;&#xA;     T.tr_dt AS Doc_Date,&#xD;&#xA;    (SELECT S.SSUM_NM_Ar &#xD;&#xA;     FROM glx_sandoaa.dbo.GLSSUMS S &#xD;&#xA;     WHERE S.SSUM_CD = T.ssum_cd) AS Ssum_Nm_Ar,&#xD;&#xA;    CASE WHEN T.tr_no &lt; 0 THEN N'لم يراجع' ELSE N'روجع' END AS Doc_Status&#xD;&#xA;FROM glx_sandoaa.dbo.GlCsh_Tr_h T&#xD;&#xA;INNER JOIN Aztrh_Dedup A&#xD;&#xA;    ON T.AZ_OPRTN_NO = A.FNCL_TR_NO&#xD;&#xA;   AND T.AZ_OPRTN_NM = A.Purchas_No&#xD;&#xA;   AND A.rn = 1&#xD;&#xA;WHERE T.tot_amt &gt; 0&#xD;&#xA;  AND T.Document_Type = 4&#xD;&#xA;&#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;SELECT &#xD;&#xA;    N'خطاب ضمان',&#xD;&#xA;    COALESCE(NULLIF(LTRIM(RTRIM(L.Az_Oprtn_Nm)), N''), A.Purchas_No),&#xD;&#xA;    L.Az_Oprtn_No,&#xD;&#xA;    COALESCE(CAST(ABS(TRY_CAST(L.lc_no AS INT)) AS NVARCHAR(50)), L.lc_no),&#xD;&#xA;    L.lc_amount  AS Amount,&#xD;&#xA;    L.OPN_DT as Doc_Date,&#xD;&#xA;    (SELECT S.SSUM_NM_Ar &#xD;&#xA;     FROM glx_sandoaa.dbo.GLSSUMS S &#xD;&#xA;     WHERE S.SSUM_CD = L.ssum_cd),&#xD;&#xA;    CASE WHEN TRY_CAST(L.lc_no AS INT) &lt; 0 THEN N'لم يراجع' ELSE N'روجع' END&#xD;&#xA;FROM glx_sandoaa.dbo.gllcmf L&#xD;&#xA;INNER JOIN Aztrh_Dedup A&#xD;&#xA;    ON LTRIM(RTRIM(L.AZ_OPRTN_NO)) = LTRIM(RTRIM(A.FNCL_TR_NO))&#xD;&#xA;   AND (LTRIM(RTRIM(L.AZ_OPRTN_NM)) = LTRIM(RTRIM(A.Purchas_No)) OR NULLIF(LTRIM(RTRIM(L.AZ_OPRTN_NM)), N'') IS NULL OR NULLIF(LTRIM(RTRIM(A.Purchas_No)), N'') IS NULL)&#xD;&#xA;   AND A.rn = 1&#xD;&#xA;WHERE L.lc_amount &gt; 0&#xD;&#xA;  AND L.Gr_Ty = 1&#xD;&#xA;&#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;SELECT &#xD;&#xA;    N'شيك',&#xD;&#xA;    C.Az_Oprtn_Nm,&#xD;&#xA;    C.Az_Oprtn_No,&#xD;&#xA;    CAST(ABS(TRY_CAST(C.chk_no AS INT)) AS NVARCHAR(50)),&#xD;&#xA;    C.AMT  AS Amount,&#xD;&#xA;     C.DUE_DT as Doc_Date,&#xD;&#xA;    (SELECT S.SSUM_NM_Ar &#xD;&#xA;     FROM glx_sandoaa.dbo.GLSSUMS S &#xD;&#xA;     WHERE S.SSUM_CD = C.ssum_cd),&#xD;&#xA;    CASE WHEN TRY_CAST(C.chk_no AS INT) &lt; 0 THEN N'لم يراجع' ELSE N'روجع' END&#xD;&#xA;FROM glx_sandoaa.dbo.glchksmf C&#xD;&#xA;INNER JOIN Aztrh_Dedup A&#xD;&#xA;    ON C.AZ_OPRTN_NO = A.FNCL_TR_NO&#xD;&#xA;   AND C.AZ_OPRTN_NM = A.Purchas_No&#xD;&#xA;   AND A.rn = 1&#xD;&#xA;WHERE C.AMT &gt; 0&#xD;&#xA;  AND C.Document_Type = 1&#xD;&#xA;&#xD;&#xA;ORDER BY Doc_Date;" Name="sqlDataSource1">
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand=";WITH Aztrh_Dedup AS (&#xD;&#xA;    SELECT &#xD;&#xA;        FNCL_TR_NO,&#xD;&#xA;        Purchas_No,&#xD;&#xA;        ROW_NUMBER() OVER (PARTITION BY FNCL_TR_NO, Purchas_No ORDER BY (SELECT NULL)) AS rn&#xD;&#xA;    FROM azx_sandoaa.dbo.aztrh&#xD;&#xA;    where loc=@loc and tr_ty=@tr_ty and tr_no=@tr_no&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;SELECT &#xD;&#xA;    N'نقدي' AS Source_Type,&#xD;&#xA;    T.Az_Oprtn_Nm     AS AzOprtnNm,&#xD;&#xA;    T.Az_Oprtn_No     AS AzOprtnNo,&#xD;&#xA;    CAST(ABS(T.tr_no) AS NVARCHAR(50))   AS Doc_No,&#xD;&#xA;    --CAST(T.tot_amt AS NVARCHAR(50))      AS Amount,&#xD;&#xA;    T.tot_amt AS Amount,&#xD;&#xA;     T.tr_dt AS Doc_Date,&#xD;&#xA;    (SELECT S.SSUM_NM_Ar &#xD;&#xA;     FROM glx_sandoaa.dbo.GLSSUMS S &#xD;&#xA;     WHERE S.SSUM_CD = T.ssum_cd) AS Ssum_Nm_Ar,&#xD;&#xA;    CASE WHEN T.tr_no &lt; 0 THEN N'لم يراجع' ELSE N'روجع' END AS Doc_Status&#xD;&#xA;FROM glx_sandoaa.dbo.GlCsh_Tr_h T&#xD;&#xA;INNER JOIN Aztrh_Dedup A&#xD;&#xA;    ON T.AZ_OPRTN_NO = A.FNCL_TR_NO&#xD;&#xA;   AND T.AZ_OPRTN_NM = A.Purchas_No&#xD;&#xA;   AND A.rn = 1&#xD;&#xA;WHERE T.tot_amt &gt; 0&#xD;&#xA;  AND T.Document_Type = 4&#xD;&#xA;&#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;SELECT &#xD;&#xA;    N'خطاب ضمان',&#xD;&#xA;    COALESCE(NULLIF(LTRIM(RTRIM(L.Az_Oprtn_Nm)), N''), A.Purchas_No),&#xD;&#xA;    L.Az_Oprtn_No,&#xD;&#xA;    COALESCE(CAST(ABS(TRY_CAST(L.lc_no AS INT)) AS NVARCHAR(50)), L.lc_no),&#xD;&#xA;    L.lc_amount  AS Amount,&#xD;&#xA;    L.OPN_DT as Doc_Date,&#xD;&#xA;    (SELECT S.SSUM_NM_Ar &#xD;&#xA;     FROM glx_sandoaa.dbo.GLSSUMS S &#xD;&#xA;     WHERE S.SSUM_CD = L.ssum_cd),&#xD;&#xA;    -- خطاب ضمان: استبدل CASE الحالي بهذا&#xD;&#xA;N'لم يراجع' AS Doc_Status&#xD;&#xA;&#xD;&#xA;FROM glx_sandoaa.dbo.gllcmf L&#xD;&#xA;INNER JOIN Aztrh_Dedup A&#xD;&#xA;    ON LTRIM(RTRIM(L.AZ_OPRTN_NO)) = LTRIM(RTRIM(A.FNCL_TR_NO))&#xD;&#xA;   AND (LTRIM(RTRIM(L.AZ_OPRTN_NM)) = LTRIM(RTRIM(A.Purchas_No)) OR NULLIF(LTRIM(RTRIM(L.AZ_OPRTN_NM)), N'') IS NULL OR NULLIF(LTRIM(RTRIM(A.Purchas_No)), N'') IS NULL)&#xD;&#xA;   AND A.rn = 1&#xD;&#xA;WHERE L.lc_amount &gt; 0&#xD;&#xA;  AND L.Gr_Ty = 1&#xD;&#xA;&#xD;&#xA;UNION ALL&#xD;&#xA;&#xD;&#xA;SELECT &#xD;&#xA;    N'شيك',&#xD;&#xA;    C.Az_Oprtn_Nm,&#xD;&#xA;    C.Az_Oprtn_No,&#xD;&#xA;    CAST(ABS(TRY_CAST(C.chk_no AS INT)) AS NVARCHAR(50)),&#xD;&#xA;    C.AMT  AS Amount,&#xD;&#xA;     C.DUE_DT as Doc_Date,&#xD;&#xA;    (SELECT S.SSUM_NM_Ar &#xD;&#xA;     FROM glx_sandoaa.dbo.GLSSUMS S &#xD;&#xA;     WHERE S.SSUM_CD = C.ssum_cd),&#xD;&#xA;    -- خطاب ضمان: استبدل CASE الحالي بهذا&#xD;&#xA;N'لم يراجع' AS Doc_Status&#xD;&#xA;&#xD;&#xA;FROM glx_sandoaa.dbo.glchksmf C&#xD;&#xA;INNER JOIN Aztrh_Dedup A&#xD;&#xA;    ON C.AZ_OPRTN_NO = A.FNCL_TR_NO&#xD;&#xA;   AND C.AZ_OPRTN_NM = A.Purchas_No&#xD;&#xA;   AND A.rn = 1&#xD;&#xA;WHERE C.AMT &gt; 0&#xD;&#xA;  AND C.Document_Type = 1&#xD;&#xA;&#xD;&#xA;ORDER BY Doc_Date;" Name="sqlDataSource1">
       <Parameters>
         <SqlDataSourceParameter DbType="String" Name="@loc">
           <Value>
@@ -92,7 +92,7 @@
     <DetailSection Height="0.6cm" Name="detailSection1">
       <Items>
         <TextBox Width="3.25cm" Height="0.6cm" Left="12.9cm" Top="0cm" Value="= Fields.Ssum_Nm_Ar" Name="textBox9">
-          <Style BackgroundColor="196, 189, 150" TextAlign="Center" VerticalAlign="Middle">
+          <Style BackgroundColor="84, 142, 213" TextAlign="Center" VerticalAlign="Middle">
             <Font Bold="True" />
             <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
             <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
@@ -100,7 +100,7 @@
           </Style>
         </TextBox>
         <TextBox Width="2.627cm" Height="0.6cm" Left="2.199cm" Top="0cm" Value="= CInt(Fields.Amount)" Format="{0:0}" TextWrap="True" Name="textBox16">
-          <Style BackgroundColor="196, 189, 150" TextAlign="Center" VerticalAlign="Middle">
+          <Style BackgroundColor="84, 142, 213" TextAlign="Center" VerticalAlign="Middle">
             <Font Bold="True" />
             <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
             <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
@@ -116,7 +116,7 @@
           </Style>
         </TextBox>
         <TextBox Width="3cm" Height="0.6cm" Left="7.5cm" Top="0cm" Value="= Fields.Doc_Date" Format="{0:d}" Name="textBox12">
-          <Style BackgroundColor="196, 189, 150" TextAlign="Center" VerticalAlign="Middle">
+          <Style BackgroundColor="84, 142, 213" TextAlign="Center" VerticalAlign="Middle">
             <Font Bold="True" />
             <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
             <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
@@ -149,36 +149,51 @@
         </TextBox>
       </Items>
     </DetailSection>
-    <PageFooterSection Height="2cm" Name="pageFooterSection1">
+    <PageFooterSection Height="3.709cm" Name="pageFooterSection1">
       <Items>
-        <TextBox Width="1.95cm" Height="0.6cm" Left="11.425cm" Top="0.4cm" Value="طبع بواسطة" Name="textBox83">
+        <TextBox Width="1.95cm" Height="0.6cm" Left="11.425cm" Top="2.509cm" Value="طبع بواسطة" Name="textBox83">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Size="8pt" Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="1.95cm" Height="0.6cm" Left="11.425cm" Top="1cm" Value="= &quot;المستخدم : &quot;+Cstr(UserIdentity.Name)" Name="textBox82">
+        <TextBox Width="1.95cm" Height="0.6cm" Left="11.425cm" Top="3.109cm" Value="= &quot;المستخدم : &quot;+Cstr(UserIdentity.Name)" Name="textBox82">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Size="8pt" Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="34mm" Height="6mm" Left="36.25mm" Top="4mm" Value="= 'صفحة'" Culture="ar-EG" Name="textBox64">
+        <TextBox Width="34mm" Height="6mm" Left="36.25mm" Top="25.09mm" Value="= 'صفحة'" Culture="ar-EG" Name="textBox64">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Name="Arial" Size="8pt" Bold="True" />
           </Style>
         </TextBox>
-        <TextBox Width="14mm" Height="6mm" Left="56.25mm" Top="10mm" Value="= PageNumber" CanGrow="False" Culture="ar-EG" Name="textBox63">
+        <TextBox Width="14mm" Height="6mm" Left="56.25mm" Top="31.09mm" Value="= PageNumber" CanGrow="False" Culture="ar-EG" Name="textBox63">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Name="Arial" Size="8pt" Bold="True" />
           </Style>
         </TextBox>
-        <TextBox Width="6mm" Height="6mm" Left="50.25mm" Top="10mm" Value="= 'من'" Culture="ar-EG" Name="textBox58">
+        <TextBox Width="6mm" Height="6mm" Left="50.25mm" Top="31.09mm" Value="= 'من'" Culture="ar-EG" Name="textBox58">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Name="Arial" Size="8pt" Bold="True" />
           </Style>
         </TextBox>
-        <TextBox Width="14mm" Height="6mm" Left="36.25mm" Top="10mm" Value="= PageCount" CanGrow="False" Culture="ar-EG" Name="textBox56">
+        <TextBox Width="14mm" Height="6mm" Left="36.25mm" Top="31.09mm" Value="= PageCount" CanGrow="False" Culture="ar-EG" Name="textBox56">
           <Style TextAlign="Left" VerticalAlign="Middle">
             <Font Name="Arial" Size="8pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.3cm" Height="0.5cm" Left="0.762cm" Top="1.465cm" Value="للتعــــاقــــــدات والمشتــــريــــات " Name="textBox25">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.3cm" Height="0.5cm" Left="0.762cm" Top="0.965cm" Value="مديــــر عـــــــام الإدارة العامة " Name="textBox24">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="Arial" Bold="True" Underline="False" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.3cm" Height="0.488cm" Left="0.762cm" Top="0.477cm" Value=" التوقيع(                              )  " Name="textBox72">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="11pt" Bold="True" Underline="False" />
           </Style>
         </TextBox>
       </Items>
@@ -194,7 +209,7 @@
           </Style>
         </TextBox>
         <TextBox Width="3.25cm" Height="0.7cm" Left="12.9cm" Top="0cm" Value="اسم المورد" Name="textBox13">
-          <Style BackgroundColor="238, 236, 225" TextAlign="Center" VerticalAlign="Middle">
+          <Style BackgroundColor="198, 217, 241" TextAlign="Center" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" Underline="False" />
             <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
             <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
@@ -218,7 +233,7 @@
           </Style>
         </TextBox>
         <TextBox Width="3cm" Height="0.7cm" Left="7.5cm" Top="0cm" Value="تاريخ السداد" Name="textBox21">
-          <Style BackgroundColor="238, 236, 225" TextAlign="Center" VerticalAlign="Middle">
+          <Style BackgroundColor="198, 217, 241" TextAlign="Center" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" Underline="False" />
             <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
             <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
@@ -234,7 +249,7 @@
           </Style>
         </TextBox>
         <TextBox Width="2.626cm" Height="0.7cm" Left="2.2cm" Top="0cm" Value="المبلغ" Name="textBox7">
-          <Style BackgroundColor="238, 236, 225" TextAlign="Center" VerticalAlign="Middle">
+          <Style BackgroundColor="198, 217, 241" TextAlign="Center" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" Underline="False" />
             <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
             <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />

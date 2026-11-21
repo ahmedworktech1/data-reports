@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.telerik.com/reporting/2023/1.0" DataSourceName="sqlDataSource1" Width="28.7cm" Name="AztrhRequestReqOutcome">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="WITH Cur AS (&#xD;&#xA;&#x9;SELECT LOC, TR_TY, TR_NO, RequestId, 0 AS Lvl,&#xD;&#xA;&#x9;       CAST('|' + CAST(TR_TY AS nvarchar(10)) + '-' + CAST(TR_NO AS nvarchar(20)) + '|' AS nvarchar(400)) AS Path&#xD;&#xA;&#x9;FROM azx_sandoaa.dbo.AZTRH&#xD;&#xA;&#x9;WHERE 1=1&#xD;&#xA;), Chain AS (&#xD;&#xA;&#x9;SELECT LOC, TR_TY, TR_NO, RequestId, Lvl, Path FROM Cur&#xD;&#xA;&#x9;UNION ALL&#xD;&#xA;&#x9;SELECT h.LOC, h.TR_TY, h.TR_NO, h.RequestId, CAST(c.Lvl + 1 AS int),&#xD;&#xA;&#x9;       CAST(c.Path + CAST(h.TR_TY AS nvarchar(10)) + '-' + CAST(h.TR_NO AS nvarchar(20)) + '|' AS nvarchar(400))&#xD;&#xA;&#x9;FROM Chain c&#xD;&#xA;&#x9;JOIN azx_sandoaa.dbo.AZTRH h ON h.LOC IS NOT NULL&#xD;&#xA;&#x9;WHERE (&#xD;&#xA;&#x9;&#x9;EXISTS (&#xD;&#xA;&#x9;&#x9;&#x9;SELECT 1 FROM azx_sandoaa.dbo.AZTRD src&#xD;&#xA;&#x9;&#x9;&#x9;JOIN azx_sandoaa.dbo.AZTRD d&#xD;&#xA;&#x9;&#x9;&#x9;  ON d.RSLT_BTCH_ID = LTRIM(RTRIM(REPLACE(src.SRC_BTCH_ID, char(39), ''))) AND d.RSLT_BTCH_ID &lt;&gt; ''&#xD;&#xA;&#x9;&#x9;&#x9;WHERE src.LOC = c.LOC AND src.TR_TY = c.TR_TY AND src.TR_NO = c.TR_NO&#xD;&#xA;&#x9;&#x9;&#x9;  AND src.SRC_BTCH_ID IS NOT NULL AND LEN(REPLACE(src.SRC_BTCH_ID, char(39), '')) &gt; 0&#xD;&#xA;&#x9;&#x9;&#x9;  AND d.LOC = h.LOC AND d.TR_TY = h.TR_TY AND d.TR_NO = h.TR_NO&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#x9;&#x9;OR EXISTS (&#xD;&#xA;&#x9;&#x9;&#x9;SELECT 1 FROM azx_sandoaa.dbo.AZTRD ch&#xD;&#xA;&#x9;&#x9;&#x9;WHERE ch.PLOC = c.LOC AND ch.PTR_TY = c.TR_TY AND ch.PTR_NO = c.TR_NO&#xD;&#xA;&#x9;&#x9;&#x9;  AND ch.LOC = h.LOC AND ch.TR_TY = h.TR_TY AND ch.TR_NO = h.TR_NO&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#x9;)&#xD;&#xA;&#x9;AND CHARINDEX('|' + CAST(h.TR_TY AS nvarchar(10)) + '-' + CAST(h.TR_NO AS nvarchar(20)) + '|', c.Path) = 0&#xD;&#xA;), LastAction AS (&#xD;&#xA;&#x9;SELECT TOP 1&#xD;&#xA;&#x9;&#x9;COALESCE(sx.NameArabic, sx2.NameArabic) AS LastState,&#xD;&#xA;&#x9;&#x9;ISNULL(k.Dscr_AR, N'-') AS LastDocTypeName, CASE WHEN cx.TR_TY IN (300, 251, 120) THEN 0 WHEN EXISTS (SELECT 1 FROM Chain c251 WHERE c251.TR_TY = 251) THEN 2 WHEN EXISTS (SELECT 1 FROM Chain c300 WHERE c300.TR_TY = 300) THEN 1 ELSE 0 END AS DisbStatus&#xD;&#xA;&#x9;FROM Chain cx&#xD;&#xA;&#x9;JOIN azx_sandoaa.dbo.AZTRH hx ON hx.LOC = cx.LOC AND hx.TR_TY = cx.TR_TY AND hx.TR_NO = cx.TR_NO&#xD;&#xA;&#x9;LEFT JOIN azx_sandoaa.dbo.AZTRTY k ON k.TR_TY = cx.TR_TY&#xD;&#xA;&#x9;LEFT JOIN erpx_sandoaa_br.Workflow.RequestInstances rix ON rix.Id = hx.RequestId&#xD;&#xA;&#x9;LEFT JOIN erpx_sandoaa_br.Workflow.States sx2 ON sx2.Id = rix.CurrentStateId&#xD;&#xA;&#x9;LEFT JOIN erpx_sandoaa_br.Workflow.RequestInstanceLogs tx ON tx.RequestInstanceId = hx.RequestId&#xD;&#xA;&#x9;LEFT JOIN erpx_sandoaa_br.Workflow.Transitions t0x ON t0x.Id = tx.TransitionId&#xD;&#xA;&#x9;LEFT JOIN erpx_sandoaa_br.Workflow.States sx ON sx.Id = t0x.ToStateId&#xD;&#xA;&#x9;ORDER BY CASE WHEN cx.TR_TY = 120 THEN 0 ELSE 1 END, cx.Lvl DESC, CASE WHEN tx.TransitionDate IS NULL THEN 1 ELSE 0 END, tx.TransitionDate DESC, tx.Id DESC, cx.TR_NO DESC&#xD;&#xA;), Ranked AS (&#xD;&#xA;&#x9;SELECT&#xD;&#xA;&#x9;&#x9;c.Lvl AS Lvl,&#xD;&#xA;&#x9;&#x9;c.TR_TY AS DocTrTy,&#xD;&#xA;&#x9;&#x9;CAST(c.TR_TY AS nvarchar(10)) + '-' + CAST(c.TR_NO AS nvarchar(20)) AS DocKey,&#xD;&#xA;&#x9;&#x9;CAST(CASE WHEN c.TR_TY = 120 THEN 9000 ELSE c.TR_TY END AS bigint) * 1000000 + c.TR_NO AS DocOrder,&#xD;&#xA;&#x9;&#x9;k.Dscr_AR AS DocTypeName,&#xD;&#xA;&#x9;&#x9;c.TR_NO AS DocNo,&#xD;&#xA;&#x9;&#x9;h.TR_DT AS DocDate,&#xD;&#xA;&#x9;&#x9;s.NameArabic AS CurrentStateName,&#xD;&#xA;&#x9;&#x9;h.CurrentStateStr AS CurrentStateStr,&#xD;&#xA;&#x9;&#x9;h.purchas_NO, h.FNCL_TR_NO,&#xD;&#xA;&#x9;&#x9;t.TransitionDate AS TransitionDate,&#xD;&#xA;&#x9;&#x9;t.Reason AS Reason,&#xD;&#xA;&#x9;&#x9;t1.NameArabic AS TriggerName,&#xD;&#xA;&#x9;&#x9;s1.NameArabic AS FromStateName,&#xD;&#xA;&#x9;&#x9;s0.NameArabic AS ToStateName,&#xD;&#xA;&#x9;&#x9;u.FullName AS ExecuterName,&#xD;&#xA;&#x9;&#x9;t.Id AS LogId,&#xD;&#xA;&#x9;&#x9;CASE WHEN c.TR_TY IN (102,103,104,105,106,107,108,109,110,114,115,116,117,118,215,216,217) THEN 1 ELSE 0 END AS IsCollapsed,&#xD;&#xA;&#x9;&#x9;ROW_NUMBER() OVER (&#xD;&#xA;&#x9;&#x9;&#x9;PARTITION BY CASE WHEN c.TR_TY IN (102,103,104,105,106,107,108,109,110,114,115,116,117,118,215,216,217) THEN CAST(c.TR_TY AS nvarchar(10)) ELSE CAST(c.TR_TY AS nvarchar(10)) + '-' + CAST(c.TR_NO AS nvarchar(20)) END&#xD;&#xA;&#x9;&#x9;&#x9;ORDER BY t.TransitionDate DESC, c.TR_NO DESC, t.Id DESC&#xD;&#xA;&#x9;&#x9;) AS rn&#xD;&#xA;&#x9;FROM Chain c&#xD;&#xA;&#x9;JOIN azx_sandoaa.dbo.AZTRH h ON h.LOC = c.LOC AND h.TR_TY = c.TR_TY AND h.TR_NO = c.TR_NO&#xD;&#xA;&#x9;LEFT JOIN azx_sandoaa.dbo.AZTRTY k ON k.TR_TY = c.TR_TY&#xD;&#xA;&#x9;LEFT JOIN erpx_sandoaa_br.Workflow.RequestInstances ri ON ri.Id = h.RequestId&#xD;&#xA;&#x9;LEFT JOIN erpx_sandoaa_br.Workflow.States s ON s.Id = ri.CurrentStateId&#xD;&#xA;&#x9;LEFT JOIN erpx_sandoaa_br.Workflow.RequestInstanceLogs t ON t.RequestInstanceId = h.RequestId&#xD;&#xA;&#x9;LEFT JOIN erpx_sandoaa_br.Workflow.Transitions t0 ON t0.Id = t.TransitionId&#xD;&#xA;&#x9;LEFT JOIN erpx_sandoaa_br.Workflow.States s1 ON s1.Id = t0.FromStateId&#xD;&#xA;&#x9;LEFT JOIN erpx_sandoaa_br.Workflow.States s0 ON s0.Id = t0.ToStateId&#xD;&#xA;&#x9;LEFT JOIN erpx_sandoaa_br.Workflow.Triggers t1 ON t1.Id = t0.TriggerId&#xD;&#xA;&#x9;LEFT JOIN erpx_sandoaa_br.Brca.BrcaUsers u ON u.Id = t.ExecuterUserId&#xD;&#xA;)&#xD;&#xA;SELECT&#xD;&#xA;&#x9;Lvl, DocOrder, DocTrTy, DocKey, DocTypeName, DocNo, DocDate, CurrentStateName, CurrentStateStr,&#xD;&#xA;&#x9;purchas_NO, FNCL_TR_NO, TransitionDate, Reason, TriggerName, FromStateName, ToStateName, ExecuterName,&#xD;&#xA;&#x9;la.LastState AS LastActionState, la.LastDocTypeName AS LastActionDocType, la.DisbStatus AS DisbStatus&#xD;&#xA;FROM Ranked&#xD;&#xA;CROSS JOIN LastAction la&#xD;&#xA;WHERE IsCollapsed = 0 OR rn = 1&#xD;&#xA;ORDER BY DocOrder, Lvl, TransitionDate&#xD;&#xA;OPTION (MAXRECURSION 32)" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="0.132cm" Name="pageHeaderSection1" />
+    <DetailSection Height="1.6cm" Name="detailSection1">
+      <Items>
+        <TextBox Width="4.826cm" Height="1.6cm" Left="0cm" Top="0cm" Value="= Fields.Reason" Name="txtReason">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.6cm" Height="1.6cm" Left="7.9cm" Top="0cm" Value="= Fields.ExecuterName" Name="txtExecuter">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.5cm" Height="1.6cm" Left="12.5cm" Top="0cm" Value="= Fields.ToStateName" Name="txtToState">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.4cm" Height="1.6cm" Left="18cm" Top="0cm" Value="= Fields.FromStateName" Name="txtFromState">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5cm" Height="1.6cm" Left="23.4cm" Top="0cm" Value="= Fields.TriggerName" Name="txtTrigger">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.074cm" Height="1.6cm" Left="4.826cm" Top="0cm" Value="=IIf(Fields.TransitionDate Is Nothing, '-', Fields.TransitionDate.ToString('yyyy/MM/dd'))" Format="{0:dd/MM/yyyy}" Name="txtDate" CanGrow="True" Culture="en">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="0.132cm" Name="pageFooterSection1" />
+    <ReportHeaderSection Height="5.582cm" Name="reportHeaderSection1">
+      <Items>
+        <TextBox Width="5cm" Height="1.768cm" Left="23.4cm" Top="3.804cm" Value="الإجراء" Name="headerTrigger">
+          <Style BackgroundColor="84, 110, 179" Color="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.4cm" Height="1.768cm" Left="18cm" Top="3.804cm" Value="من حالة" Name="headerFromState">
+          <Style BackgroundColor="84, 110, 179" Color="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.5cm" Height="1.768cm" Left="12.5cm" Top="3.804cm" Value="إلى حالة" Name="headerToState">
+          <Style BackgroundColor="84, 110, 179" Color="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.6cm" Height="1.768cm" Left="7.9cm" Top="3.804cm" Value="المنفذ" Name="headerExecuter">
+          <Style BackgroundColor="84, 110, 179" Color="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.074cm" Height="1.768cm" Left="4.826cm" Top="3.804cm" Value="تاريخ الإنتقال" Name="headerDate">
+          <Style BackgroundColor="84, 110, 179" Color="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.826cm" Height="1.768cm" Left="0cm" Top="3.814cm" Value="السبب" Name="headerReason">
+          <Style BackgroundColor="84, 110, 179" Color="White" TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.1cm" Height="0.8cm" Left="12.5cm" Top="1.01cm" Value="بيان اجراءات العملية" Name="textBox7">
+          <Style Color="Red" TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.3cm" Height="0.8cm" Left="25.908cm" Top="2.21cm" Value="نوع المستند :" Name="textBox1">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.4cm" Height="0.8cm" Left="25.808cm" Top="3.01cm" Value="رقم المستند :" Name="textBox2">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.362cm" Height="0.6cm" Left="16.51cm" Top="2.31cm" Value="=First(Fields.DocTypeName)" Name="textBox3">
+          <Style TextAlign="Justify" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.36cm" Height="0.6cm" Left="20.448cm" Top="3.11cm" Value="=IIf(First(Fields.DocTrTy)=114, &quot;&quot;, First(Fields.DocNo))" Name="textBox4">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.636cm" Height="0.7cm" Left="0.878cm" Top="3.01cm" Value="=First(Fields.LastActionDocType) + IIf(First(Fields.DisbStatus)=2, &quot; | &#x625;&#x630;&#x646; &#x635;&#x631;&#x627;&#x641;&quot;, IIf(First(Fields.DisbStatus)=1, &quot; | &#x637;&#x644;&#x628; &#x635;&#x631;&#x627;&#x641;&quot;, &quot;&quot;))" Name="txtLastStage">
+          <Style TextAlign="Justify" VerticalAlign="Middle">
+            <Font Size="12pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.218cm" Height="0.7cm" Left="9.514cm" Top="3.01cm" Value="اخر ما وصلت اليه الاجراءات : " Name="textBox5">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Size="14pt" Bold="True" Underline="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </ReportHeaderSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="True" ContinuousPaper="False">
+    <Margins>
+      <MarginsU Left="0.5cm" Right="0.5cm" Top="0.5cm" Bottom="0.5cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <Sortings>
+    <Sorting Expression="= Fields.DocOrder" Direction="Asc" />
+    <Sorting Expression="= Fields.Lvl" Direction="Asc" />
+    <Sorting Expression="= Fields.TransitionDate" Direction="Asc" />
+  </Sortings>
+  <Groups>
+    <Group Name="grpDoc">
+      <GroupHeader>
+        <GroupHeaderSection Height="0.78cm" Name="groupHeaderDoc">
+          <Items>
+            <TextBox Width="28.7cm" Height="0.7cm" Left="0cm" Top="0.02cm" Value="= IIf(Fields.DocTrTy=114, Fields.DocTypeName, Fields.DocTypeName + &quot; &#x631;&#x642;&#x645; &quot; + CStr(Fields.DocNo)) + &quot;     |     &#x627;&#x644;&#x62D;&#x627;&#x644;&#x629; &#x627;&#x644;&#x62D;&#x627;&#x644;&#x64A;&#x629; : &quot; + IIf(Fields.CurrentStateName Is Nothing, IIf(Fields.CurrentStateStr Is Nothing, &quot;-&quot;, Fields.CurrentStateStr), Fields.CurrentStateName)" Name="hdrDocSummary">
+              <Style BackgroundColor="217, 226, 243" TextAlign="Center" VerticalAlign="Middle">
+                <Font Size="12pt" Bold="True" />
+                <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+              </Style>
+            </TextBox>
+          </Items>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.132cm" Name="groupFooterDoc" />
+      </GroupFooter>
+      <Groupings>
+        <Grouping Expression="= Fields.DocKey" />
+      </Groupings>
+      <Sortings>
+        <Sorting Expression="= Fields.DocOrder" Direction="Asc" />
+      </Sortings>
+    </Group>
+  </Groups>
+</Report>

@@ -2,13 +2,8 @@
 <Report DataSourceName="sqlDataSource1" Width="17cm" Name="محضر فتح مظاريف فنيه لجنة (.........)" Zoom="1.5" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
   <DataSources>
     <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="SELECT&#xD;&#xA;    AZTRH.TR_NO,&#xD;&#xA;    AZTRH.PURCHAS_NO,&#xD;&#xA;    AZTRH.FNCL_TR_NO,&#xD;&#xA;    AZTRH.TR_DT,&#xD;&#xA;&#x9;aztrh.TCHNCL_OPN_END_DT, &#xD;&#xA;    AZTRH.TCHNCL_OPN_DT,&#xD;&#xA;    AZTRH.Fncl_Opn_Dt,&#xD;&#xA;    AZTRH.TR_TY,&#xD;&#xA;    AZTRH.LOC,&#xD;&#xA;&#x9; AZTRTY.DSCR_AR AS 'نوع العملية',&#xD;&#xA;    AZTRH.Rmrk7,&#xD;&#xA;    CASE&#xD;&#xA;        WHEN MONTH(AZTRH.TR_DT) &gt;= 7&#xD;&#xA;        THEN CAST(YEAR(AZTRH.TR_DT)+1 AS VARCHAR) + '/' + CAST(YEAR(AZTRH.TR_DT) AS VARCHAR)&#xD;&#xA;        ELSE CAST(YEAR(AZTRH.TR_DT) AS VARCHAR) + '/' + CAST(YEAR(AZTRH.TR_DT)-1 AS VARCHAR)&#xD;&#xA;    END AS Fiscal_Year,&#xD;&#xA;    (SELECT Emp_Name &#xD;&#xA;     FROM PYEMPMF_H &#xD;&#xA;     WHERE PYEMPMF_H.emp_no = AZTRH.ENTEREDBY) AS nm,&#xD;&#xA;   &#xD;&#xA;    PM.DSCR_AR AS PYMNT_MTHD_Name,&#xD;&#xA;    LT.DSCR_AR AS LoadTypeName,&#xD;&#xA;    AZTRH.Vst_No,&#xD;&#xA;    AZTRH.Tr_Year&#xD;&#xA;FROM AZTRH&#xD;&#xA; LEFT JOIN AZTRTY&#xD;&#xA;    ON AZTRTY.TR_TY = AZTRH.Prchs_Oprtn_Typ&#xD;&#xA;LEFT JOIN AppCodes PM ON PM.ID = '11031' AND PM.SEQ = AZTRH.PYMNT_MTHD&#xD;&#xA;LEFT JOIN AppCodes LT ON LT.ID = '10244' AND LT.SEQ = AZTRH.LoadType&#xD;&#xA;WHERE (1=1)&#xD;&#xA;ORDER BY AZTRH.TR_NO;" Name="sqlDataSource1" />
-    <SqlDataSource QueryDesignerState="null" ParameterValues="{&quot;@TrNoParam&quot;:&quot;1&quot;,&quot;@Locparam&quot;:&quot;50&quot;,&quot;@TrTyparam&quot;:&quot;115&quot;,&quot;@FNCLTRNO&quot;:&quot;2-مناقصه عامة-2026/2025&quot;}" ConnectionString="azxsandoaa" SelectCommand="SELECT DISTINCT&#xD;&#xA;    aztrh.vst_no,&#xD;&#xA;    aztrh.Rmrk7,&#xD;&#xA;    aztrh.PYMNT_MTHD,&#xD;&#xA;    PM.DSCR_AR AS PYMNT_MTHD_Name,&#xD;&#xA;    aztrh.acc_no,&#xD;&#xA;    aztrh.acc_nm&#xD;&#xA;FROM aztrh&#xD;&#xA;&#xD;&#xA;LEFT JOIN AppCodes PM &#xD;&#xA;    ON PM.ID = '11031' &#xD;&#xA;    AND PM.SEQ = aztrh.PYMNT_MTHD&#xD;&#xA;WHERE &#xD;&#xA;     AZTRH.loc = @LocParam&#xD;&#xA;    AND AZTRH.tr_ty =  @TrTyParam&#xD;&#xA;    AND AZTRH.FNCL_TR_NO = @FNCLTRNO" Name="sqlDataSource2">
+    <SqlDataSource QueryDesignerState="null" ParameterValues="{&quot;@Locparam&quot;:&quot;50&quot;,&quot;@TrTyparam&quot;:&quot;115&quot;,&quot;@FNCLTRNO&quot;:&quot;2-مناقصه عامة-2026/2025&quot;}" ConnectionString="azxsandoaa" SelectCommand="SELECT DISTINCT&#xD;&#xA;    aztrh.vst_no,&#xD;&#xA;    aztrh.Rmrk8,&#xD;&#xA;    aztrh.PYMNT_MTHD,&#xD;&#xA;    PM.DSCR_AR AS PYMNT_MTHD_Name,&#xD;&#xA;    aztrh.acc_no,&#xD;&#xA;    aztrh.acc_nm&#xD;&#xA;FROM aztrh&#xD;&#xA;&#xD;&#xA;LEFT JOIN AppCodes PM &#xD;&#xA;    ON PM.ID = '11031' &#xD;&#xA;    AND PM.SEQ = aztrh.PYMNT_MTHD&#xD;&#xA;WHERE &#xD;&#xA;     AZTRH.loc = @LocParam&#xD;&#xA;    AND AZTRH.tr_ty =  @TrTyParam&#xD;&#xA;    AND AZTRH.FNCL_TR_NO = @FNCLTRNO" Name="sqlDataSource2">
       <Parameters>
-        <SqlDataSourceParameter DbType="String" Name="@TrNoParam">
-          <Value>
-            <String>= Parameters.TrNoParam.Value</String>
-          </Value>
-        </SqlDataSourceParameter>
         <SqlDataSourceParameter DbType="String" Name="@Locparam">
           <Value>
             <String>= Parameters.LocParam.Value</String>
@@ -192,7 +187,7 @@
         </TextBox>
       </Items>
     </PageFooterSection>
-    <ReportFooterSection Height="12.951cm" Name="reportFooterSection1">
+    <ReportFooterSection Height="7.4cm" Name="reportFooterSection1">
       <Items>
         <SubReport DataSourceName="sqlDataSource3" Width="16.45cm" Height="5.08cm" Left="0.1cm" Top="2.199cm" KeepTogether="False" Name="subReport3">
           <Style VerticalAlign="Middle" />
@@ -238,28 +233,28 @@
             <Font Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="1.074cm" Height="0.5cm" Left="11.684cm" Top="1.445cm" Value="الموافق" Name="textBox25">
-          <Style TextAlign="Left" VerticalAlign="Middle">
+        <TextBox Width="1.074cm" Height="0.5cm" Left="11.099cm" Top="1.436cm" Value="الموافق" Name="textBox25">
+          <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="0.7cm" Height="0.5cm" Left="14.075cm" Top="1.437cm" Value="يوم" Name="textBox22">
-          <Style TextAlign="Left" VerticalAlign="Middle">
+        <TextBox Width="1.313cm" Height="0.5cm" Left="13.462cm" Top="1.437cm" Value="ظهرا يوم" Name="textBox22">
+          <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
         </TextBox>
-        <TextBox Width="1.2in" Height="0.2in" Left="3.4in" Top="0.566in" Value="= Fields.TCHNCL_OPN_END_DT" Format="{0:dd/MM/yyyy} " Name="textBox13">
-          <Style>
+        <TextBox Width="1.2in" Height="0.2in" Left="3.17in" Top="0.563in" Value="= Fields.TCHNCL_OPN_END_DT" Format="{0:dd/MM/yyyy} " Name="textBox13">
+          <Style TextAlign="Right">
             <Font Bold="True" />
           </Style>
         </TextBox>
-        <TextBox Width="1.263cm" Height="0.5cm" Left="12.812cm" Top="1.437cm" Value="= Format(&quot;{0:dddd}&quot;, CDate(Fields.TCHNCL_OPN_END_DT ))" Format="{0:yyyy/MM/dd}" Culture="ar-EG" Name="textBox23">
+        <TextBox Width="1.27cm" Height="0.5cm" Left="12.192cm" Top="1.437cm" Value="= Format(&quot;{0:dddd}&quot;, CDate(Fields.TCHNCL_OPN_END_DT ))" Format="{0:yyyy/MM/dd}" Culture="ar-EG" Name="textBox23">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Bold="True" />
           </Style>
         </TextBox>
         <TextBox Width="0.548cm" Height="0.5cm" Left="14.775cm" Top="1.437cm" Value="= Fields.TCHNCL_OPN_DT" Format="{0:hh}" Culture="ar-EG" Name="textBox27">
-          <Style TextAlign="Center" VerticalAlign="Middle">
+          <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Bold="True" />
           </Style>
         </TextBox>
@@ -278,11 +273,6 @@
           </Style>
         </TextBox>
         <TextBox Width="0.573cm" Height="0.5cm" Left="12.002cm" Top="2.266cm" Value="يوم" Name="textBox8">
-          <Style TextAlign="Left" VerticalAlign="Middle">
-            <Font Bold="True" Underline="False" />
-          </Style>
-        </TextBox>
-        <TextBox Width="2.054cm" Height="0.5cm" Left="4.826cm" Top="2.266cm" Value=" ونوع العمليه :" Name="textBox9">
           <Style TextAlign="Left" VerticalAlign="Middle">
             <Font Bold="True" Underline="False" />
           </Style>
@@ -324,11 +314,6 @@
         </TextBox>
         <TextBox Width="2.724cm" Height="0.5cm" Left="6.88cm" Top="2.266cm" Value="= Fields.TCHNCL_OPN_DT" Format="{0:dd/MM/yyyy}" Culture="ar-EG" Name="textBox19">
           <Style VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="3cm" Height="0.5cm" Left="1.778cm" Top="2.266cm" Value="= Fields.[نوع العملية]" Name="textBox12">
-          <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Bold="True" />
           </Style>
         </TextBox>
