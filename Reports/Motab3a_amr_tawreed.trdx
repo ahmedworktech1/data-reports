@@ -2,7 +2,7 @@
 <Report DataSourceName="sqlDataSource1" Width="20cm" Name="Report1" Zoom="1.5" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
   <Style VerticalAlign="Middle" />
   <DataSources>
-    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="WITH CurrentOrder AS&#xA;(&#xA;    SELECT DISTINCT&#xA;        D.PLOC   AS ORD_LOC,&#xA;        D.PTR_TY AS ORD_TR_TY,&#xA;        D.PTR_NO AS ORD_TR_NO&#xA;    FROM AZTRH&#xA;    INNER JOIN AZTRD AS D&#xA;        ON D.LOC   = AZTRH.LOC&#xA;       AND D.TR_TY = AZTRH.TR_TY&#xA;       AND D.TR_NO = AZTRH.TR_NO&#xA;    WHERE 1=1&#xA;      AND D.PTR_TY IS NOT NULL&#xA;      AND D.PTR_NO IS NOT NULL&#xA;      AND D.PLOC   IS NOT NULL&#xA;),&#xA;PurchaseOrders AS&#xA;(&#xA;    SELECT&#xA;        O.LOC,&#xA;        O.TR_NO,&#xA;        O.TR_TY,&#xA;        O.TR_DT,&#xA;        O.FNCL_TR_NO,&#xA;        O.Purchas_No,&#xA;&#xA;        D.ITM_CD,&#xA;        D.QTY AS ORDER_QTY,&#xA;        D.PKPRC,&#xA;        D.RMRK2 AS MWASFAT_ELMONTG,&#xA;        D.PKID,&#xA;&#xA;        I.ITM_NM_AR,&#xA;        P.PK_NM_AR&#xA;    FROM CurrentOrder AS C&#xA;    INNER JOIN AZTRH AS O&#xA;        ON O.LOC = C.ORD_LOC AND O.TR_TY = C.ORD_TR_TY AND O.TR_NO = C.ORD_TR_NO&#xA;    INNER JOIN AZTRD AS D&#xA;        ON D.LOC = O.LOC AND D.TR_TY = O.TR_TY AND D.TR_NO = O.TR_NO&#xA;    LEFT JOIN AZITMS AS I&#xA;        ON I.ITM_CD = D.ITM_CD&#xA;    LEFT JOIN AZPKGDEF AS P&#xA;        ON P.PKID = D.PKID&#xA;),&#xA;InspectionTotals AS&#xA;(&#xA;    SELECT&#xA;        D.PLOC   AS ORD_LOC,&#xA;        D.PTR_TY AS ORD_TR_TY,&#xA;        D.PTR_NO AS ORD_TR_NO,&#xA;        D.ITM_CD,&#xA;&#xA;        SUM(ISNULL(D.QTY, 0))  AS UNDER_INSPECTION_QTY,&#xA;        SUM(ISNULL(D.OQTY, 0)) AS ACCEPTED_QTY&#xA;    FROM AZTRD AS D&#xA;    WHERE D.PTR_TY IS NOT NULL&#xA;      AND D.PTR_NO IS NOT NULL&#xA;      AND D.PLOC   IS NOT NULL&#xA;    GROUP BY&#xA;        D.PLOC,&#xA;        D.PTR_TY,&#xA;        D.PTR_NO,&#xA;        D.ITM_CD&#xA;)&#xA;&#xA;SELECT&#xA;    O.FNCL_TR_NO,&#xA;    O.Purchas_No,&#xA;&#xA;    O.TR_NO AS TR_NO,&#xA;    O.TR_DT AS TR_DT,&#xA;    O.ITM_CD AS ITM_CD,&#xA;    O.ITM_NM_AR AS [اسم الصنف],&#xA;    O.MWASFAT_ELMONTG,&#xA;    O.PK_NM_AR AS [اسم الوحدة],&#xA;&#xA;    O.ORDER_QTY AS QTY,&#xA;    O.PKPRC,&#xA;    O.ORDER_QTY * O.PKPRC AS ToT,&#xA;&#xA;    ISNULL(T.UNDER_INSPECTION_QTY, 0) AS QTY_UNDER_INSPECTION,&#xA;    ISNULL(T.ACCEPTED_QTY, 0) AS OQTY_ACCEPTED,&#xA;&#xA;    ISNULL(T.UNDER_INSPECTION_QTY, 0)&#xA;        - ISNULL(T.ACCEPTED_QTY, 0) AS QTY_REJECTED,&#xA;&#xA;    O.ORDER_QTY&#xA;        - ISNULL(T.ACCEPTED_QTY, 0) AS QTY_REMAINING,&#xA;&#xA;    ISNULL(T.ACCEPTED_QTY, 0) * O.PKPRC AS ACCEPTED_VALUE,&#xA;&#xA;    (O.ORDER_QTY - ISNULL(T.ACCEPTED_QTY, 0)) * O.PKPRC AS REMAINING_VALUE&#xA;FROM PurchaseOrders AS O&#xA;LEFT JOIN InspectionTotals AS T&#xA;    ON T.ORD_LOC    = O.LOC&#xA;   AND T.ORD_TR_TY = O.TR_TY&#xA;   AND T.ORD_TR_NO = O.TR_NO&#xA;   AND T.ITM_CD    = O.ITM_CD&#xA;&#xA;ORDER BY&#xA;    O.FNCL_TR_NO,&#xA;    O.TR_DT,&#xA;    O.Purchas_No,&#xA;    O.TR_NO,&#xA;    O.ITM_CD" Name="sqlDataSource1" />
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="&#xD;&#xA;&#xD;&#xA;WITH CurrentOrder AS&#xD;&#xA;(&#xD;&#xA;    SELECT DISTINCT&#xD;&#xA;        D.PLOC   AS ORD_LOC,&#xD;&#xA;        D.PTR_TY AS ORD_TR_TY,&#xD;&#xA;        D.PTR_NO AS ORD_TR_NO&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    INNER JOIN AZTRD AS D&#xD;&#xA;        ON D.LOC   = AZTRH.LOC&#xD;&#xA;       AND D.TR_TY = AZTRH.TR_TY&#xD;&#xA;       AND D.TR_NO = AZTRH.TR_NO&#xD;&#xA;    WHERE 1=1&#xD;&#xA;      AND D.PTR_TY IS NOT NULL&#xD;&#xA;      AND D.PTR_NO IS NOT NULL&#xD;&#xA;      AND D.PLOC   IS NOT NULL&#xD;&#xA;),&#xD;&#xA;PurchaseOrders AS&#xD;&#xA;(&#xD;&#xA;    SELECT&#xD;&#xA;        O.LOC,&#xD;&#xA;        O.TR_NO,&#xD;&#xA;        O.TR_TY,&#xD;&#xA;        O.TR_DT,&#xD;&#xA;        O.FNCL_TR_NO,&#xD;&#xA;        O.Purchas_No,&#xD;&#xA;&#x9;&#x9;O.acc_no,&#xD;&#xA;        D.ITM_CD,&#xD;&#xA;        D.QTY AS ORDER_QTY,&#xD;&#xA;        D.PKPRC,&#xD;&#xA;        D.RMRK2 AS MWASFAT_ELMONTG,&#xD;&#xA;        D.PKID,&#xD;&#xA;&#xD;&#xA;        I.ITM_NM_AR,&#xD;&#xA;        P.PK_NM_AR&#xD;&#xA;    FROM CurrentOrder AS C&#xD;&#xA;    INNER JOIN AZTRH AS O&#xD;&#xA;        ON O.LOC = C.ORD_LOC AND O.TR_TY = C.ORD_TR_TY AND O.TR_NO = C.ORD_TR_NO&#xD;&#xA;    INNER JOIN AZTRD AS D&#xD;&#xA;        ON D.LOC = O.LOC AND D.TR_TY = O.TR_TY AND D.TR_NO = O.TR_NO&#xD;&#xA;    LEFT JOIN AZITMS AS I&#xD;&#xA;        ON I.ITM_CD = D.ITM_CD&#xD;&#xA;    LEFT JOIN AZPKGDEF AS P&#xD;&#xA;        ON P.PKID = D.PKID&#xD;&#xA;),&#xD;&#xA;InspectionTotals AS&#xD;&#xA;(&#xD;&#xA;    SELECT&#xD;&#xA;        D.PLOC   AS ORD_LOC,&#xD;&#xA;        D.PTR_TY AS ORD_TR_TY,&#xD;&#xA;        D.PTR_NO AS ORD_TR_NO,&#xD;&#xA;        D.ITM_CD,&#xD;&#xA;&#xD;&#xA;        SUM(ISNULL(D.QTY, 0))  AS UNDER_INSPECTION_QTY,&#xD;&#xA;        SUM(ISNULL(D.OQTY, 0)) AS ACCEPTED_QTY&#xD;&#xA;    FROM AZTRD AS D&#xD;&#xA;    WHERE D.PTR_TY IS NOT NULL&#xD;&#xA;      AND D.PTR_NO IS NOT NULL&#xD;&#xA;      AND D.PLOC   IS NOT NULL&#xD;&#xA;    GROUP BY&#xD;&#xA;        D.PLOC,&#xD;&#xA;        D.PTR_TY,&#xD;&#xA;        D.PTR_NO,&#xD;&#xA;        D.ITM_CD&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;SELECT&#xD;&#xA;    O.FNCL_TR_NO,&#xD;&#xA;    O.Purchas_No,&#xD;&#xA;&#x9;O.acc_no,&#xD;&#xA;&#x9;(select acc_nm_ar from azaccmf where azaccmf.acc_no = O.Acc_No ) AS ACC_name,&#xD;&#xA;&#x9;-- O.acc_no,&#xD;&#xA;    O.TR_NO AS TR_NO,&#xD;&#xA;    O.TR_DT AS TR_DT,&#xD;&#xA;    O.ITM_CD AS ITM_CD,&#xD;&#xA;    O.ITM_NM_AR AS [اسم الصنف],&#xD;&#xA;    O.MWASFAT_ELMONTG,&#xD;&#xA;    O.PK_NM_AR AS [اسم الوحدة],&#xD;&#xA;&#xD;&#xA;    O.ORDER_QTY AS QTY,&#xD;&#xA;    O.PKPRC,&#xD;&#xA;    O.ORDER_QTY * O.PKPRC AS ToT,&#xD;&#xA;&#xD;&#xA;    ISNULL(T.UNDER_INSPECTION_QTY, 0) AS QTY_UNDER_INSPECTION,&#xD;&#xA;    ISNULL(T.ACCEPTED_QTY, 0) AS OQTY_ACCEPTED,&#xD;&#xA;&#xD;&#xA;    ISNULL(T.UNDER_INSPECTION_QTY, 0)&#xD;&#xA;        - ISNULL(T.ACCEPTED_QTY, 0) AS QTY_REJECTED,&#xD;&#xA;&#xD;&#xA;    O.ORDER_QTY&#xD;&#xA;        - ISNULL(T.ACCEPTED_QTY, 0) AS QTY_REMAINING,&#xD;&#xA;&#xD;&#xA;    ISNULL(T.ACCEPTED_QTY, 0) * O.PKPRC AS ACCEPTED_VALUE,&#xD;&#xA;&#xD;&#xA;    (O.ORDER_QTY - ISNULL(T.ACCEPTED_QTY, 0)) * O.PKPRC AS REMAINING_VALUE&#xD;&#xA;FROM PurchaseOrders AS O&#xD;&#xA;LEFT JOIN InspectionTotals AS T&#xD;&#xA;    ON T.ORD_LOC    = O.LOC&#xD;&#xA;   AND T.ORD_TR_TY = O.TR_TY&#xD;&#xA;   AND T.ORD_TR_NO = O.TR_NO&#xD;&#xA;   AND T.ITM_CD    = O.ITM_CD&#xD;&#xA;&#xD;&#xA;ORDER BY&#xD;&#xA;    O.FNCL_TR_NO,&#xD;&#xA;    O.TR_DT,&#xD;&#xA;    O.Purchas_No,&#xD;&#xA;    O.TR_NO,&#xD;&#xA;    O.ITM_CD" Name="sqlDataSource1" />
   </DataSources>
   <Items>
     <PageHeaderSection Height="2.91cm" Name="pageHeaderSection1">
@@ -186,9 +186,9 @@
   <Groups>
     <Group Name="group">
       <GroupHeader>
-        <GroupHeaderSection Height="2.803cm" Name="groupHeaderSection">
+        <GroupHeaderSection Height="3.703cm" Name="groupHeaderSection">
           <Items>
-            <TextBox Width="2.032cm" Height="1.025cm" Left="2.286cm" Top="1.778cm" Value="المتبقي في&#xD;&#xA;أمر التوريد" Name="textBox35">
+            <TextBox Width="2.032cm" Height="1.025cm" Left="2.286cm" Top="2.678cm" Value="المتبقي في&#xD;&#xA;أمر التوريد" Name="textBox35">
               <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="8pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -196,7 +196,7 @@
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="3.464cm" Height="1.024cm" Left="13.6cm" Top="1.778cm" Value="إسم الصنف" Name="textBox39">
+            <TextBox Width="3.464cm" Height="1.024cm" Left="13.6cm" Top="2.678cm" Value="إسم الصنف" Name="textBox39">
               <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="8pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -204,7 +204,7 @@
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="1.2cm" Height="1.024cm" Left="12.4cm" Top="1.778cm" Value="الوحدة" Name="textBox38">
+            <TextBox Width="1.2cm" Height="1.024cm" Left="12.4cm" Top="2.678cm" Value="الوحدة" Name="textBox38">
               <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="8pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -212,7 +212,7 @@
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="1.2cm" Height="1.024cm" Left="11.2cm" Top="1.778cm" Value="الكمية" Angle="0" Name="textBox37">
+            <TextBox Width="1.2cm" Height="1.024cm" Left="11.2cm" Top="2.678cm" Value="الكمية" Angle="0" Name="textBox37">
               <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="8pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -220,7 +220,7 @@
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="1.261cm" Height="1.024cm" Left="5.597cm" Top="1.778cm" Value="الكمية&#xD;&#xA;المقبولة" Name="textBox36">
+            <TextBox Width="1.261cm" Height="1.024cm" Left="5.597cm" Top="2.678cm" Value="الكمية&#xD;&#xA;المقبولة" Name="textBox36">
               <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="8pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -228,7 +228,7 @@
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="0.75cm" Height="1.024cm" Left="19.25cm" Top="1.778cm" Value="م" Name="textBox41">
+            <TextBox Width="0.75cm" Height="1.024cm" Left="19.25cm" Top="2.678cm" Value="م" Name="textBox41">
               <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="8pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -236,7 +236,7 @@
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="1.27cm" Height="1.022cm" Left="6.858cm" Top="1.778cm" Value="الكمية&#xD;&#xA;تحت&#xD;&#xA;الفحص" Name="textBox42">
+            <TextBox Width="1.27cm" Height="1.022cm" Left="6.858cm" Top="2.678cm" Value="الكمية&#xD;&#xA;تحت&#xD;&#xA;الفحص" Name="textBox42">
               <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="8pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -244,7 +244,7 @@
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="2.186cm" Height="1.024cm" Left="17.064cm" Top="1.778cm" Value="كود الصنف" Name="textBox5">
+            <TextBox Width="2.186cm" Height="1.024cm" Left="17.064cm" Top="2.678cm" Value="كود الصنف" Name="textBox5">
               <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="8pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -252,7 +252,7 @@
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="1.279cm" Height="1.022cm" Left="4.318cm" Top="1.778cm" Value="الكمية&#xD;&#xA;المرفوضة" Name="textBox8">
+            <TextBox Width="1.279cm" Height="1.022cm" Left="4.318cm" Top="2.678cm" Value="الكمية&#xD;&#xA;المرفوضة" Name="textBox8">
               <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="8pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -260,7 +260,7 @@
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="1.2cm" Height="1.024cm" Left="9.999cm" Top="1.778cm" Value="السعر" Angle="0" Name="textBox7">
+            <TextBox Width="1.2cm" Height="1.024cm" Left="9.999cm" Top="2.678cm" Value="السعر" Angle="0" Name="textBox7">
               <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="8pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -268,7 +268,7 @@
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="1.871cm" Height="1.024cm" Left="8.128cm" Top="1.778cm" Value="القيمة" Angle="0" Name="textBox12">
+            <TextBox Width="1.871cm" Height="1.024cm" Left="8.128cm" Top="2.678cm" Value="القيمة" Angle="0" Name="textBox12">
               <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="8pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -276,7 +276,7 @@
                 <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
               </Style>
             </TextBox>
-            <TextBox Width="2.286cm" Height="1.025cm" Left="0cm" Top="1.778cm" Value="القيمة المتبقية" Name="textBox14">
+            <TextBox Width="2.286cm" Height="1.025cm" Left="0cm" Top="2.678cm" Value="القيمة المتبقية" Name="textBox14">
               <Style BackgroundColor="191, 191, 191" TextAlign="Center" VerticalAlign="Middle">
                 <Font Size="8pt" Bold="True" Underline="False" />
                 <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -324,19 +324,21 @@
                 <Font Bold="True" />
               </Style>
             </TextBox>
-          </Items>
-        </GroupHeaderSection>
-      </GroupHeader>
-      <GroupFooter>
-        <GroupFooterSection Height="0.5cm" Name="groupFooterSection">
-          <Items>
-            <TextBox Width="2.2cm" Height="0.5cm" Left="0cm" Top="0cm" Value="،،،، يعتمـــد " Angle="0" Name="textBox93">
+            <TextBox Width="1.9cm" Height="0.5cm" Left="17.8cm" Top="1.408cm" Value="المورد :" Name="textBox16">
               <Style TextAlign="Center" VerticalAlign="Middle">
                 <Font Bold="True" Underline="False" />
               </Style>
             </TextBox>
+            <TextBox Width="1.496in" Height="0.2in" Left="5.512in" Top="0.554in" Value="= Fields.ACC_name" Name="textBox17">
+              <Style TextAlign="Justify" VerticalAlign="Middle">
+                <Font Bold="True" />
+              </Style>
+            </TextBox>
           </Items>
-        </GroupFooterSection>
+        </GroupHeaderSection>
+      </GroupHeader>
+      <GroupFooter>
+        <GroupFooterSection Height="0.132cm" Name="groupFooterSection" />
       </GroupFooter>
       <Groupings>
         <Grouping Expression="= Fields.FNCL_TR_NO" />

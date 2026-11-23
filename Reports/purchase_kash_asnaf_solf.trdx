@@ -2,7 +2,7 @@
 <Report DataSourceName="sqlDataSource1" Width="20cm" Name="Report1" Zoom="1.5" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
   <Style VerticalAlign="Middle" />
   <DataSources>
-    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="-- أمر توريد / إسناد: one row per order (the application puts its filter in place of (1=1))&#xA;WITH H AS (&#xA;    SELECT AZTRH.LOC, AZTRH.TR_TY, AZTRH.TR_NO, AZTRH.TR_DT, AZTRH.FNCL_TR_NO, AZTRH.Acc_No, AZTRH.Acc_Nm,&#xA;           AZTRH.PTR_TY, AZTRH.PLoc, AZTRH.PTR_NO, AZTRH.VAC_DAYS, AZTRH.DLVR_LOC, AZTRH.PYMNT_MTHD, AZTRH.LTOT&#xA;    FROM AZTRH&#xA;    WHERE (1=1)&#xA;)&#xA;SELECT&#xA;    H.LOC, H.TR_TY, H.TR_NO,&#xA;    N'أمر ' + CASE WHEN H.TR_TY IN (121, 123) THEN N'إسناد' ELSE N'توريد' END + N' رقم ( '&#xA;        + dbo._GetArabicNumbers(CAST(H.TR_NO AS VARCHAR(10)) + ' / '&#xA;            + CASE WHEN H.FNCL_TR_NO LIKE '%-[0-9][0-9][0-9][0-9]/[0-9][0-9][0-9][0-9]' THEN RIGHT(H.FNCL_TR_NO, 9)&#xA;                   WHEN MONTH(H.TR_DT) &gt;= 7 THEN CAST(YEAR(H.TR_DT) + 1 AS VARCHAR(4)) + '/' + CAST(YEAR(H.TR_DT) AS VARCHAR(4))&#xA;                   ELSE CAST(YEAR(H.TR_DT) AS VARCHAR(4)) + '/' + CAST(YEAR(H.TR_DT) - 1 AS VARCHAR(4)) END) + N' )' AS Title,&#xA;    N'التاريخ :  ' + ISNULL(NULLIF(dbo._GetArabicNumbers(CONVERT(VARCHAR(10), H.TR_DT, 103)), ''), N'') AS DateLine,&#xA;    N'الجهة / الشركة :  ' + ISNULL(LTRIM(RTRIM(COALESCE(NULLIF(A.Acc_Nm_AR, ''), H.Acc_Nm))), N'') AS SupplierLine,&#xA;    ISNULL(NULLIF(dbo._GetArabicNumbers(FORMAT(T.Total, '#,##0.##')), ''), N'') AS TotalText,&#xA;    CASE WHEN T.Total IS NULL THEN N'' ELSE N'فقط وقدره ' + LTRIM(RTRIM(dbo.Num_To_Str(T.Total))) END AS TotalWords,&#xA;    N'-  ( جزئى / كلى ) خلال مدة ' + ISNULL(NULLIF(dbo._GetArabicNumbers(CAST(H.VAC_DAYS AS VARCHAR(10))), ''), N'............')&#xA;        + N' يوم من تاريخ إصدار أمر ' + CASE WHEN H.TR_TY IN (121, 123) THEN N'الإسناد' ELSE N'التوريد' END + N' .' AS SupplyLine,&#xA;    N'-  التسليم بمخازن / مقر ' + ISNULL(DL.DSCR_AR, N'.......................................') AS DeliveryLine,&#xA;    -- payment: 100 % after supply, or a down payment (percent from the supplier's financial opening) + the rest;&#xA;    -- the payment method is the order's, the supplier's bank only when it is a bank transfer&#xA;    CASE WHEN NULLIF(FO.DWN_PYMNT_CST, 0) IS NULL THEN&#xA;        N'-  ١٠٠٪ بعد التوريد والفحص والقبول والإستلام بموجب ' + ISNULL(PM.DSCR_AR, N'.................')&#xA;        + CASE WHEN PM.DSCR_AR LIKE N'%تحويل%' OR PM.DSCR_AR LIKE N'%بنك%' THEN N' إلى الحساب البنكى للمورد وبياناته كالتالى :' ELSE N' .' END&#xA;    END AS PayFull,&#xA;    CASE WHEN NULLIF(FO.DWN_PYMNT_CST, 0) IS NOT NULL THEN&#xA;        N'-  دفعة مقدمة بنسبة ' + dbo._GetArabicNumbers(FORMAT(FO.DWN_PYMNT_CST, '0.##')) + N' ٪ من قيمة أمر التوريد خلال ....... يوم من تاريخ إصدار أمر التوريد '&#xA;        + N'مقابل تقديم خطاب ضمان بنكى غير مشروط بقيمة الدفعة المقدمة سارى حتى تاريخ انتهاء التوريد ، وذلك بموجب ' + ISNULL(PM.DSCR_AR, N'.................')&#xA;        + CASE WHEN PM.DSCR_AR LIKE N'%تحويل%' OR PM.DSCR_AR LIKE N'%بنك%' THEN N' إلى الحساب البنكى للمورد وبياناته كالتالى :' ELSE N' .' END&#xA;    END AS PayDown,&#xA;    CASE WHEN NULLIF(FO.DWN_PYMNT_CST, 0) IS NOT NULL THEN&#xA;        N'-  باقى القيمة ( يستنزل منها نسبة الدفعة المقدمة حال التوريد الجزئى ) خلال مدة ........ يوم من تاريخ توريد وقبول كل دفعة توريد للأصناف / الإستلام النهائي للأصناف .'&#xA;    END AS PayRest,&#xA;    CASE WHEN PM.DSCR_AR LIKE N'%تحويل%' OR PM.DSCR_AR LIKE N'%بنك%' THEN 1 ELSE 0 END AS IsTransfer,&#xA;    N'اسم البنك / الفرع :  ' + ISNULL(B.BNK_NM_AR, N'') + ISNULL(N' / ' + BR.BBR_NM_AR, N'')&#xA;        + N'          رقم الحساب :  ' + ISNULL(NULLIF(dbo._GetArabicNumbers(COALESCE(NULLIF(A.SUP_Bnk_Acc, ''), NULLIF(A.IBAN, ''))), ''), N'') AS BankLine,&#xA;    -- final insurance percent registered on the operation (10 % when it is not registered)&#xA;    N'-  يشترط تقديم خطاب ضمان بنكى نهائي غير مشروط بنسبة ( ' + dbo._GetArabicNumbers(FORMAT(ISNULL(NULLIF(OP.FNL_INSRNC_CST, 0), 10), '0.##'))&#xA;        + N'٪ ) من قيمة أمر التوريد خلال مدة ...... يوم من تاريخ إصدار أمر التوريد سارى لمدة عام من تاريخ انتهاء التوريد .' AS InsLine&#xA;FROM H&#xA;LEFT JOIN AZACCMF A ON LTRIM(RTRIM(A.Acc_NO)) = LTRIM(RTRIM(H.Acc_No))&#xA;LEFT JOIN glx_sandoaa..BANK B ON CAST(B.BNK_NO AS VARCHAR(20)) = LTRIM(RTRIM(COALESCE(NULLIF(A.supp_bnk, ''), A.SUP_Bnk)))&#xA;LEFT JOIN glx_sandoaa..BANKBRNCHS BR ON BR.BNK_NO = B.BNK_NO AND CAST(BR.BBR_NO AS VARCHAR(20)) = LTRIM(RTRIM(A.SUP_Bnk_Branch))&#xA;LEFT JOIN AppCodes PM ON PM.ID = 11031 AND PM.SEQ = H.PYMNT_MTHD&#xA;LEFT JOIN AppCodes DL ON DL.ID = 11032 AND DL.SEQ = H.DLVR_LOC&#xA;LEFT JOIN AZTRH OP ON OP.LOC = H.PLoc AND OP.TR_TY = H.PTR_TY AND OP.TR_NO = H.PTR_NO&#xA;OUTER APPLY (&#xA;    SELECT TOP 1 f.DWN_PYMNT_CST FROM AZTRH f&#xA;    WHERE f.TR_TY = 117 AND f.PLOC2 = H.PLoc AND f.PTR_TY2 = H.PTR_TY AND f.PTR_NO2 = H.PTR_NO&#xA;      AND LTRIM(RTRIM(f.Acc_No)) = LTRIM(RTRIM(H.Acc_No))&#xA;    ORDER BY f.TR_NO DESC&#xA;) FO&#xA;OUTER APPLY (&#xA;    SELECT SUM(d.QTY * d.PKPRC) AS Total FROM AZTRD d WHERE d.LOC = H.LOC AND d.TR_TY = H.TR_TY AND d.TR_NO = H.TR_NO&#xA;) T" Name="sqlDataSource1" />
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="-- أمر توريد / إسناد: one row per order (the application puts its filter in place of (1=1))&#xD;&#xA;WITH H AS (&#xD;&#xA;    SELECT AZTRH.LOC, AZTRH.TR_TY, AZTRH.TR_NO, AZTRH.TR_DT, AZTRH.FNCL_TR_NO, AZTRH.Acc_No, AZTRH.Acc_Nm,&#xD;&#xA;           AZTRH.PTR_TY, AZTRH.PLoc, AZTRH.PTR_NO, AZTRH.VAC_DAYS, AZTRH.TR_PRPS,&#xD;&#xA;           AZTRH.DLVR_LOC, AZTRH.PYMNT_MTHD, AZTRH.LTOT&#xD;&#xA;    FROM AZTRH&#xD;&#xA;    WHERE (1=1)&#xD;&#xA;)&#xD;&#xA;SELECT&#xD;&#xA;    H.LOC, H.TR_TY, H.TR_NO,&#xD;&#xA;    N'أمر ' + CASE WHEN H.TR_TY IN (121, 123) THEN N'إسناد' ELSE N'توريد' END + N' رقم ( '&#xD;&#xA;        + dbo._GetArabicNumbers(CAST(H.TR_NO AS VARCHAR(10)) + ' / '&#xD;&#xA;            + CASE WHEN H.FNCL_TR_NO LIKE '%-[0-9][0-9][0-9][0-9]/[0-9][0-9][0-9][0-9]' THEN RIGHT(H.FNCL_TR_NO, 9)&#xD;&#xA;                   WHEN MONTH(H.TR_DT) &gt;= 7 THEN CAST(YEAR(H.TR_DT) + 1 AS VARCHAR(4)) + '/' + CAST(YEAR(H.TR_DT) AS VARCHAR(4))&#xD;&#xA;                   ELSE CAST(YEAR(H.TR_DT) AS VARCHAR(4)) + '/' + CAST(YEAR(H.TR_DT) - 1 AS VARCHAR(4)) END) + N' )' AS Title,&#xD;&#xA;    N'التاريخ :  ' + ISNULL(&#xD;&#xA;        NULLIF(&#xD;&#xA;            dbo._GetArabicNumbers(&#xD;&#xA;                REPLACE(CONVERT(VARCHAR(10), TRY_CONVERT(DATE, H.TR_DT), 103), '/', '\')&#xD;&#xA;            ),&#xD;&#xA;            ''&#xD;&#xA;        ),&#xD;&#xA;        N''&#xD;&#xA;    ) AS DateLine,&#xD;&#xA;    N'الجهة / الشركة :  ' + ISNULL(LTRIM(RTRIM(COALESCE(NULLIF(A.Acc_Nm_AR, ''), H.Acc_Nm))), N'') AS SupplierLine,&#xD;&#xA;    ISNULL(NULLIF(dbo._GetArabicNumbers(FORMAT(T.Total, '#,##0.00')), ''), N'') AS TotalText,&#xD;&#xA;    CASE WHEN T.Total IS NULL THEN N'' ELSE N'فقط وقدره ' + LTRIM(RTRIM(dbo.Num_To_Str(T.Total))) END AS TotalWords,&#xD;&#xA;    N'-  ( جزئى / كلى ) خلال مدة '&#xD;&#xA;        + ISNULL(NULLIF(dbo._GetArabicNumbers(CAST(H.VAC_DAYS AS VARCHAR(10))), ''), N'............')&#xD;&#xA;        + N' يوم من تاريخ إصدار أمر ' + CASE WHEN H.TR_TY IN (121, 123) THEN N'الإسناد' ELSE N'التوريد' END + N' .' AS SupplyLine,&#xD;&#xA;    N'-  التسليم بمخازن / مقر ' + ISNULL(DL.DSCR_AR, N'.......................................') AS DeliveryLine,&#xD;&#xA;    -- payment: 100 % after supply, or a down payment (percent from the supplier's financial opening) + the rest;&#xD;&#xA;    -- the payment method is the order's, the supplier's bank only when it is a bank transfer&#xD;&#xA;    CASE WHEN NULLIF(FO.DWN_PYMNT_CST, 0) IS NULL THEN&#xD;&#xA;        N'-  ١٠٠٪ بعد التوريد والفحص والقبول والإستلام بموجب '&#xD;&#xA;        + COALESCE(&#xD;&#xA;            CASE H.TR_PRPS&#xD;&#xA;                WHEN 1 THEN N'تحويل'&#xD;&#xA;                WHEN 2 THEN N'شيك'&#xD;&#xA;                WHEN 3 THEN N'خزينة'&#xD;&#xA;                WHEN 4 THEN N'اعتماد مستندي'&#xD;&#xA;            END,&#xD;&#xA;            N'.................'&#xD;&#xA;        )&#xD;&#xA;        + CASE&#xD;&#xA;            WHEN H.TR_PRPS IN (1, 2) OR PM.DSCR_AR LIKE N'%تحويل%' OR PM.DSCR_AR LIKE N'%بنك%' THEN&#xD;&#xA;                N' إلى الحساب البنكي للمورد وبياناته كالتالي :'&#xD;&#xA;                + CHAR(13) + CHAR(10)&#xD;&#xA;                + N'اسم البنك : ' + COALESCE(NULLIF(LTRIM(RTRIM(BNK_L.DSCR_AR)), ''), B.BNK_NM_AR, N'غير محدد')&#xD;&#xA;                + N'  رقم الحساب : '&#xD;&#xA;                + COALESCE(&#xD;&#xA;                    dbo._GetArabicNumbers(&#xD;&#xA;                        NULLIF(LTRIM(RTRIM(REPLACE(CAST(A.SUPP_BNKS AS VARCHAR(100)), '''', ''))), '')&#xD;&#xA;                    ),&#xD;&#xA;                    dbo._GetArabicNumbers(NULLIF(LTRIM(RTRIM(COALESCE(NULLIF(A.SUP_Bnk_Acc, ''), NULLIF(A.IBAN, '')))), '')),&#xD;&#xA;                    N'غير محدد'&#xD;&#xA;                )&#xD;&#xA;            ELSE N' .'&#xD;&#xA;          END&#xD;&#xA;    END AS PayFull,&#xD;&#xA;    CASE WHEN NULLIF(FO.DWN_PYMNT_CST, 0) IS NOT NULL THEN&#xD;&#xA;        N'-  دفعة مقدمة بنسبة ' + dbo._GetArabicNumbers(FORMAT(FO.DWN_PYMNT_CST, '0.##')) + N' ٪ من قيمة أمر التوريد خلال ....... يوم من تاريخ إصدار أمر التوريد '&#xD;&#xA;        + N'مقابل تقديم خطاب ضمان بنكى غير مشروط بقيمة الدفعة المقدمة سارى حتى تاريخ انتهاء التوريد ، وذلك بموجب ' + ISNULL(PM.DSCR_AR, N'.................')&#xD;&#xA;        + CASE WHEN PM.DSCR_AR LIKE N'%تحويل%' OR PM.DSCR_AR LIKE N'%بنك%' THEN N' إلى الحساب البنكى للمورد وبياناته كالتالى :' ELSE N' .' END&#xD;&#xA;    END AS PayDown,&#xD;&#xA;    CASE WHEN NULLIF(FO.DWN_PYMNT_CST, 0) IS NOT NULL THEN&#xD;&#xA;        N'-  باقى القيمة ( يستنزل منها نسبة الدفعة المقدمة حال التوريد الجزئى ) خلال مدة ........ يوم من تاريخ توريد وقبول كل دفعة توريد للأصناف / الإستلام النهائي للأصناف .'&#xD;&#xA;    END AS PayRest,&#xD;&#xA;    CASE WHEN H.TR_PRPS = 1 OR PM.DSCR_AR LIKE N'%تحويل%' OR PM.DSCR_AR LIKE N'%بنك%' THEN 1 ELSE 0 END AS IsTransfer,&#xD;&#xA;    N'اسم البنك / الفرع :  ' + ISNULL(B.BNK_NM_AR, N'') + ISNULL(N' / ' + BR.BBR_NM_AR, N'')&#xD;&#xA;        + N'          رقم الحساب :  ' + ISNULL(NULLIF(dbo._GetArabicNumbers(COALESCE(NULLIF(A.SUP_Bnk_Acc, ''), NULLIF(A.IBAN, ''))), ''), N'') AS BankLine,&#xD;&#xA;    -- final insurance percent registered on the operation (10 % when it is not registered)&#xD;&#xA;    N'-  يشترط تقديم خطاب ضمان بنكى نهائي غير مشروط بنسبة ( ' + dbo._GetArabicNumbers(FORMAT(ISNULL(NULLIF(OP.FNL_INSRNC_CST, 0), 10), '0.##'))&#xD;&#xA;        + N'٪ ) من قيمة أمر التوريد خلال مدة ...... يوم من تاريخ إصدار أمر التوريد سارى لمدة عام من تاريخ انتهاء التوريد .' AS InsLine&#xD;&#xA;FROM H&#xD;&#xA;LEFT JOIN AZACCMF A&#xD;&#xA;    ON LTRIM(RTRIM(CAST(A.Acc_NO AS VARCHAR(50)))) = LTRIM(RTRIM(CAST(H.Acc_No AS VARCHAR(50))))&#xD;&#xA;LEFT JOIN AZLISTS BNK_L&#xD;&#xA;    ON BNK_L.REC_TYPE = 14&#xD;&#xA;   AND LTRIM(RTRIM(CAST(BNK_L.CODE AS VARCHAR(50)))) = LTRIM(RTRIM(REPLACE(CAST(A.SUPP_BNKS AS VARCHAR(50)), '''', '')))&#xD;&#xA;LEFT JOIN glx_sandoaa..BANK B&#xD;&#xA;    ON CAST(B.BNK_NO AS VARCHAR(20)) = LTRIM(RTRIM(COALESCE(NULLIF(A.supp_bnk, ''), A.SUP_Bnk)))&#xD;&#xA;LEFT JOIN glx_sandoaa..BANKBRNCHS BR&#xD;&#xA;    ON BR.BNK_NO = B.BNK_NO&#xD;&#xA;   AND CAST(BR.BBR_NO AS VARCHAR(20)) = LTRIM(RTRIM(A.SUP_Bnk_Branch))&#xD;&#xA;LEFT JOIN AppCodes PM ON PM.ID = 11031 AND PM.SEQ = H.PYMNT_MTHD&#xD;&#xA;LEFT JOIN AppCodes DL ON DL.ID = 11032 AND DL.SEQ = H.DLVR_LOC&#xD;&#xA;LEFT JOIN AZTRH OP ON OP.LOC = H.PLoc AND OP.TR_TY = H.PTR_TY AND OP.TR_NO = H.PTR_NO&#xD;&#xA;OUTER APPLY (&#xD;&#xA;    SELECT TOP 1 f.DWN_PYMNT_CST FROM AZTRH f&#xD;&#xA;    WHERE f.TR_TY = 117 AND f.PLOC2 = H.PLoc AND f.PTR_TY2 = H.PTR_TY AND f.PTR_NO2 = H.PTR_NO&#xD;&#xA;      AND LTRIM(RTRIM(f.Acc_No)) = LTRIM(RTRIM(H.Acc_No))&#xD;&#xA;    ORDER BY f.TR_NO DESC&#xD;&#xA;) FO&#xD;&#xA;OUTER APPLY (&#xD;&#xA;    SELECT SUM(d.QTY * d.PKPRC) AS Total FROM AZTRD d WHERE d.LOC = H.LOC AND d.TR_TY = H.TR_TY AND d.TR_NO = H.TR_NO&#xD;&#xA;) T;" Name="sqlDataSource1" />
   </DataSources>
   <Items>
     <PageHeaderSection Height="3.8cm" Name="pageHeaderSection1">
@@ -30,25 +30,25 @@
     <ReportHeaderSection Height="3.4cm" Name="reportHeaderSection1">
       <Items>
         <TextBox Width="14cm" Height="0.7cm" Left="3cm" Top="0.1cm" Value="= Fields.Title" CanGrow="True" Name="txtTitle">
-          <Style TextAlign="Center" VerticalAlign="Middle">
+          <Style BackgroundColor="217, 217, 217" Color="192, 0, 0" TextAlign="Center" VerticalAlign="Middle">
             <Font Size="14pt" Bold="True" Underline="True" />
             <Padding Left="3pt" Right="3pt" />
           </Style>
         </TextBox>
         <TextBox Width="19.3cm" Height="0.6cm" Left="0.2cm" Top="0.9cm" Value="= Fields.DateLine" CanGrow="True" Name="txtDate">
-          <Style TextAlign="Right" VerticalAlign="Middle">
+          <Style BackgroundColor="31, 73, 125" Color="255, 255, 255" TextAlign="Right" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" Underline="True" />
             <Padding Left="3pt" Right="3pt" />
           </Style>
         </TextBox>
         <TextBox Width="19.3cm" Height="0.6cm" Left="0.2cm" Top="1.6cm" Value="= Fields.SupplierLine" CanGrow="True" Name="txtSupplier">
-          <Style TextAlign="Right" VerticalAlign="Middle">
+          <Style BackgroundColor="31, 73, 125" Color="255, 255, 255" TextAlign="Right" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" Underline="True" />
             <Padding Left="3pt" Right="3pt" />
           </Style>
         </TextBox>
         <TextBox Width="6.5cm" Height="0.7cm" Left="6.5cm" Top="2.5cm" Value="كشف بالأصناف" CanGrow="True" Name="txtItemsLbl">
-          <Style TextAlign="Center" VerticalAlign="Middle">
+          <Style BackgroundColor="31, 73, 125" Color="255, 255, 255" TextAlign="Center" VerticalAlign="Middle">
             <Font Size="13pt" Bold="True" Underline="True" />
             <Padding Left="3pt" Right="3pt" />
           </Style>
@@ -80,16 +80,7 @@
             </UriReportSource>
           </ReportSource>
         </SubReport>
-        <TextBox Width="4.2cm" Height="0.8cm" Left="0cm" Top="1.8cm" Value="" CanGrow="True" Name="txtTotSpecs">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Size="12pt" Bold="True" />
-            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
-            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
-            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
-            <Padding Left="3pt" Right="3pt" />
-          </Style>
-        </TextBox>
-        <TextBox Width="2.6cm" Height="0.8cm" Left="4.2cm" Top="1.8cm" Value="= Fields.TotalText" CanGrow="True" Name="txtTotal">
+        <TextBox Width="6.8cm" Height="0.8cm" Left="0cm" Top="1.8cm" Value="= Fields.TotalText" CanGrow="True" Name="txtTotal">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Size="11pt" Bold="True" />
             <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
@@ -141,7 +132,7 @@
             <Padding Left="3pt" Right="3pt" />
           </Style>
         </TextBox>
-        <TextBox Width="19.2cm" Height="0.6cm" Left="0.2cm" Top="2.8cm" Value="= Fields.PayFull" CanGrow="True" Name="txtPayFull">
+        <TextBox Width="19.2cm" Height="1.332cm" Left="0.2cm" Top="2.8cm" Value="= Fields.PayFull" CanGrow="True" Name="txtPayFull">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" />
             <Padding Left="3pt" Right="3pt" />
@@ -150,7 +141,7 @@
             <Binding Path="Visible" Expression="= IsNull(Fields.PayFull, '') &lt;&gt; ''" />
           </Bindings>
         </TextBox>
-        <TextBox Width="19.2cm" Height="0.6cm" Left="0.2cm" Top="3.45cm" Value="= Fields.PayDown" CanGrow="True" Name="txtPayDown">
+        <TextBox Width="19.2cm" Height="0.6cm" Left="0.2cm" Top="4.132cm" Value="= Fields.PayDown" CanGrow="True" Name="txtPayDown">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" />
             <Padding Left="3pt" Right="3pt" />
@@ -159,7 +150,7 @@
             <Binding Path="Visible" Expression="= IsNull(Fields.PayDown, '') &lt;&gt; ''" />
           </Bindings>
         </TextBox>
-        <TextBox Width="19.2cm" Height="0.6cm" Left="0.2cm" Top="4.1cm" Value="= Fields.BankLine" CanGrow="True" Name="txtBank">
+        <TextBox Width="19.2cm" Height="0.6cm" Left="0.2cm" Top="4.782cm" Value="= Fields.BankLine" CanGrow="True" Name="txtBank">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" />
             <Padding Left="3pt" Right="3pt" />
@@ -168,7 +159,7 @@
             <Binding Path="Visible" Expression="= Fields.IsTransfer = 1" />
           </Bindings>
         </TextBox>
-        <TextBox Width="19.2cm" Height="0.6cm" Left="0.2cm" Top="4.75cm" Value="= Fields.PayRest" CanGrow="True" Name="txtPayRest">
+        <TextBox Width="19.2cm" Height="0.6cm" Left="0.2cm" Top="5.432cm" Value="= Fields.PayRest" CanGrow="True" Name="txtPayRest">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" />
             <Padding Left="3pt" Right="3pt" />
@@ -177,25 +168,25 @@
             <Binding Path="Visible" Expression="= IsNull(Fields.PayRest, '') &lt;&gt; ''" />
           </Bindings>
         </TextBox>
-        <TextBox Width="19.2cm" Height="0.6cm" Left="0.2cm" Top="5.4cm" Value="= Fields.InsLine" CanGrow="True" Name="txtIns">
+        <TextBox Width="19.2cm" Height="0.6cm" Left="0.2cm" Top="6.082cm" Value="= Fields.InsLine" CanGrow="True" Name="txtIns">
           <Style TextAlign="Right" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" />
             <Padding Left="3pt" Right="3pt" />
           </Style>
         </TextBox>
-        <TextBox Width="7cm" Height="0.6cm" Left="0.5cm" Top="6.65cm" Value="التوقيع  (                          )" CanGrow="False" Name="txtSign1">
+        <TextBox Width="7cm" Height="0.6cm" Left="0.5cm" Top="6.926cm" Value="التوقيع  (                          )" CanGrow="False" Name="txtSign1">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" />
             <Padding Left="3pt" Right="3pt" />
           </Style>
         </TextBox>
-        <TextBox Width="7cm" Height="0.6cm" Left="0.5cm" Top="7.35cm" Value="مدير عام الإدارة العامة" CanGrow="False" Name="txtSign1T1">
+        <TextBox Width="7cm" Height="0.6cm" Left="0.5cm" Top="7.626cm" Value="مدير عام الإدارة العامة" CanGrow="False" Name="txtSign1T1">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" />
             <Padding Left="3pt" Right="3pt" />
           </Style>
         </TextBox>
-        <TextBox Width="7cm" Height="0.6cm" Left="0.5cm" Top="7.95cm" Value="للتعاقدات والمشتريات" CanGrow="False" Name="txtSign1T2">
+        <TextBox Width="7cm" Height="0.6cm" Left="0.5cm" Top="8.226cm" Value="للتعاقدات والمشتريات" CanGrow="False" Name="txtSign1T2">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" />
             <Padding Left="3pt" Right="3pt" />
@@ -213,7 +204,7 @@
             <Padding Left="3pt" Right="3pt" />
           </Style>
         </TextBox>
-        <TextBox Width="7cm" Height="0.6cm" Left="0.5cm" Top="10.35cm" Value="لـــواء/" CanGrow="False" Name="txtSign2N">
+        <TextBox Width="7cm" Height="0.6cm" Left="0.5cm" Top="10.35cm" Value="" CanGrow="False" Name="txtSign2N">
           <Style TextAlign="Center" VerticalAlign="Middle">
             <Font Size="12pt" Bold="True" />
             <Padding Left="3pt" Right="3pt" />
