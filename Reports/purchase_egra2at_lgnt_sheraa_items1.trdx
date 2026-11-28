@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report Width="6.5in" Name="egra2at_lgnt_sheraa_items" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="&#xD;&#xA;SELECT&#xD;&#xA;    T.ITM_CD,&#xD;&#xA;    I.ITM_NM_AR,&#xD;&#xA;    T.TR_TY,&#xD;&#xA;    T.TR_NO,&#xD;&#xA;    T.LOC,&#xD;&#xA;    T.QTY1,&#xD;&#xA;    T.PKPRC,&#xD;&#xA;    (T.QTY1 * T.PKPRC) AS TOTAL_PRC,&#xD;&#xA;    T.purchas_NO,&#xD;&#xA;    T.RMRK2,&#xD;&#xA;&#xD;&#xA;    TRANSLATE(CAST(ROW_NUMBER() OVER (ORDER BY T.ITM_CD, T.TR_NO) AS nvarchar(10)), N'0123456789', N'٠١٢٣٤٥٦٧٨٩') AS ROW_NO_TXT,&#xD;&#xA;    TRANSLATE(FORMAT(T.QTY1, '#,##0.##', 'en-US'), N'0123456789', N'٠١٢٣٤٥٦٧٨٩') AS QTY1_TXT,&#xD;&#xA;    TRANSLATE(FORMAT(T.QTY1 * T.PKPRC, 'N2', 'en-US'), N'0123456789', N'٠١٢٣٤٥٦٧٨٩') AS TOTAL_PRC_TXT,&#xD;&#xA;    TRANSLATE(FORMAT(SUM(T.QTY1 * T.PKPRC) OVER (), 'N2', 'en-US'), N'0123456789', N'٠١٢٣٤٥٦٧٨٩') AS GRAND_TOTAL_TXT&#xD;&#xA;FROM&#xD;&#xA;    AZTRD T&#xD;&#xA;INNER JOIN&#xD;&#xA;    AZITMS I ON T.ITM_CD = I.ITM_CD&#xD;&#xA;WHERE&#xD;&#xA;    T.TR_TY = 101&#xD;&#xA;    AND T.purchas_NO IN (SELECT P.purchas_NO FROM AZTRD P WHERE P.TR_TY = 101  AND P.EMP_NO IS NOT NULL)&#xD;&#xA;ORDER BY&#xD;&#xA;    T.ITM_CD, T.TR_NO;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" Name="sqlDataSource1" />
+  </DataSources>
+  <Items>
+    <DetailSection Height="0.9in" Name="detailSection1">
+      <Items>
+        <Table DataSourceName="sqlDataSource1" Width="6.5in" Height="0.9in" Left="0in" Top="0in" Name="table1">
+          <Body>
+            <Cells>
+              <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.3in" Height="0.3in" Left="0in" Top="0in" Value="=Fields.TOTAL_PRC_TXT" Name="textBox49">
+                    <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                      <Font Bold="False" />
+                      <BorderStyle Default="Solid" />
+                      <BorderColor Default="Black" />
+                      <BorderWidth Default="1px" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="0.867in" Height="0.3in" Left="0in" Top="0in" Value="=Fields.QTY1_TXT" Name="textBox51">
+                    <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                      <Font Bold="False" />
+                      <BorderStyle Default="Solid" />
+                      <BorderColor Default="Black" />
+                      <BorderWidth Default="1px" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.033in" Height="0.3in" Left="0in" Top="0in" Value="=Fields.ITM_NM_AR" Name="textBox53">
+                    <Style BackgroundColor="White" Color="Black" TextAlign="Right" VerticalAlign="Middle">
+                      <Font Bold="False" />
+                      <BorderStyle Default="Solid" />
+                      <BorderColor Default="Black" />
+                      <BorderWidth Default="1px" />
+                      <Padding Left="4pt" Right="4pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="0.433in" Height="0.3in" Left="0in" Top="0in" Value="=Fields.ROW_NO_TXT" Name="textBox55">
+                    <Style BackgroundColor="White" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                      <Font Bold="False" />
+                      <BorderStyle Default="Solid" />
+                      <BorderColor Default="Black" />
+                      <BorderWidth Default="1px" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="1" ColumnIndex="2" RowSpan="1" ColumnSpan="3">
+                <ReportItem>
+                  <TextBox Width="4.333in" Height="0.3in" Left="0in" Top="0in" Value="إجمالي السعر" Name="textBox57">
+                    <Style BackgroundColor="217, 217, 217" Color="Black" TextAlign="Center" VerticalAlign="Middle">
+                      <Font Bold="True" />
+                      <BorderStyle Default="Solid" />
+                      <BorderColor Default="Black" />
+                      <BorderWidth Default="1px" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="0.867in" Height="0.3in" Left="3.207in" Top="0.4in" Value="= Fields.TOTAL_PRC_TXT" Name="textBox4" StyleName="">
+                    <Style BackgroundColor="White" TextAlign="Center" VerticalAlign="Middle">
+                      <BorderStyle Default="Solid" />
+                      <BorderWidth Default="1px" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="1" ColumnIndex="0" RowSpan="1" ColumnSpan="2">
+                <ReportItem>
+                  <TextBox Width="2.167in" Height="0.3in" Left="3.207in" Top="0.4in" Value="=Fields.GRAND_TOTAL_TXT" Name="textBox2" StyleName="">
+                    <Style BackgroundColor="217, 217, 217" TextAlign="Center" VerticalAlign="Middle">
+                      <Font Bold="True" />
+                      <BorderStyle Default="Solid" />
+                      <BorderWidth Default="1px" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+            </Cells>
+            <Columns>
+              <Column Width="0.867in" />
+              <Column Width="1.3in" />
+              <Column Width="0.867in" />
+              <Column Width="3.033in" />
+              <Column Width="0.433in" />
+            </Columns>
+            <Rows>
+              <Row Height="0.3in" />
+              <Row Height="0.3in" />
+            </Rows>
+          </Body>
+          <Corner />
+          <RowGroups>
+            <TableGroup Name="detailTableGroup">
+              <Groupings>
+                <Grouping />
+              </Groupings>
+            </TableGroup>
+            <TableGroup Name="group1" />
+          </RowGroups>
+          <ColumnGroups>
+            <TableGroup Name="group2">
+              <ReportItem>
+                <TextBox Width="0.867in" Height="0.3in" Left="0in" Top="0in" Value="الاجمالي " Name="textBox1" StyleName="">
+                  <Style BackgroundColor="31, 73, 125" Color="White" TextAlign="Center" VerticalAlign="Middle">
+                    <Font Bold="True" />
+                    <BorderStyle Default="Solid" />
+                    <BorderWidth Default="1px" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="tableGroup">
+              <ReportItem>
+                <TextBox Width="1.3in" Height="0.3in" Left="0in" Top="0in" Value="السعر" Name="textBox32">
+                  <Style BackgroundColor="31, 73, 125" Color="White" TextAlign="Center" VerticalAlign="Middle">
+                    <Font Bold="True" />
+                    <BorderStyle Default="Solid" />
+                    <BorderColor Default="Black" />
+                    <BorderWidth Default="1px" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="tableGroup1">
+              <ReportItem>
+                <TextBox Width="0.867in" Height="0.3in" Left="0in" Top="0in" Value="الكمية" Name="textBox50">
+                  <Style BackgroundColor="31, 73, 125" Color="White" TextAlign="Center" VerticalAlign="Middle">
+                    <Font Bold="True" />
+                    <BorderStyle Default="Solid" />
+                    <BorderColor Default="Black" />
+                    <BorderWidth Default="1px" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="tableGroup2">
+              <ReportItem>
+                <TextBox Width="3.033in" Height="0.3in" Left="0in" Top="0in" Value="الصنف" Name="textBox52">
+                  <Style BackgroundColor="31, 73, 125" Color="White" TextAlign="Center" VerticalAlign="Middle">
+                    <Font Bold="True" />
+                    <BorderStyle Default="Solid" />
+                    <BorderColor Default="Black" />
+                    <BorderWidth Default="1px" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="group">
+              <ReportItem>
+                <TextBox Width="0.433in" Height="0.3in" Left="0in" Top="0in" Value="م" Name="textBox54">
+                  <Style BackgroundColor="31, 73, 125" Color="White" TextAlign="Center" VerticalAlign="Middle">
+                    <Font Bold="True" />
+                    <BorderStyle Default="Solid" />
+                    <BorderColor Default="Black" />
+                    <BorderWidth Default="1px" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+          </ColumnGroups>
+        </Table>
+      </Items>
+    </DetailSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False">
+    <Margins>
+      <MarginsU Left="0cm" Right="0cm" Top="0cm" Bottom="0cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+</Report>

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report DataSourceName="sqlDataSource1" Width="17cm" Name="purchase_maharah" Zoom="1.5" xmlns="http://schemas.telerik.com/reporting/2023/1.0">
   <DataSources>
-    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="SELECT&#xA;    A.LN_NO,&#xA;    A.EMP_NO,&#xA;    E.Emp_Name,&#xA;&#xA;    TRANSLATE(&#xA;        CAST(CAST(A.LOAN_AMT AS DECIMAL(18,0)) AS NVARCHAR(50)),&#xA;        N'0123456789',&#xA;        N'٠١٢٣٤٥٦٧٨٩'&#xA;    ) AS LOAN_AMT,&#xA;&#xA;    TRANSLATE(&#xA;        CAST(CAST(A.RPLCMNT_AMNT AS DECIMAL(18,0)) AS NVARCHAR(50)),&#xA;        N'0123456789',&#xA;        N'٠١٢٣٤٥٦٧٨٩'&#xA;    ) AS RPLCMNT_AMNT,&#xA;&#xA;    TRANSLATE(&#xA;        CAST(CAST(A.RPLCMNT_CNT AS DECIMAL(18,0)) AS NVARCHAR(50)),&#xA;        N'0123456789',&#xA;        N'٠١٢٣٤٥٦٧٨٩'&#xA;    ) AS RPLCMNT_CNT&#xA;&#xA;FROM AZ_ADVNC_APPRVD A&#xA;LEFT JOIN pyx_sandoaa.dbo.PYEmpMfH E&#xA;    ON E.Emp_No = A.EMP_NO&#xA;&#xA;ORDER BY A.LN_NO;" Name="sqlDataSource1" />
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="azxsandoaa" SelectCommand="SELECT&#xA;    A.LN_NO,&#xA;    A.EMP_NO,&#xA;&#x9;a.ADVNC_NM,&#xA;    E.Emp_Name,&#xA;&#xA;    TRANSLATE(&#xA;        CAST(CAST(A.LOAN_AMT AS DECIMAL(18,0)) AS NVARCHAR(50)),&#xA;        N'0123456789',&#xA;        N'٠١٢٣٤٥٦٧٨٩'&#xA;    ) AS LOAN_AMT,&#xA;&#xA;    TRANSLATE(&#xA;        CAST(CAST(A.RPLCMNT_AMNT AS DECIMAL(18,0)) AS NVARCHAR(50)),&#xA;        N'0123456789',&#xA;        N'٠١٢٣٤٥٦٧٨٩'&#xA;    ) AS RPLCMNT_AMNT,&#xA;&#xA;    TRANSLATE(&#xA;        CAST(CAST(A.RPLCMNT_CNT AS DECIMAL(18,0)) AS NVARCHAR(50)),&#xA;        N'0123456789',&#xA;        N'٠١٢٣٤٥٦٧٨٩'&#xA;    ) AS RPLCMNT_CNT&#xA;&#xA;FROM AZ_ADVNC_APPRVD A&#xA;LEFT JOIN pyx_sandoaa.dbo.PYEmpMfH E&#xA;    ON E.Emp_No = A.EMP_NO&#xA;&#xA;ORDER BY A.LN_NO;&#xA;&#xA;" Name="sqlDataSource1" />
+    <SqlDataSource QueryDesignerState="null" ParameterValues="null" ConnectionString="erpxsandoaabr" SelectCommand="SELECT V.JobTitle, U.FullName&#xD;&#xA;FROM (VALUES&#xD;&#xA;    (1, N'مدير ادارة العقود والمشتريات', '0005'),&#xD;&#xA;    (2, N'مدير ادارة الشؤون المالية', '0050'),&#xD;&#xA;    (3, N'رئيس الاستثمار', '0008'),&#xD;&#xA;    (4, N'المدير التنفيذي', '0002'),&#xD;&#xA;    (5, N'رئيس مجلس الادارة', '0001')&#xD;&#xA;) V(Ord, JobTitle, UserId)&#xD;&#xA;LEFT JOIN erpx_sandoaa_br.Brca.BrcaUsers U ON U.Id = V.UserId&#xD;&#xA;ORDER BY V.Ord;" Name="sqlDataSource2" />
   </DataSources>
   <Items>
     <PageHeaderSection Height="5.08cm" Name="pageHeaderSection1">
@@ -91,20 +92,11 @@
         </TextBox>
       </Items>
     </PageFooterSection>
-    <ReportHeaderSection Height="2.7in" Name="reportHeaderSection1">
+    <ReportHeaderSection Height="4.8in" Name="reportHeaderSection1">
+      <Style TextAlign="Right" />
       <Items>
-        <TextBox Width="3.1in" Height="0.2in" Left="1.8in" Top="0in" Value="الموضوع: بشان التصديق علي السلف المستديمة للعام المالي الحالي " Name="textBox6">
-          <Style BackgroundColor="31, 73, 125" Color="255, 255, 255" TextAlign="Center" VerticalAlign="Middle" />
-        </TextBox>
-        <TextBox Width="6.3in" Height="0.7in" Left="0.2in" Top="0.3in" Value="نظرًا لطبيعة ومتطلبات العمل بالإدارات المختلفة، وما تستلزمه من مصروفات تشغيلية واحتياجات عاجلة ومتكررة على مدار العام، والتي تتطلب توفير مبالغ مالية تحت تصرف المسؤولين المختصين لضمان سرعة تلبية تلك الاحتياجات وعدم تأثر سير العمل بالإجراءات المالية" Name="textBox8">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
-        </TextBox>
-        <TextBox Width="6.3in" Height="0.5in" Left="0.2in" Top="1in" Value="لذا، نرجو من سيادتكم التكرم بالموافقة على إنشاء عدد من السلف المستديمة، كلٌ حسب طبيعة احتياجات الإدارة التابع لها، مع تحديد مسؤول مختص عن كل سلفة، وتقدير إجمالي المبالغ المتوقع صرفها خلال العام، وتحديد قيمة الاستعاضة في كل مرة وعدد مرات الاستعاضة المتوقعة سنويًا، وذلك وفقًا للبيانات الموضحة بالجدول التالي." Name="textBox9">
-          <Style TextAlign="Right" VerticalAlign="Middle">
-            <Font Bold="True" />
-          </Style>
+        <TextBox Width="3.1in" Height="0.2in" Left="2.4in" Top="0in" Value="الموضوع: بشان التصديق علي السلف المستديمة للعام المالي الحالي " Name="textBox6">
+          <Style BackgroundColor="31, 73, 125" Color="White" TextAlign="Center" VerticalAlign="Middle" />
         </TextBox>
         <TextBox Width="6.3in" Height="0.2in" Left="0.2in" Top="2.2in" Value="على أن تتم إدارة كل سلفة والصرف منها وتسويتها واستعاضتها وفقًا للوائح والقواعد المالية المعمول بها، وتحت مسؤولية المكلف بها." Name="textBox10">
           <Style TextAlign="Right" VerticalAlign="Middle">
@@ -116,40 +108,13 @@
             <Font Bold="True" />
           </Style>
         </TextBox>
-        <Table DataSourceName="sqlDataSource1" Width="4.929in" Height="0.48in" Left="0.9in" Top="1.6in" Name="table1">
+        <Table DataSourceName="sqlDataSource1" Width="5.067in" Height="0.48in" Left="0.8in" Top="1.6in" Name="table1">
           <Body>
             <Cells>
               <TableCell RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1">
                 <ReportItem>
-                  <TextBox Width="1.168in" Height="0.24in" Left="2.5in" Top="0.2in" Value="= Fields.Emp_Name" Name="textBox27" StyleName="">
-                    <Style>
-                      <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
-                    </Style>
-                  </TextBox>
-                </ReportItem>
-              </TableCell>
-              <TableCell RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1">
-                <ReportItem>
                   <TextBox Width="0.292in" Height="0.24in" Left="2.5in" Top="0.2in" Value="= Fields.LN_NO" Name="textBox22" StyleName="">
-                    <Style>
-                      <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
-                    </Style>
-                  </TextBox>
-                </ReportItem>
-              </TableCell>
-              <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
-                <ReportItem>
-                  <TextBox Width="0.831in" Height="0.24in" Left="2.5in" Top="0.2in" Value="= Fields.LOAN_AMT" Culture="ar" Name="textBox17" StyleName="">
-                    <Style>
-                      <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
-                    </Style>
-                  </TextBox>
-                </ReportItem>
-              </TableCell>
-              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
-                <ReportItem>
-                  <TextBox Width="1.084in" Height="0.24in" Left="2.4in" Top="0.2in" Value="= Fields.RPLCMNT_CNT" Culture="ar" Name="textBox15" StyleName="">
-                    <Style>
+                    <Style BackgroundColor="217, 217, 217">
                       <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                     </Style>
                   </TextBox>
@@ -157,8 +122,26 @@
               </TableCell>
               <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
                 <ReportItem>
-                  <TextBox Width="1.554in" Height="0.24in" Left="2.8in" Top="0.2in" Value="= Fields.RPLCMNT_AMNT" Culture="ar" Name="textBox13" StyleName="">
-                    <Style>
+                  <TextBox Width="1.49in" Height="0.24in" Left="2.5in" Top="0.2in" Value="= Fields.ADVNC_NM" Name="textBox28" StyleName="">
+                    <Style BackgroundColor="217, 217, 217">
+                      <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="2.148in" Height="0.24in" Left="2.5in" Top="0.2in" Value="= Fields.Emp_Name" Name="textBox27" StyleName="">
+                    <Style BackgroundColor="217, 217, 217">
+                      <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.137in" Height="0.24in" Left="2.5in" Top="0.2in" Value="= Fields.RPLCMNT_AMNT" Name="textBox29" StyleName="">
+                    <Style BackgroundColor="217, 217, 217">
                       <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                     </Style>
                   </TextBox>
@@ -166,10 +149,9 @@
               </TableCell>
             </Cells>
             <Columns>
-              <Column Width="1.084in" />
-              <Column Width="0.831in" />
-              <Column Width="1.554in" />
-              <Column Width="1.168in" />
+              <Column Width="1.137in" />
+              <Column Width="2.148in" />
+              <Column Width="1.49in" />
               <Column Width="0.292in" />
             </Columns>
             <Rows>
@@ -191,21 +173,10 @@
             </TableGroup>
           </RowGroups>
           <ColumnGroups>
-            <TableGroup Name="tableGroup">
-              <ReportItem>
-                <TextBox Width="1.084in" Height="0.24in" Left="0in" Top="0in" Value="عدد الاستعاضات " Name="textBox12">
-                  <Style BackgroundColor="31, 73, 125" Color="255, 255, 255">
-                    <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
-                    <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
-                    <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
-                  </Style>
-                </TextBox>
-              </ReportItem>
-            </TableGroup>
             <TableGroup Name="tableGroup1">
               <ReportItem>
-                <TextBox Width="0.831in" Height="0.24in" Left="0in" Top="0in" Value="قيمة الاستعاضة " Name="textBox14">
-                  <Style BackgroundColor="31, 73, 125" Color="255, 255, 255">
+                <TextBox Width="1.137in" Height="0.24in" Left="0in" Top="0in" Value="قيمة الاستعاضة " Name="textBox14">
+                  <Style BackgroundColor="31, 73, 125" Color="White">
                     <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                     <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                     <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
@@ -215,8 +186,8 @@
             </TableGroup>
             <TableGroup Name="group">
               <ReportItem>
-                <TextBox Width="1.554in" Height="0.24in" Left="0in" Top="0in" Value="اجمالي الصرف المتوقع سنويا " Name="textBox18" StyleName="">
-                  <Style BackgroundColor="31, 73, 125" Color="255, 255, 255">
+                <TextBox Width="2.148in" Height="0.24in" Left="0in" Top="0in" Value="مسؤول السلفة " Name="textBox18" StyleName="">
+                  <Style BackgroundColor="31, 73, 125" Color="White">
                     <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                     <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                     <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
@@ -226,8 +197,8 @@
             </TableGroup>
             <TableGroup Name="group1">
               <ReportItem>
-                <TextBox Width="1.168in" Height="0.24in" Left="0in" Top="0in" Value="مسؤول السلفة " Name="textBox21" StyleName="">
-                  <Style BackgroundColor="31, 73, 125" Color="255, 255, 255">
+                <TextBox Width="1.49in" Height="0.24in" Left="0in" Top="0in" Value="اسم السلفة " Name="textBox21" StyleName="">
+                  <Style BackgroundColor="31, 73, 125" Color="White">
                     <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                     <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                     <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
@@ -238,7 +209,139 @@
             <TableGroup Name="tableGroup2">
               <ReportItem>
                 <TextBox Width="0.292in" Height="0.24in" Left="0in" Top="0in" Value="م" Name="textBox16">
-                  <Style BackgroundColor="31, 73, 125" Color="255, 255, 255">
+                  <Style BackgroundColor="31, 73, 125" Color="White">
+                    <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                    <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                    <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+          </ColumnGroups>
+        </Table>
+        <TextBox Width="6.594in" Height="0.2in" Left="0in" Top="0.3in" Value="نظرًا لطبيعة ومتطلبات العمل بالإدارات المختلفة، وما تستلزمه من مصروفات تشغيلية واحتياجات ومتكررة على مدار العام، " Name="textBox7">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.594in" Height="0.2in" Left="0in" Top="0.5in" Value=" والتي تتطلب توفير مبالغ مالية تحت تصرف المسؤولين المختصين لضمان سرعة تلبية تلك الاحتياجات وعدم تأثر سير العمل بالإجراءات المالية" Name="textBox8">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.594in" Height="0.2in" Left="0in" Top="0.7in" Value="لذا، نرجو من سيادتكم التكرم بالموافقة على إنشاء عدد من السلف المستديمة، كلٌ حسب طبيعة احتياجات الصندوق" Name="textBox9">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.594in" Height="0.2in" Left="0in" Top="0.9in" Value=" مع تحديد مسؤول مختص عن كل سلفة , " Name="textBox20">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="6.594in" Height="0.2in" Left="0in" Top="1.1in" Value="وتحديد قيمة الاستعاضة في كل مرة واسم السلفة وذلك وفقًا للبيانات الموضحة بالجدول التالي." Name="textBox23">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="1.2in" Height="0.2in" Left="1.2in" Top="0in" Value="= Now().Year" Culture="ar" Name="textBox26">
+          <Style BackgroundColor="31, 73, 125" Color="White" TextAlign="Right" VerticalAlign="Middle">
+            <Font Bold="True" />
+          </Style>
+        </TextBox>
+        <Table DataSourceName="sqlDataSource2" Width="5.067in" Height="0.54in" Left="0.8in" Top="2.9in" Name="table2">
+          <Body>
+            <Cells>
+              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.267in" Height="0.3in" Left="0in" Top="0in" Value="" Name="textBox39">
+                    <Style TextAlign="Center" VerticalAlign="Middle">
+                      <Font Bold="True" />
+                      <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                      <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                      <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.7in" Height="0.3in" Left="0in" Top="0in" Value="= Fields.JobTitle" Name="textBox33">
+                    <Style TextAlign="Center" VerticalAlign="Middle">
+                      <Font Bold="True" />
+                      <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                      <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                      <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="2.1in" Height="0.3in" Left="0in" Top="0in" Value="= Fields.FullName" Name="textBox34">
+                    <Style TextAlign="Center" VerticalAlign="Middle">
+                      <Font Bold="True" />
+                      <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                      <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                      <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+            </Cells>
+            <Columns>
+              <Column Width="1.267in" />
+              <Column Width="1.7in" />
+              <Column Width="2.1in" />
+            </Columns>
+            <Rows>
+              <Row Height="0.3in" />
+            </Rows>
+          </Body>
+          <Corner />
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Bold="True" />
+            <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <RowGroups>
+            <TableGroup Name="detailTableGroup1">
+              <Groupings>
+                <Grouping />
+              </Groupings>
+            </TableGroup>
+          </RowGroups>
+          <ColumnGroups>
+            <TableGroup Name="tableGroup3">
+              <ReportItem>
+                <TextBox Width="1.267in" Height="0.24in" Left="0in" Top="0in" Value="التوقيع" Name="textBox15">
+                  <Style BackgroundColor="79, 129, 189" Color="White" TextAlign="Center" VerticalAlign="Middle">
+                    <Font Bold="True" />
+                    <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                    <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                    <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="tableGroup4">
+              <ReportItem>
+                <TextBox Width="1.7in" Height="0.24in" Left="0in" Top="0in" Value="الوظيفة" Name="textBox13">
+                  <Style BackgroundColor="79, 129, 189" Color="White" TextAlign="Center" VerticalAlign="Middle">
+                    <Font Bold="True" />
+                    <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                    <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+                    <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="tableGroup5">
+              <ReportItem>
+                <TextBox Width="2.1in" Height="0.24in" Left="0in" Top="0in" Value="الاسم" Name="textBox12">
+                  <Style BackgroundColor="79, 129, 189" Color="White" TextAlign="Center" VerticalAlign="Middle">
+                    <Font Bold="True" />
                     <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
                     <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
                     <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
